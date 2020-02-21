@@ -1,0 +1,13 @@
+﻿ /*
+ 
+  Author          : Vijay Kumar
+  Date            : 22-Nov-2012
+  Version         : 1.0
+  Description     : style for document Setup tab */
+
+
+.outter-document-container {width:984px;margin:0 auto;font-size:13px; font-family:Arial;overflow:hidden;margin-top:10px;padding:10px; }
+.textweight{font-weight:bold;}
+.text-margin{margin-bottom:5px;}
+.inputs{float:right;}
+.inputs input[type="submit"]{background:none repeat scroll 0 0 #EBE8D8;  margin-right: 50px;  padding: 7px 15px;}

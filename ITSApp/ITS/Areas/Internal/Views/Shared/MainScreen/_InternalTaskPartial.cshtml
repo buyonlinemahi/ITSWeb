@@ -1,0 +1,122 @@
+﻿@using ITS.Infrastructure.Global;
+<div style="clear: both">
+</div>
+<div id="mainDiv" class="divBody">
+    <div id="divCountGrid" class="summry-type" style="margin-top: 18px;">
+        <div class="left-type colorLeft-type" style="padding: 10px; background-color: #74b030;
+            font-size: 16px;">
+            Type
+        </div>
+        <div class="right-type colorLeft-type" style="padding: 10px; background-color: #74b030;
+            font-size: 16px;">
+            Summary of Tasks
+        </div>
+        <div class="left-type" style="padding: 10px">
+            <a href="#" data-bind="click: function() { ShowGrid('ReferralsReceived') }">Referrals</a>
+        </div>
+        <div class="right-type" style="padding: 10px">
+            <span data-bind="text:ReferralsCount"></span>
+        </div>
+
+        <div class="left-type colorLeft-type" style="padding: 10px">
+            <a href="#" data-bind="click:function(){ShowGrid('divTriageAssessmentQA')}">Triage Assessment
+                QA</a>
+        </div>
+        <div class="right-type  colorLeft-type" style="padding: 10px">
+            <span data-bind="text:TriageAssessmentQACount"></span>
+        </div>
+
+        <div class="left-type" style="padding: 10px">
+            <a href="#" data-bind="click: function() { ShowGrid('InitialAssessmentQA') }">Initial
+                Assessment QA</a>
+        </div>
+        <div class="right-type"  style="padding: 10px">
+            <span data-bind="text:InitialAssessmentQACount"></span>
+        </div>
+        <div class="left-type colorLeft-type" style="padding: 10px">
+            <a href="#" data-bind="click: function() { ShowGrid('divAuthorisation') }">Authorisation</a>
+        </div>
+        <div  class="right-type  colorLeft-type" style="padding: 10px">
+            <span data-bind="text:AuthorisationCount"></span>
+        </div>
+        <div class="left-type" style="padding: 10px;">
+            <a href="#" data-bind="click: function() { ShowGrid('divReviewAssessmentQA') }">Review
+                Assessment QA</a>
+        </div>
+        <div class="right-type"  style="padding: 10px">
+            <span data-bind="text:ReviewAssessmentQACount"></span>
+        </div>
+        <div class="left-type colorLeft-type" style="padding: 10px">
+            <a href="#" data-bind="click: function() { ShowGrid('divFinalAssessment') }">Final Assessment
+                QA</a>
+        </div>
+        <div class="right-type  colorLeft-type" style="padding: 10px">
+            <span data-bind="text:FinalAssessmentQACount"></span>
+        </div>
+        <div  class="left-type" style="padding: 10px">
+            <a href="#" data-bind="click: function() { ShowGrid('divCaseStopped') }">Case Stopped</a>
+        </div>
+        <div class="right-type" style="padding: 10px">
+            <span data-bind="text:CaseStoppedCount"></span>
+        </div>
+        <div class="left-type colorLeft-type" style="padding: 10px">
+            <a href="#" data-bind="click: function() { ShowGrid('divReferralTaskDue') }">Referral
+                tasks Due Today</a>
+        </div>
+        <div class="right-type  colorLeft-type" style="padding: 10px;">
+            <span data-bind="text:ReferralTasksDueTodayCount"></span>
+        </div>
+        
+    </div>
+    <div class="lineclass">
+        &nbsp</div>
+    <div class="reffer-task" style="margin: 25px 0px 10px 0px">
+        Administrative Tasks:</div>
+    <div class="summry-type">
+        <div class="left-type colorLeft-type" style="padding: 10px; background-color: #74b030;
+            font-size: 16px;">
+            Administrative Tasks
+        </div>
+        <div class="right-type colorLeft-type" style="padding: 10px; background-color: #74b030;
+            font-size: 16px;">
+            Summary of Tasks
+        </div>
+        <div class="left-type" style="padding: 10px;">
+            <a href="javascript:void(0)">Print Queue</a>
+        </div>
+        <div class="right-type" style="padding: 10px;">
+            (##NumberofRecordswhereStatus = PrintQueue##)
+        </div>
+        <div class="left-type colorLeft-type" style="padding: 10px;">
+            <a href="javascript:void(0)">Print Checks</a>
+        </div>
+        <div class="right-type  colorLeft-type" style="padding: 10px;">
+            (##NumberofRecordswhereStatus= PrintCheck##)
+        </div>
+        <div class="left-type" style="padding: 10px;">
+            <a href="javascript:void(0)">Add Practitioner</a>
+        </div>
+        <div class="right-type" style="padding: 10px;">
+            (##NumberofRecordswhereStatus=AddPractitioner##)
+        </div>
+        <div class="left-type colorLeft-type" style="padding: 10px;">
+            <a href="javascript:void(0)">Case Tasks Assigned to Admin</a>
+        </div>
+        <div class="right-type  colorLeft-type" style="padding: 10px;">
+            (##NumberofTaskswhereAssignedTo=Admin##)
+        </div>
+        <div class="left-type" style="padding: 10px;">
+            <a href="javascript:void(0)">Administrative Tasks Due Today</a>
+        </div>
+        <div class="right-type" style="padding: 10px;">
+            (##Number of Tasks where Due Date = Current Date##)
+        </div>
+    </div>
+</div>
+<div id="backDiv" class="goback">
+    <a href="#" data-bind="click:ShowCountGridDisplay">Go Back</a>
+</div>
+<div id="divGridDisplaySpinner">
+    <div id="divGridDisplay">
+    </div>
+</div>

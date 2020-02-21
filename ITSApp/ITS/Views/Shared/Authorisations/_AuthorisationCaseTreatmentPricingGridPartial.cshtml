@@ -1,0 +1,52 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Treatment Type
+            </th>
+            <th>
+                Referrer Price
+            </th>
+            <th data-bind="visible:$root.CaseAssessment.AssessmentAuthorisationID()==2 || $root.CaseAssessment.AssessmentAuthorisationID()==1">
+                Action
+            </th>
+        </tr>
+    </thead>
+    <!--ko foreach:$root.CaseTreatmentPricing-->
+    <tbody>
+        <tr>
+            <td>
+                <span data-bind="text: PricingTypeName"></span>
+                <input type="hidden" data-bind="attr: { name : 'CaseTreatmentPricings['+ $index() + '].ReferrerPricingID' },value: ReferrerPricingID" />
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text: ReferrerPrice"></span>
+                </center>
+                <input type="hidden" data-bind="attr: { name : 'CaseTreatmentPricings['+ $index() + '].ReferrerPrice' },value:ReferrerPrice" />
+                <input type="hidden" data-bind="attr: { name : 'CaseTreatmentPricings['+ $index() + '].CaseID' },value:$parent.CaseID" />
+                <input type="hidden" data-bind="attr: { name : 'CaseTreatmentPricings['+ $index() + '].SupplierPrice' },value:SupplierPrice" />
+                <input type="hidden" data-bind="attr: { name : 'CaseTreatmentPricings['+ $index() + '].SupplierPriceID' },value:SupplierPriceID" />
+                <input type="hidden" data-bind="attr:{ name : 'CaseTreatmentPricings['+ $index() + '].CaseTreatmentPricingID' },value:CaseTreatmentPricingID" />
+            </td>
+            <td data-bind="visible:($root.CaseAssessment.AssessmentAuthorisationID()==2 || $root.CaseAssessment.AssessmentAuthorisationID()==1)">
+                <center>
+                   <a href="#" data-bind="click:$root.deleteCasePricing">Delete</a></center>
+            </td>
+        </tr>
+    </tbody>
+    <!--/ko-->
+    <tfoot>
+        <!--ko if: $root.CaseTreatmentPricing().length == 0 -->
+        <tr>
+            <td colspan="3">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    Case Treatment Pricng Grid Empty
+                </div>
+            </td>
+        </tr>
+        <!-- /ko -->
+    </tfoot>
+</table>

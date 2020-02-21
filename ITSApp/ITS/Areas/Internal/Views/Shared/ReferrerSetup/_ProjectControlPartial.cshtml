@@ -1,0 +1,310 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.ReferrerProject
+@*
+
+ * Latest Version 1.7
+
+ *Author          : Robin  Singh, Harpreet Singh
+  Date            : 09-Nov-2012
+  Version         : 1.0
+  Purpose         : Design for the project control Partial Page
+
+  Author          : Harpreet Singh
+  Date            : 09-Nov-2012
+  Version         : 1.1
+  Description     : Remove the common javascript/css 
+
+  Author          : Robin Singh 
+  Date            : 10-Nov-2012
+  Version         : 1.2
+  Description     : Modal Project Control pop-up to add/view/edit project details.
+
+  Author          : Anuj Batra
+  Date            : 15-Nov-2012
+  Version         : 1.3
+  Description     : Implement the design of office location tab.Created Model Pop Over for the add new office functionality.
+
+  Author          : Robin Singh
+  Date            : 17-Nov-2012
+  Version         : 1.4
+  Description     : Add javascript and  bind data to display value for project Referrer details  
+
+  Author          : Robin Singh,Harpreet Singh
+  Date            : 19-Nov-2012
+  Version         : 1.5
+  Description     : Implement Knockout js For Dispplay Referrer Projects And Changed JqueryUi Dialog Modal Popup with css.
+  
+  Author          : Harpreet Singh, Robin Singh
+  Date            : 21-Nov-2012
+  Version         : 1.6
+  Description     : Implement View modal popup.
+
+  Author          : Robin Singh, Harpreet Singh
+  Date            : 22-Nov-2012
+  Version         : 1.7
+  Description     : Implement Knockout js to Add ProjectTreatment Details and to Display All pricingTypes By TreatmentCategoryID.
+  
+  *@
+<style>
+    .SucMsaage
+    {
+        background: none repeat scroll 0 0 yellow;
+        border: 1px solid;
+        border-radius: 5px 5px 5px 5px;
+        display: none;
+        height: 20px;
+        margin: 10px 10px 10px 258px;
+        padding: 5px;
+        position: absolute;
+        text-align: center;
+        width: 300px;
+    }
+    .changeColor
+    {
+        color: Red;
+    }
+</style>
+<br />
+<div id="TreatmentCategoryDialog">
+    <div id="heading">
+        Are you sure you want to do that?
+    </div>
+    <div id="content">
+        <p>
+            Treatment Category information has not been saved, your project will not be complete
+            until this information is saved ?</p>
+        <p>
+            <input type="submit" value="Yes" id="CloseReferrierProjectWithoutTreatmentSaving"
+                class="SaveAndExitPopupInput" style="background: none repeat scroll 0 0 #EBE8D8;" />
+            <input type="button" value="No" id="CancelReferrerTreatmentWitoutSaving" style="background: none repeat scroll 0 0 #EBE8D8;" />
+        </p>
+    </div>
+</div>
+<div id="saveChangesModel">
+    <div id="heading">
+        Are you sure you want to do that?
+    </div>
+    <div id="content">
+        <p>
+            The project name and treatment categories have not been saved, do you wish to save
+            changes before exiting ?</p>
+        <p>
+            <input type="submit" value="Save and Exit" id="btnsaveandexit" class="SaveAndExitPopupInput"
+                style="background: none repeat scroll 0 0 #EBE8D8;" />
+            <input type="button" value="Discard Changes" id="btndiscardchanges" style="background: none repeat scroll 0 0 #EBE8D8;" />
+        </p>
+    </div>
+</div>
+<!--Confirm Box-->
+<div id="dialogForPricingTabIsSaved">
+    <div id="heading">
+        Are you sure you want to do that?
+    </div>
+    <div id="content">
+        <p>
+            "Changes made to project setup for current treatment category. Do you wish to save
+            changes?"
+        </p>
+        <p>
+            <input type="submit" value="Yes" id="btnYesExitWithSavingPricing" class="SavePricingWithExit"
+                style="background: none repeat scroll 0 0 #EBE8D8;" />
+            <input type="button" value="No" id="btnNoExitCurrntDialogForPricing" class="SavePricingWithExit"
+                style="background: none repeat scroll 0 0 #EBE8D8;" />
+        </p>
+    </div>
+</div>
+<div class="Project_view-cantainer" id="refrerrerProjects">
+    <div class="left" id="divReferrerProjectContainer">
+        <div class="heading-Project_view-type">
+            Project Name :
+        </div>
+        <div class="heading-Project_view">
+        </div>
+        <div class="heading-Project_view">
+            Status
+        </div>
+        <div class="clear">
+        </div>
+        <ul data-bind="foreach:Projects">
+            <li>
+                <div class="Project_view-text">
+                    <span style="color: #000" data-bind="text:ProjectName"></span>
+                </div>
+                <div class="Project_view-text" style="width: 100px; text-align: center;">
+                    <span style="color: Green; text-align: center" data-bind="text:StatusID===1 ?'Complete':'Pending',style:{color: StatusID===2 ? 'red' : 'green'}">
+                    </span>
+                </div>
+                <div class="Project_view_Edit">
+                    <div id="clicker1">
+                        <a href="#" data-bind="click: $parent.viewProjectDetails">View</a> / <a href="#"
+                            data-bind="click: $parent.editProjectDetails">Edit</a>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+        </ul>
+        <div class="clear">
+        </div>
+        <div style="text-align: center; boder: 1px; color: Red; padding-top: 10px;">
+            <span data-bind="text: Status, visible: NoRecordFound"></span>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <div style="padding: 10px; font-family: Arial; font-weight: bold;">
+        <div id="clicker" style="background-color: White;" data-bind="click:showModalReferrerProject">
+            <a href="javascript:void(0);" style="color: Blue; background-color: White;">Add New
+                Project</a>
+        </div>
+    </div>
+</div>
+<!-- ADD/EDIT PROJECT - MODAL POPUP DIV-->
+<div id="divProjectDetailContainer" style="display: none;">
+    <div>
+        <label id="lblMsg" class="SucMsaage">
+        </label>
+    </div>
+    <div id="divAddProjectPopUp">
+        <div class="outer-container-project">
+            <div class="project-outer">
+                <div id="divAddProject">
+                    <b>Project Information:</b><br />
+                    <br />
+                    <div class="first">
+                        <div class="prj-text">
+                            <span>*</span>Project Name:
+                        </div>
+                        <div class="prj-input" data-bind="validationOptions : { insertMessages : false  }">
+                            <input id="prjsearch" type="text" data-bind="value: ProjectName, uniqueName: true, valueUpdate: 'afterkeydown', enable:enableprojectname,uniqueName: true"
+                                validate="required:true" required /></div>
+                        <div class="prj-check">
+                            <span>
+                                <input type="checkbox" value="First Appointment Offered?" data-bind="checked: FirstAppointmentOffered,enable:enableFirstAppointmentOffered" />&nbsp;
+                                First Appointment Offered?</span></div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="second">
+                        <div class="prj-text" style="border: 1px solid #000">
+                            <span>*</span>Treatment Categories:
+                        </div>
+                        <div data-bind="foreach: TreatmentCategories">
+                            <div class="therpy">
+                                <input id="chkSelect" type="checkbox" class='{roles: true}' name='checkBoxListValidate'
+                                    data-bind="checked: Enabled,enable:$root.enableFirstAppointmentOffered,attr:{value:TreatmentCategoryID},event:{ change:$root.IsDataPresent}" />
+                                <span data-bind="text: TreatmentCategoryName"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="second">
+                        <div class="prj-text" style="border: 1px solid #000">
+                            <span>*</span>Central Email:
+                        </div>
+                        <div class="therpy">
+                            <input type="text" id="CentralEmailID" name="CentralEmail" data-bind="value: CentralEmail,enable:$root.EnableEmailoptions" />
+                        </div>
+                        <div data-bind="foreach:EmailSendingOptions">
+                            <div class="therpy">
+                                <input type="radio" data-bind="attr:{value:OptionID,for:$root.EmailSendingOptionID},checked:$root.EmailSendingOptionID,enable:$root.EnableEmailoptions"
+                                    name="send" /><span data-bind="text:Option"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="second">
+                        <div class="therpy" data-bind="visible:TriageChkIsEnabled" >
+                            <input type="checkbox" name='IsTriage' id="chktriangeAssessment"data-bind="enable:TriageChkIsActive,checked: IsTriage" />
+                            <span> Triage Assessment:</span>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="search-container" id="saveMe">
+                        <div class="right">
+                            <input type="button" value="Amend" data-bind="click:MakeupdateprojectDetails,visible:visibleAmend, enable:enableAmmend"
+                                id="btnammentproject" />
+                            <input id="btnsaveproject" type="submit" data-bind="click:addReferrerProject, visible:visibleSave,enable:enableSave"
+                                value="Save" />
+                            <input type="submit" id="btnUpdateprojects" data-bind="click:UpdateReferrerProjects,visible:visibleUpdate"
+                                value="Save" />
+                            @* <input type="button" id="btncancelprojects" data-bind="click:CancelReferrerProjects,visible:visiblecancel"
+                                value="Cancel" />*@
+                            <input type="button" value="Close" id="CloseMe" data-bind="click:CloseConfirmDialog,visible:ViewConfimEnabled" />
+                            <input type="button" value="Close" id="btnCloseView" data-bind="click:CloseDialog,visible:ViewEnabled" />
+                        </div>
+                        <div style="padding-top: 25px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div id="divCatagories">
+                <div style="padding: 10px; font-family: Arial; font-weight: bold;">
+                    Treatment Category Information:</div>
+                <div class="clear">
+                </div>
+                <div class="first" id="divTreatmentContainer">
+                    <div class="prj-text" style="background: none repeat scroll 0 0 #77B531; border: 1px solid;
+                        float: left; font-weight: bold; padding: 7px; width: 223px;">
+                        <span>*</span>Select Treatment Category to Edit:
+                    </div>
+                    <div id="categories" class="prj-input" style="border: 1px solid; float: left; width: 350px;">
+                        <select style="width: 350px; padding: 6px" id="select" data-bind="options: ProjectTreatmentCategories, value:TreatmentCategoryID, optionsText: 'TreatmentCategoryName'">
+                        </select>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="divProjectSpin">
+    </div>
+    <!-- MODAL POP UP FOR TREATMENT CATEGORY TO EDIT -->
+    <div class="outer-container-project">
+        <div class="project-outer">
+            <div id="tabs-inner" style="float: left; padding-left: 0px; width: 978px; padding: 20px 0px 0px 0px;
+                overflow: hidden;">
+                <ul>
+                    <li><a href="#divPricingContainer">Pricing / Finance / Service Level Agreements</a></li>
+                    <li><a href="#divDelegatedAuthorisationContainer">Delegated Authorisation</a></li>
+                    <li><a href="#divAssessmentServicesContainer">Assessment Services</a></li>
+                    <li><a href="#divInvoiceMethodContainer">Invoice Methods</a></li>
+                    <li><a href="#divDocumentSetupContainer">Document Setups</a></li>
+                    <li><a href="#divEmailSetupContainer">E-Mail Setup</a></li>
+                </ul>
+                <div id="divPricingContainer" style="height: 576px;">
+                    <!-- this div should bind pricing viewmodel -->
+                    @Html.Partial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.PricingPartial)
+                </div>
+                <div id="divDelegatedAuthorisationContainer">
+                    <!-- this div should bind delegatedauthorisation viewmodel -->
+                    @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.DelegatedAuthorisationPartial);}
+                </div>
+                <div id="divAssessmentServicesContainer">
+                    <!-- this div should bind assessmentservices viewmodel -->
+                    @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.AssessementServicesPartial);}
+                </div>
+                <div id="divInvoiceMethodContainer">
+                    <!-- this div should bind invoicemethod viewmodel -->
+                    @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.InvoiceMethodPartial);}
+                </div>
+                <div id="divDocumentSetupContainer">
+                    <!-- this div should bind documentsetup viewmodel -->
+                    @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.DocumentSetupPartial);}
+                </div>
+                <div id="divEmailSetupContainer">
+                    <!-- this div should bind emailsetup viewmodel -->
+                    @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.EmailSetupPartial);}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

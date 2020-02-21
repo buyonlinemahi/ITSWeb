@@ -1,0 +1,150 @@
+﻿@model ITSPublicApp.Domain.ViewModels.CaseDetailViewModel
+@{
+    ViewBag.Title = "Case Detail";
+    Layout = "~/Areas/Referrer/Views/Shared/_LayoutForm.cshtml";
+    
+}
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/CaseDetailViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its-supplier.css")"/>
+<link href="@Url.Content("~/Content/CaseSearch.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<script type="text/javascript">
+ 
+    var caseDetailViewModel = new CaseDetailViewModel();
+
+    $(function () {
+        ko.applyBindings(caseDetailViewModel, $("#CaseDetailDiv").get(0));
+        caseDetailViewModel.init(@MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model)));
+       
+    });
+    
+</script>
+@section SubHeader{
+ 
+}
+<div id="pettabs" class="indentmenu">
+    <ul>      
+         <li>@Html.ActionLink("PATIENT DETAILS", "CaseDetail", "CaseSearch", null, new { @class = "selected" })</li>
+         <li>@Html.ActionLink("CASE UPLOADS", "CaseUploads","CaseSearch",new { id = @ViewBag.CaseID },null)</li>
+        @*<li>@Html.ActionLink("CASE TREATMENT", "CaseTreatment","CaseSearch",new { id = @ViewBag.CaseID },null)</li>*@
+    </ul>
+    <br style="clear: left" />
+</div>
+<div class="its-content" id="CaseDetailDiv">
+    <div data-bind="with:CasePatientTreatment">
+               <div class="row3-label-initial">
+            <ul>
+                <li>Patient Title:</li>
+                <li>Patient First Name:</li>
+                <li>Patient Surname:</li>
+                <li>Patient Address:</li>
+                <li>Patient Post Code:</li>
+                <li>Patient Home Phone:</li>
+                <li>Patient Work Phone:</li>
+            </ul>
+        </div>
+        <div class="row3-input-initial">
+            <ul>
+                <li><span data-bind="text:Title()==null || Title()==''?'- -':Title" class="patient-info"></span></li>
+                <li><span data-bind="text:FirstName()==null || FirstName()==''?'- -':FirstName" class="patient-info"></span>
+                </li>
+                <li><span data-bind="text:LastName()==null || LastName()==''?'- -':LastName" class="patient-info"></span>
+                </li>
+                <li><span data-bind="text:Address()==null || Address()==''?'- -':Address" class="patient-info"></span>
+                </li>
+                <li><span data-bind="text:PostCode()==null || PostCode()==''?'- -':PostCode" style="text-transform:uppercase" class="patient-info"></span>
+                </li>
+                <li><span data-bind="text:HomePhone()==null || HomePhone()==''?'- -':HomePhone" class="patient-info"></span>
+                </li>
+                <li><span data-bind="text:WorkPhone()==null || WorkPhone()==''?'- -':WorkPhone" class="patient-info"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="row3-label-initial">
+            <ul>
+                <li>Patient Mobile:</li>
+                <li>Patient Gender:</li>
+                <li>Patient DOB:</li>
+                <li>Patient DOI:</li>
+                <li>Patient Email:</li>
+                <li>Case Number:</li>
+            </ul>
+        </div>
+        <div class="row3-input-initial">
+            <ul>
+                <li><span data-bind="text:MobilePhone()==null || MobilePhone()==''?'- -':MobilePhone" class="patient-info"></span></li>
+                <li><span data-bind="text:Gender()==null || Gender()==''?'- -':Gender" class="patient-info"></span></li>
+                <li><span data-bind="text:BirthDate==null || BirthDate==''?'- -':BirthDate" class="patient-info"></span></li>
+                <li><span data-bind="text:InjuryDate==null || InjuryDate==''?'- -':InjuryDate" class="patient-info"></span></li>
+                <li><span data-bind="text:Email()==null || Email()==''?'--':Email" class="patient-info"></span></li>
+                <li><span data-bind="text:CaseNumber()==''?'- -':CaseNumber" class="case-number"></span></li>
+            </ul>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="ITS-ref-table" style="width: 100%">
+          <table>
+            <thead>
+                <tr>
+                    <td>
+                        Assessment Date
+                    </td>
+                    <td>
+                        Assessment Service
+                    </td>
+                    <td>
+                        View Report
+                    </td>
+                </tr>
+            </thead>
+            <!--ko if :!IsCustom() -->
+                <!--ko if:CaseAssessmentDetails!= null-->
+                <tbody data-bind="foreach:CaseAssessmentDetails">
+                    <tr>
+                        <td data-bind="text:AssessmentDate">
+                        </td>
+                        <td data-bind="text:((AssessmentServiceID()==1)?'Initial Assessment':(AssessmentServiceID()==2)? 'Review Assessment' : 'Final Assessment')">
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-small btn-primary" id="btndetails" data-bind="click:$root.CaseAssessmentReportClick"
+                                role="button">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <!--/ko-->
+            <!--/ko-->
+
+            <!--ko if :IsCustom() -->
+                <!--ko if:caseAssessmentReportsCustom!= null-->
+                <tbody data-bind="foreach:caseAssessmentReportsCustom">
+                    <tr>
+                        <td data-bind="text:UploadDate">
+                        </td>
+                        <td data-bind="text:((DocumentTypeID()==14)?'Initial Assessment':(DocumentTypeID()==19)? 'Review Assessment' : 'Final Assessment')">
+                        </td>
+                        <td>
+                            <a class="btn btn-small btn-primary" id="btndetailsCustom"  data-bind="attr:{'href':'@Url.Action("Download", "CaseSearch")?_caseID=@ViewBag.CaseID &fullPath=' + FullPath()}" >View</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <!--/ko-->
+            <!--/ko-->
+        </table>
+    </div>
+     <!--ko if :!IsCustom() -->
+        <!--ko if:CaseAssessmentDetails==null-->
+        <div id="msg-grid" data-bind="text:NoRecordFound">
+        </div>
+        <!--/ko-->
+    <!--/ko-->
+    <!--ko if :IsCustom() -->
+        <!--ko if:caseAssessmentReportsCustom==null-->
+        <div id="msg-grid" data-bind="text:NoRecordFound">
+        </div>
+        <!--/ko-->
+    <!--/ko-->
+    <div class="clear">
+    </div>
+</div>

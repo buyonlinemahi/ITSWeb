@@ -1,0 +1,488 @@
+﻿@using ITSPublicApp.Domain.Models
+@using ITSPublicApp.Web.Controllers
+@model ITSPublicApp.Domain.ViewModels.PrintViewAsssessmentViewModel
+@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Insight Portal - Print Assessment</title>@* <link rel="stylesheet" type="text/css" href="/Content/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/print.css" />*@
+    <link href="@Url.Content("~/Content/assessment-reports.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-v3.4.1.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout-3.0.0.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('input[type=text]').attr('data-bind', 'disable:disabled');
+            $('input[type=checkbox]').attr('data-bind', 'disable:disabled');
+            $('textarea').attr('data-bind', 'disable:disabled');
+            var viewModel = {
+                disabled: ko.observable(true)
+            };
+            ko.applyBindings(viewModel);
+        });
+    </script>
+</head>
+<body id="its-supplier-form">
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+            </div>
+        </div>
+        <div class="heading">
+            <h2 class="head">
+                @ViewBag.pageTitle
+                Assessment Form</h2>
+        </div>
+        <div class="heading">
+            <h4 class="small_head">Demographic Information</h4>
+        </div>
+        <div class="centerTable">
+            <table class="form_border">
+                <tr class="form_tr">
+                    <td class="form_name">Patient Name:
+                    </td>
+                    <td class="form_input">
+                        <input type="text"  name="email_address" class="big_input"
+                                value="@Model.Patient.PatientFullName" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name">Date of Birth:
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" value=" @if
+
+(@Model.Patient.BirthDate.HasValue)
+                                                                                          {
+                                @String.Format("{0:dd/MM/yyyy}",
+
+@Model.Patient.BirthDate.Value.ToShortDateString());
+                                                                                          } " 
+
+maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name">Date of Referral:
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" value="@String.Format("{0:dd/MM/yyyy}", @Model.Case.CaseSubmittedDate)" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name">Date of Accident:
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" value="@String.Format("{0:dd/MM/yyyy}", @Model.Patient.InjuryDate.ToShortDateString())" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name">Date of Initial Assessment:
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" value="@String.Format("{0:dd/MM/yyyy}", @Model.CaseAssessment.CaseAssessmentDetail.AssessmentDate.ToShortDateString())" maxlength="100" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!----    Demographic Information End          ---->
+        <div class="heading">
+            <h4 class="small_head">Patient Consent</h4>
+        </div>
+        <table class="form_border">
+            <tr class="form_tr">
+                <td class="form_name" style="width: 508px;">Has the patient given consent for this assessment report to be passed to their solicitor,
+                    the treating pyhsiotherapist and the funding party?
+                </td>
+                <td class="form_input">
+                    @* <input type="text" name="email_address" class="big_input" style=" height: 46px; text-align: center;vertical-align: middle;width: 70px;" value="@Model.CaseAssessment.HasPatientConsentForm.ToYesNo()" maxlength="100" />*@
+                </td>
+            </tr>
+        </table>
+        <!----   Patient Consent End          ---->
+        <div>
+            <p>
+                Please give a brief description of the incident and diagnosis/injury. Please include
+                whether the patient attended A&E and/or their GP.
+            </p>
+            @Html.TextArea("CaseAssessmentDetail.IncidentAndDiagnosisDescription",
+
+         @Model.CaseAssessment.IncidentAndDiagnosisDescription, new { @class = "text_area" })
+        </div>
+        <div class="heading">
+            <h4 class="small_head">Injury and Symptom Details
+            </h4>
+        </div>
+        @* <p>
+            The patient describes their current symptoms as:</p>*@
+        <table class="form_border">
+            <tr>
+                <th>Symptom Description
+                </th>
+                <th>Pain Score
+                </th>
+                <th>Affected Area
+                </th>
+                <th>Restriction Range
+                </th>
+                <th>Strength Testing
+                </th>
+                <th>Please detail any neural symptoms present with references to the symptoms above.
+                </th>
+            </tr>
+            @foreach (var patientInjury in @Model.CaseAssessment.CaseAssessmentPatientInjuriesBL)
+            {
+                <tr>
+                    <td class="form_input_small">
+                        <input type="text" name="email_address" class="small_input_left" value=" @patientInjury.SymptomDescriptionName" maxlength="10" />
+                    </td>
+                    <td>
+                        <input type="text" name="email_address" class="small_input_right" value=" @patientInjury.Score" maxlength="10" />
+                    </td>
+                    <td class="form_input_small">
+                        <input type="text" name="email_address" class="small_input_left" value=" @patientInjury.AffectedAreaDescription" maxlength="100" />
+                    </td>
+                    <td>
+                        <input type="text" name="email_address" class="small_input_right" value=" @patientInjury.RestrictionRangeDescription" maxlength="100" />
+                    </td>
+                    <td class="form_input_small">
+                        <input type="text" name="email_address" class="small_input_left" value=" @patientInjury.StrengthTestingDescription" maxlength="100" />
+                    </td>
+                    <td>
+                        <input type="text" name="email_address" class="small_input_right" value=" @patientInjury.OtherSymptomDesciption" maxlength="100" />
+                    </td>
+                </tr>
+            }
+
+            <!----   The patient describes their current symptoms as: End          ---->
+            @*  <p>
+            The range of movement in the above areas is affected as follows:</p>
+        
+            @foreach (var patientInjury in
+
+@Model.CaseAssessment.CaseAssessmentPatientInjuries)
+            {
+
+                <tr>
+                    
+                </tr>
+            }*@
+
+        </table>
+        <!----   The range of movement in the above areas is affected as follows: End         
+
+ ---->
+        <div class="heading">
+            <h4 class="small_head">Factors affecting treatment
+            </h4>
+        </div>
+        <div>
+            <p>
+                Please give a brief description of any pre-existing conditions which may affect
+                the patient’s recovery and return to work.
+            </p>
+            @Html.TextArea("CaseAssessmentDetail.PreExistingConditionDescription",
+
+                  @Model.CaseAssessment.PreExistingConditionDescription, new { @class = "text_area" })
+        </div>
+        <div class="heading">
+            <h4 class="small_head">Psychosocial Factors</h4>
+        </div>
+        <table class="form_border_fourth">
+            <tr>
+                <th colspan="2">The patient demonstrates the following psychosocial factors:
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Does the patient demonstrate Red flag?<br />
+                    </label>
+                </td>
+                <td>
+                    @Html.CheckBox("CaseAssessment.HasRedFlags", @Model.CaseAssessment.HasRedFlags.ToString().ToLower())
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Does the patient demonstrate Yellow flag?</label>
+                </td>
+                <td>
+                    @Html.CheckBox("CaseAssessment.HasYellowFlags", @Model.CaseAssessment.HasYellowFlags.ToString().ToLower())
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table class="form_border_fourth">
+            <tr>
+                <td>
+                    <label>
+                        Is the patient already undergoing any treatment?
+                    </label>
+                </td>
+                <td>
+                    @Html.CheckBox("CaseAssessment.IsPatientUndergoingTreatment", @Model.CaseAssessment.IsPatientUndergoingTreatment.ToString().ToLower())
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Is the patient currently taking any medication?</label>
+                </td>
+                <td>
+                    @Html.CheckBox("CaseAssessment.IsPatientTakingMedication", @Model.CaseAssessment.IsPatientTakingMedication.ToString().ToLower())
+                </td>
+            </tr>
+            <tr>
+                <td>Does the patient require any further investigation?
+                </td>
+                <td>
+                    @Html.CheckBox("CaseAssessment.PatientRequiresFurtherInvestigation", @Model.CaseAssessment.PatientRequiresFurtherInvestigation.ToString().ToLower())
+                </td>
+            </tr>
+        </table>
+        <div>
+            <p>
+                If yes to any of the above, please detail:
+            </p>
+            @Html.TextArea("CaseAssessmentDetail.FactorsAffectingTreatmentDescription",
+
+                           @Model.CaseAssessment.FactorsAffectingTreatmentDescription, new { @class = "text_area" })
+        </div>
+        <div class="heading">
+            <h4 class="small_head">Impact on Personal Life</h4>
+        </div>
+        <p>
+            The patient’s lifestyle is restricted in the following ways:
+        </p>
+        <table class="tbl-impact">
+            <tr>
+                @for (int i = 0; i < @Model.PatientImpactValues.Count(); i++)
+                {
+                    if (i == 0)
+                    {
+                    <td>&nbsp
+                    </td>
+                    }
+                    <td>
+                        <input type="text" style="border:none;text-align:center" value="@Model.PatientImpactValues.ToList()[i].PatientImpactValueName" />
+                    </td>
+                }
+            </tr>
+            @for (int i = 0; i < @Model.PatientImpacts.Count(); i++)
+            {
+              
+                <tr>
+                    <td style="text-align: left">
+                        @Model.PatientImpacts.ToList()[i].PatientImpactName
+                    </td>
+                    @for (int j = 0; j < @Model.PatientImpactValues.Count(); j++)
+                    {
+                        <td>
+                            @for (int k = 0; k < @Model.CaseAssessment.CaseAssessmentPatientImpacts.Count(); k++)
+                            {
+                                if (@Model.PatientImpacts.ToList()[i].PatientImpactID == @Model.CaseAssessment.CaseAssessmentPatientImpacts[k].PatientImpactID && @Model.PatientImpactValues.ToList()[j].PatientImpactValueID == @Model.CaseAssessment.CaseAssessmentPatientImpacts[k].PatientImpactValueID)
+                                {
+                                                      
+                              
+                               
+                                @Html.CheckBox("text", true)
+                                    
+                                }
+                                else
+                                {
+                                    if (@Model.PatientImpacts.ToList()[i].PatientImpactID == @Model.CaseAssessment.CaseAssessmentPatientImpacts[k].PatientImpactID)
+                                    {
+                                <input type="checkbox" />
+                                     
+                                    }
+                                }
+                            }
+                        </td>
+                       
+                    }
+                </tr>
+                <tr>
+                    <td style="text-align: left">Comment:
+                    </td>
+                    <td style="text-align: left" colspan="5">@Model.CaseAssessment.CaseAssessmentPatientImpacts[i].Comment
+                    </td>
+                </tr>
+                
+            }
+        </table>
+        <!----   Impact on Work  End          ---->
+        <div class="heading">
+            <h4 class="small_head">Impact on Work</h4>
+        </div>
+        <table>
+            <tr class="form_tr">
+                <td class="form_line">Patient’s occupation:
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="email_address" class="big_input" value="@Model.CaseAssessment.PatientOccupation" 
+
+maxlength="100" />
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_line">Is the patient’s role manual, sedentary or mixed?
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="email_address" class="big_input" value="@Model.PatientRole.SingleOrDefault(i => i.PatientRoleID == @Model.CaseAssessment.PatientRoleID).PatientRoleName" 
+
+maxlength="100" />
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_line">Was the patient working at the time of the accident?
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="email_address" class="big_input" value=" @(Model.CaseAssessment.WasPatientWorkingAtTheTimeOfTheAccident.HasValue ? Model.CaseAssessment.WasPatientWorkingAtTheTimeOfTheAccident.Value.ToYesNo() : "Not Applicable")" 
+
+maxlength="100" />
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_line">Has the patient had any time off work?
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="email_address" class="big_input" value=" @(Model.CaseAssessment.CaseAssessmentDetail.HasThePatientHadTimeOff.HasValue ? Model.CaseAssessment.CaseAssessmentDetail.HasThePatientHadTimeOff.Value.ToYesNo() : "Not Applicable")" 
+
+maxlength="100" />
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_line">If they have been absent, how many days/weeks have they been absent?
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="email_address" class="big_input" value="@if (Model.CaseAssessment.CaseAssessmentDetail.AbsentPeriod > 0)
+                                                                                     {
+                                        @Model.CaseAssessment.CaseAssessmentDetail.AbsentPeriod @: @Model.Durations.SingleOrDefault(i => i.DurationID == @Model.CaseAssessment.CaseAssessmentDetail.AbsentPeriodDurationID).DurationName
+                                    }" 
+
+maxlength="100" />
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_line">Is the patient still suffering a financial loss as a result of being off work?
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="email_address" class="big_input" value=" @Model.CaseAssessment.IsPatientSufferingFinancialLoss" 
+
+maxlength="100" />
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_line">Current work status
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="email_address" class="big_input" value=" @if (Model.CaseAssessment.CaseAssessmentDetail.PatientWorkstatusID > 0)
+                                                                                      {
+                                        @Model.PatientWorkstatuses.SingleOrDefault(p => p.PatientWorkstatusID == Model.CaseAssessment.CaseAssessmentDetail.PatientWorkstatusID).PatientWorkstatusName
+                                                                                      }" 
+
+maxlength="100" />
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_line">Current impact on work
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="email_address" class="big_input" value=" @if (Model.CaseAssessment.CaseAssessmentDetail.PatientImpactOnWorkID > 0)
+                                                                                      {
+                                        @Model.PatientImpactOnWorks.SingleOrDefault(p => p.PatientImpactOnWorkID == Model.CaseAssessment.CaseAssessmentDetail.PatientImpactOnWorkID).PatientImpactOnWorkName
+                                                                                      }" 
+
+maxlength="100" />
+                </td>
+            </tr>
+        </table>
+        <div class="heading">
+            <h4 class="small_head">Treatment Recommendation</h4>
+        </div>
+        <div class="centerTable">
+            <table class="form_border">
+                <tr class="form_tr">
+                    <td class="form_name_2">How many sessions do you recommend?
+                    </td>
+                    <td class="form_input">
+                        <input type="text"  name="email_address" class="big_input_2"
+                                value=" @Model.CaseAssessment.CaseAssessmentDetail.PatientRecommendedTreatmentSessions" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name_2">Over what period should these be carried out?
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input_2" value="  @if (Model.CaseAssessment.CaseAssessmentDetail.PatientTreatmentPeriodDurationID > 0)
+                                                                                             {
+                                    @Model.CaseAssessment.CaseAssessmentDetail.PatientTreatmentPeriod @: @Model.Durations.SingleOrDefault(i => i.DurationID == @Model.CaseAssessment.CaseAssessmentDetail.PatientTreatmentPeriodDurationID).DurationName
+                                }" 
+
+maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name_2">What is the anticipated date of discharge?
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input_2" onblur="validate(this,'lblErrorAnticipatedDateOfDischarge')" 
+
+value="@String.Format("{0:dd/MM/yyyy}", @Model.CaseAssessment.AnticipatedDateOfDischarge)" maxlength="100" />
+                        <span id="lblErrorAnticipatedDateOfDischarge" class="warningcustom"></span>
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name_2">What level of recovery do you anticipate the patient will make following treatment?
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input_2" 
+
+value="@if (Model.CaseAssessment.CaseAssessmentDetail.PatientLevelOfRecoveryID > 0)
+       {
+                                    @Model.PatientLevelOfRecoveries.SingleOrDefault(p => p.PatientLevelOfRecoveryID == Model.CaseAssessment.CaseAssessmentDetail.PatientLevelOfRecoveryID).PatientLevelOfRecoveryName
+       }" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name_2">Has the patient been given a home exercise programme?
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input_2" value=" @Model.CaseAssessment.HasPatientHomeExerciseProgramme" maxlength="100" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!----    Treatment Recomendation End          ---->
+        <div>
+            <h4 class="small_head">Additional information</h4>
+            <p>
+                Please provide any relevant additional information
+            </p>
+            @Html.TextArea("CaseAssessmentDetail.AdditionalInformation", @Model.CaseAssessment.CaseAssessmentDetail.AdditionalInformation, new { @class = "text_area" })
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+    </div>
+</body>
+</html>

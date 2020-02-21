@@ -1,0 +1,41 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                User Login Name
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Type Name
+            </th>
+            <th>
+                Referrer/Supplier Name
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:Users">
+        <tr>
+            <td>
+                <a data-bind="attr: { href: '/User/Detail/' + UserID() }">View </a>
+            </td>
+            <td data-bind="text:UserName">
+            </td>
+            <td data-bind="text:FirstName() +' '+ LastName()">
+            </td>
+            <td data-bind="text:Email">
+            </td>
+            <td data-bind="text:UserType">
+            </td>
+            <td data-bind="text:UserTypeName">
+            </td>
+        </tr>
+    </tbody>
+</table>

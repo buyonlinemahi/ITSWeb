@@ -1,0 +1,166 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Supplier
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Internal/Views/Shared/_InternalLayout.cshtml";  
+}
+<script src="@Url.Content("~/Scripts/plugins/Jquery.autocompletebySupplierName.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/suppliersetup/ComplaintViewModel.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/suppliersetup/SupplierSetupViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/suppliersetup/RegistrationDocumentViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/suppliersetup/PricingViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/suppliersetup/InsuredViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/suppliersetup/SiteAuditViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/suppliersetup/PractitionerViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/suppliersetup/ClinicalAuditViewModel.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/SupplierSetup.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/knockout.numericextender.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/Jquery.checkNumericNumbers.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/knockout.validation.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var supplierViewModel = new SupplierControlViewModel();
+    var complaintViewModel=new SupplierComplaintViewModel();
+    var DocumentViewModel= new SupplierDocumentViewModel();
+    var pricinglViewModel= new PricingControlViewModel();
+    var InsuredViewModel= new InsuredControlViewModel();
+    var SiteAuditViewModel= new SupplierSiteAuditViewModel();
+    var ClinicalAuditViewModel = new SupplierClinicalAuditViewModel();
+    var practitionerViewModel=new SupplierPractitionerViewModel();
+   
+    $(function () {
+   
+     ko.applyBindings(supplierViewModel,$("#supplierDiv").get(0));
+     ko.applyBindings(supplierViewModel,$("#CompletePricingTab").get(0));
+     ko.applyBindings(supplierViewModel,$("#supplierSetupOuter").get(0));
+     ko.applyBindings(complaintViewModel,$("#divComplaintsContainer").get(0));
+     ko.applyBindings(DocumentViewModel,$("#divRegistrationDocumentsContainer").get(0));
+     ko.applyBindings(pricinglViewModel,$("#divPricingContainer").get(0));
+     ko.applyBindings(InsuredViewModel,$("#divInsuredContainer").get(0));
+     ko.applyBindings(SiteAuditViewModel,$("#divSiteAuditContainer").get(0));
+     ko.applyBindings(practitionerViewModel,$("#divPractitionersContainer").get(0));
+     ko.applyBindings(ClinicalAuditViewModel,$("#divClinicalAuditContainer").get(0));
+
+
+     //Setting for to get supplier by search cretaria
+     var settings = {
+            method: "@Url.Action(GlobalConst.Actions.SupplierController.GetSupplierBySupplierId, GlobalConst.Controllers.Supplier, new { area = "" })",
+            AddSupplierDocumentsFile: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierDocumentRegistrationController.AddSupplierDocumentsFiles, GlobalConst.Controllers.Area.Internal.SupplierDocumentRegistration)",
+            selected : function (event, ui){
+                                $.ajax({
+                                    url: settings.method,
+                                    cache: false,
+                                    type: "POST", dataType: "json",
+                                    data: { supplierId : ui.item.SupplierID },
+                                    success: function (data) {
+                                        $("#tabs-inner").css("display","block");
+                                        
+                                        InitializeTabs(data);
+                                        pricinglViewModel.GetAllPricingTypes(data.TreatmentCategories);
+                                    },
+                                    error:function(){
+                                     
+                                    }
+                                });
+                                }
+                          };
+      
+        $("#SupplierAutoSeacrh").autocompletebySuppliername(settings);
+
+        var SupplierRegistrationFileUpload = {
+        url: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierDocumentRegistrationController.AddSupplierDocumentsFiles, GlobalConst.Controllers.Area.Internal.SupplierDocumentRegistration)",
+        type: "post",
+        success:function (data){
+              alert(data);
+             DocumentViewModel.SaveDocumentRegistration();
+        }
+        };
+
+        $('#formsupplierdocument').ajaxForm(SupplierRegistrationFileUpload);
+      
+    }); 
+
+    function ClinicalAuditFormSubmitUrl() {
+        var optionFileUploadClient = {
+            url: ClinicalAuditViewModel.GetActionUrl(),
+            type: "post",
+            success: successClinicalMethod
+        };
+
+        $('#SupplierClinicalform').ajaxForm(optionFileUploadClient);
+        
+        function successClinicalMethod(msg) {
+            ClinicalAuditViewModel.showFileUploadMessage(msg);
+        }
+    }
+    
+    function InitializeTabs(data){
+            //initialize all viewmodels for the tabs.
+            supplierViewModel.InitializeSupplierTab(data);
+            pricinglViewModel.InitializePricingTab(data);
+            complaintViewModel.initializeModel(data.SupplierID);
+            DocumentViewModel.InitializeDocumentViewModel(data);
+            InsuredViewModel.InitializeInsuredTab(data);
+            SiteAuditViewModel.InitializSiteAuditTab(data);
+            practitionerViewModel.InitializPractitionerTab(data);
+            ClinicalAuditViewModel.InitializClinicalAuditTab(data);
+        } 
+
+        function EnablePricingtab(IsEnabled, treatmentCategoryID){
+        pricinglViewModel.EnablePricing(IsEnabled,treatmentCategoryID);
+        };
+
+        var Actions={AddNewSupplier:"AddNewSupplier",UpdateSupplier:"UpdateSupplier",AddSupplierPricing:"AddSupplierPricing",Status:"Status"};
+      
+        function InitilizedPricingTab(value,data)   {
+
+        if(Actions.AddNewSupplier==value){
+         pricinglViewModel.LoadPricingMatrix(data);
+        }
+        else if(Actions.AddSupplierPricing==value)  {
+           pricinglViewModel.AddSupplierPricing(data);
+        }
+        else if(Actions.UpdateSupplier==value)  {
+           pricinglViewModel.GetAllPricingTypes(data);
+           pricinglViewModel.Ammend(true);
+        }
+        else if(Actions.Status==value) {
+            supplierViewModel.Status(data);
+        }
+        };
+        function SiteAuditFormSubmit(){
+        var formSubmitParameters = {
+        url:SiteAuditViewModel.SiteAuditActionUrl(),
+        type: "post",
+        success:function (data){SiteAuditViewModel.ResetAndGetValues(data);},
+        error: function (data) {alert(data);}
+        };
+         $('#frmSiteAudit').ajaxForm(formSubmitParameters);
+        }
+</script>
+<!--Seacrh by supplier name,supplier treatment and postal code -->
+<div id="divSpin" style="position: absolute; top: 20%; left: 50%">
+</div>
+<div id="SupplierMainDiv">
+    <div id="supplierSetupOuter">
+        <div class="supplierArea">
+            <div class="SearchCretaria">
+                <b>Supplier Search Criteria:</b>
+            </div>
+            <div data-bind="foreach:SearchCategories">
+                <div class="SearchCretaria">
+                    <input type="radio" name="sarchRdio" data-bind="attr: { value: SearchCategoryID, name:' '}, checked: $parent.SelectedUrl" />
+                    <span data-bind="text:SearchCategoryName"></span>
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div id="divPricingPartialContainer" class="outer-container">
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.SupplierSetup.SupplierPartial);}
+    </div>
+</div>

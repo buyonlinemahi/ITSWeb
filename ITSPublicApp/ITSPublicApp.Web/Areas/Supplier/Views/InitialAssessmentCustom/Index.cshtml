@@ -1,0 +1,111 @@
+﻿@using System.Web.Script.Serialization
+@using ITSPublicApp.Infrastructure.Global;
+@using System.Configuration;
+@model ITSPublicApp.Domain.ViewModels.InitialAssessmentCustomViewModel
+@{
+    ViewBag.Title = "Supplier Portal - Initial Assessment Custom";
+    Layout = "~/Areas/Supplier/Views/Shared/_LayoutForm.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+<script type="text/javascript" src="/scripts/viewmodels/areas/shared/supplier/InitialAssessmentCustomViewModel.js"></script>
+<script>
+    $(function() {
+        var casePatientTreatment = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.CasePatientTreatment)));
+        var caseService = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.CaseService)));
+        var model = new InitialAssessmentCustomViewModel();
+        ko.applyBindings(model);
+        model.loadPatientDemographics(casePatientTreatment);
+        model.loadCaseService(caseService); 
+        
+    });
+</script>
+<form action="/Supplier/InitialAssessmentCustom/SaveInitialAssessmentCustom" method="post" id="InitialAssessmentCustomForm"
+    enctype="multipart/form-data">
+    <!-- ko with: CasePatientTreatment -->
+
+    <p>
+        <strong>Patient Demographics</strong>
+    </p>
+    <div class="row3-label-initial">
+        <ul class="font-16">
+            <li>Patient First Name:</li>
+            <li>Patient Address:</li>
+            <li>Patient Region:</li>
+            <li>Patient Home Phone:</li>
+            <li>Case Number:</li>
+            <li style="width: 500px">Patient Treatment Category:</li>
+        </ul>
+
+    </div>
+    <div class="row3-input-initial">
+        <ul class="font-16">
+            <li><span id="FirstName" data-bind="text:FirstName"></span></li>
+            <li><span name="Address" data-bind="text:Address"></span></li>
+            <li><span data-bind="text:Region"></span></li>
+            <li><span data-bind="text:HomePhone()==null?'--':HomePhone"></span></li>
+            <li class="case-refraction"><span class="font-16" data-bind="text:CaseNumber"></span></li>
+            <li><span data-bind="text:TreatmentCategoryName"></span></li>
+        </ul>
+    </div>
+    <div class="row3-label-initial">
+        <ul class="font-16">
+            <li>Patient Surname:</li>
+            <li>Patient City / Town:</li>
+            <li>Patient Post Code:</li>
+            <li>Patient Mobile:</li>
+            <li style="width: 500px">Referrer Reference Number:</li>
+            <li>Patient Treatment Type:</li>
+        </ul>
+    </div>
+    <div class="row3-input-initial">
+        <ul class="font-16">
+            <li><span data-bind="text:LastName"></span></li>
+            <li><span data-bind="text:City"></span></li>
+            <li><span data-bind="text:PostCode" style="text-transform: uppercase"></span></li>
+            <li><span data-bind="text:MobilePhone()==null?'--':MobilePhone"></span></li>
+            <li><span data-bind="text:CaseReferrerReferenceNumber"></span></li>
+            <li><span data-bind="text:TreatmentTypeName"></span></li>
+        </ul>
+    </div>
+    <div class="clear">
+    </div>
+    <p>
+        <strong>Initial Assessment</strong>
+    </p>
+    <div class="row3-label-initial">
+        <ul>
+            <!-- ko if:((TreatmentCategoryID() =='1') || (TreatmentCategoryID() =='2')||(TreatmentCategoryID() =='3'))  -->
+            <li class="case-dl-link">
+                <a target="_blank" href="@Url.Action("Download", "InitialAssessmentCustom")?_caseID=@Url.Content(Model.CasePatientTreatment.EncryptCaseID.ToString())&_path=@Url.Content(Model.InitialAssessmentCustomURLPath.ToString())">Download Assessment</a>
+            </li>
+            <!-- /ko -->
+        </ul>
+    </div>
+    <div class="row3-input">
+        <ul>
+            <li>
+                <input type="file" name="InitialAssessmentCustomUploadFile" id="InitialAssessmentCustomUploadFile" />
+                <input type="hidden" name="CasePatientTreatment.CaseID" data-bind="value:CaseID" />
+                <input type="hidden" name="CasePatientTreatment.CaseNumber" data-bind="value:CaseNumber" />
+            </li>
+        </ul>
+    </div>
+    <!-- /ko -->
+    <div class="row3-input">
+        <ul>
+            <li>
+                <!-- ko with: CaseService -->
+                <input type="hidden" name="CaseService.SupplierID" data-bind="value:SupplierID" />
+                <input type="hidden" name="CaseService.ReferrerProjectTreatmentID" data-bind="value:ReferrerProjectTreatmentID" />
+                <input type="hidden" name="CaseService.ReferrerID" data-bind="value:ReferrerID" />
+
+                <!-- /ko -->
+            </li>
+        </ul>
+    </div>
+    <p>
+        <input type="button" class="its-submitbutton" data-bind="click:submit" />
+    </p>
+    <div class="clear">
+    </div>
+</form>

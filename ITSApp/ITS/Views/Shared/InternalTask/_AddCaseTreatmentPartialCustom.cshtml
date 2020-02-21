@@ -1,0 +1,55 @@
+﻿<div id="divCreateCaseTreatmentGrid" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            Create Case Treatment Grid based on "How many sessions do you recommend ?"
+        </h3>
+    </div>
+   
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    Select Treatment Type :
+                </label>
+                <div class="controls-3">
+                    <select class="select-popup" data-bind="options: TreatmentReferrerSupplierPricing, optionsText:'PricingTypeName', value: SelectedReferrerTreatmentPricing">
+                    </select>
+                </div>
+                <div class="controls-2">
+                    <select class="select-2"  name="Quantity" id="objQuantityID">
+                        <option selected>QTY</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" data-bind="click:AddNewTreatment">
+                Add</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    
+</div>

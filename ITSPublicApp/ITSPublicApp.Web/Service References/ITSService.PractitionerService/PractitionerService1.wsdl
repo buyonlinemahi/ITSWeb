@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PractitionerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/PractitionerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/PractitionerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/PractitionerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPractitionerService_GetAllAreasofExpertise_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAreasofExpertise" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetAllAreasofExpertise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAreasofExpertiseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_AddPractitioner_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPractitioner" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_AddPractitioner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPractitionerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerLikePractitionerName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerLikePractitionerName" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerLikePractitionerName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerLikePractitionerNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_DeletePractitionerByPractitionerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePractitionerByPractitionerID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_DeletePractitionerByPractitionerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePractitionerByPractitionerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_AddPractitionerExpertise_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPractitionerExpertise" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_AddPractitionerExpertise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPractitionerExpertiseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_UpdatePractitionerByPractitionerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePractitionerByPractitionerID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_UpdatePractitionerByPractitionerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePractitionerByPractitionerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerByPractitionerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerByPractitionerID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerByPractitionerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerByPractitionerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerExpertiseByPractitionerExpertiseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerExpertiseByPractitionerExpertiseID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerExpertiseByPractitionerExpertiseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerExpertiseByPractitionerExpertiseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerExpertiseByPractitionerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerExpertiseByPractitionerID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerExpertiseByPractitionerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerExpertiseByPractitionerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerExpertiseByAreaofExpertiseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerExpertiseByAreaofExpertiseID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerExpertiseByAreaofExpertiseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerExpertiseByAreaofExpertiseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_DeletePractitionerExpertiseByPractitionerExpertiseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePractitionerExpertiseByPractitionerExpertiseID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_DeletePractitionerExpertiseByPractitionerExpertiseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePractitionerExpertiseByPractitionerExpertiseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_UpdatePractitionerExpertise_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePractitionerExpertise" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_UpdatePractitionerExpertise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePractitionerExpertiseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetAllTreatmentCatagories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentCatagories" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetAllTreatmentCatagories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentCatagoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_AddPractitionerRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPractitionerRegistration" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_AddPractitionerRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPractitionerRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_DeletePractitionerRegistrationByPractitionerRegistrationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePractitionerRegistrationByPractitionerRegistrationID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_DeletePractitionerRegistrationByPractitionerRegistrationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePractitionerRegistrationByPractitionerRegistrationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerRegistrationByPractitionerRegistrationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerRegistrationByPractitionerRegistrationID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerRegistrationByPractitionerRegistrationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerRegistrationByPractitionerRegistrationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerRegistrationsByPractitionerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerRegistrationsByPractitionerID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerRegistrationsByPractitionerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerRegistrationsByPractitionerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerRegistrationsByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerRegistrationsByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerRegistrationsByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerRegistrationsByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerRegistrationsByRegistrationTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerRegistrationsByRegistrationTypeID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionerRegistrationsByRegistrationTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerRegistrationsByRegistrationTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_UpdatePractitionerRegistrationByPractitionerRegistrationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePractitionerRegistrationByPractitionerRegistrationID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_UpdatePractitionerRegistrationByPractitionerRegistrationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePractitionerRegistrationByPractitionerRegistrationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPracitionersByTreatmentCategoryIDAndSupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPracitionersByTreatmentCategoryIDAndSupplierID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPracitionersByTreatmentCategoryIDAndSupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPracitionersByTreatmentCategoryIDAndSupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionersRecentlyAdded_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionersRecentlyAdded" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionersRecentlyAdded_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionersRecentlyAddedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetSupplierPractitionerSupplierByPractitionerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierPractitionerSupplierByPractitionerID" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetSupplierPractitionerSupplierByPractitionerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierPractitionerSupplierByPractitionerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionersLikePractitionerName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionersLikePractitionerName" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionersLikePractitionerName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionersLikePractitionerNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionersLikeTreatmentCategoryName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionersLikeTreatmentCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="IPractitionerService_GetPractitionersLikeTreatmentCategoryName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionersLikeTreatmentCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPractitionerService">
+    <wsdl:operation name="GetAllAreasofExpertise">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetAllAreasofExpertise" message="tns:IPractitionerService_GetAllAreasofExpertise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetAllAreasofExpertiseResponse" message="tns:IPractitionerService_GetAllAreasofExpertise_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPractitioner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/AddPractitioner" message="tns:IPractitionerService_AddPractitioner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/AddPractitionerResponse" message="tns:IPractitionerService_AddPractitioner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerLikePractitionerName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerLikePractitionerName" message="tns:IPractitionerService_GetPractitionerLikePractitionerName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerLikePractitionerNameResponse" message="tns:IPractitionerService_GetPractitionerLikePractitionerName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePractitionerByPractitionerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/DeletePractitionerByPractitionerID" message="tns:IPractitionerService_DeletePractitionerByPractitionerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/DeletePractitionerByPractitionerIDResponse" message="tns:IPractitionerService_DeletePractitionerByPractitionerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPractitionerExpertise">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/AddPractitionerExpertise" message="tns:IPractitionerService_AddPractitionerExpertise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/AddPractitionerExpertiseResponse" message="tns:IPractitionerService_AddPractitionerExpertise_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePractitionerByPractitionerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/UpdatePractitionerByPractitionerID" message="tns:IPractitionerService_UpdatePractitionerByPractitionerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/UpdatePractitionerByPractitionerIDResponse" message="tns:IPractitionerService_UpdatePractitionerByPractitionerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerByPractitionerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerByPractitionerID" message="tns:IPractitionerService_GetPractitionerByPractitionerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerByPractitionerIDResponse" message="tns:IPractitionerService_GetPractitionerByPractitionerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerExpertiseByPractitionerExpertiseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByPractitionerExpertiseID" message="tns:IPractitionerService_GetPractitionerExpertiseByPractitionerExpertiseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByPractitionerExpertiseIDResponse" message="tns:IPractitionerService_GetPractitionerExpertiseByPractitionerExpertiseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerExpertiseByPractitionerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByPractitionerID" message="tns:IPractitionerService_GetPractitionerExpertiseByPractitionerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByPractitionerIDResponse" message="tns:IPractitionerService_GetPractitionerExpertiseByPractitionerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerExpertiseByAreaofExpertiseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByAreaofExpertiseID" message="tns:IPractitionerService_GetPractitionerExpertiseByAreaofExpertiseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByAreaofExpertiseIDResponse" message="tns:IPractitionerService_GetPractitionerExpertiseByAreaofExpertiseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePractitionerExpertiseByPractitionerExpertiseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/DeletePractitionerExpertiseByPractitionerExpertiseID" message="tns:IPractitionerService_DeletePractitionerExpertiseByPractitionerExpertiseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/DeletePractitionerExpertiseByPractitionerExpertiseIDResponse" message="tns:IPractitionerService_DeletePractitionerExpertiseByPractitionerExpertiseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePractitionerExpertise">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/UpdatePractitionerExpertise" message="tns:IPractitionerService_UpdatePractitionerExpertise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/UpdatePractitionerExpertiseResponse" message="tns:IPractitionerService_UpdatePractitionerExpertise_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTreatmentCatagories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetAllTreatmentCatagories" message="tns:IPractitionerService_GetAllTreatmentCatagories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetAllTreatmentCatagoriesResponse" message="tns:IPractitionerService_GetAllTreatmentCatagories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPractitionerRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/AddPractitionerRegistration" message="tns:IPractitionerService_AddPractitionerRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/AddPractitionerRegistrationResponse" message="tns:IPractitionerService_AddPractitionerRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePractitionerRegistrationByPractitionerRegistrationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/DeletePractitionerRegistrationByPractitionerRegistrationID" message="tns:IPractitionerService_DeletePractitionerRegistrationByPractitionerRegistrationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/DeletePractitionerRegistrationByPractitionerRegistrationIDResponse" message="tns:IPractitionerService_DeletePractitionerRegistrationByPractitionerRegistrationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerRegistrationByPractitionerRegistrationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationByPractitionerRegistrationID" message="tns:IPractitionerService_GetPractitionerRegistrationByPractitionerRegistrationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationByPractitionerRegistrationIDResponse" message="tns:IPractitionerService_GetPractitionerRegistrationByPractitionerRegistrationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerRegistrationsByPractitionerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByPractitionerID" message="tns:IPractitionerService_GetPractitionerRegistrationsByPractitionerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByPractitionerIDResponse" message="tns:IPractitionerService_GetPractitionerRegistrationsByPractitionerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerRegistrationsByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByTreatmentCategoryID" message="tns:IPractitionerService_GetPractitionerRegistrationsByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByTreatmentCategoryIDResponse" message="tns:IPractitionerService_GetPractitionerRegistrationsByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerRegistrationsByRegistrationTypeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByRegistrationTypeID" message="tns:IPractitionerService_GetPractitionerRegistrationsByRegistrationTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByRegistrationTypeIDResponse" message="tns:IPractitionerService_GetPractitionerRegistrationsByRegistrationTypeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePractitionerRegistrationByPractitionerRegistrationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/UpdatePractitionerRegistrationByPractitionerRegistrationID" message="tns:IPractitionerService_UpdatePractitionerRegistrationByPractitionerRegistrationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/UpdatePractitionerRegistrationByPractitionerRegistrationIDResponse" message="tns:IPractitionerService_UpdatePractitionerRegistrationByPractitionerRegistrationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPracitionersByTreatmentCategoryIDAndSupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPracitionersByTreatmentCategoryIDAndSupplierID" message="tns:IPractitionerService_GetPracitionersByTreatmentCategoryIDAndSupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPracitionersByTreatmentCategoryIDAndSupplierIDResponse" message="tns:IPractitionerService_GetPracitionersByTreatmentCategoryIDAndSupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionersRecentlyAdded">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionersRecentlyAdded" message="tns:IPractitionerService_GetPractitionersRecentlyAdded_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionersRecentlyAddedResponse" message="tns:IPractitionerService_GetPractitionersRecentlyAdded_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierPractitionerSupplierByPractitionerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetSupplierPractitionerSupplierByPractitionerID" message="tns:IPractitionerService_GetSupplierPractitionerSupplierByPractitionerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetSupplierPractitionerSupplierByPractitionerIDResponse" message="tns:IPractitionerService_GetSupplierPractitionerSupplierByPractitionerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionersLikePractitionerName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionersLikePractitionerName" message="tns:IPractitionerService_GetPractitionersLikePractitionerName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionersLikePractitionerNameResponse" message="tns:IPractitionerService_GetPractitionersLikePractitionerName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionersLikeTreatmentCategoryName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionersLikeTreatmentCategoryName" message="tns:IPractitionerService_GetPractitionersLikeTreatmentCategoryName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPractitionerService/GetPractitionersLikeTreatmentCategoryNameResponse" message="tns:IPractitionerService_GetPractitionersLikeTreatmentCategoryName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPractitionerService" type="tns:IPractitionerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllAreasofExpertise">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetAllAreasofExpertise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPractitioner">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/AddPractitioner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerLikePractitionerName">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerLikePractitionerName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePractitionerByPractitionerID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/DeletePractitionerByPractitionerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPractitionerExpertise">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/AddPractitionerExpertise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePractitionerByPractitionerID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/UpdatePractitionerByPractitionerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerByPractitionerID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerByPractitionerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerExpertiseByPractitionerExpertiseID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByPractitionerExpertiseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerExpertiseByPractitionerID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByPractitionerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerExpertiseByAreaofExpertiseID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerExpertiseByAreaofExpertiseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePractitionerExpertiseByPractitionerExpertiseID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/DeletePractitionerExpertiseByPractitionerExpertiseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePractitionerExpertise">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/UpdatePractitionerExpertise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTreatmentCatagories">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetAllTreatmentCatagories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPractitionerRegistration">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/AddPractitionerRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePractitionerRegistrationByPractitionerRegistrationID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/DeletePractitionerRegistrationByPractitionerRegistrationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerRegistrationByPractitionerRegistrationID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationByPractitionerRegistrationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerRegistrationsByPractitionerID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByPractitionerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerRegistrationsByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerRegistrationsByRegistrationTypeID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionerRegistrationsByRegistrationTypeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePractitionerRegistrationByPractitionerRegistrationID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/UpdatePractitionerRegistrationByPractitionerRegistrationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPracitionersByTreatmentCategoryIDAndSupplierID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPracitionersByTreatmentCategoryIDAndSupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionersRecentlyAdded">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionersRecentlyAdded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierPractitionerSupplierByPractitionerID">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetSupplierPractitionerSupplierByPractitionerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionersLikePractitionerName">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionersLikePractitionerName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionersLikeTreatmentCategoryName">
+      <soap:operation soapAction="http://tempuri.org/IPractitionerService/GetPractitionersLikeTreatmentCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PractitionerService">
+    <wsdl:port name="BasicHttpBinding_IPractitionerService" binding="tns:BasicHttpBinding_IPractitionerService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/ITS/PractitionerService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

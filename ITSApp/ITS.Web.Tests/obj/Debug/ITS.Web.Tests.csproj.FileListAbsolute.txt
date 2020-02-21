@@ -1,0 +1,5 @@
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Web.Tests\bin\Debug\ITS.Web.Tests.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Web.Tests\bin\Debug\ITS.Web.Tests.pdb
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Web.Tests\obj\Debug\ITS.Web.Tests.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Web.Tests\obj\Debug\ITS.Web.Tests.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Web.Tests\obj\Debug\ITS.Web.Tests.pdb

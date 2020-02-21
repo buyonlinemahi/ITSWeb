@@ -1,0 +1,857 @@
+﻿@using System.Web.Script.Serialization
+@using ITSPublicApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Supplier Portal - Final Assessment";
+    Layout = "~/Areas/Supplier/Views/Shared/_LayoutForm.cshtml";
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript" ></script>
+<script src="@Url.Content("~/Scripts/knockout.validation.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/FinalAssessmentViewModel.js")"
+    type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<style type="text/css">
+    input:disabled {
+        opacity: 0.60;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var finalAssessmentViewModel = new FinalAssessmentViewModel();
+
+        finalAssessmentViewModel.Init(model);
+        ko.applyBindings(finalAssessmentViewModel, $("#divFinalAssessment").get(0));
+        $(".caseDateOfService").datepicker({
+            //minDate:new Date(),
+            dateFormat: 'dd/mm/yy',
+            chageMonth: true,
+            changeYear: true,
+            yearRange: '1900:2035'
+        });
+    
+      
+    
+    });
+
+    function onlyNos(e, t) {
+        try {
+            if (window.event) {
+                var charCode = window.event.keyCode;
+            }
+            else if (e) {
+                var charCode = e.which;
+            }
+            else { return true; }
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        catch (err) {
+            alert(err.Description);
+        }
+    }
+
+
+    function symptomsectiondescription(NotApplicablesymptomsection) {
+        var RelevantTestUndertaken = document.getElementById("RelevantTestUndertaken");
+        RelevantTestUndertaken.disabled = NotApplicablesymptomsection.checked ? true : false;
+        if (!RelevantTestUndertaken) {
+            $("#RelevantTestUndertaken").prop('disabled', true);
+        }
+        document.getElementById("RelevantTestUndertaken").value = " ";
+        document.getElementById("hdRelevantTestUndertaken").value = " ";
+    }
+
+</script>
+<div class="its-content" id="divFinalAssessment">
+      @using (Html.BeginForm("saveCaseTreatmentPricing", GlobalConst.Controllers.Area.Supplier.FinalAssessment,
+          FormMethod.Post, new
+            {
+                id = "frmFinalAssessmentCustom1",
+                enctype = "multipart/form-data",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){AfterSuccessCaseTreatmentPricings(responseText, statusText, xhr, $form);}}"
+            }))
+    {
+
+        @Html.AntiForgeryToken()
+        <!--ko if:!CaseTreatmentPricingTypeArray().length==0-->
+        <div id="divCasePricingMatrix">
+            <p>
+                <strong>Case Treatment Pricing Matrix</strong>
+            </p>
+            <br />
+            Please complete the blank fields in the grid below as applicable
+            <div class="ITS-ref-table">
+                <table>
+                    <tr>
+                        <td>Service Type
+                        </td>
+                        <td>Date of Service Provided
+                        </td>
+                        <td>Did Not Show
+                        </td>
+                        <td>Not Required
+                        </td>
+                        <td>Price
+                        </td>
+                    </tr>
+                    <!--ko foreach:CaseTreatmentPricingTypeArray-->
+                    <tr>
+                        <td>
+                            <label>
+                                <span data-bind="text:PricingTypeName"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="caseDateOfService" data-bind="attr:{value:DateOfService, name: 'CaseTreatmentPricings['+ $index() +'].DateOfService', id: 'TxtDateOsServie'+ $index(),onblur: 'validate(this,\'lblmsgCaseTreatmentPricingTypeArray'+ $index() +'\')' }, event: { change: $root.ValidateCaseTreatmentPricing },enable: DateOfServiceEnable" />
+                            <span data-bind="attr: { id: 'lblmsgCaseTreatmentPricingTypeArray'+ $index()}" class="warningcustom" style="margin-left: 15px!important; position: absolute !important"></span>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="DidNotAttend" data-bind="attr: { id: 'chkboxDidNotAttend'+ $index(),name:'CaseTreatmentPricings['+ $index() + '].PatientDidNotAttend',value:PatientDidNotAttend },checked:PatientDidNotAttend, event: { change: $root.ValidateCaseTreatmentPricing },enable: PatientDidNotAttendEnable" />
+                            @* <input type="checkbox" data-bind="attr: { name:'CaseTreatmentPricings['+ $index() + '].PatientDidNotAttend',value:PatientDidNotAttend },checked:PatientDidNotAttend, event: { change: $root.ValidateCaseTreatmentPricing },enable: PatientDidNotAttendEnable" />*@
+                            <input required type="text" class="caseDateOfService" data-bind="attr: {value:PatientDidNotAttendDate, name: 'CaseTreatmentPricings['+ $index() +'].PatientDidNotAttendDate',id: 'TxtPatientDidNotAttendDate'+ $index(),onblur: 'validate(this,\'lblmsgCaseTreatmentPricingTypeArray'+ $index() +'\')' }, event: { change: $root.ValidateCaseTreatmentPricing },enable: PatientDidNotAttendDate" disabled />
+                            <span data-bind="attr: { id: 'lblmsgCaseTreatmentPricingTypeArray'+ $index()}" class="warningcustom" style="margin-left: 15px!important; position: absolute !important"></span>
+                        </td>
+                        <td>
+                            <input type="checkbox" data-bind="attr: { name:'CaseTreatmentPricings['+ $index()+'].WasAbandoned',value:WasAbandoned }, event: { change: $root.ValidateCaseTreatmentPricing },checked:WasAbandoned,enable: WasAbandonedEnable" />
+                        </td>
+                        <td>
+                            <label>
+                                <span data-bind="text: SupplierPrice"></span>
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].SupplierPriceID' },value:SupplierPriceID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].SupplierPrice' },value:SupplierPrice" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].ReferrerPrice' },value:ReferrerPrice" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].IsComplete'},value:IsComplete().toString()" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].ReferrerPricingID' },value:ReferrerPricingID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].CaseID' },value:CaseID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].CaseTreatmentPricingID' },value:CaseTreatmentPricingID" />
+                            </label>
+                        </td>
+                    </tr>
+                    <!--/ko-->
+                </table>
+            </div>
+        </div>
+        <div class="its-authorisation-border">
+        </div>
+        <!--/ko-->            
+        <input type="submit" id="btnSave" class="its-savebutton" />       
+    }
+    @using (Html.BeginForm(GlobalConst.Actions.Area.Supplier.FinalAssessment.SaveFinalAssessment, GlobalConst.Controllers.Area.Supplier.FinalAssessment, FormMethod.Post, new
+
+    {
+        @class = "form-horizontal",
+        id = "frmFinalAssessment",
+        encript = "multipart/form-data",
+
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateFinalAssessment(responseText, statusText, xhr, $form); } }"
+    }))
+    {
+        @Html.AntiForgeryToken()
+    
+        <div id="divPricingMatrix">
+            <!--ko if:!CaseBespokeServicePricingsArray().length==0-->
+            <p>
+                <strong>Bespoke Pricing Matrix</strong></p>
+            <br />
+            Please complete the blank fields in the grid below as applicable
+            <div class="ITS-ref-table">
+                <table>
+                    <tr>
+                        <td>
+                            Service Type
+                        </td>
+                        <td>
+                            Date of Service Provided
+                        </td>
+                        <td>
+                            Not Required
+                        </td>
+                        <td>
+                            Did Not Show
+                        </td>
+                        <td>
+                            Price
+                        </td>
+                    </tr>
+                    <!--ko foreach:CaseBespokeServicePricingsArray-->
+                    <tr>
+                        <td>
+                            <label>
+                                <span data-bind="text:BespokeServiceName"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="caseDateOfService" onblur="validate(this,'lblErrorCaseBespokeServicePricingsArray')"  data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() +'].DateOfService' }, event: { change: $root.ValidateCaseBespokeServicePricing },enable:DateOfServiceEnable" />
+                         <span id="lblErrorCaseBespokeServicePricingsArray" class="warningcustom"></span>
+                        </td>
+                        <td>
+                            <input type="checkbox" data-bind="attr: { name:'CaseBespokeServicePricings['+ $index() + '].PatientDidNotAttend',value:PatientDidNotAttend },checked:PatientDidNotAttend, event: { change: $root.ValidateCaseBespokeServicePricing },enable:PatientDidNotAttendEnable" />
+                        </td>
+                        <td>
+                            <input type="checkbox" data-bind="attr: { name:'CaseBespokeServicePricings['+ $index()+'].WasAbandoned',value:WasAbandoned }, event: { change: $root.ValidateCaseBespokeServicePricing },checked:WasAbandoned,enable:WasAbandonedEnable" />
+                        </td>
+                        <td>
+                            <label>
+                                <span data-bind="text: SupplierPrice"></span>
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].SupplierPrice' },value:SupplierPrice" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].ReferrerPrice' },value:ReferrerPrice" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].IsComplete'},value:IsComplete().toString()" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].CaseBespokeServiceID' },value:CaseBespokeServiceID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].CaseID' },value:CaseID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].TreatmentCategoryBespokeServiceID' },value:TreatmentCategoryBespokeServiceID" />
+                            </label>
+                        </td>
+                    </tr>
+                    <!--/ko-->
+                </table>
+            </div>
+             <!--/ko-->   
+        </div>        
+          
+        <!--ko with:Patient-->
+        <div id="divPatientDetail">
+            <p>
+                <strong>Patient Details</strong></p>
+            <div class="row3-label-initial">
+                <ul>
+                    <li>Patient Name:</li>
+                    <li>Date of birth:</li>
+                    <li>Date of referral:</li>
+                </ul>
+            </div>
+            <div class="row3-input-initial">
+                <ul>
+                    <li>
+                        <input data-bind="value:FirstName() +' '+LastName()" readonly /></li>
+                    <li>
+                        <input data-bind="value:$root.BirthDate" readonly /></li>
+                    <li>
+                        <input data-bind="value:$root.CaseSubmittedDate" readonly /></li>
+                </ul>
+            </div>
+            <div class="row3-label-initial">
+                <ul>
+                    <li>Date of accident:</li>
+                    <li>Date of initial assessment:</li>
+                    <li data-bind="visible:$root.Practitioners().length>0?true:false">Practitioners:</li>
+                </ul>
+            </div>
+            <div class="row3-input-initial">
+                <ul>
+                    <li>
+                        <li>
+                            <input data-bind="value:$root.InjuryDate" readonly></li>
+                        <li>
+                            <input name="DateOfInitialAssessment" data-bind="value:$root.DateOfInitialAssessment"
+                                readonly></li>
+                        <li data-bind="visible:$root.Practitioners().length>0?true:false">
+                            <select class="select-full-wd" name="CaseAssessment.CaseAssessmentDetail.PractitionerID" data-bind="options:$root.Practitioners,optionsText:'PractitionerFirstName',optionsValue:'PractitionerID',value:$root.PractitionerID">
+                            </select>
+                        </li>
+                </ul>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <!--/ko-->
+        <div class="its-authorisation-border">
+        </div>
+       
+        <div id="divPatientConsent">
+            <p>
+                <strong>Patient Consent</strong></p>
+            <div class="form-col-1">
+                <p>
+                    <span class="its-required">*</span> Has the patient completed a consent form?</p>
+            </div>
+            <div class="form-col-2">
+                <p>
+                    <span class="pull-right">
+                    <input type="radio" class="its-radiobutton-5" data-bind="attr:{name:'CaseAssessment.HasPatientConsentForm'},checked:HasPatientConsentForm"
+                        value="true" />
+                    Yes
+                    <input class="its-radiobutton-21" type="radio" data-bind="attr:{name:'CaseAssessment.HasPatientConsentForm'},checked:HasPatientConsentForm"
+                        value="false" />
+                    No
+               </span> </p>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="form-col-1">
+                <p>
+                    <span class="its-required">*</span> Are you discharging the patient?</p>
+            </div>
+            <div class="form-col-2">
+                <p>
+                  <span class="pull-right">
+                      <input type="radio" class="its-radiobutton-5" data-bind="attr:{name:'CaseAssessment.IsPatientDischarge'},checked:IsPatientDischarge"
+                        value="true" />
+                    Yes
+                    <input class="its-radiobutton-21" type="radio" data-bind="attr:{name:'CaseAssessment.IsPatientDischarge'},checked:IsPatientDischarge"
+                        value="false" />
+                    No
+                      </span>
+                </p>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="its-authorisation-border">
+        </div>
+             <div id="divInjuryAndSymptomDetail">
+            <p>
+                <strong>Injury and Symptom Details</strong>
+            </p>
+            <p>
+                <span class="its-required">*</span> Please give a brief description of the remaining
+                symptoms
+            </p>
+            <div class="row2-textarea">
+                <textarea class="form-control" name="CaseAssessment.IncidentAndDiagnosisDescription"
+                    data-bind="value:$root.IncidentAndDiagnosisDescription" rows="3"></textarea>
+            </div>
+            <div id="divGridSymptom">
+                <div class="box-2-cols">
+                    <div class="box-2-cols-header">
+                        Remaining Symptoms
+                    </div>
+                    <div class="box-2-col-2">
+                        <p>
+                            <span class="its-required">*</span>Symptom Description
+                        </p>
+                    </div>
+                    <div class="box-2-col-2">
+                        <p>
+                            <span class="its-required">*</span> Pain Score
+                        </p>
+                    </div>
+                    <div class="box-2-col-2">
+                        <p>
+                            <span class="its-required">*</span> Side Affected
+                        </p>
+                    </div>
+                    <div class="box-2-col-2">
+                        <p>
+                            <span class="its-required">*</span> Restriction of Range
+                        </p>
+                    </div>
+
+
+                    <div class="box-2-col-2">
+                        <p>
+                            <span class="its-required">*</span> Strength Testing
+                    &nbsp;
+                        </p>
+                    </div>
+                    <!--ko foreach:$root.CaseAssessmentPatientInjuriesArray-->
+                    <div class="box-2-col-2">
+                        <ul>
+                            <li>
+
+                                <select class="select-full-wd" data-bind="options:$root.SymptomDescriptions,optionsText: 'SymptomDescriptionName',optionsValue:'SymptomDescriptionID',
+                         value:SymptomDescriptionID,attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].SymptomDescriptionID' ,id: 'dropdown_' + $index() },value:SymptomDescriptionID, click :$root.EnableTextBox">
+                                </select>
+                                <input type="text" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].OtherSymptomDesciption' ,id: 'prefix_' + $index() },value: OtherSymptomDesciption" disabled style="width: 160px;" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].OtherSymptomDesciption', id: 'hd_ID' + $index() }, value: OtherSymptomDesciption" style="width: 160px;" />
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="box-2-col-2">
+                        <ul>
+                            <li>
+                                @*<input class="select-full-wd" id="txtPainScore" onblur="checkPainScore()"maxlength="4"
+                        data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].Score' },value: Score" />*@
+                                <select id="DrpPainScore" class="select-full-wd" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].Score' },value: Score">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="box-2-col-2">
+                        <ul>
+                            <li>
+
+                                <select class="select-full-wd" data-bind="options:$root.AffectedAreas,optionsText: 'AffectedAreaDescription',optionsValue:'AffectedAreaID',
+                         value:AffectedAreaID,attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].AffectedAreaID' },value:AffectedAreaID">
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="box-2-col-2">
+                        <ul>
+                            <li>
+
+                                <select class="select-full-wd" data-bind="options:$root.RestrictionRanges,optionsText: 'RestrictionRangeDescription',optionsValue:'RestrictionRangeID',
+                         value:RestrictionRangeID,attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].RestrictionRangeID' },value:RestrictionRangeID">
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="box-2-col-2">
+                        <ul>
+                            <li>
+                                <select class="select-full-wd" data-bind="options:$root.StrengthTestings,optionsText: 'StrengthTestingDescription',optionsValue:'StrengthTestingID',
+                         value:StrengthTestingID,attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].StrengthTestingID' },value:StrengthTestingID ">
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="row box-2-col-6 mrg-t10">
+                        <ul>
+                            <li>
+                                <div class="flot-lft-top">
+                                    <a href="#" data-bind="click:$parent.RemovePatientInjury">Remove</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="clear">
+                    </div>
+                    <input type="hidden" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].CaseAssessmentDetailID' }, value: CaseAssessmentDetailID" />
+                    <input type="hidden" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientInjuries['+ $index() + '].CaseAssessmentPatientInjuryID' }, value: CaseAssessmentPatientInjuryID" />
+                    <!--/ko-->
+                    <div class="clear">
+                    </div>
+                    <div class="add-span">
+                        <p>
+                            <a href="#" data-bind="click: $root.AddMoreInjuryAndSymptoms">(+) Add More</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p>
+                Please detail any neural symptoms present with reference to the symptoms above:
+            </p>
+            <div class="row2-textarea">
+                <textarea rows="50" cols="20" name="CaseAssessment.NeuralSymptomDescription" data-bind="value:$root.NeuralSymptomDescription"></textarea>
+            </div>
+            <div class="row mrg-t-30">
+                <p class="col-md-left">
+                    Please comment on relevant tests undertaken:
+                </p>
+                <p class="col-md-right">
+                    <input type="checkbox" name="NotApplicablesymptomsection" onclick="symptomsectiondescription(this);">Not Applicable</input>
+                </p>
+                <div class="row2-textarea">
+                    <textarea rows="50" cols="20" id="RelevantTestUndertaken" name="CaseAssessment.RelevantTestUndertaken"
+                        data-bind="value:RelevantTestUndertaken"></textarea>
+
+                </div>
+
+                <input type="hidden" id="hdRelevantTestUndertaken" name="CaseAssessment.hdRelevantTestUndertaken" data-bind="value:RelevantTestUndertaken" />
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="its-authorisation-border">
+        </div>
+           
+        <div id="divRemainingImpactonWork">
+            <p>
+                <strong>Remaining Impact on Work</strong></p>
+            <div class="row3-label-initial2">
+                <ul>
+                    <li><span class="its-required">*</span> Patient's occupation:</li>
+                    <li><span class="its-required">*</span>Patient’s role </li>
+                </ul>
+            </div>
+            <div class="row3-input-initial2">
+                <ul>
+                    <li>
+                        <input name="CaseAssessment.PatientOccupation" readonly data-bind="value:PatientOccupation" /></li>
+                    <li>
+                        <select class="select-full-wd" disabled="disabled" data-bind="options:PatientRole,optionsText: 'PatientRoleName',optionsValue:'PatientRoleID', value:PatientRoleID">
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="row3-radio">
+                <p>
+                    <span class="its-required">*</span> Has the patient had any time off work?
+                     <span class="pull-right">
+                    <input type="radio" class="its-radiobutton-5" value="true" data-bind="attr:{name:'CaseAssessment.CaseAssessmentDetail.HasThePatientHadTimeOff'},checked:HasThePatientHadTimeOff" />Yes
+                    <input type="radio" class="its-radiobutton-43" value="false" data-bind="attr:{name:'CaseAssessment.CaseAssessmentDetail.HasThePatientHadTimeOff'},checked:HasThePatientHadTimeOff" />No
+                    <input type="radio" class="its-radiobutton-43" value="*" data-bind="attr:{name:'CaseAssessment.CaseAssessmentDetail.HasThePatientHadTimeOff'},checked:HasThePatientHadTimeOff" />Not
+                    Applicable
+                         </span>
+                </p>
+            </div>
+            <!--ko if:HasThePatientHadTimeOff()=='true'-->
+            <div class="row3-label-initial2">
+                <ul>
+                    <li><span class="its-required">*</span>If so, how long have then been absent?</li>
+                </ul>
+            </div>
+            <div class="row3-input-initial2">
+                <ul>
+                    <li>
+                        <input class="width-set-50" name="CaseAssessment.CaseAssessmentDetail.AbsentPeriod"
+                            data-bind="value: AbsentPeriod" />
+                        <select class="select-half-wd" name="CaseAssessment.CaseAssessmentDetail.AbsentPeriodDurationID" data-bind="options:$root.Duration,optionsText: 'DurationName', optionsValue:'DurationID',value:$root.AbsentPeriodDurationID">
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <!--/ko-->
+            <div class="row3-radio">
+                <p>
+                    <span class="its-required">*</span> Has the patient returned to work?
+                     <span class="pull-right">
+                    <input type="radio" class="its-radiobutton-5" value="true" data-bind="attr:{name:'CaseAssessment.CaseAssessmentDetail.HasThePatientReturnedToWork'},checked:HasThePatientReturnedToWork" />Yes
+                    <input type="radio" class="its-radiobutton-43" value="false" data-bind="attr:{name:'CaseAssessment.CaseAssessmentDetail.HasThePatientReturnedToWork'},checked:HasThePatientReturnedToWork" />No
+                    <input type="radio" class="its-radiobutton-43" value="*" data-bind="attr:{name:'CaseAssessment.CaseAssessmentDetail.HasThePatientReturnedToWork'},checked:HasThePatientReturnedToWork" />Not
+                    Applicable
+                         </span>
+                </p>
+            </div>
+            <div class="spacer-forms">
+            </div>
+            <div class="col-1-radioset">
+                <p>
+                    <span class="its-required">*</span> Please rate the impact of the remaining symptoms
+                    on the patient's work</p>
+            </div>
+            <div class="col-2-radioset">
+                <!--ko foreach:$root.PatientImpactOnWorks-->
+                <div class="radioset1">
+                    <ul>
+                        <li data-bind="text:PatientImpactOnWorkName"></li>
+                    </ul>
+                </div>
+                <div class="radioset2">
+                    <ul>
+                        <li class="text-right">
+                            <input type="radio" class="its-radiobutton" name="CaseAssessment.CaseAssessmentDetail.PatientImpactOnWorkID"
+                                data-bind="checkedValue: PatientImpactOnWorkID,checked:$root.PatientImpactOnWorkID" />
+                        </li>
+                    </ul>
+                </div>
+                <!--/ko-->
+            </div>
+            <div class="clear">
+            </div>
+            <div class="spacer-forms">
+            </div>
+            <div class="col-1-radioset">
+                <p>
+                    <span class="its-required">*</span>At what capacity is the patient working?</p>
+            </div>
+            <div class="col-2-radioset">
+                <!--ko foreach:$root.PatientWorkstatuses-->
+                <div class="radioset1">
+                    <ul>
+                        <li data-bind="text:PatientWorkstatusName"></li>
+                    </ul>
+                </div>
+                <div class="radioset2">
+                    <ul>
+                        <li class="text-right">
+                            <input type="radio" class="its-radiobutton" name="CaseAssessment.CaseAssessmentDetail.PatientWorkstatusID"
+                                data-bind="checkedValue: PatientWorkstatusID,checked:$root.PatientWorkstatusID" />
+                    </ul>
+                </div>
+                <!--/ko-->
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="its-authorisation-border">
+        </div>
+         
+        <div id="divRemainingImpactonLifestyle">
+            <p>
+                <strong>Remaining Impact on Lifestyle</strong></p>
+            <!--ko foreach:$root.CaseAssessmentPatientImpacts-->
+            <div class="box-radio-placeholder">
+                <div class="col-1-radioset">
+                    <p>
+                        <span class="its-required">*</span> <strong data-bind=" text:PatientImpactName">
+                        </strong>
+                    </p>
+                </div>
+                <div class="col-2-radioset">
+                    <!--ko foreach:$root.PatientImpactValues-->
+                    <div class="radioset1">
+                        <ul>
+                            <li data-bind="text:PatientImpactValueName"><span data-bind=" text:PatientImpactValueID">
+                            </span></li>
+                        </ul>
+                    </div>
+                    <div class="radioset2">
+                        <ul>
+                            <li class="text-right">
+                                <input type="radio" class="its-radiobutton" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientImpacts['+ $parentContext.$index()  + '].PatientImpactValueID'  },checkedValue:PatientImpactValueID,checked:$parent.PatientImpactValueID" />
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/ko-->
+                    <input type="hidden" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientImpacts['+ $index() + '].CaseAssessmentPatientImpactID' }, value: CaseAssessmentPatientImpactID" />
+                    <input type="hidden" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientImpacts['+ $index() + '].PatientImpactID' }, value: PatientImpactID" />
+                    <input type="hidden" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientImpacts['+ $index() + '].CaseAssessmentDetailID' }, value: CaseAssessmentDetailID" />
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <p>
+                <strong>Comment</strong></p>
+            <div class="row2-textarea">
+                <textarea rows="30" cols="20" style="height: 100px;" data-bind="attr: { name: 'CaseAssessment.CaseAssessmentPatientImpacts['+ $index() + '].Comment' }, value:($root.AssessmentServiceID()=='1') ? '' : Comment "></textarea>
+            </div>
+            <div class="spacer-forms">
+            </div>
+            <!--/ko-->
+        </div>
+        <div class="its-authorisation-border">
+        </div>
+       
+        <div id="divTreatmentRecommendation">
+            <p>
+                <strong>Treatment Details</strong></p>
+            <div class="row3-label-initial2">
+                <ul>
+                    <li><span class="its-required">*</span> How many sessions has the patient attended?
+                        Please include assessment sessions</li>
+                    <li><span class="its-required">*</span> What were the dates of the attended sessions?</li>
+                    <li><span class="its-required">*</span> How many sessions has the patient failed to
+                        attend?</li>
+                </ul>
+            </div>
+            <div class="row3-input-initial2">
+                <ul>
+                    <li>
+                        <input id="sessionattended" onkeypress="return onlyNos(event,this);"  name="CaseAssessment.CaseAssessmentDetail.SessionsPatientAttended"
+                            data-bind="value: SessionsPatientAttended" /></li>
+                    <li>
+                        <input  name="CaseAssessment.CaseAssessmentDetail.DatesOfSessionAttended" data-bind="value: DatesOfSessionAttended" /></li>
+                    <li>
+                        <input id="sessionfailedtoattend" onkeypress="return onlyNos(event,this);"  name="CaseAssessment.CaseAssessmentDetail.SessionsPatientFailedToAttend"
+                            data-bind="value: SessionsPatientFailedToAttend" /></li>
+                </ul>
+            </div>
+            <div class="col-1-radioset">
+                <p>
+                    <span class="its-required">*</span> What level of recovery has the patient made
+                    following treatment?”</p>
+            </div>
+            <div class="col-2-radioset">
+                <!--ko foreach:$root.PatientLevelOfRecoveries-->
+                <div class="radioset1">
+                    <ul>
+                        <li data-bind="text:PatientLevelOfRecoveryName"></li>
+                    </ul>
+                </div>
+                <div class="radioset2">
+                    <ul>
+                        <li class="text-right">
+                            <input type="radio" class="its-radiobutton" name="CaseAssessment.CaseAssessmentDetail.PatientLevelOfRecoveryID"
+                                data-bind="checkedValue: PatientLevelOfRecoveryID , checked:$root.PatientLevelOfRecoveryID" />
+                        </li>
+                    </ul>
+                </div>
+                <!--/ko-->
+            </div>
+            <div class="clear">
+            </div>
+            <div class="row3-radio">
+                <p>
+                    <span class="its-required">*</span> Has the patient complied with their home exercise
+                    programme?
+                     <span class="pull-right">
+                    <input type="radio" name="CaseAssessment.CaseAssessmentDetail.HasCompliedHomeExerciseProgramme"
+                        class="its-radiobutton-5" value="true" data-bind="checked:$root.HasCompliedHomeExerciseProgramme" />Yes
+                    <input type="radio" name="CaseAssessment.CaseAssessmentDetail.HasCompliedHomeExerciseProgramme"
+                        class="its-radiobutton-43" value="false" data-bind="checked:$root.HasCompliedHomeExerciseProgramme" />No
+                    <input type="radio" name="CaseAssessment.CaseAssessmentDetail.HasCompliedHomeExerciseProgramme"
+                        class="its-radiobutton-43" value="nullable" data-bind="checked:$root.HasCompliedHomeExerciseProgramme" />Not
+                    Applicable
+                         </span>
+                </p>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="its-authorisation-border">
+        </div>
+        
+        
+        <!--ko if: IsPatientDischarge() !='true'  -->
+        <div id="divFutherTreatment">
+            <p>
+                <strong>Further Treatment</strong></p>
+            <div class="row3-radio">
+                <p>
+                    <span class="its-required">*</span> Do you recommend any further treatment?
+                   <span class="pull-right">
+                     <input type="radio" class="its-radiobutton-5" value="true" data-bind="attr:{name:'CaseAssessment.CaseAssessmentDetail.IsFurtherTreatmentRecommended'},checked:IsFurtherTreatmentRecommended" />Yes
+                    <input type="radio" class="its-radiobutton-73" value="false" data-bind="attr:{name:'CaseAssessment.CaseAssessmentDetail.IsFurtherTreatmentRecommended'},checked:IsFurtherTreatmentRecommended" />No
+                </span>
+                       </p>
+            </div>
+            <!--ko if: IsFurtherTreatmentRecommended() == 'true'  -->
+            <div class="row3-label-initial2">
+                <ul>
+                    <li><span class="its-required">*</span> If so, how many further sessions do you recommend?</li>
+                    <li><span class="its-required">*</span> Please Describe the Treatment Sessions that
+                        you recommend?</li>
+                </ul>
+            </div>
+            <div class="row3-input-initial2">
+                <ul>
+                    <li>
+                        <input name="CaseAssessment.CaseAssessmentDetail.PatientRecommendedTreatmentSessions"
+                            data-bind="value:PatientRecommendedTreatmentSessions" />
+                        <textarea rows="3" name="CaseAssessment.CaseAssessmentDetail.PatientRecommendedTreatmentSessionsDetail"
+                            data-bind="value:PatientRecommendedTreatmentSessionsDetail"></textarea>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
+            <!--/ko-->
+            <div class="row3-label-initial2">
+                <ul>
+                    <li><span class="its-required">*</span> Over what period should these be carried out?</li>
+                </ul>
+            </div>
+            <div class="row3-input-initial2">
+                <ul>
+                    <li>
+                        <input class="width-set-50" name="CaseAssessment.CaseAssessmentDetail.PatientTreatmentPeriod"
+                            data-bind="value:PatientTreatmentPeriod" />
+                        <select class="select-half-wd" data-bind="options:$root.Duration,optionsText: 'DurationName', optionsValue:'DurationID',value:PatientTreatmentPeriodDurationID">
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-1-radioset">
+                <p>
+                    <span class="its-required">*</span> What level of recovery do you anticipate the
+                    patient will make following this additional treatment?</p>
+            </div>
+            <div class="col-2-radioset">
+                <!--ko foreach:$root.PatientLevelOfRecoveries-->
+                <div class="radioset1">
+                    <ul>
+                        <li data-bind="text:PatientLevelOfRecoveryName"></li>
+                    </ul>
+                </div>
+                <div class="radioset2">
+                    <ul>
+                        <li class="text-right">
+                            <input type="radio" class="its-radiobutton" name="CaseAssessment.CaseAssessmentDetail.FollowingTreatmentPatientLevelOfRecoveryID"
+                                data-bind="attr:{value: PatientLevelOfRecoveryID},checked:$root.FollowingTreatmentPatientLevelOfRecoveryID" />
+                        </li>
+                    </ul>
+                </div>
+                <!--/ko-->
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="its-authorisation-border">
+        </div>
+        <!--/ko-->
+        <div id="divAdditionalInformation">
+            <p>
+                <strong>Additional Information</strong></p>
+            <p>
+                Please provide any relevant additional information</p>
+            <div class="row2-textarea">
+                <textarea rows="50" cols="20" name="CaseAssessment.CaseAssessmentDetail.AdditionalInformation"
+                    data-bind="value:$root.AdditionalInformation"></textarea>
+            </div>
+            <div class="its-authorisation-border">
+            </div>
+            <div data-bind="visible:IsAccepted()==false">
+                <p>
+                    <strong>Message to Supplier</strong></p>
+                <div class="row2-textarea">
+                    <div class="supplier-message">
+                        <p data-bind="text:DeniedMessage">
+                            &nbsp;</p>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="its-authorisation-border">
+                </div>
+            </div>
+        </div>
+        <!--ko with:CaseAssessment -->
+        <div id="divhiddenfields">
+            <input type="hidden" name="CaseAssessment.PatientRoleID" data-bind="value:PatientRoleID" />
+            <input type="hidden" name="CaseAssessment.AssessmentAuthorisationID" data-bind="value:AssessmentAuthorisationID" />
+            <input type="hidden" data-bind="value:CaseAssessmentDetail.CaseAssessmentDetailID"
+                name="CaseAssessment.CaseAssessmentDetail.CaseAssessmentDetailID" />
+            <input type="hidden" data-bind="value:CaseAssessmentDetail.AssessmentServiceID" name="CaseAssessment.CaseAssessmentDetail.AssessmentServiceID" />
+            <input type="hidden" data-bind="value:CaseAssessmentDetail.CaseID" name="CaseAssessment.CaseAssessmentDetail.CaseID" />
+            <input type="hidden" data-bind="value:CaseAssessmentDetail.AbsentDetail " name="CaseAssessment.CaseAssessmentDetail.AbsentDetail" />
+            <input type="hidden" data-bind="value:CaseAssessmentDetail.HasCompliedHomeExerciseProgramme"
+                name="CaseAssessment.CaseAssessmentDetail.HasCompliedHomeExerciseProgramme" />
+            <input type="hidden" data-bind="value:CaseID" name="CaseAssessment.CaseID" />
+            <input type="hidden" data-bind="value:AssessmentServiceID" name="CaseAssessment.AssessmentServiceID" />
+            <input type="hidden" data-bind="value:CaseAssessmentDetail.PatientTreatmentPeriodDetail"
+                name="CaseAssessment.CaseAssessmentDetail.PatientTreatmentPeriodDetail" />
+            <input type="hidden" data-bind="value:CaseAssessmentDetail.PatientTreatmentPeriodDurationID"
+                name="CaseAssessment.CaseAssessmentDetail.PatientTreatmentPeriodDurationID" />
+            <input type="hidden" data-bind="value:PreExistingConditionDescription" name="CaseAssessment.PreExistingConditionDescription" />
+            <input type="hidden" data-bind="value:IsPatientUndergoingTreatment" name="CaseAssessment.IsPatientUndergoingTreatment" />
+            <input type="hidden" data-bind="value:IsPatientTakingMedication" name="CaseAssessment.IsPatientTakingMedication" />
+            <input type="hidden" data-bind="value:PatientRequiresFurtherInvestigation" name="CaseAssessment.PatientRequiresFurtherInvestigation" />
+            <input type="hidden" data-bind="value:FactorsAffectingTreatmentDescription" name="CaseAssessment.FactorsAffectingTreatmentDescription" />
+            <input type="hidden" data-bind="value:WasPatientWorkingAtTheTimeOfTheAccident" name="CaseAssessment.WasPatientWorkingAtTheTimeOfTheAccident" />
+            <input type="hidden" data-bind="value:IsPatientSufferingFinancialLoss" name="CaseAssessment.IsPatientSufferingFinancialLoss" />
+            <input type="hidden" data-bind="value:HasPatientPastSymptoms" name="CaseAssessment.HasPatientPastSymptoms" />
+            <input type="hidden" data-bind="value:AuthorisationDetail" name="CaseAssessment.AuthorisationDetail" />
+            <input type="hidden" data-bind="value:IsAccepted " name="CaseAssessment.IsAccepted" />
+            <input type="hidden" data-bind="value:DeniedMessage " name="CaseAssessment.DeniedMessage" />
+            <input type="hidden" data-bind="value:HasYellowFlags" name="CaseAssessment.HasYellowFlags" />
+            <input type="hidden" data-bind="value:HasRedFlags" name="CaseAssessment.HasRedFlags" />
+            <input type="hidden" data-bind="value:CaseAssessmentRating.CaseAssessmentRatingID"
+                name="CaseAssessment.CaseAssessmentRating.CaseAssessmentRatingID" />
+            <input type="hidden" data-bind="value:CaseAssessmentRating.CaseID" name="CaseAssessment.CaseAssessmentRating.CaseID" />
+            <input type="hidden" data-bind="value:CaseAssessmentRating.AssessmentServiceID" name="CaseAssessment.CaseAssessmentRating.AssessmentServiceID" />
+            <input type="hidden" data-bind="value:CaseAssessmentRating.Rating" name="CaseAssessment.CaseAssessmentRating.Rating" />
+            <input type="hidden" data-bind="value:HasPatientHomeExerciseProgramme" name="CaseAssessment.HasPatientHomeExerciseProgramme" />
+            <input type="hidden" data-bind="value:$root.AnticipatedDateOfDischarge" name="CaseAssessment.AnticipatedDateOfDischarge" />
+        </div>
+        <!--/ko-->
+        <div class="its-authorisation-row6">
+            <div id="divGridDisplaySpinner" style="position: fixed; top: 50%; left: 50%">
+            </div>
+            <p>
+                <input type="submit" class="its-printbutton" data-bind="click:PrintPrintReviewAssessment" />
+                <input type="button" id="btnSubmit" class="its-submitbutton" data-bind="click:Submitform" disabled />
+                <input type="button" id="btnSave2" class="its-savebutton" data-bind="click:Saveform" />
+                <input type="button" class="its-closebutton" data-bind="click:Close" />
+            </p>
+        </div>  
+        <div class="clear">
+        </div>
+    }
+</div>

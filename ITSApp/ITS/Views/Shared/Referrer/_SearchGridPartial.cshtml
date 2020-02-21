@@ -1,0 +1,37 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Referrer Name
+            </th>
+            <th>
+                Referrer Main Contact Phone
+            </th>
+            <th>
+                Main Location Name
+            </th>
+            <th>
+                Main Location City
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:Referrers">
+        <tr>
+            <td>
+                <a role="button" data-toggle="modal" data-bind="attr: { href: '/Referrer/Detail/' + EncryptedReferrerID() }">
+                    View</a>
+            </td>
+            <td data-bind="text:ReferrerName">
+            </td>
+            <td data-bind="text:ReferrerMainContactPhone">
+            </td>
+            <td data-bind="text:Name">
+            </td>
+            <td data-bind="text:City">
+            </td>
+        </tr>
+    </tbody>
+</table>

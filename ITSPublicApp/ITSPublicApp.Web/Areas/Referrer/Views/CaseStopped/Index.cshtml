@@ -1,0 +1,56 @@
+﻿@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "Case Stopped";
+    Layout = "~/Areas/Referrer/Views/Shared/_LayoutForm.cshtml";
+}
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/referrer/CaseStoppedViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/knockout.validation.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var caseStoppedViewModel = new CaseStoppedViewModel();
+    $(function () {
+        ko.applyBindings(caseStoppedViewModel, $("#CaseCloseDiv").get(0));
+           caseStoppedViewModel.Init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model)));
+    });
+
+</script>
+@section SubHeader{
+    <p>
+        <span class="its-pwelcome">Case Closed</span>
+    </p>
+}
+<div id="CaseCloseDiv">
+ <div id="divGridDisplaySpinner" style="position:absolute;top:50%;left:50%">
+        <div id="divGridDisplay">
+        </div>
+    </div>
+    <div class="sub-head-link">
+        <p>
+           <!--ko if:IsCustom -->
+           <a  data-bind="attr : { 'href':DownloadPath()}">View Assessment</a>
+           <!--/ko -->
+           <!--ko ifnot:IsCustom-->
+           <a href="#"  data-bind="click:ViewAssessment">View Assessment</a>
+           <!--/ko -->
+            
+        </p>
+    </div>
+  
+    <div class="modification-container">
+      <p style="margin-bottom:14Px;">
+    Are you sure you want to close the case ? 
+    </p>
+ 
+        <p>
+            Reason Case Closed:</p>
+        <textarea rows="50" cols="20" data-bind="value:authorisationDeniedMsg"></textarea>
+    </div>
+    <div class="its-authorisation-row6">
+        <p>
+            <input type="submit" class="its-submitbutton" data-bind="click:SubmitClick" /></p>
+    </div>
+    <div class="clear">
+    </div>
+</div>

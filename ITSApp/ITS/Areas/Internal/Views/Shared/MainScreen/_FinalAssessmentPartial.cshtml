@@ -1,0 +1,49 @@
+﻿<div id="divFinalAssessment">
+    <div id="final-Qa-rep">
+        <div class="finl-qa-rep-hedng">
+            Final Assessment Report QA
+        </div>
+        <div class="clear">
+        </div>
+        <div id="final-grid-outer">
+            <div class="heading" style="width: 153.3px;">
+                Due Date</div>
+            <div class="heading" style="width: 153.3px;">
+                Date Received</div>
+            <div class="heading" style="width: 153.3px;">
+                Case Number</div>
+            <div class="heading" style="width: 153.3px;">
+                Patient Name</div>
+            <div class="heading" style="width: 153.3px;">
+                Referrer Reference Numbere</div>
+            <div class="heading" style="width: 141.3px;">
+                Treatment Type</div>
+            <div data-bind="template:{name:'finalAssessmentGrid',foreach: FinalAssessments}">
+            </div>
+        </div>
+    </div>
+</div>
+<script id="finalAssessmentGrid" type="text/html">
+<div class="clear">
+                </div>
+                <div class="row" style="width: 153.3px;">
+                    <span data-bind="text:CaseDueDate"></span>
+                </div>
+                <div class="row" style="width: 153.3px;">
+                    <span data-bind="text:CaseSubmittedDate"></span>
+                </div>
+                <div class="row" style="width: 153.3px;">
+                    <a href="#"><span data-bind="text:CaseNumber"></span></a>
+                </div>
+                <div class="row" style="width: 153.3px;">
+                    <span data-bind="text:FullName"></span>
+                </div>
+                <div class="row" style="width: 153.3px;">
+                    <span data-bind="text:CaseReferrerReferenceNumber"></span>
+                </div>
+                <div class="row" style="width: 141.3px;">
+                    <span data-bind="text:TreatmentTypeName()"></span>
+                </div>
+
+</script>
+@Html.Partial("~/Views/Shared/_Paging.cshtml")

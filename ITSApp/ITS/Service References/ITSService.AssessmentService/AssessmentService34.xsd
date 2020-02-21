@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ITSService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CaseAssessmentRating">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssessmentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="CaseAssessmentRatingID" type="xs:int" />
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="Rating" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RatingDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseAssessmentRating" nillable="true" type="tns:CaseAssessmentRating" />
+  <xs:complexType name="CaseAssessment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AbsentDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdditionalInformation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AnticipatedDateOfDischarge" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AssessmentAuthorisationID" type="xs:int" />
+      <xs:element minOccurs="0" name="AssessmentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AssessmentServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="AuthorisationModification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseAssessmentPatientImpacts" nillable="true" type="tns:ArrayOfCaseAssessmentPatientImpact" />
+      <xs:element minOccurs="0" name="CaseAssessmentPatientInjuries" nillable="true" type="tns:ArrayOfCaseAssessmentPatientInjury" />
+      <xs:element minOccurs="0" name="CaseAssessmentRating" nillable="true" type="tns:CaseAssessmentRating" />
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="FactorsAffectingTreatmentDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinalAssessmentDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HasPatientConsentForm" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasPatientHomeExerciseProgramme" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasPatientPastSymptoms" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasThePatientHadTimeOff" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasThePatientReturnedToWork" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IncidentAndDiagnosisDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPatientDischarge" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPatientSufferingFinancialLoss" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPatientTakingMedication" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPatientUndergoingTreatment" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NeuralSymptomDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientImpactOnWorkID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientLevelOfRecoveryID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientOccupation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientRecommendedTreatmentSessions" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientRecoveryPercentage" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PatientRequiresFurtherInvestigation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PatientRole" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientTreatmentPeriod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientWorkstatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreExistingConditionDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProposedTreatmentMethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="PsychologicalFactorID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="WasPatientWorkingAtTheTimeOfTheAccident" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseAssessment" nillable="true" type="tns:CaseAssessment" />
+  <xs:complexType name="ArrayOfCaseAssessmentPatientImpact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaseAssessmentPatientImpact" nillable="true" type="tns:CaseAssessmentPatientImpact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaseAssessmentPatientImpact" nillable="true" type="tns:ArrayOfCaseAssessmentPatientImpact" />
+  <xs:complexType name="CaseAssessmentPatientImpact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseAssessmentPatientImpactID" type="xs:int" />
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientImpactID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientImpactValueID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseAssessmentPatientImpact" nillable="true" type="tns:CaseAssessmentPatientImpact" />
+  <xs:complexType name="ArrayOfCaseAssessmentPatientInjury">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaseAssessmentPatientInjury" nillable="true" type="tns:CaseAssessmentPatientInjury" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaseAssessmentPatientInjury" nillable="true" type="tns:ArrayOfCaseAssessmentPatientInjury" />
+  <xs:complexType name="CaseAssessmentPatientInjury">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AffectedArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseAssessmentPatientInjuryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="PainScore" type="xs:int" />
+      <xs:element minOccurs="0" name="RestrictionPercentage" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseAssessmentPatientInjury" nillable="true" type="tns:CaseAssessmentPatientInjury" />
+  <xs:complexType name="ArrayOfPatientImpact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientImpact" nillable="true" type="tns:PatientImpact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientImpact" nillable="true" type="tns:ArrayOfPatientImpact" />
+  <xs:complexType name="PatientImpact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatientImpactID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientImpactName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientImpact" nillable="true" type="tns:PatientImpact" />
+  <xs:complexType name="ArrayOfPatientImpactValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientImpactValue" nillable="true" type="tns:PatientImpactValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientImpactValue" nillable="true" type="tns:ArrayOfPatientImpactValue" />
+  <xs:complexType name="PatientImpactValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatientImpactValueID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientImpactValueName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientImpactValue" nillable="true" type="tns:PatientImpactValue" />
+  <xs:complexType name="ArrayOfPatientWorkstatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientWorkstatus" nillable="true" type="tns:PatientWorkstatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientWorkstatus" nillable="true" type="tns:ArrayOfPatientWorkstatus" />
+  <xs:complexType name="PatientWorkstatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatientWorkstatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientWorkstatusName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientWorkstatus" nillable="true" type="tns:PatientWorkstatus" />
+  <xs:complexType name="ArrayOfPsychologicalFactor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PsychologicalFactor" nillable="true" type="tns:PsychologicalFactor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPsychologicalFactor" nillable="true" type="tns:ArrayOfPsychologicalFactor" />
+  <xs:complexType name="PsychologicalFactor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PsychologicalFactorID" type="xs:int" />
+      <xs:element minOccurs="0" name="PsychologicalFactorName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PsychologicalFactor" nillable="true" type="tns:PsychologicalFactor" />
+  <xs:complexType name="ArrayOfPatientImpactOnWork">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientImpactOnWork" nillable="true" type="tns:PatientImpactOnWork" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientImpactOnWork" nillable="true" type="tns:ArrayOfPatientImpactOnWork" />
+  <xs:complexType name="PatientImpactOnWork">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatientImpactOnWorkID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientImpactOnWorkName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientImpactOnWork" nillable="true" type="tns:PatientImpactOnWork" />
+  <xs:complexType name="ArrayOfPatientLevelOfRecovery">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientLevelOfRecovery" nillable="true" type="tns:PatientLevelOfRecovery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientLevelOfRecovery" nillable="true" type="tns:ArrayOfPatientLevelOfRecovery" />
+  <xs:complexType name="PatientLevelOfRecovery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatientLevelOfRecoveryID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientLevelOfRecoveryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientLevelOfRecovery" nillable="true" type="tns:PatientLevelOfRecovery" />
+  <xs:complexType name="ArrayOfProposedTreatmentMethod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProposedTreatmentMethod" nillable="true" type="tns:ProposedTreatmentMethod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProposedTreatmentMethod" nillable="true" type="tns:ArrayOfProposedTreatmentMethod" />
+  <xs:complexType name="ProposedTreatmentMethod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProposedTreatmentMethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProposedTreatmentMethodName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProposedTreatmentMethod" nillable="true" type="tns:ProposedTreatmentMethod" />
+  <xs:complexType name="CaseTreatmentPricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="CaseTreatmentPricingID" type="xs:int" />
+      <xs:element minOccurs="0" name="DateOfService" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsComplete" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PatientDidNotAttend" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ReferrerPricingID" type="xs:int" />
+      <xs:element minOccurs="0" name="WasAbandoned" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseTreatmentPricing" nillable="true" type="tns:CaseTreatmentPricing" />
+  <xs:complexType name="ArrayOfCaseTreatmentPricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaseTreatmentPricing" nillable="true" type="tns:CaseTreatmentPricing" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaseTreatmentPricing" nillable="true" type="tns:ArrayOfCaseTreatmentPricing" />
+  <xs:complexType name="ArrayOfTreatmentCategoryBespokeService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentCategoryBespokeService" nillable="true" type="tns:TreatmentCategoryBespokeService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentCategoryBespokeService" nillable="true" type="tns:ArrayOfTreatmentCategoryBespokeService" />
+  <xs:complexType name="TreatmentCategoryBespokeService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BespokeServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryBespokeServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentCategoryBespokeService" nillable="true" type="tns:TreatmentCategoryBespokeService" />
+  <xs:complexType name="ArrayOfTreatmentCategoriesBespokeService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentCategoriesBespokeService" nillable="true" type="tns:TreatmentCategoriesBespokeService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentCategoriesBespokeService" nillable="true" type="tns:ArrayOfTreatmentCategoriesBespokeService" />
+  <xs:complexType name="TreatmentCategoriesBespokeService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BespokeServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="BespokeServiceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreatmentCategoryBespokeServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentCategoriesBespokeService" nillable="true" type="tns:TreatmentCategoriesBespokeService" />
+  <xs:complexType name="CaseBespokeServicePricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseBespokeServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="DateOfService" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsComplete" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PatientDidNotAttend" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReferrerPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SupplierPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TreatmentCategoryBespokeServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="WasAbandoned" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseBespokeServicePricing" nillable="true" type="tns:CaseBespokeServicePricing" />
+  <xs:complexType name="ArrayOfCaseBespokeServicePricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaseBespokeServicePricing" nillable="true" type="tns:CaseBespokeServicePricing" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaseBespokeServicePricing" nillable="true" type="tns:ArrayOfCaseBespokeServicePricing" />
+</xs:schema>

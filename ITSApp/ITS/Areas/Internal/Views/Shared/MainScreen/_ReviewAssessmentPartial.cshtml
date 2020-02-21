@@ -1,0 +1,76 @@
+﻿@*
+
+  Page Name: ReviewAssessmentPartial.cshtml                   
+  Version:  1.0                                                
+  Purpose:  Created ReviewAssessmentPartial View 
+  Revision History:                                          
+                                                             
+    1.0 – 10/31/2012 Robin Singh   
+
+ * Description : Created ReviewAssessmentPartial View 
+
+*@
+<div class="ReviewAssessment-Main" id="divReviewAssessmentQAMain">
+    <div class="header">
+        <span>&nbsp &nbsp&nbsp&nbsp Review Assessment Report QA</span>
+    </div>
+    <div class="divAssessmentGridRow">
+        <div class="divAssessmentGridColumn" style="width: 120px">
+            Due Date
+        </div>
+        <div class="divAssessmentGridColumn" style="width: 120px">
+            Date Received
+        </div>
+        <div class="divAssessmentGridColumn" style="width: 200px">
+            Case Number
+        </div>
+        <div class="divAssessmentGridColumn" style="width: 120px">
+            Patient Name
+        </div>
+        <div class="divAssessmentGridColumn" style="width: 170px">
+            Referrer Reference Number
+        </div>
+        <div class="divAssessmentGridColumn" style="width: 120px">
+            Treatment Type
+        </div>
+        <div class="divAssessmentGridColumn" style="width: 120px">
+            Referrer
+        </div>
+    </div>
+    <div class="divAssessmentGridRow">
+        <div data-bind="template: {name:'ReviewAssessmentGrid',foreach:ReviewAssessments}">
+        </div>
+    </div>
+   
+
+    <script id="ReviewAssessmentGrid" type="text/html">
+    <div class="divAssessmentDataGridColumn" style="width: 120px">
+        <span data-bind="text:CaseReferrerDueDate"></span>
+    </div>
+    <div class="divAssessmentDataGridColumn" style="width: 120px">
+        <span data-bind="text:CaseSubmittedDate"></span>
+    </div>
+    <div class="divAssessmentDataGridColumn" style="width: 200px">
+        <input type="hidden" data-bind="value:CaseID" />
+        <a href="javascript:(void)" data-bind="text:CaseNumber, click:$root.CaseNumberClick"
+            id="CaseNumberAnchor"></a>
+    </div>
+    <div class="divAssessmentDataGridColumn" style="width: 120px">
+        <span data-bind="text:PatientName"></span>
+    </div>
+    <div class="divAssessmentDataGridColumn" style="width: 170px">
+        <span data-bind="text:CaseReferrerReferenceNumber"></span>
+    </div>
+    <div class="divAssessmentDataGridColumn" style="width: 120px">
+        <span data-bind="text:TreatmentTypeName"></span>
+    </div>
+    <div class="divAssessmentDataGridColumn" style="width: 120px">
+        <span data-bind="text:ReferrerName"></span>
+    </div>
+    </script>
+    
+</div>
+ @Html.Partial("~/Views/Shared/_Paging.cshtml")
+        <div id="ReviewAssessmentQAScreenPopUp">
+@*@Html.Partial("~/Area/Internal/Views/Shared/InternalTask/_ReviewAssessmentQAScreenPartial.cshtml");*@
+</div>

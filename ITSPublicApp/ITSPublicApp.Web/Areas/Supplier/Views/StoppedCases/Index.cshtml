@@ -1,0 +1,92 @@
+﻿@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "Stopped Cases";
+}
+@section SupplierMainTabs
+{
+    
+}
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/StoppedCasesViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<script>
+    var config = {
+        NoStoppedCasesFound: '@ITSPublicApp.Infrastructure.Global.GlobalResource.NoStoppedCasesFound'
+    };
+
+    $(function () {
+          
+        var vm = new StoppedCasesViewModel(config);
+        ko.applyBindings(vm, $("#DivGridStopedCases").get(0));
+        vm.init();
+        //ko.applyBindings(stoppedCasesViewModel);
+        //stoppedCasesViewModel.init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model)));
+
+       
+    });
+</script>
+<div id="DivGridStopedCases">
+<div id="pettabs" class="indentmenu-2">
+        <ul>
+            <li>@Html.ActionLink("NEW PATIENTS", "Index", "NewPatients")  <span data-bind="text:NewPatientCount" id="NewPatientCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("EXISTING PATIENTS INITIAL ASSESSMENT", "Index", "ExistingPatientsInitialAssessment")  <span id="ExistingPatientsInitialAssessmentCount" data-bind="text:ExistingPatientsInitialAssessmentCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("EXISTING PATIENTS NEXT ASSESSMENT", "Index", "ExistingPatientsNextAssessment") <span data-bind="text:ExistingPatientsNextAssessmentCount" id="ExistingPatientsNextAssessmentCount" class="icon-bg"> </span> </li>
+            <li>@Html.ActionLink("AUTHORISATION", "Index", "Authorisation")  <span data-bind="text:AuthorisationCount" id="AuthorisationCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("STOPPED CASES", "Index", "StoppedCases", null, new { @class = "selected" }) <span data-bind="text:StoppedCaseCount" id="StoppedCaseCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("CASE SEARCH", "Index", "CaseSearch") <span class="icon-bg-1" > </span></li>
+        </ul>
+        <br style="clear: left" />
+    </div>
+<div id="divGridDisplaySpinner" style="position: absolute; top: 50%; left: 50%">
+    <div id="divGridDisplay">
+    </div>
+</div>
+<div class="ITS-ref-table">
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    View Attachment
+                </td>
+                <td>
+                    Patient Name
+                </td>
+                <td>
+                    Case Number
+                </td>
+                <td>
+                    Current Status
+                </td>
+                <td>
+                   Next Status
+                </td>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:SupplierCasePatients">
+            <tr>
+                <td>
+                
+                    <!--ko if:IsFileExist-->
+                   <a  data-bind="attr: { href: ReferralDownloadPath }">View</a>
+                       <!--/ko-->
+                </td>
+                <td data-bind="text:Fullname">
+                </td>
+                <td>
+                    <a data-bind="attr:{href:'StoppedCases/StoppedCaseScreen/'+ EncryptedCaseID}">
+                    <span data-bind="text:CaseNumber">
+                    </span></a>
+                </td>
+                <td data-bind="text:Status">
+                </td>
+                <td data-bind="text:NextStatus">
+                  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="message-div" data-bind="text:Message">
+
+</div>
+    </div>

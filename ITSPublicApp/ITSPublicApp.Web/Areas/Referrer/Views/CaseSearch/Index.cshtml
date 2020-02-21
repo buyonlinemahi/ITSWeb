@@ -1,0 +1,192 @@
+﻿@using ITSPublicApp.Infrastructure.Global
+@using System.Web.Script.Serialization
+@model ITSPublicApp.Domain.ViewModels.PagedReferrerSupplierCaseSearch
+@{
+    ViewBag.Title = "Case Search";
+    Layout = "../Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+<script src="@Url.Content("~/Scripts/knockout.validation.js")"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/referrer/CaseSearchViewModel.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/Jquery-ui.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/CaseSearch.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/kopaging.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/knockout.mapping.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var caseSearchViewModel = new CaseSearchViewModel();
+    $(function () {
+        ko.applyBindings(caseSearchViewModel, $("#ReferrerCaseMainDiv").get(0));
+    });
+   
+
+</script>
+<div id="pettabs" class="indentmenu">
+    <ul>
+        <li>@Html.ActionLink("VIEW RESULTS / REPORTS", "Index", "Home", new { Area = GlobalConst.Areas.Referrer }, null)</li>
+        <li>@Html.ActionLink("ADD REFERRAL", null, "AddReferral", new { Area = GlobalConst.Areas.Referrer }, null)</li>
+        <li>@Html.ActionLink("CASE SEARCH", null, "CaseSearch", new { Area = GlobalConst.Areas.Referrer }, new { @class = "selected" })</li>
+    </ul>
+    <br style="clear: left" />
+</div>
+<div id="divGridDisplaySpinner" style="position: absolute; top: 50%; left: 50%">
+    <div id="divGridDisplay">
+    </div>
+</div>
+<div id="ReferrerCaseMainDiv" style="padding-bottom: 75px;">
+    @using (Html.BeginForm(GlobalConst.Actions.Area.Referrer.CaseSearch.Search, GlobalConst.Controllers.Area.Referrer.ReferrerCaseSearch,
+          FormMethod.Post, new
+            {
+                id = "ReferrerCaseSearchForm",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ ReferrerCaseSearchFormSuccess(responseText, statusText, xhr, $form);}, beforeSubmit: CaseSearchFormBeforeSubmit}"
+            }))
+    {
+        <div id="ReferrerCaseOuter">
+            <div class="CaseArea">
+                <div>
+                    <div class="SearchCretaria" data-bind="foreach:SearchCritarias">
+                        <input type="radio" name="CaseSearchCriteria.SearchCriteria" data-bind="attr: {value:SearchCategoryID},checked:$parent.SearchCriteriaID, click :$root.showhide" />
+                        <span data-bind="text:SearchByName"></span>
+                    </div>
+                    
+                                    </div>
+                <div class="clear">
+                </div>
+                  <div class="radio-set">
+                <div class="label-radio"> All Cases<input type="radio" name="CaseSearchCriteria.AdditionalParam" checked required value="AllCases"  /></div>
+                <div class="label-radio"> Active<input type="radio" name="CaseSearchCriteria.AdditionalParam"    required value="Active"/>  </div>
+                 <div class="label-radio">InActive<input type="radio"name="CaseSearchCriteria.AdditionalParam"    required value="InActive"/></div>
+            </div>
+                 <br />
+                <div class="SearchCretaria">
+                     <b id="lblG" hidden>Groups:</b>
+                <select class="form-control" id="ddGroups" style="width:200px;height:31px;" name="CaseSearchCriteria.GroupName" data-bind="options: GroupArray,optionsText: 'GroupName', optionsValue: 'GroupName', value: selectedGroupArray" hidden></select>
+                    </div>
+                <div id="ReferrerCaseDiv">
+                    <div>
+                        <b>Case Search:</b>
+                        <input type="text" id="SearchText" name="CaseSearchCriteria.SearchText" data-bind="value:SearchText" />                       
+                    </div>
+                </div>
+                 <div class="SearchCretaria">
+                    <input type="submit" style="margin-left : 550px;" data-bind="click:Submitform" value="Search" />
+               </div>  
+                             
+            </div>
+            <div>
+            <div class="ITS-ref-table">
+                <table id="CaseData" hidden>
+                    <thead>
+                        <tr>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                Referrer Reference Number
+                            </td>
+                            <td>
+                                Current Status
+                            </td>
+                            <td>
+                               Initial Intervention Date
+                            </td>
+                             <td>
+                               Final Intervention Date
+                            </td>
+                            <td>
+                                View Records
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: CaseSearchArray">
+                        <tr>
+                            <td data-bind="text:PatientFullName">
+                            </td>
+                            <td data-bind="text:CaseReferrerReferenceNumber">
+                            </td>
+                            <td data-bind="text:Status">
+                            </td>
+                               <td  data-bind="text:InitialAssessmentDate()">@*<a href="#"  class="btn btn-small btn-primary"  data-bind="text:InitialAssessmentDate(),click:$root.InitialCaseAssessmentReportClick" role="button"></a>*@</td>
+                               <td data-bind="text:FinalAssessmentDate()">@*<a href="#"  class="btn btn-small btn-primary" data-bind="text:FinalAssessmentDate(),click:$root.FinalCaseAssessmentReportClick" role="button"></a>*@</td>
+                                
+                            <td>
+                                <a href="#" class="btn btn-small btn-primary" id="btndetails" target="_blank" data-bind="attr:{href:'/Referrer/CaseSearch/CaseDetail/'+EncryptCaseID()}"
+                                    role="button">View Record</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                 <table id="GroupData" hidden>
+                    <thead>
+                        <tr>
+                           
+                            <td>
+                                Assigned User Name
+                            </td>
+                           
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                Referrer Reference Number
+                            </td>
+                            <td>
+                                Current Status
+                            </td>
+                            <td>
+                               Initial Intervention Date
+                            </td>
+                             <td>
+                               Final Intervention Date
+                            </td>
+                            <td>
+                                View Records
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: CaseSearchArray">
+                        <tr>
+                            
+                             <td data-bind="text:UserFullName">
+                            </td>
+                              
+                            <td data-bind="text:PatientFullName">
+                            </td>
+                            <td data-bind="text:CaseReferrerReferenceNumber">
+                            </td>
+                            <td data-bind="text:Status">
+                            </td>
+                               <td  data-bind="text:InitialAssessmentDate()">@*<a href="#"  class="btn btn-small btn-primary"  data-bind="text:InitialAssessmentDate(),click:$root.InitialCaseAssessmentReportClick" role="button"></a>*@</td>
+                               <td data-bind="text:FinalAssessmentDate()">@*<a href="#"  class="btn btn-small btn-primary" data-bind="text:FinalAssessmentDate(),click:$root.FinalCaseAssessmentReportClick" role="button"></a>*@</td>
+                                
+                            <td>
+                                <a href="#" class="btn btn-small btn-primary" id="btndetails" target="_blank" data-bind="attr:{href:'/Referrer/CaseSearch/CaseDetail/'+EncryptCaseID()}"
+                                    role="button">View Record</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                </div>
+          
+        </div>
+        <div id="msg-grid" data-bind="text:NoRecordFound">
+        </div>
+        @Html.Partial("_Paging")
+        <input type="hidden" name="Skip" data-bind="value:Skip" />
+        <input type="hidden" name="Take" data-bind="value:Take" />
+    }
+   
+    <input type="hidden" id="hdMessageVal" value="@ViewBag.Message" />
+</div>
+
+

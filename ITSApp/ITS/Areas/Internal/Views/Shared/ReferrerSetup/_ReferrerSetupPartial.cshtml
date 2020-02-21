@@ -1,0 +1,153 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Referrer
+@*
+
+  * Latest Version 1.2
+
+ *Author         : Manjit Singh
+  Date            : 08-Nov-2012
+  Version         : 1.0
+  Purpose         : Design for the Referrer Setup Partial Page
+
+  Author          : Harpreet Singh
+  Date            : 09-Nov-2012
+  Version         : 1.1
+  Description     : Remove the common javascript/css 
+
+  Modified        : Manjit Singh
+  Date            : 15-Nov-2012
+  Version         : 1.2
+  Description     : Added update funtionality 
+  *@
+<form id="frmReferrer">
+<!--always put form tag on all form related controllers -->
+<!--knockout js will reduce the usage of razor view engine syntax-->
+<div id="referrerDiv">
+    <div class="right">
+        <input type="submit" value="Add New" data-bind="click:makeAddable,enable:EnableAddNew" />
+        <input type="submit" value="Amend" data-bind="click:makeEditable,enable:EnableAmmend,visible:VisibleAmmend" />
+        <input type="submit" value="Cancel" data-bind="click:makeCancel,enable:EnableCancel,visible:VisibleCancel" />
+        <input type="submit" value="Save" data-bind="click:addReferrer,enable:EnableSave,visible:VisibleSave" />
+        <input type="submit" data-bind="click:UpdateReferrer,visible:VisibleUpdate,enable:EnableUpdate"
+            value="Update" />
+    </div>
+    <div class="clear">
+    </div>
+    <div class="messageDiv">
+        <label id="lblMessage">
+        </label>
+        @*<p data-bind="validationMessage: ReferrerMainContactPhone">
+        </p>*@ @*<p data-bind="validationMessage:ReferrerMainContactFax">
+        </p>*@
+    </div>
+    <div class="referrer-cantainer">
+        <div class="left-ref">
+            <div class="ref-heading">
+                <span>*</span> Referrer Name:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="referrerName" data-bind="value: ReferrerName" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Head Office Address:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="referrerAddress" data-bind="value: Address" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Head Office Region:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="referrerHeadOfficeRegion" data-bind="value: Region" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Main Contact First Name:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="referrerContactFirstName" data-bind="value: ReferrerContactFirstName" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Main Contact Surname:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="referrerContactSurname" data-bind="value: ReferrerContactLastName" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Main Contact Telephone:
+            </div>
+            <div class="ref-text">
+                <span data-bind="validationOptions: { insertMessages: false}">
+                    <input type="text" id="referrerTelephone" data-bind="value: ReferrerMainContactPhone" /></span>
+            </div>
+
+
+            <br />
+            <div class="clear">
+            </div>
+        </div>
+        <div class="right-ref">
+            <div class="ref-heading">
+                <span>*</span>Head Office Location Name:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="referrerLocationName" data-bind="value: Name" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Head Office Town / City:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="referrerCity" data-bind="value: City" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Head Office Postal Code:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="referrerPostCode" data-bind="value: PostCode,valueUpdate:'afterkeydown'" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                Main Contact Email Address:
+            </div>
+            <div class="ref-text">
+                <input type="text" data-bind="value: ReferrerMainContactEmail" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                Main Contact Fax:
+            </div>
+            <div class="ref-text">
+                <span data-bind="validationOptions: { insertMessages: false}">
+                    <input type="text" data-bind="value: ReferrerMainContactFax" /></span>
+            </div>
+            <div class="clear">
+            </div>
+
+        </div>
+        <div class="clear">
+        </div>
+        <div class="its-referrer-setup-border">
+        </div>
+    </div>
+</div>
+</form>
+<script type="text/javascript">
+    var box = $("input[type='text']");
+    box.focus(function () {
+
+        $(this).css("background", "none");
+    });
+      
+</script>
+<style>
+    .error
+    {
+        background: red;
+    }
+</style>

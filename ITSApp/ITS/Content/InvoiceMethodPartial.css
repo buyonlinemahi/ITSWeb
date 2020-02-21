@@ -1,0 +1,30 @@
+﻿.heading{padding-bottom:10px;padding-top:10px;}
+
+.invioce-outer{}
+.invioce-outer .invoice{float:left;}
+.invioce-outer .invoice-left-heading{float:left;width:200px;text-align:center;border-top:1px solid #000;border-right:1px solid #000;border-left:1px solid #000;padding:8px 9px 8px 8px;background:#77B531;}
+.invioce-outer .invoice-right-heading{float:left;width:200px;text-align:center;border-top:1px solid #000;border-right:1px solid #000;padding:8px;background:#77B531;}
+
+
+.invioce-outer .invoice-left{float:left;width:200px;border-top:1px solid #000;padding:8px;}
+.invioce-outer .invoice-left input[type="radio"]{}
+.invioce-outer .invoice-right{float:right;width:200px;text-align:center;border-top:1px solid #000;padding:6px 7px 8px 8px; border-left: 1px solid;}
+.invioce-outer .invoice-right input[type="text"]{width:190px;height:15px;}
+.inputs{float:right;}
+.inputs input[type="submit"]{background:none repeat scroll 0 0 #EBE8D8;  margin-right: 50px;  padding: 7px 15px;}
+
+
+.invioce-outer-management .invoice-left{border-left: 1px solid;
+    border-top: 1px solid #000000;
+    float: left;
+    padding: 8px 9px 8px 8px;
+    width: 200px;}
+.invioce-outer-management .invoice-left input[type="radio"]{}
+.invioce-outer-management .invoice-right{border-left: 1px solid;
+    border-right: 1px solid;
+    border-top: 1px solid #000000;
+    float: right;
+    padding: 6px 8px 9px 8px;
+    text-align: center;
+    width: 200px;}
+.invioce-outer-management .invoice-right input[type="text"]{width:190px;height:15px;}

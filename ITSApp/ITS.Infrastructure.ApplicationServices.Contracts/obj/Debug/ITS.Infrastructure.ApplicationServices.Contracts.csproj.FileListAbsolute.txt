@@ -1,0 +1,7 @@
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.ApplicationServices.Contracts\bin\Debug\ITS.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.ApplicationServices.Contracts\bin\Debug\ITS.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.ApplicationServices.Contracts\bin\Debug\ITS.Domain.Models.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.ApplicationServices.Contracts\bin\Debug\ITS.Domain.Models.pdb
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.ApplicationServices.Contracts\obj\Debug\ITS.Infrastructure.ApplicationServices.Contracts.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.ApplicationServices.Contracts\obj\Debug\ITS.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.ApplicationServices.Contracts\obj\Debug\ITS.Infrastructure.ApplicationServices.Contracts.pdb

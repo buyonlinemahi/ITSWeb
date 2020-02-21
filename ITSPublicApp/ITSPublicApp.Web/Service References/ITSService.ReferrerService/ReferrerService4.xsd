@@ -1,0 +1,1399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/ReferrerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+  <xs:element name="GetAllReferrer">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReferrerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllReferrerResult" nillable="true" type="q1:ArrayOfReferrersName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrer" nillable="true" type="q2:Referrer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerAndMainLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrer" nillable="true" type="q3:Referrer" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="location" nillable="true" type="q4:ReferrerLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerAndMainLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerAndMainLocationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerLocationsByReferrerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerLocationsByReferrerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerLocationsByReferrerIDResult" nillable="true" type="q5:ArrayOfReferrerLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerLocations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerlocation" nillable="true" type="q6:ReferrerLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerLocationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerLocationsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertReferrerLocations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerlocation" nillable="true" type="q7:ReferrerLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertReferrerLocationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertReferrerLocationsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDetailsByReferrerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDetailsByReferrerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerDetailsByReferrerIDResult" nillable="true" type="q8:Referrer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentsByReferrerProjectID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentsByReferrerProjectIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentsByReferrerProjectIDResult" nillable="true" type="q9:ArrayOfReferrerProjectTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentByReferrerProjectTreatmentIDResult" nillable="true" type="q10:ReferrerProjectTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrer" nillable="true" type="q11:Referrer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteByReferrerLocationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerLocationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteByReferrerLocationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteByReferrerLocationIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPricingType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPricingTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllPricingTypeResult" nillable="true" type="q12:ArrayOfPricingType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInvoiceMethod">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInvoiceMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllInvoiceMethodResult" nillable="true" type="q13:ArrayOfInvoiceMethod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTreatmentCategory">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTreatmentCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllTreatmentCategoryResult" nillable="true" type="q14:ArrayOfTreatmentCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrersLikeReferrerName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerNameLike" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrersLikeReferrerNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrersLikeReferrerNameResult" nillable="true" type="q15:ArrayOfReferrer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerAndMainLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrer" nillable="true" type="q16:Referrer" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="location" nillable="true" type="q17:ReferrerLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerAndMainLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerAndMainLocationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerMainLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerMainLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerMainLocationResult" nillable="true" type="q18:ReferrerLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentIDResult" nillable="true" type="q19:ArrayOfReferrerProjectTreatmentAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectsByReferrerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectsByReferrerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectsByReferrerIDResult" nillable="true" type="q20:ArrayOfReferrerProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerAssignedUserByReferrerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerAssignedUserByReferrerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerAssignedUserByReferrerIDResult" nillable="true" type="q21:ArrayOfReferrerAssignedUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerCompleteProjectsByReferrerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerCompleteProjectsByReferrerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerCompleteProjectsByReferrerIDResult" nillable="true" type="q22:ArrayOfReferrerProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectAssignedToUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectAssignedToUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectAssignedToUserResult" nillable="true" type="q23:ArrayOfReferrerProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectNotAssignedToUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectNotAssignedToUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectNotAssignedToUserResult" nillable="true" type="q24:ArrayOfReferrerProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectNameAutoComplete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectNameLike" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectNameAutoCompleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectNameAutoCompleteResult" nillable="true" type="q25:ArrayOfReferrerProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProject" nillable="true" type="q26:ReferrerProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerProjectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectByProjectID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectByProjectIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectByProjectIDResult" nillable="true" type="q27:ReferrerProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProject" nillable="true" type="q28:ReferrerProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatment" nillable="true" type="q29:ReferrerProjectTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerProjectTreatmentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatment" nillable="true" type="q30:ReferrerProjectTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectTreatmentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatment" nillable="true" type="q31:ReferrerProjectTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectTreatmentsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProjectStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectID" type="xs:int" />
+        <xs:element minOccurs="0" name="isTriage" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProjectStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateProjectStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDResult" nillable="true" type="q32:ArrayOfReferrerProjectTreatmentPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentPricing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentPricing" nillable="true" type="q33:ReferrerProjectTreatmentPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentPricingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerProjectTreatmentPricingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentPricingByPricingID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentPricing" nillable="true" type="q34:ReferrerProjectTreatmentPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentPricingByPricingIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectTreatmentPricingByPricingIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectTreatmentSLAsByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectTreatmentSLAsByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetProjectTreatmentSLAsByReferrerProjectTreatmentIDResult" nillable="true" type="q35:ArrayOfProjectTreatmentSLA" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProjectTreatmentSLA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="projectTreatmentSLA" nillable="true" type="q36:ProjectTreatmentSLA" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProjectTreatmentSLAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddProjectTreatmentSLAResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProjectTreatmentSLAsByProjectTreatmentSLAID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="projectTreatmentSLA" nillable="true" type="q37:ProjectTreatmentSLA" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProjectTreatmentSLAsByProjectTreatmentSLAIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateProjectTreatmentSLAsByProjectTreatmentSLAIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentEmailById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentEmailByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentEmailByIdResult" nillable="true" type="q38:ReferrerProjectTreatmentEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByReferrerProjectTreatmentId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByReferrerProjectTreatmentIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetByReferrerProjectTreatmentIdResult" nillable="true" type="q39:ArrayOfReferrerProjectTreatmentEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentByTreatmentId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentByTreatmentIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentByTreatmentIdResult" nillable="true" type="q40:ArrayOfReferrerProjectTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentEmail" nillable="true" type="q41:ReferrerProjectTreatmentEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerProjectTreatmentEmailResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentEmail" nillable="true" type="q42:ReferrerProjectTreatmentEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectTreatmentEmailResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReferrerProjectTreatmentEmailById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentEmailId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReferrerProjectTreatmentEmailByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteReferrerProjectTreatmentEmailByIdResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentInvoice" nillable="true" type="q43:ReferrerProjectTreatmentInvoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerProjectTreatmentInvoiceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentIDResult" nillable="true" type="q44:ArrayOfReferrerProjectTreatmentInvoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentInvoice" nillable="true" type="q45:ReferrerProjectTreatmentInvoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectTreatmentInvoiceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentDocumentSetup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentAssignment" nillable="true" type="q46:ReferrerProjectTreatmentDocumentSetup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentDocumentSetupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerProjectTreatmentDocumentSetupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentDocumentSetup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentAssignment" nillable="true" type="q47:ReferrerProjectTreatmentDocumentSetup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentDocumentSetupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectTreatmentDocumentSetupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentIDResult" nillable="true" type="q48:ArrayOfReferrerProjectTreatmentDocumentSetup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPricingTypesByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPricingTypesByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetPricingTypesByTreatmentCategoryIDResult" nillable="true" type="q49:ArrayOfTreatmentCategoriesPricingTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReferrerProjectTreatment">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReferrerProjectTreatmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllReferrerProjectTreatmentResult" nillable="true" type="q50:ArrayOfReferrerProjectTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAssessmentService">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAssessmentServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllAssessmentServiceResult" nillable="true" type="q51:ArrayOfAssessmentService" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAssessmentType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAssessmentTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllAssessmentTypeResult" nillable="true" type="q52:ArrayOfAssessmentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDelegatedAuthorisation">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDelegatedAuthorisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllDelegatedAuthorisationResult" nillable="true" type="q53:ArrayOfDelegatedAuthorisation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReferrerProjectTreatmentAssignment">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReferrerProjectTreatmentAssignmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllReferrerProjectTreatmentAssignmentResult" nillable="true" type="q54:ArrayOfReferrerProjectTreatmentAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentAssignment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentAssignment" nillable="true" type="q55:ReferrerProjectTreatmentAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentAssignmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerProjectTreatmentAssignmentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentAssignment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentAssignment" nillable="true" type="q56:ReferrerProjectTreatmentAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentAssignmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectTreatmentAssignmentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReferrerProjectTreatmentAssignment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentAssessmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReferrerProjectTreatmentAssignmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteReferrerProjectTreatmentAssignmentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReferrerProjectTreatmentAuthorisation">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReferrerProjectTreatmentAuthorisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllReferrerProjectTreatmentAuthorisationResult" nillable="true" type="q57:ArrayOfReferrerProjectTreatmentAuthorisation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentAuthorisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentAuthorisation" nillable="true" type="q58:ReferrerProjectTreatmentAuthorisation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerProjectTreatmentAuthorisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerProjectTreatmentAuthorisationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentAuthorisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerProjectTreatmentAuthorisation" nillable="true" type="q59:ReferrerProjectTreatmentAuthorisation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerProjectTreatmentAuthorisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerProjectTreatmentAuthorisationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReferrerProjectTreatmentAuthorisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentAuthorisationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReferrerProjectTreatmentAuthorisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteReferrerProjectTreatmentAuthorisationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentIDResult" nillable="true" type="q60:ArrayOfReferrerProjectTreatmentAuthorisation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerLocationMainOffice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+        <xs:element minOccurs="0" name="referrerOfficeLocationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerLocationMainOfficeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerLocationMainOfficeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDelegatedAuthorisationTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDelegatedAuthorisationTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllDelegatedAuthorisationTypesResult" nillable="true" type="q61:ArrayOfDelegatedAuthorisationTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDocumentSetupTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDocumentSetupTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllDocumentSetupTypesResult" nillable="true" type="q62:ArrayOfDocumentSetupTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllEmailTypeResult" nillable="true" type="q63:ArrayOfEmailType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceLevelAgreement">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceLevelAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllServiceLevelAgreementResult" nillable="true" type="q64:ArrayOfServiceLevelAgreement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentNamesByReferrerProjectID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentNamesByReferrerProjectIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentNamesByReferrerProjectIDResult" nillable="true" type="q65:ArrayOfReferrerProjectTreatmentName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentTreatmentTypeByReferrerProjectTreatmentTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentTreatmentTypeByReferrerProjectTreatmentTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentTreatmentTypeByReferrerProjectTreatmentTypeIDResult" nillable="true" type="q66:ArrayOfReferrerProjectTreatmentTreatmentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerEnabledProjectTreatmentNamesByReferrerProjectID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerEnabledProjectTreatmentNamesByReferrerProjectIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerEnabledProjectTreatmentNamesByReferrerProjectIDResult" nillable="true" type="q67:ArrayOfReferrerProjectTreatmentName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferreralDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerDocument" nillable="true" type="q68:ReferrerDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferreralDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferreralDocumentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerDocument" nillable="true" type="q69:ReferrerDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerDocumentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDocumentType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDocumentTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerDocumentTypeResult" nillable="true" type="q70:ArrayOfReferrerDocumentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerDocument" nillable="true" type="q71:ReferrerDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerDocumentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDocumentsByReferrerIDAndDocumentTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+        <xs:element minOccurs="0" name="documentTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDocumentsByReferrerIDAndDocumentTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerDocumentsByReferrerIDAndDocumentTypeIDResult" nillable="true" type="q72:ArrayOfReferrerDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerExistsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerExistsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetReferrerExistsByNameResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrersRecentlyAdded">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrersRecentlyAddedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrersRecentlyAddedResult" nillable="true" type="q73:ArrayOfReferrer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerLocationReferrerLikeReferrerName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerLocationReferrerLikeReferrerNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerLocationReferrerLikeReferrerNameResult" nillable="true" type="q74:PagedReferrerLocationReferrer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDAndTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDAndTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDAndTreatmentCategoryIDResult" nillable="true" type="q75:ArrayOfReferrerPricingValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectTreatmentSLAsNameByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectTreatmentSLAsNameByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetProjectTreatmentSLAsNameByReferrerProjectTreatmentIDResult" nillable="true" type="q76:ArrayOfProjectTreatmentSLAName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentInvoiceMethodByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentInvoiceMethodByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentInvoiceMethodByReferrerProjectTreatmentIDResult" nillable="true" type="q77:ReferrerProjectTreatmentInvoiceMethod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentEmailsTypeNameByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentEmailsTypeNameByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentEmailsTypeNameByReferrerProjectTreatmentIDResult" nillable="true" type="q78:ArrayOfReferrerProjectTreatmentEmailTypeName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDAndPricingTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+        <xs:element minOccurs="0" name="pricingTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDAndPricingTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDAndPricingTypeIDResult" nillable="true" type="q79:ReferrerProjectTreatmentPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectFirstAppointmentOfferedByReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerProjectFirstAppointmentOfferedByReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetReferrerProjectFirstAppointmentOfferedByReferrerProjectTreatmentIDResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerIDbyReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerIDbyReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetReferrerIDbyReferrerProjectTreatmentIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerDocumentCustom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerDocument" nillable="true" type="q80:ReferrerDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerDocumentCustomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerDocumentCustomResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDocumentsByReferrerIDDocumentTypeIDAndReferrerProjectTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referrerID" type="xs:int" />
+        <xs:element minOccurs="0" name="documentTypeID" type="xs:int" />
+        <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDocumentsByReferrerIDDocumentTypeIDAndReferrerProjectTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerDocumentsByReferrerIDDocumentTypeIDAndReferrerProjectTreatmentIDResult" nillable="true" type="q81:ArrayOfReferrerDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDocumentsByCaseId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CaseId" type="xs:int" />
+        <xs:element minOccurs="0" name="documentTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerDocumentsByCaseIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerDocumentsByCaseIdResult" nillable="true" type="q82:ArrayOfReferrerDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInjuredPartyRepresentative">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="_InjuredPartyRepresentative" nillable="true" type="q83:InjuredPartyRepresentative" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInjuredPartyRepresentativeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddInjuredPartyRepresentativeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInjuredPartyRepresentative">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="_InjuredPartyRepresentative" nillable="true" type="q84:InjuredPartyRepresentative" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInjuredPartyRepresentativeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateInjuredPartyRepresentativeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInjuredPartyRepresentativesByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInjuredPartyRepresentativesByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetInjuredPartyRepresentativesByReferralIDResult" nillable="true" type="q85:InjuredPartyRepresentative" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInjuredPartyRepresentativesByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="injuredID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInjuredPartyRepresentativesByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetInjuredPartyRepresentativesByIDResult" nillable="true" type="q86:InjuredPartyRepresentative" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInjuredRepresentativeOption">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInjuredRepresentativeOptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllInjuredRepresentativeOptionResult" nillable="true" type="q87:ArrayOfInjuredRepresentativeOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPrimaryCondition">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPrimaryConditionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllPrimaryConditionResult" nillable="true" type="q88:ArrayOfPrimaryCondition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="_referrerGroup" nillable="true" type="q89:UpdateReferrerGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerGroupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerGroupUsersByreferrerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referrerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerGroupUsersByreferrerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerGroupUsersByreferrerIDResult" nillable="true" type="q90:ArrayOfReferrerGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupUsersByReferrerIDAndName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_referrerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupUsersByReferrerIDAndNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetGroupUsersByReferrerIDAndNameResult" nillable="true" type="q91:ArrayOfReferrerUserDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerGroupUsersCasesByReferrerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_referrerID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerGroupUsersCasesByReferrerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerGroupUsersCasesByReferrerIDResult" nillable="true" type="q92:PagedReferrerSupplierCaseSearch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGroupByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGroupByIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="_updateRefGroup" nillable="true" type="q93:UpdateReferrerGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReferrerGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateReferrerGroupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

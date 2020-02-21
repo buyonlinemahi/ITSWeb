@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FinanceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://112.196.29.227:8081/ITS/FinanceService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://112.196.29.227:8081/ITS/FinanceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://112.196.29.227:8081/ITS/FinanceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFinanceService_AddInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_AddInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetOutstandingInvoicesCasePatientReferrer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingInvoicesCasePatientReferrer" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetOutstandingInvoicesCasePatientReferrer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingInvoicesCasePatientReferrerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetInvoiceByInvoiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceByInvoiceID" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetInvoiceByInvoiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceByInvoiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetInvoiceCollectionActionByInvoiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceCollectionActionByInvoiceID" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetInvoiceCollectionActionByInvoiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceCollectionActionByInvoiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetInvoicePaymentByInvoiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoicePaymentByInvoiceID" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetInvoicePaymentByInvoiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoicePaymentByInvoiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_AddInvoiceCollectionAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInvoiceCollectionAction" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_AddInvoiceCollectionAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInvoiceCollectionActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_AddInvoicePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInvoicePayment" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_AddInvoicePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInvoicePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_UpdateInvoiceIsCompleteByInvoiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceIsCompleteByInvoiceID" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_UpdateInvoiceIsCompleteByInvoiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceIsCompleteByInvoiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetOutstandingInvoicesCasePatientReferrerByInvoiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingInvoicesCasePatientReferrerByInvoiceID" />
+  </wsdl:message>
+  <wsdl:message name="IFinanceService_GetOutstandingInvoicesCasePatientReferrerByInvoiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutstandingInvoicesCasePatientReferrerByInvoiceIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFinanceService">
+    <wsdl:operation name="AddInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/AddInvoice" message="tns:IFinanceService_AddInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/AddInvoiceResponse" message="tns:IFinanceService_AddInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingInvoicesCasePatientReferrer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/GetOutstandingInvoicesCasePatientReferrer" message="tns:IFinanceService_GetOutstandingInvoicesCasePatientReferrer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/GetOutstandingInvoicesCasePatientReferrerResponse" message="tns:IFinanceService_GetOutstandingInvoicesCasePatientReferrer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceByInvoiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/GetInvoiceByInvoiceID" message="tns:IFinanceService_GetInvoiceByInvoiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/GetInvoiceByInvoiceIDResponse" message="tns:IFinanceService_GetInvoiceByInvoiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceCollectionActionByInvoiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/GetInvoiceCollectionActionByInvoiceID" message="tns:IFinanceService_GetInvoiceCollectionActionByInvoiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/GetInvoiceCollectionActionByInvoiceIDResponse" message="tns:IFinanceService_GetInvoiceCollectionActionByInvoiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicePaymentByInvoiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/GetInvoicePaymentByInvoiceID" message="tns:IFinanceService_GetInvoicePaymentByInvoiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/GetInvoicePaymentByInvoiceIDResponse" message="tns:IFinanceService_GetInvoicePaymentByInvoiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInvoiceCollectionAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/AddInvoiceCollectionAction" message="tns:IFinanceService_AddInvoiceCollectionAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/AddInvoiceCollectionActionResponse" message="tns:IFinanceService_AddInvoiceCollectionAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInvoicePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/AddInvoicePayment" message="tns:IFinanceService_AddInvoicePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/AddInvoicePaymentResponse" message="tns:IFinanceService_AddInvoicePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceIsCompleteByInvoiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/UpdateInvoiceIsCompleteByInvoiceID" message="tns:IFinanceService_UpdateInvoiceIsCompleteByInvoiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/UpdateInvoiceIsCompleteByInvoiceIDResponse" message="tns:IFinanceService_UpdateInvoiceIsCompleteByInvoiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingInvoicesCasePatientReferrerByInvoiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinanceService/GetOutstandingInvoicesCasePatientReferrerByInvoiceID" message="tns:IFinanceService_GetOutstandingInvoicesCasePatientReferrerByInvoiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinanceService/GetOutstandingInvoicesCasePatientReferrerByInvoiceIDResponse" message="tns:IFinanceService_GetOutstandingInvoicesCasePatientReferrerByInvoiceID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFinanceService" type="tns:IFinanceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddInvoice">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/AddInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingInvoicesCasePatientReferrer">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/GetOutstandingInvoicesCasePatientReferrer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceByInvoiceID">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/GetInvoiceByInvoiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceCollectionActionByInvoiceID">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/GetInvoiceCollectionActionByInvoiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicePaymentByInvoiceID">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/GetInvoicePaymentByInvoiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInvoiceCollectionAction">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/AddInvoiceCollectionAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInvoicePayment">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/AddInvoicePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceIsCompleteByInvoiceID">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/UpdateInvoiceIsCompleteByInvoiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingInvoicesCasePatientReferrerByInvoiceID">
+      <soap:operation soapAction="http://tempuri.org/IFinanceService/GetOutstandingInvoicesCasePatientReferrerByInvoiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FinanceService">
+    <wsdl:port name="BasicHttpBinding_IFinanceService" binding="tns:BasicHttpBinding_IFinanceService">
+      <soap:address location="http://112.196.29.227:8081/ITS/FinanceService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

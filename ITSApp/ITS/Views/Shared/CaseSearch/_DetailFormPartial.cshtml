@@ -1,0 +1,303 @@
+﻿@using ITS.Infrastructure.Global;
+@using System.Web.Script.Serialization
+@using (Html.BeginForm(GlobalConst.Actions.CaseSearchSharedContoller.UpdateCasePatient, GlobalConst.Controllers.CaseSearch, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmUpdateCasePatient",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateCasePatientFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: CasePatientUpdateFormBeforeSubmit }"
+}))
+{
+    <div class="row-fluid form-horizontal">
+        <!-- ko with : CasePatientReferrerSupplierWorkflow -->
+        <div class="widget-content nopadding">
+            <div class="control-group">
+                <label class="control-label">
+                    ITS Reference Number:
+                </label>
+                <div class="controls">
+                    <input type="text" readonly data-bind="value:CaseNumber,jqBootstrapValidation: {}"  name="CaseNumber"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    First Name:
+                </label>
+                <div class="controls">
+                    <input type="text" name="FirstName" data-bind="value:FirstName,jqBootstrapValidation: {}"
+                        required />
+                    <input type="hidden"  data-bind="value:CaseID" id="hCaseID" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Last Name:
+                </label>
+                <div class="controls">
+                    <input type="text" name="LastName" data-bind="value:LastName,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Patient Home Phone:
+                </label>
+                <div class="controls">
+                    <input type="text" name="HomePhone" class="phoneMaskformat" data-bind="value:HomePhone,jqBootstrapValidation: {}" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">
+                    Patient Mobile:
+                </label>
+                <div class="controls">
+                    <input type="text" name="MobilePhone" class="phoneMaskformat" data-bind="value:MobilePhone,jqBootstrapValidation: {}" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">
+                    Patient Post Code:
+                </label>
+                <div class="controls">
+                    <input type="text" name="PostCode"  style="text-transform:uppercase"  onkeyup="javascript: postalCodeFormat(this)" maxlength="8" data-bind="value:PostCode,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Patient Email:
+                </label>
+                <div class="controls">
+                    <input type="text" name="Email" data-validation-regex-regex='^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$'
+                        data-validation-regex-message="Not a valid email address" data-bind="value:Email,jqBootstrapValidation: {}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Patient DOI:
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-small datepicker" data-validation-regex-message="DD/MM/YYYY" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$" name="InjuryDate" data-bind="value:InjuryDate,jqBootstrapValidation: {},masked: InjuryDate,mask : '99/99/9999'"
+                        required />
+                </div>
+            </div>
+
+
+
+            <div class="control-group">
+                <label class="control-label">
+                    Referrer Reference Number:</label>
+                <div class="controls">
+                    <input type="text" name="CaseReferrerReferenceNumber"  data-bind="value:CaseReferrerReferenceNumber,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Referrer Name:
+                </label>
+                <div class="controls">
+                    <input type="text" readonly name="ReferrerName"  data-bind="value:ReferrerName,jqBootstrapValidation: {}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Project:</label>
+                <div class="controls">
+                    <input type="text" readonly name="ProjectName" data-bind="value:ProjectName,jqBootstrapValidation: {}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Treatment Category:
+                </label>
+                <div class="controls">
+                    <input type="text" readonly name="TreatmentCategoryName" data-bind="value:TreatmentCategoryName,jqBootstrapValidation: {}" />
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <label class="control-label">
+                    Supplier Name:
+                </label>
+                <div class="controls">
+                    <input type="text" id="txtSupplierName" name="SupplierName" readonly data-bind="value:SupplierName,jqBootstrapValidation: {}" />
+                </div>
+            </div>
+
+
+            <div style="display: none">
+                <div class="control-group">
+                    <label class="control-label">
+                        Patient Work Phone:
+                    </label>
+                    <div class="controls">
+                        <input type="text" name="WorkPhone" class="phoneMaskformat" data-bind="value:WorkPhone,jqBootstrapValidation: {}" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Address:
+                    </label>
+                    <div class="controls">
+                        <input type="text" name="Address" data-bind="value:Address,jqBootstrapValidation: {}"
+                            required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        City:
+                    </label>
+                    <div class="controls">
+                        <input type="text" name="City" data-bind="value:City,jqBootstrapValidation: {}" required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Region:
+                    </label>
+                    <div class="controls">
+                        <input type="text" name="Region" data-bind="value:Region,jqBootstrapValidation: {}"
+                            required />
+                    </div>
+                </div>
+
+               <div class="control-group">
+                <label class="control-label">
+                    Patient DOB:
+                </label>
+                <div class="controls">
+                    <input type="text" class="datepicker" data-validation-regex-message="DD/MM/YYYY" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$" name="BirthDate" data-bind="value:BirthDate,jqBootstrapValidation: {}, event:{change:$root.dobChange},masked: BirthDate,mask : '99/99/9999'"
+                         />
+                </div>
+            </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Patient Age:
+                    </label>
+                    <div class="controls">
+                        <input type="text" readonly name="Age" data-bind="value:$parent.Age,jqBootstrapValidation: {}" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Patient Gender:
+                    </label>
+                    <div class="controls">
+                        <select class="select-set" data-bind="options:$root.GenderOptions,optionsValue:'GenderID',optionsText:'Gender',value:GenderID,jqBootstrapValidation: {}">
+                        </select>
+
+                    </div>
+                </div>
+
+
+                <div class="control-group">
+                    <label class="control-label">
+                        Treatment Type:
+                    </label>
+                    <div class="controls">
+                        <input type="text" readonly  name="TreatmentTypeName" data-bind="value:TreatmentTypeName,jqBootstrapValidation: {}" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Injury Type:
+                    </label>
+                    <div class="controls">
+                        <input type="text" readonly name="InjuryType"  data-bind="value:$parent.InjuryType,jqBootstrapValidation: {}" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Current Status:
+                    </label>
+                    <div class="controls">
+                        <input type="text" readonly  name="CurrentStatus" data-bind="value:CurrentStatus,jqBootstrapValidation: {}" />
+                    </div>
+                </div>
+
+
+                <div class="control-group">
+                    <label class="control-label">
+                        Supplier Telephone Number:
+                    </label>
+                    <div class="controls">
+                        <input type="text" readonly name="SupplierPhone" data-bind="value:SupplierPhone,jqBootstrapValidation: {}" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Special Instructions:
+                </label>
+                <div class="controls-richtext">
+                    <div id="Specialinstructiontextbox">
+                        <div>
+                            @using (Html.BeginForm(GlobalConst.Actions.CaseSearchController.Detail, GlobalConst.Controllers.CaseSearch, FormMethod.Post))
+                            {
+                                @Html.Raw(ViewBag.EditorCaseSearch)
+                            }
+                        </div>
+                        <input type="hidden" id="hd" name="SpecialInstructionNotes" />
+
+                    </div>
+                </div>
+
+
+                <div class="column-groups-button-2 right-pull">
+                    <!--ko if: (model.workflowID >= 90) -->
+                    <button class="btn btn-primary btn-block float-left" disabled="disabled" type="button">
+                        Change Supplier</button>
+                    <!--/ko-->
+                    <!--ko if: (model.workflowID < 90) -->
+                    <button class="btn btn-primary btn-block float-left " type="button" data-toggle="modal" data-target="#changeSupplier" id="btnChange">Change Supplier</button>
+                    <!--/ko-->
+                    <button class="btn btn-primary" type="submit" id="btnSave"  onclick="submitform()">Update</button>
+                </div>
+
+
+            </div>
+
+        </div>
+        <input type="hidden" name="Title" data-bind="value:Title" />
+        <input type="hidden" name="HasLegalRep" data-bind="value:HasLegalRep" />
+        <input type="hidden" name="GenderID" data-bind="value:GenderID" />
+        <input type="hidden" name="SolicitorID" data-bind="value:SolicitorID" />
+        <input type="hidden" name="PatientID" data-bind="value:PatientID" />
+        <!-- /ko -->
+    </div>
+    
+}
+
+
+<script type="text/javascript">
+    function RichTextEditor_OnExecUICommand(editor, arg) {
+        var a0 = arg.Arguments[1];
+        if (a0 == "FullScreen") {
+            return false;
+        }
+    }
+   
+</script>
+
+<style>
+    .panel-body p {
+        text-align: left;
+    }
+</style>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/DetailFormViewModel.js")" type="text/javascript"></script>
+    <script type="text/javascript">      
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+      
+        //ko.applyBindings(model, $("#ViewAttachmentDiv").get(0));
+        var detailFormViewModel = new DetailFormViewModel(model);
+        detailFormViewModel.Init(model.CasePatientReferrerSupplierWorkflow, model.ReferralFileDownloadPath,model.CasePatientTreatment);
+        ko.applyBindings(detailFormViewModel, $("#Specialinstructiontextbox").get(0));
+    </script>
+}
+

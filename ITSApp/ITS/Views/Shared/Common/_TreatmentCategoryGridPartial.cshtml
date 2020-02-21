@@ -1,0 +1,64 @@
+﻿@using ITS.Infrastructure.Global
+<!-- treatment category grid -->
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Treatment Category
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: TreatmentCategories">
+        <tr>
+            <td>
+                <a href="#divViewTreamentCategory" role="button" data-toggle="modal" data-bind="click: $root.viewTreatmentCategory">
+                    View</a>
+            </td>
+            <td>
+                <span data-bind="text: TreatmentCategoryName"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- modal for editing treatment pricing -->
+<div id="divViewTreamentCategory" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" data-bind="with: SelectedTreatmentCategory">
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.UpdateTreatmentCategoryPricing, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new { id = "frmAUpdateTreatmentCategoryPricing", data_bind = "ajaxForm: { success: function(responseText, statusText, xhr, $form){ UpdateTreatmentCategoryFormSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: UpdateTreatmentCategoryFormBeforeSubmit }" }))
+    {
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel" data-bind="text: TreatmentCategoryName">
+            </h3>
+        </div>
+        <div class="modal-body">
+            <!-- ko foreach: $data.FilterTreatmentCategoryPricing(TreatmentCategoryID(), $root.IsTriage()) -->
+            <div class="control-group">
+                <label class="control-label" data-bind="text: PricingTypeName">
+                </label>
+                @*<span data-bind="text: $root.IsTriage()"></span>*@
+                <div class="controls">
+                    <input type="hidden" data-bind="attr: { name: '['+ $index() + '].PricingTypeID' }, value: PricingTypeID" />
+                    <input type="hidden" data-bind="attr: { name: '['+ $index() + '].PricingID' }, value: PricingID" />
+                    <input type="hidden" data-bind="attr: { name: '['+ $index() + '].SupplierTreatmentID' }, value: $parent.TreatmentID" />
+                    <div class="input-prepend">
+                        <span class="add-on">£</span>
+                        <input type="text" data-bind="attr: { name: '['+ $index() + '].Price' }, value: Price, jqBootstrapValidation: {}"
+                            required data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number" />
+                        <!--<span data-bind="text: 'price['+ $index() + '].price'"></span>-->
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">
+                Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" data-bind="click: CloseClick">
+                Close</button>
+        </div>
+    }
+</div>

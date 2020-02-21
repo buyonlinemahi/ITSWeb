@@ -1,0 +1,60 @@
+﻿@charset "utf-8";
+
+body {background-color:#f4f6f0 !important;font-family:Arial, Helvetica, sans-serif;font-size:12px;margin:0;padding:0;}
+input {font-size:12px;}
+
+header {background:#679a01 url(images/bg_pageHeader.gif) top repeat-x;border-bottom:5px solid #0f578f;height:70px;}
+header section {margin:0 auto;padding:0;width:1000px;}
+header div {font-family:Verdana, Geneva, sans-serif;font-size:40px;line-height:70px;color:#fff;}  /* replace w an image */
+header img {float:right;margin:5px 0 0;}
+
+.conWrapper{background-color:#fff;margin:0 auto;padding:10px;width:1000px;}
+.pgCon  {}
+a {color:#0076a3;}
+a:hover {}
+h1, h2, h3, h4, p {line-height:1.2em;margin:0 0 5px;padding:0;}
+h1 {font-size:1.6em;font-weight:normal;}
+p {margin:0 0 10px;}
+.clearBlock {clear:both;float:none;display:block;height:1px;line-height:1px;}
+.right {text-align:right !important;width:25%}
+.center {text-align:center !important;width:45%}
+.left {text-align:left !important;width:29%}
+.errMsg {color:#a3004d;}
+.errMsg span {background-color:#a3004d;color:#fff;font-family:Verdana, Geneva, sans-serif;font-size:11px;font-weight:700;padding:0 5px;margin:0 5px 0 0;}
+
+
+
+footer {border-top:3px solid #0f578f;font-size:0.9em;margin:110px 0px 30px;padding:20px 10px;}
+footer div {float:left;width:323px;}
+footer a {text-decoration:none;}
+
+
+
+.pgLogin {height:320px;margin:40px 0 0;}
+.loginImg1{background:url(images/bg_login.gif) no-repeat right;}
+.loginImg2{background:url(images/bg_login2.jpg) no-repeat right;}
+
+.loginArea {margin:40px 0;}
+.loginArea p {margin-bottom:20px;}
+.loginArea input {border:1px solid #0f578f;margin:0;padding:2px;width:200px;}
+.loginArea p.loginBtn {margin:30px 0 20px;}
+.loginArea a {margin:0;padding:3px 0px;text-decoration:underline;}
+.loginArea input[type="submit"] {background:url(images/bg_btnGreen.gif) repeat-x top #679a01;border:1px solid #679a01;color:#000;font-size:1.15em;font-weight:700;margin:0;padding:3px 10px;text-decoration:none;width:55px;height:24px;cursor:pointer;}
+.loginArea a:hover {color:#464646;}
+    .loginBtn .btn {
+    padding:4px 10px;font-size:17px;text-decoration:none;
+    }
+.btn-success{background: url(images/bg_btnGreen.gif) repeat-x top #679a01 !important;}
+a:focus {
+    outline: none !important;
+}
+.col-sm-2 {
+    width: 9.5%;
+}
+.col-sm-10 {
+    width: 85%;
+}
+
+
+
+

@@ -1,0 +1,80 @@
+﻿<style>
+    table th
+    {
+        background: none repeat scroll 0 0 #7DA63C;
+        padding: 10px;
+        width: 206px;
+    }
+    
+    .tableTD
+    {
+        border: 1px solid #BFD1D3;
+        padding: 10px;
+        width: 206px;
+        text-align: center;
+    }
+    
+    .select
+    {
+        border: 1px solid #BFD1D3;
+        padding: 10px;
+        width: 206px;
+    }
+</style>
+<script id="treatmenTmpl" type="text/html">
+    <tr>
+        <td class="tableTD">
+            <span data-bind="text: PricingTypeName"></span>
+            <input type="hidden" data-bind="attr: { name : 'CaseTreatmentPricings['+ $index() + '].ReferrerPricingID' },value: PricingID" />
+        </td>
+        <td class="tableTD">
+            <span data-bind="text: Price"></span>
+            <input type="hidden" data-bind="attr: { name : 'CaseTreatmentPricings['+ $index() + '].Price' },value: Price" />
+        </td>
+        <td class="tableTD">
+            <a href="" data-bind="click: function(){ $data.remove(); }">delete</a>
+        </td>
+    </tr>
+</script>
+<table>
+    <tr>
+        <td>
+           <b> Further Treatment Recommended</b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Create Case Treatment Grid based on "How many sessions do you recommend?"
+        </td>
+    </tr>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Treatment Type
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="template:{name: 'treatmenTmpl', foreach: TreatmentPriceRows}">
+    </tbody>
+    <tfoot>
+        <tr data-bind="visible: TreatmentPriceRows().length == 0">
+            <td colspan="3">
+                Treatment grid is empty
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <select class="select" data-bind="options: ReferrerTreatmentPricings, optionsText:'PricingTypeName', value: SelectedReferrerTreatmentPricing, optionsCaption: 'Select Treatment'">
+                </select>
+                <a href="" class="select" data-bind="click: AddNewTreatment">Add Treatment</a>
+            </td>
+        </tr>
+    </tfoot>
+</table>

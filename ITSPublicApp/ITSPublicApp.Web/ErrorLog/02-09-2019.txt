@@ -1,0 +1,10 @@
+
+Log Entry : 
+02/09/2019 13:01:30
+Error in: http://localhost:18482/Areas/Supplier/Views/BookIA/Index.cshtml
+Error Message:Path '/Areas/Supplier/Views/BookIA/Index.cshtml' was not found.
+Error Stacktrace:   at System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+User IP:::1
+_________________________________________________________

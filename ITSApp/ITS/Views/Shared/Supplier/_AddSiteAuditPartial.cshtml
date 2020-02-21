@@ -1,0 +1,80 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divAddSiteAudit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.AddSiteAudit, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new { id = "frmSupplierAddSiteAudit", enctype = "multipart/form-data", @class = "form-horizontal", data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddSupplierSiteAuditFormSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: SiteAuditFormBeforeSubmit, clearForm: true }" }))
+    {
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel">
+                Add New Site Audit</h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Supplier Notes
+                </label>
+                <div class="controls">
+                    <textarea class="input-xlarge" name="AuditNotes" id="AuditNotesSiteAudit" rows="3"
+                        data-bind="jqBootstrapValidation: {}" required></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="optionsCheckbox">
+                    <span style="color: Red">*</span> Pass or Fail</label>
+                <div class="controls">
+                    <label class="radio inline">
+                        <input type="radio" value="true" name="AuditPass" data-bind="jqBootstrapValidation: {}"
+                            minchecked="1" data-validation-minchecked-message="Choose atleast one"/>Pass
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" value="false" name="AuditPass"  data-bind="jqBootstrapValidation: {}" />Fail
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    <span style="color: Red">*</span> Auditor</label>
+                <div class="controls">
+                    <select id="UserIDSiteAudit" name="UserID" data-bind="options:Users, optionsText:'UserName',optionsValue:'UserID',value:UserID, optionsCaption: 'Choose...',  jqBootstrapValidation: {}"
+                        required>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span> Date Audited</label>
+                <div class="controls">
+                    <input type="text" class="input-small datepicker" id="dateSiteAudit" name="AuditDate"
+                        data-bind="datepicker: { autoclose: true,format:'dd/mm/yyyy ' },jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span> Document Name</label>
+                <div class="controls">
+                    <input type="text" class="input-small" id="DocumentNameSiteAudit" name="DocumentName"
+                        data-bind="jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fileInput">
+                    Site Audit Document Upload</label>
+                <div class="controls">
+                    <input class="input-file" type="file" name="FileUploadSiteAudit" data-bind="jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <input type="hidden" data-bind="value:SupplierID" name="SupplierID" />
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" type="submit"   data-bind="bootstrapButton : DisableAddButton">
+                Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+            @* <button class="btn btn-primary" data-bind="click: SaveSupplierAddSiteAuditClick">
+                Save changes</button>*@
+        </div>
+
+    }
+</div>

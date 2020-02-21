@@ -1,0 +1,47 @@
+﻿<div id="divCreateBespokeGrid" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            Create Case Treatment Grid based on "How many sessions do you recommend ?"
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                Bespoke Service Name
+            </label>
+            <div class="controls">
+                <select data-bind="options: CaseBespokeServicePricings, optionsText:'BespokeServiceName', value: SelectedBespokeServicePricing">
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                Referrer Price:
+            </label>
+            <div class="controls">
+                <input placeholder="Referrer Price" data-bind="value:ReferrerPrice,jqBootstrapValidation:{}"
+                    data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number"
+                    class="input-large" type="text"  />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                Supplier Price:
+            </label>
+            <div class="controls">
+                <input placeholder="Supplier Price" data-bind="value:SupplierPrice,jqBootstrapValidation:{}"
+                    data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number"
+                    class="input-large" type="text" />
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" data-bind="click:AddNewBespokeService">
+            Add</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">
+            Close</button>
+    </div>
+</div>

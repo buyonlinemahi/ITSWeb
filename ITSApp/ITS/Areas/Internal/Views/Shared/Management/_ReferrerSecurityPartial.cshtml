@@ -1,0 +1,88 @@
+﻿@*
+
+   Latest Version : 1.1
+
+   Author   : Pardeep Kumar
+   Date     : 10-Nov-2012
+   Purpose  : Created Referrer Security Partial
+
+*  Modified by  : Pardeep Kumar
+*  Version      : 1.1
+*  Date         : 19-Nov-2012
+*  Description  : Updated View to implement the changes to display referrer names and referrer location for the selected referrer
+
+
+
+*@
+<link href="@Url.Content("~/Content/ReferrerSecurityPartial.css")" rel="stylesheet"
+    type="text/css" />
+<div id="container">
+    <div id="mainScreen">
+        <div id="topGreen">
+            Main Screen
+        </div>
+        <div id="screenBody">
+            <ul>
+                <li>
+                    <input id="chk1" type="checkbox" data-bind="checked:referrerAddReffChecked" />Add
+                    Referral </li>
+                <li>
+                    <input type="checkbox" data-bind="checked:referrerViewReportChecked" />View Report
+                </li>
+                <li>
+                    <input type="checkbox" data-bind="checked:referrerApproveRecomChecked" />Approve
+                    Recommendation </li>
+                <li>
+                    <input type="checkbox" data-bind="checked:referrerModifyRecomChecked" />Modify Recommendation
+                </li>
+                <li>
+                    <input type="checkbox" data-bind="checked:referrerCloseCaseChecked" />Close Case
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="height: 20px">
+    </div>
+    Referrer Assignment – Please Choose a Referrer for the User:
+    <div class="reffAssign">
+        <div class="left">
+            Referrer:
+        </div>
+        <div class="right">
+            <select data-bind="options: referrerName, 
+            optionsValue: 'ReferrerID', 
+            optionsText: 'ReferrerName', value: bindReferrerLocation, 
+            optionsCaption: 'Choose Referrer Name',
+            value: SelectedReferrerID" id="ReferrerNames" name="referrer">
+            </select>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div style="height: 20px">
+    </div>
+    Referrer Assignment – Please Choose a Referrer for the User:
+    <div class="reffAssign">
+        <div class="left">
+            Referrer Location:
+        </div>
+        <div class="right">
+            <select data-bind="options: referrerLocationNames, optionsCaption: 'Choose Referrer Location', 
+            optionsValue: 'ReferrerLocationID', 
+            optionsText: 'Name',
+            value : ReferrerLocationID
+            " id="ReferrerLocation" name="ReferrerLocation">
+            </select>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div style="height: 10px">
+    </div>
+    <div class="">
+        <div style="text-align: right">
+            <input type="button" value="Select All" data-bind="click:referrerSelectAll" />
+            <input type="button" id="deselectAll" value="Deselect All" data-bind="click:referrerDeSelectAll" />
+        </div>
+    </div>
+</div>

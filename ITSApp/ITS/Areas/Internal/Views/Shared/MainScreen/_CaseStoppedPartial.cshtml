@@ -1,0 +1,55 @@
+﻿
+<div class="MainDivCaseStopped">
+    <div>
+        <div class="CaseStopFrameRow">
+            <div class="CaseStopFrameRow-cellHeading" style="width: 100px;">
+                Date Recieved
+            </div>
+            <div class="CaseStopFrameRow-cellHeading" style="width: 200px;">
+                Case Number
+            </div>
+            <div class="CaseStopFrameRow-cellHeading" style="width: 105px;">
+                Patient Name
+            </div>
+            <div class="CaseStopFrameRow-cellHeading" style="width: 180px;">
+                Referrer Reference Number
+            </div>
+            <div class="CaseStopFrameRow-cellHeading" style="width: 155px;">
+                Treatment Type
+            </div>
+            <div class="CaseStopFrameRow-cellHeading">
+                Referrer Name
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="CaseStopFrameRow" data-bind="template: {name:'StoppedGrid',foreach:StoppedCases}">
+        </div>
+    </div>
+    <script id="StoppedGrid" type="text/html">
+    <div class="CaseStopFrameRow-cell" style="width:100px;">
+         <span data-bind="text:CaseSubmittedDate"></span>
+    </div>
+    <div class="CaseStopFrameRow-cell" style="width: 200px;">
+        <a href="#" data-bind="text:CaseNumber" ></a>
+    </div>
+    <div class="CaseStopFrameRow-cell" style="width: 105px;">
+        <span data-bind="text:PatientName"></span>
+    </div>
+    <div class="CaseStopFrameRow-cell " style="width: 180px;" >
+        <span data-bind="text:CaseReferrerReferenceNumber"></span>
+    </div>
+    <div class="CaseStopFrameRow-cell" style="width: 155px;">
+        <span data-bind="text:TreatmentTypeName"></span>
+    </div>
+  
+     <div class="CaseStopFrameRow-cell" style="border-right: 1px solid #BEBEC0;" >
+        <span data-bind="text:ReferrerName"></span>
+    </div>
+ 
+    <div class="clear">
+    </div>
+    </script>
+    
+</div>
+@Html.Partial("~/Views/Shared/_Paging.cshtml")

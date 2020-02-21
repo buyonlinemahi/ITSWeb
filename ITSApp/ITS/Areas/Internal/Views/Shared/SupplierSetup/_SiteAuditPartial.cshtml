@@ -1,0 +1,248 @@
+﻿@using ITS.Infrastructure.Global;
+@*
+ *Latest Version 1.8
+
+
+ *Author          : Manjit Singh
+  Date            : 26-Dec-2012
+  Version         : 1.0
+  Purpose         : File added for the  Supplier Site Audit 
+
+  Updated By      : Manjit Singh
+  Date            : 27-Dec-2012
+  Version         : 1.1
+  Purpose         : Functionality to get Supplier Site Audit and popup for add/amend 
+
+  Updated By      : Manjit Singh
+  Date            : 29-Dec-2012
+  Version         : 1.2
+  Purpose         : Functionality to delete and update Supplier Site Audit
+
+  Updated By      : Manjit Singh
+  Date            : 3-Jan-2013
+  Version         : 1.3
+  Purpose         : Functionality to get users by user type ID
+
+  Updated By      : Manjit Singh
+  Date            : 7-Jan-2013
+  Version         : 1.4
+  Purpose         : Functionality ot view upload
+
+  Updated By      : Manjit Singh
+  Date            : 8-Jan-2013
+  Version         : 1.5
+  Purpose         : Changed technique to display Pass Fail
+
+  Updated By      : Manjit Singh
+  Date            : 14-Jan-2013
+  Version         : 1.6
+  Purpose         : Applied Calender Control for Date and display date changed for grid
+
+  Updated By      : Manjit Singh
+  Date            : 15-Jan-2013
+  Version         : 1.7
+  Purpose         : Functionality changed to view uploaded file and removed useless code
+
+  Updated By      : Manjit Singh
+  Date            : 19-Feb-2013
+  Version         : 1.8
+  Purpose         : functionality changed to add, update, upload file and validations
+
+  *@
+<link href="@Url.Content("~/Content/SupplierSiteAuditPartial.css")" rel="stylesheet"  type="text/css" />
+<script type="text/javascript">
+    $(function () {
+        var pickerOpts = {
+            dateFormat: $.datepicker.ATOM,
+            changeYear: true
+        };
+        $("#dateSiteAudit").datepicker(pickerOpts);
+    });
+
+    $(document).ready(function () {
+        $(function () {
+            var SiteAuditUrls = {
+                UrlGetSupplierSiteAuditBySupplierID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierSiteAuditController.GetSupplierSiteAuditBySupplierID, GlobalConst.Controllers.Area.Internal.SupplierSiteAudit)",
+                UrlGetUsersByUserTypeID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierSiteAuditController.GetUsersByUserTypeID, GlobalConst.Controllers.Area.Internal.SupplierSiteAudit)",
+                UrlAddSupplierSiteAudit: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierSiteAuditController.AddSupplierSiteAudit, GlobalConst.Controllers.Area.Internal.SupplierSiteAudit)",
+                UrlDeleteSupplierSiteAuditBySupplierSiteAuditID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierSiteAuditController.DeleteSupplierSiteAuditBySupplierSiteAuditID, GlobalConst.Controllers.Area.Internal.SupplierSiteAudit)",
+                UrlUpdateSupplierSiteAuditBySupplierSiteAuditID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierSiteAuditController.UpdateSupplierSiteAuditBySupplierSiteAuditID, GlobalConst.Controllers.Area.Internal.SupplierSiteAudit)"
+            };
+
+//            var SiteAuditErrorMsg = {
+//                PleaseEnterSupplierNotes: "@GlobalResource.PleaseEnterSupplierNotes",
+//                PleaseEnterDocumentName: "@GlobalResource.PleaseEnterDocumentName",
+//                PleaseSelectFile: "@GlobalResource.PleaseSelectFile",
+//                PleaseEnterAuditeDate: "@GlobalResource.PleaseEnterAuditeDate",
+//                PleaseChooseAuditor: "@GlobalResource.PleaseChooseAuditor",
+//                PassFailStatus: "@GlobalResource.PassFailStatus",
+//                PleaseBrowsePDFFileOnly: "@GlobalResource.PleaseBrowsePDFFileOnly"
+//            }
+            SiteAuditViewModel.InitializeSiteAuditUrls(SiteAuditUrls);
+            SiteAuditViewModel.InitializeSiteAuditErrorMsg(SiteAuditErrorMsg);
+
+            $("#modelPopSupplierAudit").dialog({
+                autoOpen: false,
+                width: 800,
+                modal: true,
+                buttons: {
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    function ValidateFormAndGetActionUrl() {
+        if (SiteAuditViewModel.validationsSiteAudit()) { SiteAuditFormSubmit(); }
+        else {
+            return false;
+        }
+    };
+</script>
+<div id="divSiteAuditSpinner" style="position: absolute; top: 20%; left: 50%">
+</div>
+<div id="divSiteAuditContainer" class="outter-assess-container">
+    <div class="location-frame">
+        <div class="location-frame-row">
+            <div class="location-frame--row-cellHeading" style="width:365px;border-bottom: 1px solid black;">
+                Notes
+            </div>
+            <div class="location-frame--row-cellHeading" style="width:70px;border-bottom: 1px solid black;">
+                Pass or Fail
+            </div>
+            <div class="location-frame--row-cellHeading" style="width:150px;border-bottom: 1px solid black;">
+                Auditor
+            </div>
+            <div class="location-frame--row-cellHeading" style="width:75px;border-bottom: 1px solid black;">
+                Date Audited
+            </div>
+            <div class="location-frame--row-cellHeading" style="border-right: 1px solid black;border-bottom: 1px solid black;
+                height: 15px; width: 206px;">
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div style="width: 935px;" class="location-frame-row" data-bind="template: {name:'recordsSiteAudit',foreach:SupplierSiteAuditArray}">
+        </div>
+        <div class="clear">
+        </div>
+        <div>
+            <div style="float: right; font-weight: bold; padding: 10px;">
+                <a href="javascript:void(0)" data-bind="click: showModal" style="color:Blue">Add New</a>
+            </div>
+        </div>
+    </div>
+    <div id="modelPopSupplierAudit">
+        <form id="frmSiteAudit" enctype="multipart/form-data" method="post" onsubmit="return ValidateFormAndGetActionUrl()">
+        <div class="model-container">
+            <div class="row">
+                <div class="left" style="height: 102px">
+                    <span class="star">*</span> Supplier Notes
+                </div>
+                <div class="right">
+                    <textarea name="AuditNotes" id="AuditNotesSiteAudit" rows="10" cols="30" data-bind="value:AuditNotes"></textarea>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <span class="star">*</span>Pass or Fail
+                </div>
+                <div class="right">
+                    <input type="radio" value="1" name="PassFail" data-bind="checked: PassFail " />Pass
+                    <input type="radio" value="0" name="PassFail" data-bind="checked: PassFail" />Fail
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <span class="star">*</span>Auditor
+                </div>
+                <div class="right">
+                    <select name="UserID" id="UserIDSiteAudit" data-bind="options:Users, optionsText:'UserName',optionsValue:'UserID',value:UserID, optionsCaption: 'Choose...'">
+                    </select>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left" style="border-bottom: 1px solid;">
+                    <span class="star">*</span>Date Audited
+                </div>
+                <div class="right" style="border-bottom: 1px solid;">
+                    <input id="dateSiteAudit" name="AuditDate" type="text" data-bind="value:AuditDate,attr:{readonly:SiteAuditDateEnable}" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left" style="border-bottom: 1px solid;">
+                    <span class="star">*</span>Document Name
+                </div>
+                <div class="right" style="border-bottom: 1px solid;">
+                    <input name="DocumentName" id="DocumentNameSiteAudit" data-bind="value:DocumentName" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left" style="border-bottom: 1px solid;">
+                    <span id="starDocUpload" class="star">*</span>Site Audit Document Uploaddd
+                </div>
+                <div class="right" style="border-bottom: 1px solid;">
+                    <input type="hidden" name="SupplierDocumentID" data-bind="value:SupplierDocumentID" />
+                    <input type="hidden" name="UploadDate" data-bind="value:UploadDate" />
+                    <input type="hidden" name="SupplierSiteAuditID" data-bind="value:SupplierSiteAuditID" />
+                    <input type="hidden" name="AuditPass" data-bind="value:AuditPass" />
+                    <input type="hidden" name="DocumentTypeID" data-bind="value:DocumentTypeID" />
+                    <input type="hidden" name="SupplierId" data-bind="value:SupplierID" />
+                    <input type="hidden" name="OldUploadPath" data-bind="value:OldUploadPath" />
+                    <input type="file" name="FileUploadSiteAudit" id="fileToUploadForSiteAudit" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="pop-buttons">
+                <input type="submit" value="Close" data-bind="click:Cancel" />
+                &nbsp;&nbsp;
+                <input type="submit" value="Save" data-bind="visible:IsSaveVisible" />
+                <input type="submit" value="Update" data-bind="visible:IsUpdateVisible" />
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+<script id="recordsSiteAudit" type="text/html">
+
+  <div class="location-frame--row-cell" style="border-bottom: 1px solid black;width: 365px;overflow: hidden;border-top: 0 none;" >
+                <span data-bind="text:AuditNotes"></span>
+            </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black;width: 70px;border-top: 0 none;" >
+               <span data-bind="text:AuditPass()== 1? 'Pass' : 'Fail'"></span>
+            </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black;width: 150px;border-top: 0 none;" >
+                <span data-bind="text:UserName"></span>
+            </div>
+             <div class="location-frame--row-cell" style="border-bottom: 1px solid black;width: 75px;border-top: 0 none;" >
+                 <input id="dateformat" title="MM/DD/YYYY" style="font-size: 12px; color: #000;border:none;background:transparent" readonly="true" data-bind="dateString:AuditDate"/>
+            </div>
+            <div class="location-frame--row-cell" style="width:74px;border-bottom: 1px solid black;width: 80px;border-top: 0 none;">
+             <a data-bind="attr:{href:DocumentUrl}" ><span style="font-size: 12px;color:Blue;">View Upload</span></a>
+          </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black;width: 50px;border-top: 0 none;" >
+                <a href="javascript:void(0)" data-bind="click:$parent.editItem" style="color:Blue" >Amend</a>
+            </div>
+            <div class="location-frame--row-cell" style="border-right: 1px solid black;border-bottom: 1px solid black;width: 50px;border-top: 0 none;" >
+                <a href="javascript:void(0)" data-bind="click:$parent.Remove" style="color:Blue">Delete </a>
+            </div>
+         <div class="clear">
+        </div>
+</script>

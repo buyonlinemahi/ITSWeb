@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Case Search";
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+<script src="@Url.Content("~/Scripts/knockout.validation.js")"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/CaseSearchViewModel.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/Jquery-ui.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/CaseSearch.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/kopaging.min.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var caseSearchViewModel = new CaseSearchViewModel();
+    $(function () {
+        ko.applyBindings(caseSearchViewModel, $("#SupplierCaseSearchMainDiv").get(0));
+    });
+</script>
+@section SupplierMainTabs
+{
+ 
+}
+<div id="divGridDisplaySpinner" style="position: absolute; top: 50%; left: 50%">
+    <div id="divGridDisplay">
+    </div>
+</div>
+<div id="SupplierCaseSearchMainDiv" style="padding-bottom: 75px;">
+
+       <div id="pettabs" class="indentmenu-2">
+        <ul>
+            <li>@Html.ActionLink("NEW PATIENTS", "Index", "NewPatients") <span data-bind="text:NewPatientCount" id="NewPatientCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("EXISTING PATIENTS INITIAL ASSESSMENT", "Index", "ExistingPatientsInitialAssessment") <span id="ExistingPatientsInitialAssessmentCount" data-bind="text:ExistingPatientsInitialAssessmentCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("EXISTING PATIENTS NEXT ASSESSMENT", "Index", "ExistingPatientsNextAssessment") <span id="ExistingPatientsNextAssessmentCount" data-bind="text:ExistingPatientsNextAssessmentCount" class="icon-bg"> </span> </li>
+            <li>@Html.ActionLink("AUTHORISATION", "Index", "Authorisation")   <span id="AuthorisationCount" data-bind="text:AuthorisationCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("STOPPED CASES", "Index", "StoppedCases")  <span data-bind="text:StoppedCaseCount" id="StoppedCaseCount" class="icon-bg"> </span></li> 
+            <li>@Html.ActionLink("CASE SEARCH", "Index", "CaseSearch", null, new { @class = "selected" })  <span class="icon-bg-1" > </span></li>
+        </ul>
+        <br style="clear: left" />
+    </div>
+
+    @using (Html.BeginForm(ITSPublicApp.Infrastructure.Global.GlobalConst.Actions.Area.Supplier.CaseSearch.Search, ITSPublicApp.Infrastructure.Global.GlobalConst.Controllers.Area.Supplier.SupplierCaseSearch,
+          FormMethod.Post, new
+          {
+              id = "frmCaseSearch",
+              data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AfterSuccessCaseSearch(responseText, statusText, xhr, $form);}}"
+          }))
+    {
+        <div id="SupplierCaseOuter">
+            <div class="CaseArea">
+                <div>
+                    <div class="SearchCretaria" data-bind="foreach:SearchCritarias">
+                        <input type="radio" name="CaseSearchCriteria.SearchCriteria" data-bind="attr: {value:SearchCategoryID},checked:$parent.SearchCriteriaID" />
+                        <span data-bind="text:SearchByName"></span>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div id="SupplierCaseDiv">
+                    <div>
+                        <b>Case Search:</b>
+                        <input type="text" name="CaseSearchCriteria.SearchText" data-bind="value:SearchText" />
+                        <input type="submit" data-bind="click:SubmitCaseSearchform" value="Search" />
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+            <div class="ITS-ref-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Patient Name
+                            </td>
+                            <td>Case Number
+                            </td>
+                            <td>Phone Number
+                            </td>
+                            <td>Postal Code
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: CaseSearchArray">
+                        <tr>
+                            <td>
+                                <a href="#" target="_blank" data-bind="attr:{href:'/Supplier/CaseSearch/CaseDetail/'+EncryptCaseID()}, text:PatientFullName"></a>
+                            </td>
+                            <td data-bind="text:CaseNumber"></td>
+                            <td data-bind="text:MobilePhone"></td>
+                            <td data-bind="text:PostCode" style="text-transform:uppercase"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="msg-grid" data-bind="text:NoRecordFound">
+        </div>
+        @Html.Partial("_Paging")
+        <input type="hidden" name="Skip" data-bind="value:Skip" />
+        <input type="hidden" name="Take" data-bind="value:Take" />
+    }
+</div>

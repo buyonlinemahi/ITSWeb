@@ -1,0 +1,97 @@
+﻿ .its--accept-refer-border
+{
+    border-top: 2px dotted #BEBEC0;
+    margin: 30px 0 40px;
+}
+ #accept-reffer-screen{width:984px;font-family:Corbel;}
+ #accept-reffer-screen #heading{background:#7DA63C;padding:12px;margin:50px 0 7px 0 ;color: #FFFFFF;}
+
+ #accept-reffer-screen #bck-ref-scrn{float:left;padding:5px;}
+ #accept-reffer-screen #bck-ref-scrn a{border:none;text-decoration:none;}
+ #accept-reffer-screen #bck-ref-scrn img{border:none;}
+ #accept-reffer-screen #bck-ref-scrn span{vertical-align:top;}
+ #accept-reffer-screen #pateint-info{width:950px;margin:0 auto;overflow:hidden;}
+ #accept-reffer-screen #pateint-info #left-info{float:left;width:475px;}
+ #accept-reffer-screen #pateint-info #right-info{float:right;width:475px;}
+
+ #accept-reffer-screen #pateint-info #left-info .patnt-hdng{float:left;padding:8px 8px 9px 8px;width:208.5px;}
+ #accept-reffer-screen #pateint-info #left-info .patnt-info{ border: 1px solid #BFD1D3;
+    box-shadow: 1px 1px 1px #BFD1D3;
+    float: left;
+    margin-bottom: 4px;
+    padding: 10.5px 4.5px 12.5px;
+    width: 233px;
+    word-wrap: break-word;}
+ 
+ #accept-reffer-screen #pateint-info #left-info .patnt-info input[type="text"]{padding: 3px;width: 228px;}
+
+ #accept-reffer-screen #pateint-info #right-info .patnt-hdng{float:left;padding:8px 8px 9px 8px;width:208.5px;}
+ #accept-reffer-screen #pateint-info #right-info .patnt-info{border: 1px solid #BFD1D3;
+    box-shadow: 1px 1px 1px #BFD1D3;
+    float: right;
+    margin-bottom: 4px;
+    padding: 10.5px 4.5px 12.5px;
+    width: 233px;
+    word-wrap: break-word;}
+ #accept-reffer-screen #pateint-info #right-info .patnt-info input[type="text"]{padding: 3px;width: 228px;}
+ #accept-reffer-screen #pateint-info #right-info #instructions{float:right;border:1px solid;padding:8px;margin:20px 20px 0 0;}
+
+ #accept-reffer-screen #view-reff{padding:10px 10px 10px 20px; }
+ #accept-reffer-screen span{ }
+ #accept-reffer-screen #specl-instruction-form-ref-scrn{margin:10px 15px 15px;height:100px;padding:5px;border: 1px solid #BFD1D3;
+    box-shadow: 1px 1px 1px #BFD1D3;}
+ #accept-reffer-screen #email-notif-pont-1{width:950px;margin:0 auto;overflow:hidden;margin-top:20px;}
+ #accept-reffer-screen #email-notif-pont-1 .heading{float:left;background:#7DA63C;padding:5px;border:1px solid;width:938px;}
+ #accept-reffer-screen #notification-type{width:306px;padding:8px;border:1px solid;float:left;background:#D6E3BC;}
+ #accept-reffer-screen #to-be-sent{width:301px;padding:8px;border:1px solid;float:left;background:#D6E3BC;}
+ #accept-reffer-screen #ammend-email-btn{width:288px;padding:8px 8px 6px 8px;border:1px solid;float:left;height:17px;background:#D6E3BC;}
+
+ #accept-reffer-screen #notification-type-txt{width:306px;padding:8px;border:1px solid;float:left;}
+ #accept-reffer-screen #to-be-sent-txt{width:301px;padding:8px;border:1px solid;float:left;}
+ #accept-reffer-screen #ammend-email-btn-txt{width:292px;padding:4.5px;border:1px solid;float:left;}
+ #accept-reffer-screen #ammend-email-btn-txt input[type="submit"] {  margin-left: 35px;width: 90px;background:#ECE9D8;}
+
+ #accept-reffer-screen  #email-notif-pont-1 #patient-contacted {margin-top:20px;float:left;width:950px;}
+ #accept-reffer-screen  #email-notif-pont-1 #patient-contacted input[type="radio"]{padding:10px;}
+ #accept-reffer-screen  #email-notif-pont-1 #patient-contacted #patient-contact-notes{border:1px solid;margin:0 15px 0 15px;height:50px;padding:5px;} 
+
+ #accept-reffer-screen #referre-to-supplier{width:984px;margin-top:10px;margin-left:11px;}
+
+ /*#accept-reffer-screen #referre-to-supplier .headings{background:#7DA63C;padding:8px;width:120px;float:left;border:1px solid;height:30px;text-align:center;}
+ #accept-reffer-screen #referre-to-supplier .rows{padding:8px;width:120px;float:left;border:1px solid;text-align:center;}*/
+ #accept-reffer-screen #referrer-to-supplier{margin-top:10px;}
+ #accept-reffer-screen #referrer-to-supplier .tdHeading{background: none repeat scroll 0 0 #7DA63C;
+    border: 1px solid #BFD1D3;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;}
+ #accept-reffer-screen #referrer-to-supplier .rows{border: 1px solid #BFD1D3;text-align:center;padding: 10px;}
+ 
+ #accept-reffer-screen #disply-years {margin-top:10px;}
+  #accept-reffer-screen #disply-years  .years{padding:10px;float:left;width:393px;}
+  
+ #accept-reffer-screen #print-letter{float:left;margin-top:20px;}
+ #accept-reffer-screen #print-letter input[type="submit"]{padding:10px;background:#ECE9D8;margin-left:20px;}
+ #accept-reffer-screen #save-submit {margin-top:40px;float:right;margin-right:20px;}
+ #accept-reffer-screen #save-submit input[type="submit"]{padding:10px;background:#ECE9D8;}
+
+
+ #patient-code-notifcton{width:300px;margin:0 auto;border:1px solid;}
+ #patient-code-notifcton #heading{margin:3px;background:#7DA63C;}
+ #patient-code-notifcton p{padding:5px;}
+ #patient-code-notifcton #post-code{margin:0 auto;padding:5px;}
+ #patient-code-notifcton #post-code input[type="text"]{width:280px;}
+ #patient-code-notifcton #findPostCode{width:100px;margin:0 auto;padding:10px;}
+ #patient-code-notifcton #findPostCode input[type="submit"]{width:100px;}
+ 
+ 
+ #Email-text-ammend{width:300px;margin:0 auto;border:1px solid;}
+ #Email-text-ammend #heading{margin:3px;background:#7DA63C;}
+ #Email-text-ammend p{padding:5px;}
+ #Email-text-ammend #post-code{margin:0 auto;padding:5px;}
+ #Email-text-ammend #post-code input[type="text"]{width:280px;}
+ #Email-text-ammend #findPostCode{width:100px;margin:0 auto;padding:10px;}
+ #Email-text-ammend #findPostCode input[type="submit"]{width:100px;}
+
+.clear{clear:both;}

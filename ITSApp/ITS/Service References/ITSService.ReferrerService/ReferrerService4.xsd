@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ITSService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfReferrersName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrersName" nillable="true" type="tns:ReferrersName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrersName" nillable="true" type="tns:ArrayOfReferrersName" />
+  <xs:complexType name="ReferrersName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrersName" nillable="true" type="tns:ReferrersName" />
+  <xs:complexType name="Referrer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsAdditionalQuestion" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDrugandAlcoholTest" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEmploeeDetail" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEmploymentDetail" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsJobDemand" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNewPolicyTypes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPolicyDetail" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPolicyDetailOpenOrDropdowns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRepresentation" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReferrerContactFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerContactLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerMainContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerMainContactFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerMainContactPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Referrer" nillable="true" type="tns:Referrer" />
+  <xs:complexType name="ReferrerLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMainOffice" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerLocationID" type="xs:int" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerLocation" nillable="true" type="tns:ReferrerLocation" />
+  <xs:complexType name="ArrayOfReferrerLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerLocation" nillable="true" type="tns:ReferrerLocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerLocation" nillable="true" type="tns:ArrayOfReferrerLocation" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatment" nillable="true" type="tns:ReferrerProjectTreatment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatment" nillable="true" type="tns:ArrayOfReferrerProjectTreatment" />
+  <xs:complexType name="ReferrerProjectTreatment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountReceivableChasingPoint" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountReceivableCollection" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReferrerProjectID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatment" nillable="true" type="tns:ReferrerProjectTreatment" />
+  <xs:complexType name="ArrayOfPricingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PricingType" nillable="true" type="tns:PricingType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPricingType" nillable="true" type="tns:ArrayOfPricingType" />
+  <xs:complexType name="PricingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PricingTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="PricingTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PricingType" nillable="true" type="tns:PricingType" />
+  <xs:complexType name="ArrayOfInvoiceMethod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceMethod" nillable="true" type="tns:InvoiceMethod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceMethod" nillable="true" type="tns:ArrayOfInvoiceMethod" />
+  <xs:complexType name="InvoiceMethod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InvoiceMethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceMethodName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceMethod" nillable="true" type="tns:InvoiceMethod" />
+  <xs:complexType name="ArrayOfTreatmentCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentCategory" nillable="true" type="tns:TreatmentCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentCategory" nillable="true" type="tns:ArrayOfTreatmentCategory" />
+  <xs:complexType name="TreatmentCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentCategory" nillable="true" type="tns:TreatmentCategory" />
+  <xs:complexType name="ArrayOfReferrer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Referrer" nillable="true" type="tns:Referrer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrer" nillable="true" type="tns:ArrayOfReferrer" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentAssessment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentAssessment" nillable="true" type="tns:ReferrerProjectTreatmentAssessment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentAssessment" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentAssessment" />
+  <xs:complexType name="ReferrerProjectTreatmentAssessment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssessmentServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="AssessmentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentAssessmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentAssessment" nillable="true" type="tns:ReferrerProjectTreatmentAssessment" />
+  <xs:complexType name="ArrayOfReferrerProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProject" nillable="true" type="tns:ReferrerProject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProject" nillable="true" type="tns:ArrayOfReferrerProject" />
+  <xs:complexType name="ReferrerProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CentralEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailSendingOptionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FirstAppointmentOffered" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTriage" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectID" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProject" nillable="true" type="tns:ReferrerProject" />
+  <xs:complexType name="ArrayOfReferrerAssignedUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerAssignedUser" nillable="true" type="tns:ReferrerAssignedUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerAssignedUser" nillable="true" type="tns:ArrayOfReferrerAssignedUser" />
+  <xs:complexType name="ReferrerAssignedUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssignedUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USERID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerAssignedUser" nillable="true" type="tns:ReferrerAssignedUser" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentPricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentPricing" nillable="true" type="tns:ReferrerProjectTreatmentPricing" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentPricing" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentPricing" />
+  <xs:complexType name="ReferrerProjectTreatmentPricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PricingID" type="xs:int" />
+      <xs:element minOccurs="0" name="PricingTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentPricing" nillable="true" type="tns:ReferrerProjectTreatmentPricing" />
+  <xs:complexType name="ArrayOfProjectTreatmentSLA">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProjectTreatmentSLA" nillable="true" type="tns:ProjectTreatmentSLA" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProjectTreatmentSLA" nillable="true" type="tns:ArrayOfProjectTreatmentSLA" />
+  <xs:complexType name="ProjectTreatmentSLA">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NumberOfDays" type="xs:int" />
+      <xs:element minOccurs="0" name="ProjectTreatmentSLAID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ServiceLevelAgreementID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProjectTreatmentSLA" nillable="true" type="tns:ProjectTreatmentSLA" />
+  <xs:complexType name="ReferrerProjectTreatmentEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="EmailTypeValueID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentEmailID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentEmail" nillable="true" type="tns:ReferrerProjectTreatmentEmail" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentEmail" nillable="true" type="tns:ReferrerProjectTreatmentEmail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentEmail" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentEmail" />
+  <xs:complexType name="ReferrerProjectTreatmentInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InvoiceMethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoicePrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ManagementFeeEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ManagementPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentInvoiceID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentInvoice" nillable="true" type="tns:ReferrerProjectTreatmentInvoice" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentInvoice" nillable="true" type="tns:ReferrerProjectTreatmentInvoice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentInvoice" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentInvoice" />
+  <xs:complexType name="ReferrerProjectTreatmentDocumentSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssessmentServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="AssessmentServiceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentSetupTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="DocumentSetupTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentDocumentSetupID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="UploadedFileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentDocumentSetup" nillable="true" type="tns:ReferrerProjectTreatmentDocumentSetup" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentDocumentSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentDocumentSetup" nillable="true" type="tns:ReferrerProjectTreatmentDocumentSetup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentDocumentSetup" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentDocumentSetup" />
+  <xs:complexType name="ArrayOfTreatmentCategoriesPricingTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentCategoriesPricingTypes" nillable="true" type="tns:TreatmentCategoriesPricingTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentCategoriesPricingTypes" nillable="true" type="tns:ArrayOfTreatmentCategoriesPricingTypes" />
+  <xs:complexType name="TreatmentCategoriesPricingTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PricingTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="PricingTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreatmentCategoryPricingTypeID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentCategoriesPricingTypes" nillable="true" type="tns:TreatmentCategoriesPricingTypes" />
+  <xs:complexType name="ArrayOfAssessmentService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AssessmentService" nillable="true" type="tns:AssessmentService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAssessmentService" nillable="true" type="tns:ArrayOfAssessmentService" />
+  <xs:complexType name="AssessmentService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssessmentServiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="AssessmentServiceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssessmentService" nillable="true" type="tns:AssessmentService" />
+  <xs:complexType name="ArrayOfAssessmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AssessmentType" nillable="true" type="tns:AssessmentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAssessmentType" nillable="true" type="tns:ArrayOfAssessmentType" />
+  <xs:complexType name="AssessmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssessmentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="AssessmentTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssessmentType" nillable="true" type="tns:AssessmentType" />
+  <xs:complexType name="ArrayOfDelegatedAuthorisation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DelegatedAuthorisation" nillable="true" type="tns:DelegatedAuthorisation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDelegatedAuthorisation" nillable="true" type="tns:ArrayOfDelegatedAuthorisation" />
+  <xs:complexType name="DelegatedAuthorisation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DelegatedAuthorisationID" type="xs:int" />
+      <xs:element minOccurs="0" name="DeletegatedAuthorisationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DelegatedAuthorisation" nillable="true" type="tns:DelegatedAuthorisation" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentAuthorisation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentAuthorisation" nillable="true" type="tns:ReferrerProjectTreatmentAuthorisation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentAuthorisation" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentAuthorisation" />
+  <xs:complexType name="ReferrerProjectTreatmentAuthorisation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DelegatedAuthorisationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentAuthorisationID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentAuthorisation" nillable="true" type="tns:ReferrerProjectTreatmentAuthorisation" />
+  <xs:complexType name="ArrayOfDelegatedAuthorisationTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DelegatedAuthorisationTypes" nillable="true" type="tns:DelegatedAuthorisationTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDelegatedAuthorisationTypes" nillable="true" type="tns:ArrayOfDelegatedAuthorisationTypes" />
+  <xs:complexType name="DelegatedAuthorisationTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DelegatedAuthorisationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="DelegatedAuthorisationTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DelegatedAuthorisationTypes" nillable="true" type="tns:DelegatedAuthorisationTypes" />
+  <xs:complexType name="ArrayOfDocumentSetupTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentSetupTypes" nillable="true" type="tns:DocumentSetupTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentSetupTypes" nillable="true" type="tns:ArrayOfDocumentSetupTypes" />
+  <xs:complexType name="DocumentSetupTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentSetupTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="DocumentSetupTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentSetupTypes" nillable="true" type="tns:DocumentSetupTypes" />
+  <xs:complexType name="ArrayOfEmailType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailType" nillable="true" type="tns:EmailType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailType" nillable="true" type="tns:ArrayOfEmailType" />
+  <xs:complexType name="EmailType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="EmailTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserTypeID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailType" nillable="true" type="tns:EmailType" />
+  <xs:complexType name="ArrayOfServiceLevelAgreement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceLevelAgreement" nillable="true" type="tns:ServiceLevelAgreement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceLevelAgreement" nillable="true" type="tns:ArrayOfServiceLevelAgreement" />
+  <xs:complexType name="ServiceLevelAgreement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ServiceLevelAgreementID" type="xs:int" />
+      <xs:element minOccurs="0" name="ServiceLevelAgreementName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceLevelAgreement" nillable="true" type="tns:ServiceLevelAgreement" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentName" nillable="true" type="tns:ReferrerProjectTreatmentName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentName" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentName" />
+  <xs:complexType name="ReferrerProjectTreatmentName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentName" nillable="true" type="tns:ReferrerProjectTreatmentName" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentTreatmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentTreatmentType" nillable="true" type="tns:ReferrerProjectTreatmentTreatmentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentTreatmentType" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentTreatmentType" />
+  <xs:complexType name="ReferrerProjectTreatmentTreatmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentTreatmentType" nillable="true" type="tns:ReferrerProjectTreatmentTreatmentType" />
+  <xs:complexType name="ReferrerDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DocumentDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerCheck" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReferrerDocumentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerDocumentTypeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierCheck" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UploadDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UploadPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerDocument" nillable="true" type="tns:ReferrerDocument" />
+  <xs:complexType name="ArrayOfReferrerDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerDocumentType" nillable="true" type="tns:ReferrerDocumentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerDocumentType" nillable="true" type="tns:ArrayOfReferrerDocumentType" />
+  <xs:complexType name="ReferrerDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReferrerDocumentTypeDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerDocumentTypeID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerDocumentType" nillable="true" type="tns:ReferrerDocumentType" />
+  <xs:complexType name="ArrayOfReferrerDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerDocument" nillable="true" type="tns:ReferrerDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerDocument" nillable="true" type="tns:ArrayOfReferrerDocument" />
+  <xs:complexType name="PagedReferrerLocationReferrer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReferrerLocationReferrerCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerLocationReferrers" nillable="true" type="tns:ArrayOfReferrerLocationReferrer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedReferrerLocationReferrer" nillable="true" type="tns:PagedReferrerLocationReferrer" />
+  <xs:complexType name="ArrayOfReferrerLocationReferrer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerLocationReferrer" nillable="true" type="tns:ReferrerLocationReferrer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerLocationReferrer" nillable="true" type="tns:ArrayOfReferrerLocationReferrer" />
+  <xs:complexType name="ReferrerLocationReferrer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerMainContactPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerLocationReferrer" nillable="true" type="tns:ReferrerLocationReferrer" />
+  <xs:complexType name="ArrayOfReferrerPricingValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerPricingValue" nillable="true" type="tns:ReferrerPricingValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerPricingValue" nillable="true" type="tns:ArrayOfReferrerPricingValue" />
+  <xs:complexType name="ReferrerPricingValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PricingID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PricingTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="PricingTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerPricingValue" nillable="true" type="tns:ReferrerPricingValue" />
+  <xs:complexType name="ArrayOfProjectTreatmentSLAName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProjectTreatmentSLAName" nillable="true" type="tns:ProjectTreatmentSLAName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProjectTreatmentSLAName" nillable="true" type="tns:ArrayOfProjectTreatmentSLAName" />
+  <xs:complexType name="ProjectTreatmentSLAName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NumberOfDays" type="xs:int" />
+      <xs:element minOccurs="0" name="ProjectTreatmentSLAID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ServiceLevelAgreementID" type="xs:int" />
+      <xs:element minOccurs="0" name="ServiceLevelAgreementName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProjectTreatmentSLAName" nillable="true" type="tns:ProjectTreatmentSLAName" />
+  <xs:complexType name="ReferrerProjectTreatmentInvoiceMethod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InvoiceMethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoicePrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ManagementFeeEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ManagementPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ReferrerInvoiceMethods" nillable="true" type="tns:ArrayOfInvoiceMethod" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentInvoiceID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentInvoiceMethod" nillable="true" type="tns:ReferrerProjectTreatmentInvoiceMethod" />
+  <xs:complexType name="ArrayOfReferrerProjectTreatmentEmailTypeName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerProjectTreatmentEmailTypeName" nillable="true" type="tns:ReferrerProjectTreatmentEmailTypeName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerProjectTreatmentEmailTypeName" nillable="true" type="tns:ArrayOfReferrerProjectTreatmentEmailTypeName" />
+  <xs:complexType name="ReferrerProjectTreatmentEmailTypeName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="EmailTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailTypeValueID" type="xs:int" />
+      <xs:element minOccurs="0" name="EmailTypeValues" nillable="true" type="tns:ArrayOfEmailTypeValue" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentEmailID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerProjectTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserTypeID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerProjectTreatmentEmailTypeName" nillable="true" type="tns:ReferrerProjectTreatmentEmailTypeName" />
+  <xs:complexType name="ArrayOfEmailTypeValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailTypeValue" nillable="true" type="tns:EmailTypeValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailTypeValue" nillable="true" type="tns:ArrayOfEmailTypeValue" />
+  <xs:complexType name="EmailTypeValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailTypeValueID" type="xs:int" />
+      <xs:element minOccurs="0" name="EmailTypeValueName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailTypeValue" nillable="true" type="tns:EmailTypeValue" />
+  <xs:complexType name="InjuredPartyRepresentative">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InjuredID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="Relationship" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel2" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InjuredPartyRepresentative" nillable="true" type="tns:InjuredPartyRepresentative" />
+  <xs:complexType name="ArrayOfInjuredRepresentativeOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InjuredRepresentativeOption" nillable="true" type="tns:InjuredRepresentativeOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInjuredRepresentativeOption" nillable="true" type="tns:ArrayOfInjuredRepresentativeOption" />
+  <xs:complexType name="InjuredRepresentativeOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InjuredRepresentativeOptionID" type="xs:int" />
+      <xs:element minOccurs="0" name="InjuredRepresentativeOptionName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InjuredRepresentativeOption" nillable="true" type="tns:InjuredRepresentativeOption" />
+  <xs:complexType name="ArrayOfPrimaryCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrimaryCondition" nillable="true" type="tns:PrimaryCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrimaryCondition" nillable="true" type="tns:ArrayOfPrimaryCondition" />
+  <xs:complexType name="PrimaryCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PrimaryConditionID" type="xs:int" />
+      <xs:element minOccurs="0" name="PrimaryConditionName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrimaryCondition" nillable="true" type="tns:PrimaryCondition" />
+  <xs:complexType name="UpdateReferrerGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateReferrerGroup" nillable="true" type="tns:UpdateReferrerGroup" />
+  <xs:complexType name="ArrayOfReferrerGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerGroup" nillable="true" type="tns:ReferrerGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerGroup" nillable="true" type="tns:ArrayOfReferrerGroup" />
+  <xs:complexType name="ReferrerGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerGroup" nillable="true" type="tns:ReferrerGroup" />
+  <xs:complexType name="ArrayOfReferrerUserDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferrerUserDetail" nillable="true" type="tns:ReferrerUserDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferrerUserDetail" nillable="true" type="tns:ArrayOfReferrerUserDetail" />
+  <xs:complexType name="ReferrerUserDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseReferrerReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkflowDefination" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferrerUserDetail" nillable="true" type="tns:ReferrerUserDetail" />
+  <xs:complexType name="PagedReferrerGroupUserSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupUsersDetail" nillable="true" type="tns:ArrayOfReferrerUserDetail" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedReferrerGroupUserSearch" nillable="true" type="tns:PagedReferrerGroupUserSearch" />
+</xs:schema>

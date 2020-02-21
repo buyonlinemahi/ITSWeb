@@ -1,0 +1,144 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E591B05A-2773-45A1-B27B-12D2EEF981E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{BAEE475B-53AB-420A-8B53-6F26DF0B02E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{B51ADDAB-26D5-40E8-A108-BE3CB062EED1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Infrastructure.ApplicationFilters", "ITSPublicApp.Infrastructure.ApplicationFilters\ITSPublicApp.Infrastructure.ApplicationFilters.csproj", "{E41117A2-AD35-4FB1-9C07-0B2D7479C474}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Infrastructure.ApplicationServices", "ITSPublicApp.Infrastructure.ApplicationServices\ITSPublicApp.Infrastructure.ApplicationServices.csproj", "{4D983B86-1B25-481F-BD41-A0257F2C759E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Infrastructure.ApplicationServices.Contracts", "ITSPublicApp.Infrastructure.ApplicationServices.Contracts\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.csproj", "{55F2A65D-4AD9-4998-B603-2B1ABA9D90E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Infrastructure.Base", "ITSPublicApp.Infrastructure.Base\ITSPublicApp.Infrastructure.Base.csproj", "{87EA36B5-8A83-42CD-AA4F-46D654DA7478}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2} = {F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}
+		{45AF77B5-1457-4A61-891D-B46715C51B38} = {45AF77B5-1457-4A61-891D-B46715C51B38}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Infrastructure.DependencyResolution", "ITSPublicApp.Infrastructure.DependencyResolution\ITSPublicApp.Infrastructure.DependencyResolution.csproj", "{D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Infrastructure.Global", "ITSPublicApp.Infrastructure.Global\ITSPublicApp.Infrastructure.Global.csproj", "{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Domain.Models", "ITSPublicApp.Domain.Models\ITSPublicApp.Domain.Models.csproj", "{45AF77B5-1457-4A61-891D-B46715C51B38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Domain.ViewModels", "ITSPublicApp.Domain.ViewModels\ITSPublicApp.Domain.ViewModels.csproj", "{FE6D325E-DC0B-4C87-8F9F-4D087AD35384}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSPublicApp.Web", "ITSPublicApp.Web\ITSPublicApp.Web.csproj", "{73DE0BC4-0856-4EFF-929D-65A9EAA465B2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67} = {D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67}
+		{55F2A65D-4AD9-4998-B603-2B1ABA9D90E9} = {55F2A65D-4AD9-4998-B603-2B1ABA9D90E9}
+		{FE6D325E-DC0B-4C87-8F9F-4D087AD35384} = {FE6D325E-DC0B-4C87-8F9F-4D087AD35384}
+		{4D983B86-1B25-481F-BD41-A0257F2C759E} = {4D983B86-1B25-481F-BD41-A0257F2C759E}
+		{E41117A2-AD35-4FB1-9C07-0B2D7479C474} = {E41117A2-AD35-4FB1-9C07-0B2D7479C474}
+		{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2} = {F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}
+		{87EA36B5-8A83-42CD-AA4F-46D654DA7478} = {87EA36B5-8A83-42CD-AA4F-46D654DA7478}
+		{45AF77B5-1457-4A61-891D-B46715C51B38} = {45AF77B5-1457-4A61-891D-B46715C51B38}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.hcrg.com:8080/tfs/hcrg
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ITSPublicApp.Infrastructure.ApplicationFilters\\ITSPublicApp.Infrastructure.ApplicationFilters.csproj
+		SccProjectTopLevelParentUniqueName1 = ITSPublicApp.sln
+		SccProjectName1 = ITSPublicApp.Infrastructure.ApplicationFilters
+		SccLocalPath1 = ITSPublicApp.Infrastructure.ApplicationFilters
+		SccProjectUniqueName2 = ITSPublicApp.Infrastructure.ApplicationServices\\ITSPublicApp.Infrastructure.ApplicationServices.csproj
+		SccProjectTopLevelParentUniqueName2 = ITSPublicApp.sln
+		SccProjectName2 = ITSPublicApp.Infrastructure.ApplicationServices
+		SccLocalPath2 = ITSPublicApp.Infrastructure.ApplicationServices
+		SccProjectUniqueName3 = ITSPublicApp.Infrastructure.ApplicationServices.Contracts\\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.csproj
+		SccProjectTopLevelParentUniqueName3 = ITSPublicApp.sln
+		SccProjectName3 = ITSPublicApp.Infrastructure.ApplicationServices.Contracts
+		SccLocalPath3 = ITSPublicApp.Infrastructure.ApplicationServices.Contracts
+		SccProjectUniqueName4 = ITSPublicApp.Infrastructure.Base\\ITSPublicApp.Infrastructure.Base.csproj
+		SccProjectTopLevelParentUniqueName4 = ITSPublicApp.sln
+		SccProjectName4 = ITSPublicApp.Infrastructure.Base
+		SccLocalPath4 = ITSPublicApp.Infrastructure.Base
+		SccProjectUniqueName5 = ITSPublicApp.Infrastructure.DependencyResolution\\ITSPublicApp.Infrastructure.DependencyResolution.csproj
+		SccProjectTopLevelParentUniqueName5 = ITSPublicApp.sln
+		SccProjectName5 = ITSPublicApp.Infrastructure.DependencyResolution
+		SccLocalPath5 = ITSPublicApp.Infrastructure.DependencyResolution
+		SccProjectUniqueName6 = ITSPublicApp.Infrastructure.Global\\ITSPublicApp.Infrastructure.Global.csproj
+		SccProjectTopLevelParentUniqueName6 = ITSPublicApp.sln
+		SccProjectName6 = ITSPublicApp.Infrastructure.Global
+		SccLocalPath6 = ITSPublicApp.Infrastructure.Global
+		SccProjectUniqueName7 = ITSPublicApp.Domain.Models\\ITSPublicApp.Domain.Models.csproj
+		SccProjectTopLevelParentUniqueName7 = ITSPublicApp.sln
+		SccProjectName7 = ITSPublicApp.Domain.Models
+		SccLocalPath7 = ITSPublicApp.Domain.Models
+		SccProjectUniqueName8 = ITSPublicApp.Domain.ViewModels\\ITSPublicApp.Domain.ViewModels.csproj
+		SccProjectTopLevelParentUniqueName8 = ITSPublicApp.sln
+		SccProjectName8 = ITSPublicApp.Domain.ViewModels
+		SccLocalPath8 = ITSPublicApp.Domain.ViewModels
+		SccProjectUniqueName9 = ITSPublicApp.Web\\ITSPublicApp.Web.csproj
+		SccProjectTopLevelParentUniqueName9 = ITSPublicApp.sln
+		SccProjectName9 = ITSPublicApp.Web
+		SccLocalPath9 = ITSPublicApp.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E41117A2-AD35-4FB1-9C07-0B2D7479C474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E41117A2-AD35-4FB1-9C07-0B2D7479C474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E41117A2-AD35-4FB1-9C07-0B2D7479C474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E41117A2-AD35-4FB1-9C07-0B2D7479C474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D983B86-1B25-481F-BD41-A0257F2C759E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D983B86-1B25-481F-BD41-A0257F2C759E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D983B86-1B25-481F-BD41-A0257F2C759E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D983B86-1B25-481F-BD41-A0257F2C759E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F2A65D-4AD9-4998-B603-2B1ABA9D90E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F2A65D-4AD9-4998-B603-2B1ABA9D90E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F2A65D-4AD9-4998-B603-2B1ABA9D90E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F2A65D-4AD9-4998-B603-2B1ABA9D90E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87EA36B5-8A83-42CD-AA4F-46D654DA7478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87EA36B5-8A83-42CD-AA4F-46D654DA7478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87EA36B5-8A83-42CD-AA4F-46D654DA7478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87EA36B5-8A83-42CD-AA4F-46D654DA7478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45AF77B5-1457-4A61-891D-B46715C51B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AF77B5-1457-4A61-891D-B46715C51B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AF77B5-1457-4A61-891D-B46715C51B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AF77B5-1457-4A61-891D-B46715C51B38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6D325E-DC0B-4C87-8F9F-4D087AD35384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6D325E-DC0B-4C87-8F9F-4D087AD35384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6D325E-DC0B-4C87-8F9F-4D087AD35384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6D325E-DC0B-4C87-8F9F-4D087AD35384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73DE0BC4-0856-4EFF-929D-65A9EAA465B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73DE0BC4-0856-4EFF-929D-65A9EAA465B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73DE0BC4-0856-4EFF-929D-65A9EAA465B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73DE0BC4-0856-4EFF-929D-65A9EAA465B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E41117A2-AD35-4FB1-9C07-0B2D7479C474} = {E591B05A-2773-45A1-B27B-12D2EEF981E6}
+		{4D983B86-1B25-481F-BD41-A0257F2C759E} = {E591B05A-2773-45A1-B27B-12D2EEF981E6}
+		{55F2A65D-4AD9-4998-B603-2B1ABA9D90E9} = {E591B05A-2773-45A1-B27B-12D2EEF981E6}
+		{87EA36B5-8A83-42CD-AA4F-46D654DA7478} = {E591B05A-2773-45A1-B27B-12D2EEF981E6}
+		{D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67} = {E591B05A-2773-45A1-B27B-12D2EEF981E6}
+		{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2} = {E591B05A-2773-45A1-B27B-12D2EEF981E6}
+		{45AF77B5-1457-4A61-891D-B46715C51B38} = {BAEE475B-53AB-420A-8B53-6F26DF0B02E4}
+		{FE6D325E-DC0B-4C87-8F9F-4D087AD35384} = {BAEE475B-53AB-420A-8B53-6F26DF0B02E4}
+		{73DE0BC4-0856-4EFF-929D-65A9EAA465B2} = {B51ADDAB-26D5-40E8-A108-BE3CB062EED1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2F56144-1AF2-456A-B3FE-8D53F0C0D4A5}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.ViewModels\bin\Debug\ITS.Domain.ViewModels.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.ViewModels\bin\Debug\ITS.Domain.ViewModels.pdb
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.ViewModels\bin\Debug\ITS.Domain.Models.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.ViewModels\bin\Debug\ITS.Domain.Models.pdb
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.ViewModels\obj\Debug\ITS.Domain.ViewModels.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.ViewModels\obj\Debug\ITS.Domain.ViewModels.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.ViewModels\obj\Debug\ITS.Domain.ViewModels.pdb

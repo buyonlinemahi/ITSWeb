@@ -1,0 +1,116 @@
+﻿@using ITS.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.CaseSearchSharedContoller.UpdateSolicitor, GlobalConst.Controllers.CaseSearchShared, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmUpdateSolicitor",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateSolicitorFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: SolicitorUpdateFormBeforeSubmit}"
+}))
+{
+    <div class="row-fluid form-horizontal">
+        <!--ko  with:Solicitor -->
+        <div class="widget-content nopadding">
+            <div class="control-group">
+                <label class="control-label">
+                    Company Name:
+                </label>
+                <div class="controls">
+                    <input type="hidden" data-bind="value:SolicitorID" name="SolicitorID" />
+                    <input type="text" data-bind="value:CompanyName,jqBootstrapValidation: {}" name="CompanyName" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    First Name:
+                </label>
+                <div class="controls">
+                    <input type="text" data-bind="value:FirstName,jqBootstrapValidation: {}" name="FirstName" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Last Name:
+                </label>
+                <div class="controls">
+                    <input type="text" data-bind="value:LastName,jqBootstrapValidation: {}" name="LastName" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Solicitor Reference:</label>
+                <div class="controls">
+                    <input type="text" data-bind="value:ReferenceNumber,jqBootstrapValidation: {}" name="ReferenceNumber" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Email:
+                </label>
+                <div class="controls">
+                    <input type="text" data-validation-regex-regex='^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$'
+                        data-validation-regex-message="Not a valid email address" data-bind="value:Email,jqBootstrapValidation: {}"
+                        name="Email" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Address:
+                </label>
+                <div class="controls">
+                    <input type="text" data-bind="value:Address,jqBootstrapValidation: {}" name="Address" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    City / Town:
+                </label>
+                <div class="controls">
+                    <input type="text" data-bind="value:City,jqBootstrapValidation: {}" name="City" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Post Code:
+                </label>
+                <div class="controls">
+                    <input type="text" data-bind="value:PostCode,jqBootstrapValidation: {}" onkeyup="javascript: postalCodeFormat(this)" name="PostCode"   style="text-transform:uppercase"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Region:
+                </label>
+                <div class="controls">
+                    <input type="text" data-bind="value:Region,jqBootstrapValidation: {}" name="Region" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Phone:
+                </label>
+                <div class="controls">
+                    <input type="text" class="phoneMaskformat"
+                        data-bind="value:Phone,jqBootstrapValidation: {}" name="Phone" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Fax:
+                </label>
+                <div class="controls">
+                    <input type="text" class="phoneMaskformat"
+                        data-bind="value:Fax,jqBootstrapValidation: {}" name="Fax" />
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="column-groups-button">
+                    <button class="btn btn-primary btn-block" type="submit" id="btnSave">
+                        Update</button>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <!--/ko-->
+    </div>
+}

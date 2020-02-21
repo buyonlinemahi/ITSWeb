@@ -1,0 +1,2547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CaseService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/CaseService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/CaseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/CaseService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICaseService_DeleteCaseReferrerAssignedUserByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseReferrerAssignedUserByID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseReferrerAssignedUserByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseReferrerAssignedUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllGips_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGips" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllGips_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGipsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllTpds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTpds" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllTpds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTpdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllIips_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllIips" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllIips_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllIipsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllElRehabs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllElRehabs" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllElRehabs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllElRehabsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetJobDemandByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobDemandByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetJobDemandByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobDemandByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetDrugTestByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrugTestByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetDrugTestByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrugTestByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCase" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetEmploymentByEmploymentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmploymentByEmploymentID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetEmploymentByEmploymentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmploymentByEmploymentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetEmployeeDetailById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeDetailById" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetEmployeeDetailById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeDetailByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetPolicyByPolicyID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicyByPolicyID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetPolicyByPolicyID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicyByPolicyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseByLikeCaseNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByLikeCaseNumber" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseByLikeCaseNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByLikeCaseNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerCasesByWorkflowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerCasesByWorkflowID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerCasesByWorkflowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerCasesByWorkflowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetPolicyOpenDetailById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicyOpenDetailById" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetPolicyOpenDetailById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicyOpenDetailByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferral" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferral" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseContact" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseContactsByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseContactsByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseContactsByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseContactsByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseContactByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseContactByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseContactByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseContactByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseContactByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseContactByID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseContactByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseContactByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasesByWorkFlowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasesByWorkFlowID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasesByWorkFlowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasesByWorkFlowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerAuthorisationsByReferrerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerAuthorisationsByReferrerID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerAuthorisationsByReferrerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerAuthorisationsByReferrerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCounts" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCountByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCountByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCountByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCountByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseAppointmentDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseAppointmentDate" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseAppointmentDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseAppointmentDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseAppointmentDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAppointmentDate" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseAppointmentDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAppointmentDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseAppointmentDateByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAppointmentDateByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseAppointmentDateByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAppointmentDateByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddPatientContactAttempt_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPatientContactAttempt" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddPatientContactAttempt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPatientContactAttemptResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeletePatientContactAttempt_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePatientContactAttempt" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeletePatientContactAttempt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePatientContactAttemptResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetPatientContactAttemptsByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientContactAttemptsByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetPatientContactAttemptsByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientContactAttemptsByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferralCases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferralCases" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferralCases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferralCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferralCasesByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferralCasesByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferralCasesByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferralCasesByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetInitialAssessmentQACaseWorkflowPatientProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialAssessmentQACaseWorkflowPatientProjects" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetInitialAssessmentQACaseWorkflowPatientProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialAssessmentQACaseWorkflowPatientProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAuthorisationCaseWorkflowPatientProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorisationCaseWorkflowPatientProjects" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAuthorisationCaseWorkflowPatientProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorisationCaseWorkflowPatientProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReviewAssessmentQACaseWorkflowPatientProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewAssessmentQACaseWorkflowPatientProjects" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReviewAssessmentQACaseWorkflowPatientProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewAssessmentQACaseWorkflowPatientProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseStoppedCaseWorkflowPatientProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseStoppedCaseWorkflowPatientProjects" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseStoppedCaseWorkflowPatientProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseStoppedCaseWorkflowPatientProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetFinalAssessmentCaseWorkflowPatientProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalAssessmentCaseWorkflowPatientProjects" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetFinalAssessmentCaseWorkflowPatientProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalAssessmentCaseWorkflowPatientProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTriageAssessmentQACaseWorkflowPatientProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriageAssessmentQACaseWorkflowPatientProjects" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTriageAssessmentQACaseWorkflowPatientProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriageAssessmentQACaseWorkflowPatientProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseWorkFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseWorkFlow" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseWorkFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseWorkFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseWorkFlowStoppedCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseWorkFlowStoppedCase" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseWorkFlowStoppedCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseWorkFlowStoppedCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetInitialAssessmentCasePatientSupplierPractitionerByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialAssessmentCasePatientSupplierPractitionerByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetInitialAssessmentCasePatientSupplierPractitionerByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialAssessmentCasePatientSupplierPractitionerByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetBookIACasePatientByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookIACasePatientByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetBookIACasePatientByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookIACasePatientByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddBookIA_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookIA" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddBookIA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookIAResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientReferrerSupplierByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientReferrerSupplierByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientReferrerSupplierByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientReferrerSupplierByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseSearchLikePatientName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseSearchLikePatientName" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseSearchLikePatientName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseSearchLikePatientNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseSearchLikeReferrerReferenceNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseSearchLikeReferrerReferenceNumber" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseSearchLikeReferrerReferenceNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseSearchLikeReferrerReferenceNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseDocument" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTriageCaseDocumentByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriageCaseDocumentByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTriageCaseDocumentByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriageCaseDocumentByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferralCaseDocumentByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferralCaseDocumentByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferralCaseDocumentByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferralCaseDocumentByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateTriageCaseDocumentByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTriageCaseDocumentByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateTriageCaseDocumentByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTriageCaseDocumentByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientLikeCaseNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientLikeCaseNumber" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientLikeCaseNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientLikeCaseNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseIsTreatmentRequired_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseIsTreatmentRequired" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseIsTreatmentRequired_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseIsTreatmentRequiredResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllCaseStopReason_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCaseStopReason" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetAllCaseStopReason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCaseStopReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCompletedCaseWorkflowPatientProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCompletedCaseWorkflowPatientProjects" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCompletedCaseWorkflowPatientProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCompletedCaseWorkflowPatientProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseNote" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseNotesByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseNotesByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseNotesByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseNotesByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikePatientName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikePatientName" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikePatientName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikePatientNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeReferrerName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeReferrerName" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeReferrerName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeReferrerNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeCaseNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeCaseNumber" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeCaseNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeCaseNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeTreatmentCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeTreatmentTypeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeTreatmentTypeName" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikeTreatmentTypeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikeTreatmentTypeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikePostCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikePostCode" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientTreatmentWorkflowLikePostCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientTreatmentWorkflowLikePostCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseHistoriesByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseHistoriesByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseHistoriesByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseHistoriesByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseBespokeServicePricingForInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseBespokeServicePricingForInvoice" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseBespokeServicePricingForInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseBespokeServicePricingForInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseInvoiceDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseInvoiceDate" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseInvoiceDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseInvoiceDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientReferrerSupplierWorkflowByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientReferrerSupplierWorkflowByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientReferrerSupplierWorkflowByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientReferrerSupplierWorkflowByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientReferrerByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientReferrerByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCasePatientReferrerByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasePatientReferrerByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetIntialAssessmentReportDetailsByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIntialAssessmentReportDetailsByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetIntialAssessmentReportDetailsByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIntialAssessmentReportDetailsByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetInitialReviewAssessmentByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialReviewAssessmentByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetInitialReviewAssessmentByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialReviewAssessmentByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetEvaluateDelegatedAuthorisationCost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluateDelegatedAuthorisationCost" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetEvaluateDelegatedAuthorisationCost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluateDelegatedAuthorisationCostResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseDocumentUserByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseDocumentUserByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseDocumentUserByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseDocumentUserByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseDocumentForSupplierUserByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseDocumentForSupplierUserByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseDocumentForSupplierUserByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseDocumentForSupplierUserByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseDocumentForReferrerUserByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseDocumentForReferrerUserByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseDocumentForReferrerUserByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseDocumentForReferrerUserByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingsForInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingsForInvoice" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingsForInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingsForInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseTreatmentPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseTreatmentPricing" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseTreatmentPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseTreatmentPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricing" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCheckCaseTreatmentPricingByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckCaseTreatmentPricingByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCheckCaseTreatmentPricingByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckCaseTreatmentPricingByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingByCaseIDAndComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseIDAndComplete" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingByCaseIDAndComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseIDAndCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingByCaseIDAndInComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseIDAndInComplete" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingByCaseIDAndInComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseIDAndInCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricingByCaseTreatmentPricingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingByCaseTreatmentPricingID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricingByCaseTreatmentPricingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingByCaseTreatmentPricingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricingPriceByReferrerPricingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingPriceByReferrerPricingID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricingPriceByReferrerPricingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingPriceByReferrerPricingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTreatmentReferrerSupplierPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentReferrerSupplierPricing" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTreatmentReferrerSupplierPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentReferrerSupplierPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTreatmentReferrerSupplierPricingQA_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentReferrerSupplierPricingQA" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTreatmentReferrerSupplierPricingQA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentReferrerSupplierPricingQAResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseTreatmentPricingByCaseTreatmentPricingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseTreatmentPricingByCaseTreatmentPricingID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseTreatmentPricingByCaseTreatmentPricingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseTreatmentPricingByCaseTreatmentPricingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseTreatmentPricingByCaseIDCaseStopped_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseTreatmentPricingByCaseIDCaseStopped" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseTreatmentPricingByCaseIDCaseStopped_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseTreatmentPricingByCaseIDCaseStoppedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricingAuthorisationStatusByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingAuthorisationStatusByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricingAuthorisationStatusByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingAuthorisationStatusByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetEPNATreatmentSessionDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEPNATreatmentSessionDetail" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetEPNATreatmentSessionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEPNATreatmentSessionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseBespokeServicePricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseBespokeServicePricing" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseBespokeServicePricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseBespokeServicePricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseBespokeServicePricingByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseBespokeServicePricingByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseBespokeServicePricingByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseBespokeServicePricingByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseBespokeServicePricingByCaseBespokeServiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseBespokeServicePricingByCaseBespokeServiceID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseBespokeServicePricingByCaseBespokeServiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseBespokeServicePricingByCaseBespokeServiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseBespokeServiceByCaseBespokeServiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseBespokeServiceByCaseBespokeServiceID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCaseBespokeServiceByCaseBespokeServiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseBespokeServiceByCaseBespokeServiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseBespokeReferrerPriceByCaseBespokeServiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseBespokeServicePricingByCaseIDAndComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseBespokeServicePricingByCaseIDAndComplete" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseBespokeServicePricingByCaseIDAndComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseBespokeServicePricingByCaseIDAndCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseBespokeServicePricingByCaseIDAndInComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseBespokeServicePricingByCaseIDAndInComplete" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseBespokeServicePricingByCaseIDAndInComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseBespokeServicePricingByCaseIDAndInCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseCommunicationHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseCommunicationHistory" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseCommunicationHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseCommunicationHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCommunicationHistoriesByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCommunicationHistoriesByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseCommunicationHistoriesByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseCommunicationHistoriesByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerSupplierCaseLikePatientNameAndReferrerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerSupplierCaseLikePatientNameAndReferrerID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerSupplierCaseLikePatientNameAndReferrerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerSupplierCaseLikePatientNameAndReferrerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerSupplierCaseLikePatientNameAndSupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerSupplierCaseLikePatientNameAndSupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerSupplierCaseLikePatientNameAndSupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerSupplierCaseLikePatientNameAndSupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerSupplierCaseLikeCaseNumberAndSupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerSupplierCaseLikeCaseNumberAndSupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerSupplierCaseLikeCaseNumberAndSupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerSupplierCaseLikeCaseNumberAndSupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerAndSupplierPricingVat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerAndSupplierPricingVat" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerAndSupplierPricingVat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerAndSupplierPricingVatResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerAndSupplierPricingTriageAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerAndSupplierPricingTriageAssessment" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerAndSupplierPricingTriageAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerAndSupplierPricingTriageAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerAndSupplierPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerAndSupplierPricing" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerAndSupplierPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerAndSupplierPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseVAT_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseVAT" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseVAT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseVATResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseVATByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseVATByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseVATByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseVATByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseWorkflowCustomByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseWorkflowCustomByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseWorkflowCustomByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseWorkflowCustomByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerProjectTreatmentDocumentSetup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentDocumentSetup" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetReferrerProjectTreatmentDocumentSetup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentDocumentSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseAssessmentCustomsByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentCustomsByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseAssessmentCustomsByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentCustomsByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingByCaseIDCaseSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseIDCaseSearch" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseTreatmentPricingByCaseIDCaseSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseIDCaseSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseTreatmentPricingCaseSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseTreatmentPricingCaseSearch" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseTreatmentPricingCaseSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseTreatmentPricingCaseSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetFinalUploadByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalUploadByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetFinalUploadByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalUploadByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseNoteByCaseIDAndWorkflowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseNoteByCaseIDAndWorkflowID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseNoteByCaseIDAndWorkflowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseNoteByCaseIDAndWorkflowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTreatmentSessionByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentSessionByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetTreatmentSessionByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentSessionByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseAndReferrerDocumentByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAndReferrerDocumentByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_UpdateCaseAndReferrerDocumentByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAndReferrerDocumentByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetUnsuccessfulContactDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnsuccessfulContactDate" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetUnsuccessfulContactDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnsuccessfulContactDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetPatientContactDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientContactDate" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetPatientContactDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientContactDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetNotificationBubbleCountBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotificationBubbleCountBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetNotificationBubbleCountBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotificationBubbleCountBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseReferrerAssignedUsersByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseReferrerAssignedUsersByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseReferrerAssignedUsersByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseReferrerAssignedUsersByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseReferrerAssignedUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseReferrerAssignedUser" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddCaseReferrerAssignedUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseReferrerAssignedUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICaseService">
+    <wsdl:operation name="DeleteCaseReferrerAssignedUserByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseReferrerAssignedUserByID" message="tns:ICaseService_DeleteCaseReferrerAssignedUserByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseReferrerAssignedUserByIDResponse" message="tns:ICaseService_DeleteCaseReferrerAssignedUserByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGips">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetAllGips" message="tns:ICaseService_GetAllGips_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetAllGipsResponse" message="tns:ICaseService_GetAllGips_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTpds">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetAllTpds" message="tns:ICaseService_GetAllTpds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetAllTpdsResponse" message="tns:ICaseService_GetAllTpds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllIips">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetAllIips" message="tns:ICaseService_GetAllIips_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetAllIipsResponse" message="tns:ICaseService_GetAllIips_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllElRehabs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetAllElRehabs" message="tns:ICaseService_GetAllElRehabs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetAllElRehabsResponse" message="tns:ICaseService_GetAllElRehabs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDemandByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetJobDemandByCaseID" message="tns:ICaseService_GetJobDemandByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetJobDemandByCaseIDResponse" message="tns:ICaseService_GetJobDemandByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrugTestByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetDrugTestByCaseID" message="tns:ICaseService_GetDrugTestByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetDrugTestByCaseIDResponse" message="tns:ICaseService_GetDrugTestByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCase">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCase" message="tns:ICaseService_AddCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseResponse" message="tns:ICaseService_AddCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseByCaseID" message="tns:ICaseService_GetCaseByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseByCaseIDResponse" message="tns:ICaseService_GetCaseByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseByPatientID" message="tns:ICaseService_GetCaseByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseByPatientIDResponse" message="tns:ICaseService_GetCaseByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmploymentByEmploymentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetEmploymentByEmploymentID" message="tns:ICaseService_GetEmploymentByEmploymentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetEmploymentByEmploymentIDResponse" message="tns:ICaseService_GetEmploymentByEmploymentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDetailById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetEmployeeDetailById" message="tns:ICaseService_GetEmployeeDetailById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetEmployeeDetailByIdResponse" message="tns:ICaseService_GetEmployeeDetailById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyByPolicyID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetPolicyByPolicyID" message="tns:ICaseService_GetPolicyByPolicyID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetPolicyByPolicyIDResponse" message="tns:ICaseService_GetPolicyByPolicyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByLikeCaseNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseByLikeCaseNumber" message="tns:ICaseService_GetCaseByLikeCaseNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseByLikeCaseNumberResponse" message="tns:ICaseService_GetCaseByLikeCaseNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerCasesByWorkflowID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerCasesByWorkflowID" message="tns:ICaseService_GetReferrerCasesByWorkflowID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerCasesByWorkflowIDResponse" message="tns:ICaseService_GetReferrerCasesByWorkflowID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyOpenDetailById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetPolicyOpenDetailById" message="tns:ICaseService_GetPolicyOpenDetailById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetPolicyOpenDetailByIdResponse" message="tns:ICaseService_GetPolicyOpenDetailById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddReferral" message="tns:ICaseService_AddReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddReferralResponse" message="tns:ICaseService_AddReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateReferral" message="tns:ICaseService_UpdateReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateReferralResponse" message="tns:ICaseService_UpdateReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseContact" message="tns:ICaseService_AddCaseContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseContactResponse" message="tns:ICaseService_AddCaseContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseContactsByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseContactsByCaseID" message="tns:ICaseService_GetCaseContactsByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseContactsByCaseIDResponse" message="tns:ICaseService_GetCaseContactsByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseContactByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseContactByCaseID" message="tns:ICaseService_UpdateCaseContactByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseContactByCaseIDResponse" message="tns:ICaseService_UpdateCaseContactByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaseContactByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseContactByID" message="tns:ICaseService_DeleteCaseContactByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseContactByIDResponse" message="tns:ICaseService_DeleteCaseContactByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasesByWorkFlowID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasesByWorkFlowID" message="tns:ICaseService_GetCasesByWorkFlowID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasesByWorkFlowIDResponse" message="tns:ICaseService_GetCasesByWorkFlowID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerAuthorisationsByReferrerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerAuthorisationsByReferrerID" message="tns:ICaseService_GetReferrerAuthorisationsByReferrerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerAuthorisationsByReferrerIDResponse" message="tns:ICaseService_GetReferrerAuthorisationsByReferrerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseCounts" message="tns:ICaseService_GetCaseCounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseCountsResponse" message="tns:ICaseService_GetCaseCounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCountByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseCountByTreatmentCategoryID" message="tns:ICaseService_GetCaseCountByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseCountByTreatmentCategoryIDResponse" message="tns:ICaseService_GetCaseCountByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseSupplier" message="tns:ICaseService_UpdateCaseSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseSupplierResponse" message="tns:ICaseService_UpdateCaseSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseAppointmentDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseAppointmentDate" message="tns:ICaseService_AddCaseAppointmentDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseAppointmentDateResponse" message="tns:ICaseService_AddCaseAppointmentDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAppointmentDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseAppointmentDate" message="tns:ICaseService_UpdateCaseAppointmentDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseAppointmentDateResponse" message="tns:ICaseService_UpdateCaseAppointmentDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAppointmentDateByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseAppointmentDateByCaseID" message="tns:ICaseService_GetCaseAppointmentDateByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseAppointmentDateByCaseIDResponse" message="tns:ICaseService_GetCaseAppointmentDateByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPatientContactAttempt">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddPatientContactAttempt" message="tns:ICaseService_AddPatientContactAttempt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddPatientContactAttemptResponse" message="tns:ICaseService_AddPatientContactAttempt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePatientContactAttempt">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/DeletePatientContactAttempt" message="tns:ICaseService_DeletePatientContactAttempt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/DeletePatientContactAttemptResponse" message="tns:ICaseService_DeletePatientContactAttempt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientContactAttemptsByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetPatientContactAttemptsByCaseID" message="tns:ICaseService_GetPatientContactAttemptsByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetPatientContactAttemptsByCaseIDResponse" message="tns:ICaseService_GetPatientContactAttemptsByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralCases">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferralCases" message="tns:ICaseService_GetReferralCases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferralCasesResponse" message="tns:ICaseService_GetReferralCases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralCasesByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferralCasesByTreatmentCategoryID" message="tns:ICaseService_GetReferralCasesByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferralCasesByTreatmentCategoryIDResponse" message="tns:ICaseService_GetReferralCasesByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialAssessmentQACaseWorkflowPatientProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetInitialAssessmentQACaseWorkflowPatientProjects" message="tns:ICaseService_GetInitialAssessmentQACaseWorkflowPatientProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetInitialAssessmentQACaseWorkflowPatientProjectsResponse" message="tns:ICaseService_GetInitialAssessmentQACaseWorkflowPatientProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" message="tns:ICaseService_GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" message="tns:ICaseService_GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorisationCaseWorkflowPatientProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetAuthorisationCaseWorkflowPatientProjects" message="tns:ICaseService_GetAuthorisationCaseWorkflowPatientProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetAuthorisationCaseWorkflowPatientProjectsResponse" message="tns:ICaseService_GetAuthorisationCaseWorkflowPatientProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID" message="tns:ICaseService_GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" message="tns:ICaseService_GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewAssessmentQACaseWorkflowPatientProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReviewAssessmentQACaseWorkflowPatientProjects" message="tns:ICaseService_GetReviewAssessmentQACaseWorkflowPatientProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReviewAssessmentQACaseWorkflowPatientProjectsResponse" message="tns:ICaseService_GetReviewAssessmentQACaseWorkflowPatientProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" message="tns:ICaseService_GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" message="tns:ICaseService_GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseStoppedCaseWorkflowPatientProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseStoppedCaseWorkflowPatientProjects" message="tns:ICaseService_GetCaseStoppedCaseWorkflowPatientProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseStoppedCaseWorkflowPatientProjectsResponse" message="tns:ICaseService_GetCaseStoppedCaseWorkflowPatientProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID" message="tns:ICaseService_GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" message="tns:ICaseService_GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalAssessmentCaseWorkflowPatientProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetFinalAssessmentCaseWorkflowPatientProjects" message="tns:ICaseService_GetFinalAssessmentCaseWorkflowPatientProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetFinalAssessmentCaseWorkflowPatientProjectsResponse" message="tns:ICaseService_GetFinalAssessmentCaseWorkflowPatientProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID" message="tns:ICaseService_GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" message="tns:ICaseService_GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTriageAssessmentQACaseWorkflowPatientProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetTriageAssessmentQACaseWorkflowPatientProjects" message="tns:ICaseService_GetTriageAssessmentQACaseWorkflowPatientProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetTriageAssessmentQACaseWorkflowPatientProjectsResponse" message="tns:ICaseService_GetTriageAssessmentQACaseWorkflowPatientProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" message="tns:ICaseService_GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" message="tns:ICaseService_GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseWorkFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseWorkFlow" message="tns:ICaseService_UpdateCaseWorkFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseWorkFlowResponse" message="tns:ICaseService_UpdateCaseWorkFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseWorkFlowStoppedCase">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseWorkFlowStoppedCase" message="tns:ICaseService_UpdateCaseWorkFlowStoppedCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseWorkFlowStoppedCaseResponse" message="tns:ICaseService_UpdateCaseWorkFlowStoppedCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialAssessmentCasePatientSupplierPractitionerByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetInitialAssessmentCasePatientSupplierPractitionerByCaseID" message="tns:ICaseService_GetInitialAssessmentCasePatientSupplierPractitionerByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetInitialAssessmentCasePatientSupplierPractitionerByCaseIDResponse" message="tns:ICaseService_GetInitialAssessmentCasePatientSupplierPractitionerByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookIACasePatientByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetBookIACasePatientByCaseID" message="tns:ICaseService_GetBookIACasePatientByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetBookIACasePatientByCaseIDResponse" message="tns:ICaseService_GetBookIACasePatientByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBookIA">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddBookIA" message="tns:ICaseService_AddBookIA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddBookIAResponse" message="tns:ICaseService_AddBookIA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientReferrerSupplierByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientReferrerSupplierByCaseID" message="tns:ICaseService_GetCasePatientReferrerSupplierByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientReferrerSupplierByCaseIDResponse" message="tns:ICaseService_GetCasePatientReferrerSupplierByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseSearchLikePatientName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseSearchLikePatientName" message="tns:ICaseService_GetCaseSearchLikePatientName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseSearchLikePatientNameResponse" message="tns:ICaseService_GetCaseSearchLikePatientName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseSearchLikeReferrerReferenceNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseSearchLikeReferrerReferenceNumber" message="tns:ICaseService_GetCaseSearchLikeReferrerReferenceNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseSearchLikeReferrerReferenceNumberResponse" message="tns:ICaseService_GetCaseSearchLikeReferrerReferenceNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseDocument" message="tns:ICaseService_AddCaseDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseDocumentResponse" message="tns:ICaseService_AddCaseDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTriageCaseDocumentByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetTriageCaseDocumentByCaseID" message="tns:ICaseService_GetTriageCaseDocumentByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetTriageCaseDocumentByCaseIDResponse" message="tns:ICaseService_GetTriageCaseDocumentByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralCaseDocumentByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferralCaseDocumentByCaseID" message="tns:ICaseService_GetReferralCaseDocumentByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferralCaseDocumentByCaseIDResponse" message="tns:ICaseService_GetReferralCaseDocumentByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTriageCaseDocumentByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateTriageCaseDocumentByCaseID" message="tns:ICaseService_UpdateTriageCaseDocumentByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateTriageCaseDocumentByCaseIDResponse" message="tns:ICaseService_UpdateTriageCaseDocumentByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientLikeCaseNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientLikeCaseNumber" message="tns:ICaseService_GetCasePatientLikeCaseNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientLikeCaseNumberResponse" message="tns:ICaseService_GetCasePatientLikeCaseNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseIsTreatmentRequired">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseIsTreatmentRequired" message="tns:ICaseService_UpdateCaseIsTreatmentRequired_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseIsTreatmentRequiredResponse" message="tns:ICaseService_UpdateCaseIsTreatmentRequired_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCaseStopReason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetAllCaseStopReason" message="tns:ICaseService_GetAllCaseStopReason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetAllCaseStopReasonResponse" message="tns:ICaseService_GetAllCaseStopReason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCompletedCaseWorkflowPatientProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseCompletedCaseWorkflowPatientProjects" message="tns:ICaseService_GetCaseCompletedCaseWorkflowPatientProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseCompletedCaseWorkflowPatientProjectsResponse" message="tns:ICaseService_GetCaseCompletedCaseWorkflowPatientProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID" message="tns:ICaseService_GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryIDResponse" message="tns:ICaseService_GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseNote" message="tns:ICaseService_AddCaseNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseNoteResponse" message="tns:ICaseService_AddCaseNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseNotesByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseNotesByCaseID" message="tns:ICaseService_GetCaseNotesByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseNotesByCaseIDResponse" message="tns:ICaseService_GetCaseNotesByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikePatientName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikePatientName" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikePatientName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikePatientNameResponse" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikePatientName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeReferrerName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeReferrerName" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeReferrerName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeReferrerNameResponse" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeReferrerName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeCaseNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeCaseNumber" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeCaseNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeCaseNumberResponse" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeCaseNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumberResponse" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeTreatmentCategoryNameResponse" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeTreatmentTypeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeTreatmentTypeName" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeTreatmentTypeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeTreatmentTypeNameResponse" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikeTreatmentTypeName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikePostCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikePostCode" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikePostCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikePostCodeResponse" message="tns:ICaseService_GetCasePatientTreatmentWorkflowLikePostCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseHistoriesByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseHistoriesByCaseID" message="tns:ICaseService_GetCaseHistoriesByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseHistoriesByCaseIDResponse" message="tns:ICaseService_GetCaseHistoriesByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseBespokeServicePricingForInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingForInvoice" message="tns:ICaseService_GetCaseBespokeServicePricingForInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingForInvoiceResponse" message="tns:ICaseService_GetCaseBespokeServicePricingForInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseInvoiceDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseInvoiceDate" message="tns:ICaseService_UpdateCaseInvoiceDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseInvoiceDateResponse" message="tns:ICaseService_UpdateCaseInvoiceDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientReferrerSupplierWorkflowByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientReferrerSupplierWorkflowByCaseID" message="tns:ICaseService_GetCasePatientReferrerSupplierWorkflowByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientReferrerSupplierWorkflowByCaseIDResponse" message="tns:ICaseService_GetCasePatientReferrerSupplierWorkflowByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientReferrerByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientReferrerByCaseID" message="tns:ICaseService_GetCasePatientReferrerByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCasePatientReferrerByCaseIDResponse" message="tns:ICaseService_GetCasePatientReferrerByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIntialAssessmentReportDetailsByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetIntialAssessmentReportDetailsByCaseID" message="tns:ICaseService_GetIntialAssessmentReportDetailsByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetIntialAssessmentReportDetailsByCaseIDResponse" message="tns:ICaseService_GetIntialAssessmentReportDetailsByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialReviewAssessmentByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetInitialReviewAssessmentByCaseID" message="tns:ICaseService_GetInitialReviewAssessmentByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetInitialReviewAssessmentByCaseIDResponse" message="tns:ICaseService_GetInitialReviewAssessmentByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluateDelegatedAuthorisationCost">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetEvaluateDelegatedAuthorisationCost" message="tns:ICaseService_GetEvaluateDelegatedAuthorisationCost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetEvaluateDelegatedAuthorisationCostResponse" message="tns:ICaseService_GetEvaluateDelegatedAuthorisationCost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseDocumentUserByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseDocumentUserByCaseID" message="tns:ICaseService_GetCaseDocumentUserByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseDocumentUserByCaseIDResponse" message="tns:ICaseService_GetCaseDocumentUserByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseDocumentForSupplierUserByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseDocumentForSupplierUserByCaseID" message="tns:ICaseService_GetCaseDocumentForSupplierUserByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseDocumentForSupplierUserByCaseIDResponse" message="tns:ICaseService_GetCaseDocumentForSupplierUserByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseDocumentForReferrerUserByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseDocumentForReferrerUserByCaseID" message="tns:ICaseService_GetCaseDocumentForReferrerUserByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseDocumentForReferrerUserByCaseIDResponse" message="tns:ICaseService_GetCaseDocumentForReferrerUserByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingsForInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingsForInvoice" message="tns:ICaseService_GetCaseTreatmentPricingsForInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingsForInvoiceResponse" message="tns:ICaseService_GetCaseTreatmentPricingsForInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseTreatmentPricing">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseTreatmentPricing" message="tns:ICaseService_AddCaseTreatmentPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseTreatmentPricingResponse" message="tns:ICaseService_AddCaseTreatmentPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricing">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricing" message="tns:ICaseService_UpdateCaseTreatmentPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingResponse" message="tns:ICaseService_UpdateCaseTreatmentPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseID" message="tns:ICaseService_GetCaseTreatmentPricingByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDResponse" message="tns:ICaseService_GetCaseTreatmentPricingByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckCaseTreatmentPricingByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCheckCaseTreatmentPricingByCaseID" message="tns:ICaseService_GetCheckCaseTreatmentPricingByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCheckCaseTreatmentPricingByCaseIDResponse" message="tns:ICaseService_GetCheckCaseTreatmentPricingByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseIDAndComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDAndComplete" message="tns:ICaseService_GetCaseTreatmentPricingByCaseIDAndComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDAndCompleteResponse" message="tns:ICaseService_GetCaseTreatmentPricingByCaseIDAndComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseIDAndInComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDAndInComplete" message="tns:ICaseService_GetCaseTreatmentPricingByCaseIDAndInComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDAndInCompleteResponse" message="tns:ICaseService_GetCaseTreatmentPricingByCaseIDAndInComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricingByCaseTreatmentPricingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingByCaseTreatmentPricingID" message="tns:ICaseService_UpdateCaseTreatmentPricingByCaseTreatmentPricingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingByCaseTreatmentPricingIDResponse" message="tns:ICaseService_UpdateCaseTreatmentPricingByCaseTreatmentPricingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricingPriceByReferrerPricingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingPriceByReferrerPricingID" message="tns:ICaseService_UpdateCaseTreatmentPricingPriceByReferrerPricingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingPriceByReferrerPricingIDResponse" message="tns:ICaseService_UpdateCaseTreatmentPricingPriceByReferrerPricingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentReferrerSupplierPricing">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetTreatmentReferrerSupplierPricing" message="tns:ICaseService_GetTreatmentReferrerSupplierPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetTreatmentReferrerSupplierPricingResponse" message="tns:ICaseService_GetTreatmentReferrerSupplierPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentReferrerSupplierPricingQA">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetTreatmentReferrerSupplierPricingQA" message="tns:ICaseService_GetTreatmentReferrerSupplierPricingQA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetTreatmentReferrerSupplierPricingQAResponse" message="tns:ICaseService_GetTreatmentReferrerSupplierPricingQA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaseTreatmentPricingByCaseTreatmentPricingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseTreatmentPricingByCaseTreatmentPricingID" message="tns:ICaseService_DeleteCaseTreatmentPricingByCaseTreatmentPricingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseTreatmentPricingByCaseTreatmentPricingIDResponse" message="tns:ICaseService_DeleteCaseTreatmentPricingByCaseTreatmentPricingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID" message="tns:ICaseService_UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingIDResponse" message="tns:ICaseService_UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaseTreatmentPricingByCaseIDCaseStopped">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseTreatmentPricingByCaseIDCaseStopped" message="tns:ICaseService_DeleteCaseTreatmentPricingByCaseIDCaseStopped_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseTreatmentPricingByCaseIDCaseStoppedResponse" message="tns:ICaseService_DeleteCaseTreatmentPricingByCaseIDCaseStopped_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricingAuthorisationStatusByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingAuthorisationStatusByCaseID" message="tns:ICaseService_UpdateCaseTreatmentPricingAuthorisationStatusByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingAuthorisationStatusByCaseIDResponse" message="tns:ICaseService_UpdateCaseTreatmentPricingAuthorisationStatusByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEPNATreatmentSessionDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetEPNATreatmentSessionDetail" message="tns:ICaseService_GetEPNATreatmentSessionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetEPNATreatmentSessionDetailResponse" message="tns:ICaseService_GetEPNATreatmentSessionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseBespokeServicePricing">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseBespokeServicePricing" message="tns:ICaseService_AddCaseBespokeServicePricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseBespokeServicePricingResponse" message="tns:ICaseService_AddCaseBespokeServicePricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseBespokeServicePricingByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseID" message="tns:ICaseService_GetCaseBespokeServicePricingByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseIDResponse" message="tns:ICaseService_GetCaseBespokeServicePricingByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseBespokeServicePricingByCaseBespokeServiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseBespokeServicePricingByCaseBespokeServiceID" message="tns:ICaseService_UpdateCaseBespokeServicePricingByCaseBespokeServiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseBespokeServicePricingByCaseBespokeServiceIDResponse" message="tns:ICaseService_UpdateCaseBespokeServicePricingByCaseBespokeServiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaseBespokeServiceByCaseBespokeServiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseBespokeServiceByCaseBespokeServiceID" message="tns:ICaseService_DeleteCaseBespokeServiceByCaseBespokeServiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseBespokeServiceByCaseBespokeServiceIDResponse" message="tns:ICaseService_DeleteCaseBespokeServiceByCaseBespokeServiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID" message="tns:ICaseService_UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseBespokeReferrerPriceByCaseBespokeServiceIDResponse" message="tns:ICaseService_UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseBespokeServicePricingByCaseIDAndComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseIDAndComplete" message="tns:ICaseService_GetCaseBespokeServicePricingByCaseIDAndComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseIDAndCompleteResponse" message="tns:ICaseService_GetCaseBespokeServicePricingByCaseIDAndComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseBespokeServicePricingByCaseIDAndInComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseIDAndInComplete" message="tns:ICaseService_GetCaseBespokeServicePricingByCaseIDAndInComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseIDAndInCompleteResponse" message="tns:ICaseService_GetCaseBespokeServicePricingByCaseIDAndInComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseCommunicationHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseCommunicationHistory" message="tns:ICaseService_AddCaseCommunicationHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseCommunicationHistoryResponse" message="tns:ICaseService_AddCaseCommunicationHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCommunicationHistoriesByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseCommunicationHistoriesByCaseID" message="tns:ICaseService_GetCaseCommunicationHistoriesByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseCommunicationHistoriesByCaseIDResponse" message="tns:ICaseService_GetCaseCommunicationHistoriesByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerSupplierCaseLikePatientNameAndReferrerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikePatientNameAndReferrerID" message="tns:ICaseService_GetReferrerSupplierCaseLikePatientNameAndReferrerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikePatientNameAndReferrerIDResponse" message="tns:ICaseService_GetReferrerSupplierCaseLikePatientNameAndReferrerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerSupplierCaseLikePatientNameAndSupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikePatientNameAndSupplierID" message="tns:ICaseService_GetReferrerSupplierCaseLikePatientNameAndSupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikePatientNameAndSupplierIDResponse" message="tns:ICaseService_GetReferrerSupplierCaseLikePatientNameAndSupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID" message="tns:ICaseService_GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerIDResponse" message="tns:ICaseService_GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerSupplierCaseLikeCaseNumberAndSupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikeCaseNumberAndSupplierID" message="tns:ICaseService_GetReferrerSupplierCaseLikeCaseNumberAndSupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikeCaseNumberAndSupplierIDResponse" message="tns:ICaseService_GetReferrerSupplierCaseLikeCaseNumberAndSupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerAndSupplierPricingVat">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricingVat" message="tns:ICaseService_GetReferrerAndSupplierPricingVat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricingVatResponse" message="tns:ICaseService_GetReferrerAndSupplierPricingVat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerAndSupplierPricingTriageAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricingTriageAssessment" message="tns:ICaseService_GetReferrerAndSupplierPricingTriageAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricingTriageAssessmentResponse" message="tns:ICaseService_GetReferrerAndSupplierPricingTriageAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerAndSupplierPricing">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricing" message="tns:ICaseService_GetReferrerAndSupplierPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricingResponse" message="tns:ICaseService_GetReferrerAndSupplierPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseVAT">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseVAT" message="tns:ICaseService_AddCaseVAT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseVATResponse" message="tns:ICaseService_AddCaseVAT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseVATByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseVATByCaseID" message="tns:ICaseService_GetCaseVATByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseVATByCaseIDResponse" message="tns:ICaseService_GetCaseVATByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID" message="tns:ICaseService_UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingIDResponse" message="tns:ICaseService_UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseWorkflowCustomByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseWorkflowCustomByCaseID" message="tns:ICaseService_UpdateCaseWorkflowCustomByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseWorkflowCustomByCaseIDResponse" message="tns:ICaseService_UpdateCaseWorkflowCustomByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentDocumentSetup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetReferrerProjectTreatmentDocumentSetup" message="tns:ICaseService_GetReferrerProjectTreatmentDocumentSetup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetReferrerProjectTreatmentDocumentSetupResponse" message="tns:ICaseService_GetReferrerProjectTreatmentDocumentSetup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentCustomsByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseAssessmentCustomsByCaseID" message="tns:ICaseService_GetCaseAssessmentCustomsByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseAssessmentCustomsByCaseIDResponse" message="tns:ICaseService_GetCaseAssessmentCustomsByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseIDCaseSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDCaseSearch" message="tns:ICaseService_GetCaseTreatmentPricingByCaseIDCaseSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDCaseSearchResponse" message="tns:ICaseService_GetCaseTreatmentPricingByCaseIDCaseSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseTreatmentPricingCaseSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseTreatmentPricingCaseSearch" message="tns:ICaseService_AddCaseTreatmentPricingCaseSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseTreatmentPricingCaseSearchResponse" message="tns:ICaseService_AddCaseTreatmentPricingCaseSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalUploadByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetFinalUploadByCaseID" message="tns:ICaseService_GetFinalUploadByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetFinalUploadByCaseIDResponse" message="tns:ICaseService_GetFinalUploadByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseNoteByCaseIDAndWorkflowID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseNoteByCaseIDAndWorkflowID" message="tns:ICaseService_GetCaseNoteByCaseIDAndWorkflowID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseNoteByCaseIDAndWorkflowIDResponse" message="tns:ICaseService_GetCaseNoteByCaseIDAndWorkflowID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentSessionByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetTreatmentSessionByCaseID" message="tns:ICaseService_GetTreatmentSessionByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetTreatmentSessionByCaseIDResponse" message="tns:ICaseService_GetTreatmentSessionByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAndReferrerDocumentByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseAndReferrerDocumentByCaseID" message="tns:ICaseService_UpdateCaseAndReferrerDocumentByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/UpdateCaseAndReferrerDocumentByCaseIDResponse" message="tns:ICaseService_UpdateCaseAndReferrerDocumentByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnsuccessfulContactDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetUnsuccessfulContactDate" message="tns:ICaseService_GetUnsuccessfulContactDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetUnsuccessfulContactDateResponse" message="tns:ICaseService_GetUnsuccessfulContactDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientContactDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetPatientContactDate" message="tns:ICaseService_GetPatientContactDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetPatientContactDateResponse" message="tns:ICaseService_GetPatientContactDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationBubbleCountBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetNotificationBubbleCountBySupplierID" message="tns:ICaseService_GetNotificationBubbleCountBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetNotificationBubbleCountBySupplierIDResponse" message="tns:ICaseService_GetNotificationBubbleCountBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseReferrerAssignedUsersByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseReferrerAssignedUsersByCaseID" message="tns:ICaseService_GetCaseReferrerAssignedUsersByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseReferrerAssignedUsersByCaseIDResponse" message="tns:ICaseService_GetCaseReferrerAssignedUsersByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseReferrerAssignedUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddCaseReferrerAssignedUser" message="tns:ICaseService_AddCaseReferrerAssignedUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddCaseReferrerAssignedUserResponse" message="tns:ICaseService_AddCaseReferrerAssignedUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICaseService" type="tns:ICaseService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteCaseReferrerAssignedUserByID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/DeleteCaseReferrerAssignedUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGips">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetAllGips" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTpds">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetAllTpds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllIips">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetAllIips" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllElRehabs">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetAllElRehabs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDemandByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetJobDemandByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrugTestByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetDrugTestByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCase">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByPatientID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmploymentByEmploymentID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetEmploymentByEmploymentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDetailById">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetEmployeeDetailById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyByPolicyID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetPolicyByPolicyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByLikeCaseNumber">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseByLikeCaseNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerCasesByWorkflowID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerCasesByWorkflowID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyOpenDetailById">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetPolicyOpenDetailById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferral">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferral">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseContact">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseContactsByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseContactsByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseContactByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseContactByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaseContactByID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/DeleteCaseContactByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasesByWorkFlowID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasesByWorkFlowID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerAuthorisationsByReferrerID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerAuthorisationsByReferrerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCounts">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseCounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCountByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseCountByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseSupplier">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseAppointmentDate">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseAppointmentDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAppointmentDate">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseAppointmentDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAppointmentDateByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseAppointmentDateByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPatientContactAttempt">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddPatientContactAttempt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePatientContactAttempt">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/DeletePatientContactAttempt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientContactAttemptsByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetPatientContactAttemptsByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralCases">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferralCases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralCasesByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferralCasesByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialAssessmentQACaseWorkflowPatientProjects">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetInitialAssessmentQACaseWorkflowPatientProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetInitialAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorisationCaseWorkflowPatientProjects">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetAuthorisationCaseWorkflowPatientProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetAuthorisationCaseWorkflowPatientProjectsByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewAssessmentQACaseWorkflowPatientProjects">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReviewAssessmentQACaseWorkflowPatientProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReviewAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseStoppedCaseWorkflowPatientProjects">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseStoppedCaseWorkflowPatientProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseStoppedCaseWorkflowPatientProjectsByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalAssessmentCaseWorkflowPatientProjects">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetFinalAssessmentCaseWorkflowPatientProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetFinalAssessmentCaseWorkflowPatientProjectsByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTriageAssessmentQACaseWorkflowPatientProjects">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetTriageAssessmentQACaseWorkflowPatientProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetTriageAssessmentQACaseWorkflowPatientProjectsByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseWorkFlow">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseWorkFlow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseWorkFlowStoppedCase">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseWorkFlowStoppedCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialAssessmentCasePatientSupplierPractitionerByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetInitialAssessmentCasePatientSupplierPractitionerByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookIACasePatientByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetBookIACasePatientByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBookIA">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddBookIA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientReferrerSupplierByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientReferrerSupplierByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseSearchLikePatientName">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseSearchLikePatientName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseSearchLikeReferrerReferenceNumber">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseSearchLikeReferrerReferenceNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseDocument">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTriageCaseDocumentByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetTriageCaseDocumentByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralCaseDocumentByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferralCaseDocumentByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTriageCaseDocumentByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateTriageCaseDocumentByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientLikeCaseNumber">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientLikeCaseNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseIsTreatmentRequired">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseIsTreatmentRequired" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCaseStopReason">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetAllCaseStopReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCompletedCaseWorkflowPatientProjects">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseCompletedCaseWorkflowPatientProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseCompletedCaseWorkflowPatientProjectsByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseNote">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseNotesByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseNotesByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikePatientName">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikePatientName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeReferrerName">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeReferrerName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeCaseNumber">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeCaseNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeCaseReferrerReferenceNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeTreatmentCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikeTreatmentTypeName">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikeTreatmentTypeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientTreatmentWorkflowLikePostCode">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientTreatmentWorkflowLikePostCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseHistoriesByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseHistoriesByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseBespokeServicePricingForInvoice">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingForInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseInvoiceDate">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseInvoiceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientReferrerSupplierWorkflowByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientReferrerSupplierWorkflowByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasePatientReferrerByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCasePatientReferrerByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntialAssessmentReportDetailsByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetIntialAssessmentReportDetailsByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialReviewAssessmentByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetInitialReviewAssessmentByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluateDelegatedAuthorisationCost">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetEvaluateDelegatedAuthorisationCost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseDocumentUserByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseDocumentUserByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseDocumentForSupplierUserByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseDocumentForSupplierUserByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseDocumentForReferrerUserByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseDocumentForReferrerUserByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingsForInvoice">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseTreatmentPricingsForInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseTreatmentPricing">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseTreatmentPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricing">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckCaseTreatmentPricingByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCheckCaseTreatmentPricingByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseIDAndComplete">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDAndComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseIDAndInComplete">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDAndInComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricingByCaseTreatmentPricingID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingByCaseTreatmentPricingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricingPriceByReferrerPricingID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingPriceByReferrerPricingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentReferrerSupplierPricing">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetTreatmentReferrerSupplierPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentReferrerSupplierPricingQA">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetTreatmentReferrerSupplierPricingQA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaseTreatmentPricingByCaseTreatmentPricingID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/DeleteCaseTreatmentPricingByCaseTreatmentPricingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseTreatmentReferrerPriceByCaseTreatmentPricingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaseTreatmentPricingByCaseIDCaseStopped">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/DeleteCaseTreatmentPricingByCaseIDCaseStopped" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricingAuthorisationStatusByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingAuthorisationStatusByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEPNATreatmentSessionDetail">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetEPNATreatmentSessionDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseBespokeServicePricing">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseBespokeServicePricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseBespokeServicePricingByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseBespokeServicePricingByCaseBespokeServiceID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseBespokeServicePricingByCaseBespokeServiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaseBespokeServiceByCaseBespokeServiceID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/DeleteCaseBespokeServiceByCaseBespokeServiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseBespokeReferrerPriceByCaseBespokeServiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseBespokeServicePricingByCaseIDAndComplete">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseIDAndComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseBespokeServicePricingByCaseIDAndInComplete">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseBespokeServicePricingByCaseIDAndInComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseCommunicationHistory">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseCommunicationHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseCommunicationHistoriesByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseCommunicationHistoriesByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerSupplierCaseLikePatientNameAndReferrerID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikePatientNameAndReferrerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerSupplierCaseLikePatientNameAndSupplierID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikePatientNameAndSupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikeReferrerReferenceNumberAndReferrerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerSupplierCaseLikeCaseNumberAndSupplierID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerSupplierCaseLikeCaseNumberAndSupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerAndSupplierPricingVat">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricingVat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerAndSupplierPricingTriageAssessment">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricingTriageAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerAndSupplierPricing">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerAndSupplierPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseVAT">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseVAT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseVATByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseVATByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseTreatmentPricingPriceByCaseTreatmentPricingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseWorkflowCustomByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseWorkflowCustomByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentDocumentSetup">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetReferrerProjectTreatmentDocumentSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentCustomsByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseAssessmentCustomsByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseIDCaseSearch">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseTreatmentPricingByCaseIDCaseSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseTreatmentPricingCaseSearch">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseTreatmentPricingCaseSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalUploadByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetFinalUploadByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseNoteByCaseIDAndWorkflowID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseNoteByCaseIDAndWorkflowID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentSessionByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetTreatmentSessionByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAndReferrerDocumentByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/UpdateCaseAndReferrerDocumentByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnsuccessfulContactDate">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetUnsuccessfulContactDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientContactDate">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetPatientContactDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationBubbleCountBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetNotificationBubbleCountBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseReferrerAssignedUsersByCaseID">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseReferrerAssignedUsersByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseReferrerAssignedUser">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddCaseReferrerAssignedUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CaseService">
+    <wsdl:port name="BasicHttpBinding_ICaseService" binding="tns:BasicHttpBinding_ICaseService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/ITS/CaseService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

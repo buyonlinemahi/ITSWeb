@@ -1,0 +1,152 @@
+﻿@model ITS.Domain.ViewModels.PractitionerViewModel
+@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Detail Practitioner</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home"><i class="icon-home"></i>Practitioner</a><a
+        href="#" class="tip-bottom">Detail</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box" id="divPractitioner">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Practitioner Details</h5>
+                </div>
+                <div class="widget-content nopadding" id="divDetailsFormPractitioner">
+                    @Html.Partial("Practitioner/_DetailFormPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary pull-left" href="#divAddRegistration" role="button"
+                data-toggle="modal">Add</a>
+            @Html.Partial("Practitioner/_AddRegistrationPartial")
+            <div class="widget-box" id="divRegistration">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Registrations</h5>
+                </div>
+                <div class="widget-content nopadding" id="">
+                    @Html.Partial("Practitioner/_RegistrationGridPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary pull-left" href="#divAddSupplier" role="button"
+                data-toggle="modal">Add</a>
+            @Html.Partial("Practitioner/_AddSupplierPartial")
+            <div class="widget-box" id="divSupplier">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Suppliers</h5>
+                </div>
+                <div class="widget-content nopadding" id="">
+                    @Html.Partial("Practitioner/_SupplierGridPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootsrap-ajaxutil.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/practitioner/DetailViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/practitioner/PractitionerRegistrationViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/practitioner/AddPractitionerRegistrationViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/practitioner/SupplierPractitionerViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/practitioner/AddSupplierPractitionerViewModel.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+
+        //Practitioner Details
+        var practitionerViewModel = new PractitionerDetailViewModel(model.Practitioner);
+        ko.applyBindings(practitionerViewModel, $('#divPractitioner').get(0));
+        practitionerViewModel.Init(model.AreasofExpertise);
+        
+        function UpdatePractitionerFormSuccess(responseText) {
+            alert('Updated Successfully');
+            practitionerViewModel.DisableUpdateButton(false);
+        }
+        // end - Practitioner Details
+
+        //Practitioner Registration
+        var registrationGridViewModel = new PractitionerRegistrationGridViewModel(model.RegistrationTypes, model.TreatmentCategories);
+        ko.applyBindings(registrationGridViewModel, $("#divRegistration").get(0));
+        registrationGridViewModel.Init(model.Registrations);
+
+        var addPractitionerRegistrationViewModel = new AddPractitionerRegistrationViewModel(model.Practitioner.PractitionerID, model.RegistrationTypes, model.TreatmentCategories);
+        ko.applyBindings(addPractitionerRegistrationViewModel, $("#divAddRegistration").get(0));
+        // end - Practitioner Registration
+        
+        // Supplier Practitioner
+        var practitionerSupplierGridViewModel = new SupplierPractitionerGridViewModel(model.Suppliers, model.Registrations);
+        ko.applyBindings(practitionerSupplierGridViewModel, $("#divSupplier").get(0));
+        practitionerSupplierGridViewModel.Init(model.SupplierPractitioners);
+        
+        var addPractitionerSupplierViewModel = new AddSupplierPractitionerViewModel(model.Suppliers, model.Registrations);
+        ko.applyBindings(addPractitionerSupplierViewModel, $("#divAddSupplier").get(0));
+        // end - Supplier Practitioner
+        
+        // Practitioner Registration Form Success
+        function DeleteRegistrationFormSuccess(practitionerRegistrationID) {
+            practitionerSupplierGridViewModel.DeletePractitionerRegistration(practitionerRegistrationID);
+            addPractitionerSupplierViewModel.DeletePractitionerRegistration(practitionerRegistrationID);
+            alert('Deleted Successfully');
+        }
+        
+        function AddRegistrationFormSuccess(responseText) {
+         if(responseText == -1) {
+                alert("Practitioner Registration Type already exists, please select different Registration Type or Treatment Category");
+                 } else {
+            registrationGridViewModel.AddPractitionerRegistration(responseText);
+           // practitionerSupplierGridViewModel.AddPractitionerRegistration(responseText);
+            addPractitionerSupplierViewModel.AddPractitionerRegistration(responseText);
+            $('#divAddRegistration').modal('hide');
+            alert('Added Successfully');
+            }
+        }
+
+        function UpdateRegistrationFormSuccess(responseText) {
+         if(responseText == -1) {
+                alert("Practitioner Registration Type already exists, please select different Registration Type or Treatment Category");
+            } else {
+            registrationGridViewModel.UpdateSelectedPractitionerRegistration(responseText);
+            alert('Updated Successfully');
+            }
+        }
+        // end - Practitioner Registration Form Success
+        
+        // Supplier Practitioner Form Success
+        function AddSupplierPractitionerFormSuccess(responseText) {
+        // Here -1 is the result obtained when the duplicate record is inserted
+            if(responseText == -1) {
+                alert("Duplicate entry");
+            } else {
+                practitionerSupplierGridViewModel.AddSupplierPractitioner(responseText);
+                alert('Added Successfully');
+            }
+        }
+
+        function UpdatePractitionerSupplierFormSuccess(responseText) {
+         if(responseText == -1) {
+                alert("Duplicate entry");
+            } else {
+            $('#divViewSupplier').modal('hide');
+            alert('Updated Successfully');
+            }
+        }
+
+        function DeletePractitionerSupplierFormSuccess(responseText) {
+            alert('Deleted Successfully');
+        }
+        // end - Supplier Practitioner Form Success
+    </script>
+}

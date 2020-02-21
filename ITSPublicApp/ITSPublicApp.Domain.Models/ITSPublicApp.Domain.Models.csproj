@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45AF77B5-1457-4A61-891D-B46715C51B38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITSPublicApp.Domain.Models</RootNamespace>
+    <AssemblyName>ITSPublicApp.Domain.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdditionalTest.cs" />
+    <Compile Include="Admitted.cs" />
+    <Compile Include="AffectedArea.cs" />
+    <Compile Include="Case.cs" />
+    <Compile Include="CaseAppointmentDate.cs" />
+    <Compile Include="CaseAssessment.cs" />
+    <Compile Include="CaseAssessmentCustom.cs" />
+    <Compile Include="CaseAssessmentDetail.cs" />
+    <Compile Include="CaseAssessmentPatientImpact.cs" />
+    <Compile Include="CaseAssessmentPatientInjury.cs" />
+    <Compile Include="CaseAssessmentPatientInjuryBL.cs" />
+    <Compile Include="CaseAssessmentRating.cs" />
+    <Compile Include="CaseBespokeServicePricingType.cs" />
+    <Compile Include="CaseContact.cs" />
+    <Compile Include="CaseDocumentUser.cs" />
+    <Compile Include="CasePatient.cs" />
+    <Compile Include="CasePatientContactAttempt.cs" />
+    <Compile Include="CasePatientTreatment.cs" />
+    <Compile Include="CaseReferrerAssignedUser.cs" />
+    <Compile Include="DrugTest.cs" />
+    <Compile Include="ElRehab.cs" />
+    <Compile Include="EmployeeDetail.cs" />
+    <Compile Include="Employment.cs" />
+    <Compile Include="EmploymentType.cs" />
+    <Compile Include="EPNATreatmentSession.cs" />
+    <Compile Include="FitForWork.cs" />
+    <Compile Include="Gender.cs" />
+    <Compile Include="Gip.cs" />
+    <Compile Include="Iip.cs" />
+    <Compile Include="InjuredPartyRepresentative.cs" />
+    <Compile Include="InjuredRepresentativeOption.cs" />
+    <Compile Include="IntialAssessmentReportDetail.cs" />
+    <Compile Include="JobDemand.cs" />
+    <Compile Include="NetworkRailStandardApplicable.cs" />
+    <Compile Include="NotificationBubble.cs" />
+    <Compile Include="PasswordHistory.cs" />
+    <Compile Include="Policie.cs" />
+    <Compile Include="PolicyCriteria.cs" />
+    <Compile Include="PolicyOpenDetail.cs" />
+    <Compile Include="PolicyType.cs" />
+    <Compile Include="PrimaryCondition.cs" />
+    <Compile Include="ReasonForReferral.cs" />
+    <Compile Include="Referrer.cs" />
+    <Compile Include="ReferrerAssignedUser.cs" />
+    <Compile Include="ReferrerCaseAssessmentModification.cs" />
+    <Compile Include="ReferrerCaseAssessmentModificationAuthority.cs" />
+    <Compile Include="ReferrerDocuments.cs" />
+    <Compile Include="ReferrerDocumentType.cs" />
+    <Compile Include="ReferrerGroup.cs" />
+    <Compile Include="ReferrerSupplierCases.cs" />
+    <Compile Include="CaseTreatmentPricing.cs" />
+    <Compile Include="CaseBespokeServicePricing.cs" />
+    <Compile Include="CaseTreatmentPricingType.cs" />
+    <Compile Include="Duration.cs" />
+    <Compile Include="ITSUser.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="PatientImpact.cs" />
+    <Compile Include="PatientImpactOnWork.cs" />
+    <Compile Include="PatientImpactValue.cs" />
+    <Compile Include="PatientLevelOfRecovery.cs" />
+    <Compile Include="PatientRole.cs" />
+    <Compile Include="PatientWorkCapacity.cs" />
+    <Compile Include="PatientWorkstatus.cs" />
+    <Compile Include="PracitionerSupplierTreatmentCategory.cs" />
+    <Compile Include="Practitioner.cs" />
+    <Compile Include="PricingTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProposedTreatmentMethod.cs" />
+    <Compile Include="PsychologicalFactor.cs" />
+    <Compile Include="ReferrerAuthorisations.cs" />
+    <Compile Include="ReferrerLocation.cs" />
+    <Compile Include="ReferrerProject.cs" />
+    <Compile Include="ReferrerProjectTreatmentName.cs" />
+    <Compile Include="ReferrerProjectTreatmentTreatmentType.cs" />
+    <Compile Include="ReferrerUserDetail.cs" />
+    <Compile Include="Reinsurer.cs" />
+    <Compile Include="RestrictionRange.cs" />
+    <Compile Include="RoleType.cs" />
+    <Compile Include="Solicitor.cs" />
+    <Compile Include="StrengthTesting.cs" />
+    <Compile Include="SupplierCasePatient.cs" />
+    <Compile Include="SupplierDocument.cs" />
+    <Compile Include="SymptomDescription.cs" />
+    <Compile Include="Tpd.cs" />
+    <Compile Include="TreatmentCategoriesBespokeService.cs" />
+    <Compile Include="TreatmentCategoriesTreatmentType.cs" />
+    <Compile Include="TreatmentPeriodType.cs" />
+    <Compile Include="TreatmentReferrerSupplierPricing.cs" />
+    <Compile Include="TreatmentType.cs" />
+    <Compile Include="TypeCover.cs" />
+    <Compile Include="WorkType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITSPublicApp.Infrastructure.Global\ITSPublicApp.Infrastructure.Global.csproj">
+      <Project>{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}</Project>
+      <Name>ITSPublicApp.Infrastructure.Global</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

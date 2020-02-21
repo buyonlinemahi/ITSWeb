@@ -1,0 +1,49 @@
+﻿<div id="divCreateReviewAssessmentBespoke" class="modal hide fade" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            Bespoke Treatment
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                Bespoke Treatment Type
+            </label>
+            <div class="controls">
+                <select data-bind="options: CaseBespokeServicePricings, optionsText:'BespokeServiceName', value: SelectedBespokeServicePricing">
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                Referrer Price:
+            </label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on">£</span>
+                    <input placeholder="Referrer Price" data-bind="value:$root.ReferrerPrice,jqBootstrapValidation:{}" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$"
+                        data-validation-regex-message="Must be a number" class="input-large" type="text" /></div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                Supplier Price:
+            </label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on">£</span>
+                    <input placeholder="Supplier Price" data-bind="value:$root.SupplierPrice,jqBootstrapValidation:{}" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$"
+                        data-validation-regex-message="Must be a number" class="input-large" type="text" /></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" data-bind="click: $root.AddNewBespokeService">
+            Add</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">
+            Close</button>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿@using ITS.Infrastructure.Global;
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            Add New Treatment Category</h3>
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.ReferrerSharedController.AddProjectTreatmentCategory, GlobalConst.Controllers.ReferrerShared, FormMethod.Post, new
+    {
+        id = "frmAddReferrerTreatmentCategory"
+        ,
+        data_bind = "ajaxForm: { success: function(responseText, statusText, xhr, $form){ AddTreatmentCategoryFormSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: AddTreatmentCategoryFormBeforeSubmit, clearForm: true }"
+    }))
+    {
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Treatment Category
+                </label>
+                <div class="controls">
+                    <select name="TreatmentCategories" data-bind="options:TreatmentCategories, 
+                                                                optionsText:'TreatmentCategoryName',
+                                                                
+                                                                value: SelectedTreatmentCategory,
+                                                                optionsCaption: 'Choose...'">
+                    </select>
+                </div>
+            </div>
+            <input type="hidden" data-bind="value:  ReferrerProjectID" name="ReferrerProjectID" />
+            <!-- ko foreach: FilteredTreatmentCategoriesPricingTypes(SelectedTreatmentCategory() ? SelectedTreatmentCategory().TreatmentCategoryID : 0) -->
+            <div class="control-group">
+                <label class="control-label" data-bind="text: PricingTypeName">
+                </label>
+                <div class="controls">
+                    <input type="hidden" data-bind="attr: { name: 'pricing['+ $index() + '].PricingTypeID' }, value: PricingTypeID" />
+                    <input type="hidden" data-bind="attr: { name: 'pricing['+ $index() + '].PricingTypeName' }, value: PricingTypeName" />
+                    <div class="input-prepend">
+                        <span class="add-on">£</span>
+                        <input type="text" data-bind="attr: { name: 'pricing['+ $index() + '].Price' }, jqBootstrapValidation: {}"
+                            required data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number" />
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+            <input type="hidden" name="TreatmentCategoryID" data-bind="value:SelectedTreatmentCategory() ? SelectedTreatmentCategory().TreatmentCategoryID : 0" />
+            <input type="hidden" name="TreatmentCategoryName" data-bind="value:SelectedTreatmentCategory() ? SelectedTreatmentCategory().TreatmentCategoryName : null" />
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">
+                Save</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    }
+</div>

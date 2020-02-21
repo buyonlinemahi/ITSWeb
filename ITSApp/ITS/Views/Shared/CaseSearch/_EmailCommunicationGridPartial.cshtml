@@ -1,0 +1,68 @@
+﻿@using ITS.Infrastructure.Global;
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                To
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                Body
+            </th>
+            <th>
+                Attachment
+            </th>
+            <th>
+                Sent Date
+            </th>
+            <th>
+                Sent By
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:CaseCommunicationHistoryUsers">
+        <tr>
+            <td data-bind="text:SentTo">
+            </td>
+            <td data-bind="text:Subject">
+            </td>
+            <td data-bind="text:Message">
+            </td>
+            <td>
+                <a href="#" data-bind="visible:UploadPath()!=null?true:false,click:$root.ViewEmailCommunicationUploads">
+                    View</a>
+            </td>
+            <td data-bind="text:DateAdded">
+            </td>
+            <td data-bind="text:FirstName() + ' ' +LastName()">
+            </td>
+            <td>
+                <input type="hidden" name="CaseID" data-bind="value:CaseID" />
+                <input type="hidden" name="SentTo" data-bind="value:SentTo" />
+                <input type="hidden" name="UploadPath" data-bind="value:UploadPath" />
+                <a href="#divResendEmail" role="button" data-toggle="modal" data-bind="event:{click:$root.ResendClick}">
+                    Resend</a>
+            </td>
+            `
+        </tr>
+    </tbody>
+    <tfoot>
+        <!--ko if:CaseCommunicationHistoryUsers().length == 0 -->
+        <tr>
+            <td colspan="7">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    No records are found.
+                </div>
+            </td>
+        </tr>
+        <!-- /ko -->
+    </tfoot>
+</table>
+@Html.Partial("CaseSearch/_ReSendEmailPartial")

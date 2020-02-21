@@ -1,0 +1,91 @@
+﻿<!-- registration document grid -->
+<!-- modal for editing registration Document -->
+@using ITS.Infrastructure.Global;
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Document Name
+            </th>
+            <th>
+                UserName
+            </th>
+            <th>
+                View Upload
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: SupplierDocumentTypes">
+        <tr>
+            <td>
+                <a href="#divViewRegistrationDocument" role="button" data-toggle="modal" data-bind="click: $root.viewRegistrationDocument">
+                    View</a> / <a href="javascript:void(0)" role="button" data-toggle="modal"
+                        data-bind="click: $root.DeleteRegistrationDocument">Delete</a>
+            </td>
+            <td data-bind="text: DocumentName">
+            </td>
+            <td>
+                <span data-bind="text: UserName"></span>
+            </td>
+            <td>
+                <a data-bind="attr : { href : DocumentURLUnescaped }">View Upload</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="divViewRegistrationDocument" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" data-bind="with: SelectedRegistrationDocument">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.DeSelectCurrentSelectedSupplierRegistrationDocument">
+            ×</button>
+        <h3 id="myModalLabel">
+            Registration Document</h3>
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.UpdateSupplierRegistrationDocument, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmUpdateSupplierRegistrationDocument",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateRegistrationDocumentFormSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: $root.UpdateRegistrationFormBeforeSubmit  }"
+}))
+    { 
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Document Name
+                </label>
+                <div class="controls">
+                    <input type="text" id="txtdocumentname" class="input-file" name="DocumentName" data-bind="value:DocumentName,jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fileInput">
+                    Document Upload
+                </label>
+                <div class="controls">
+                    <input class="input-file" type="file" name="RegistrationDocumentFileUpload" id="RegistrationDocumentFileUpload" />
+                </div>
+            </div>
+
+            <div>
+                <input type="hidden" name="SupplierDocumentID" data-bind="value:SupplierDocumentID" />
+                <input type="hidden" name="UploadDate" data-bind="value:UploadDate" />
+                <input type="hidden" name="DocumentTypeID" data-bind="value:DocumentTypeID" />
+                <input type="hidden" name="SupplierID" data-bind="value:SupplierID" />
+                <input type="hidden" name="UploadPath" data-bind="value:UploadPath">
+                <input type="hidden" name="UserID" data-bind="value:UserID">
+                <input type="hidden" name="DocumentUrl" data-bind="value:DocumentUrl" />
+            </div>
+        </div> 
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="tstbtn" data-bind="bootstrapButton :$root.DisableUpdateButton">
+                Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.CloseClick">
+                Close</button>
+        </div> 
+    }
+</div>

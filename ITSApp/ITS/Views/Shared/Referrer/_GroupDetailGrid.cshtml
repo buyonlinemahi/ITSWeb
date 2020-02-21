@@ -1,0 +1,60 @@
+﻿<div id="divReferrerGroup">
+    <div class="in collapse" id="collapseTwo" style="height: auto;">
+        <div class="widget-content">
+            <div class="accordion" id="collapse-group">
+                <div class="accordion-group widget-box">
+                    <div class="accordion-heading" data-bind="foreach:$root.ReferrerGroupDetail">
+
+                        <div class="widget-title">
+                            <a data-parent="#collapse-group" data-bind="attr: { href: '#clop_' + $index() }" data-toggle="collapse">
+                                <h5>
+                                    <input type="hidden" id="objReferrerID" name="ReferrerID" data-bind="value:ReferrerID" />
+                                    <input type="hidden" data-bind="value:GroupName ,attr: { id: 'Name_' + $index() }" />
+                                    <span data-bind="text: GroupName">Test 1</span>
+                                </h5>
+                            </a>
+                            <a class="label label-info" data-bind="click:viewGroupName"
+                                role="button" data-toggle="modal">Edit</a>
+                        </div>
+                        <div data-bind="attr: { id: 'clop_' + $index() }" class="accordion-body collapse">
+                            <div class="widget-content">
+                                <!-- table for treatments inside a project -->
+                                <table class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            @*<th>Action
+                                            </th>*@
+                                            <th>User Name
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <!--ko if: ReferrerUserDetail != null-->
+                                    <!-- ko foreach: ReferrerUserDetail -->
+                                    <tbody data-bind="">
+                                        <tr>
+                                            @*<td>
+                                                <a role="button" id="delUser" data-toggle="modal" data-bind="click:$root.DeleteUser">Delete</a>
+                                            </td>*@
+                                            <td>
+                                                <span data-bind="text: UserName" ></span>
+                                                <input type="hidden" id="objGroupID" name="GroupID" data-bind="value:GroupID" />
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </table>
+                                <!-- end of table for treatments inside a project -->
+                            </div>
+                        </div>
+                        <!-- for now put the edit project modal(simple way first), for rapid dev/prototyping inside the for loop -->
+                        <!-- end edit project modal -->
+                        <!--modal -->
+                        <!-- end modal -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

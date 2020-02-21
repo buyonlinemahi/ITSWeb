@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LookUpService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://182.73.98.146:8081/ITS/LookUpService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://182.73.98.146:8081/ITS/LookUpService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://182.73.98.146:8081/ITS/LookUpService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILookUpService_GetAllTreatmentCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentCategory" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllTreatmentCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPricingType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPricingType" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPricingType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPricingTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllServiceLevelAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceLevelAgreement" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllServiceLevelAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceLevelAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllAssessmentService_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAssessmentService" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllAssessmentService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAssessmentServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllAssessmentType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAssessmentType" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllAssessmentType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAssessmentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllDelegatedAuthorisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelegatedAuthorisation" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllDelegatedAuthorisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelegatedAuthorisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetPricingTypesByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPricingTypesByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetPricingTypesByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPricingTypesByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllInvoiceMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInvoiceMethod" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllInvoiceMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInvoiceMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllDelegatedAuthorisationTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelegatedAuthorisationTypes" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllDelegatedAuthorisationTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelegatedAuthorisationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllDocumentSetupTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDocumentSetupTypes" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllDocumentSetupTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDocumentSetupTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllEmailType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailType" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllEmailType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllComplaintStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComplaintStatus" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllComplaintStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComplaintStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllComplaintType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComplaintType" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllComplaintType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComplaintTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllRegistrationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRegistrationType" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllRegistrationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRegistrationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllTreatmentType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentType" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllTreatmentType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllAreasofExpertise_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAreasofExpertise" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllAreasofExpertise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAreasofExpertiseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientImpactValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactValues" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientImpactValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetPostCodeInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPostCodeInfo" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetPostCodeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPostCodeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPsychologicalFactors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPsychologicalFactors" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPsychologicalFactors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPsychologicalFactorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientWorkstatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientWorkstatus" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientWorkstatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientWorkstatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientImpacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpacts" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientImpacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientImpactOnWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactOnWork" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientImpactOnWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactOnWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllProposedTreatmentMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProposedTreatmentMethod" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllProposedTreatmentMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProposedTreatmentMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientLevelOfRecovery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientLevelOfRecovery" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientLevelOfRecovery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientLevelOfRecoveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetTreatmentCategoryBespokeServicesByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoryBespokeServicesByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetTreatmentCategoryBespokeServicesByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoryBespokeServicesByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllDuration_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDuration" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllDuration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientRole" />
+  </wsdl:message>
+  <wsdl:message name="ILookUpService_GetAllPatientRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientRoleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILookUpService">
+    <wsdl:operation name="GetAllTreatmentCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllTreatmentCategory" message="tns:ILookUpService_GetAllTreatmentCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllTreatmentCategoryResponse" message="tns:ILookUpService_GetAllTreatmentCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPricingType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllPricingType" message="tns:ILookUpService_GetAllPricingType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllPricingTypeResponse" message="tns:ILookUpService_GetAllPricingType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceLevelAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllServiceLevelAgreement" message="tns:ILookUpService_GetAllServiceLevelAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllServiceLevelAgreementResponse" message="tns:ILookUpService_GetAllServiceLevelAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssessmentService">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllAssessmentService" message="tns:ILookUpService_GetAllAssessmentService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllAssessmentServiceResponse" message="tns:ILookUpService_GetAllAssessmentService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssessmentType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllAssessmentType" message="tns:ILookUpService_GetAllAssessmentType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllAssessmentTypeResponse" message="tns:ILookUpService_GetAllAssessmentType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelegatedAuthorisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllDelegatedAuthorisation" message="tns:ILookUpService_GetAllDelegatedAuthorisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllDelegatedAuthorisationResponse" message="tns:ILookUpService_GetAllDelegatedAuthorisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricingTypesByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetPricingTypesByTreatmentCategoryID" message="tns:ILookUpService_GetPricingTypesByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetPricingTypesByTreatmentCategoryIDResponse" message="tns:ILookUpService_GetPricingTypesByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInvoiceMethod">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllInvoiceMethod" message="tns:ILookUpService_GetAllInvoiceMethod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllInvoiceMethodResponse" message="tns:ILookUpService_GetAllInvoiceMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelegatedAuthorisationTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllDelegatedAuthorisationTypes" message="tns:ILookUpService_GetAllDelegatedAuthorisationTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllDelegatedAuthorisationTypesResponse" message="tns:ILookUpService_GetAllDelegatedAuthorisationTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDocumentSetupTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllDocumentSetupTypes" message="tns:ILookUpService_GetAllDocumentSetupTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllDocumentSetupTypesResponse" message="tns:ILookUpService_GetAllDocumentSetupTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllEmailType" message="tns:ILookUpService_GetAllEmailType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllEmailTypeResponse" message="tns:ILookUpService_GetAllEmailType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComplaintStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllComplaintStatus" message="tns:ILookUpService_GetAllComplaintStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllComplaintStatusResponse" message="tns:ILookUpService_GetAllComplaintStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComplaintType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllComplaintType" message="tns:ILookUpService_GetAllComplaintType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllComplaintTypeResponse" message="tns:ILookUpService_GetAllComplaintType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRegistrationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllRegistrationType" message="tns:ILookUpService_GetAllRegistrationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllRegistrationTypeResponse" message="tns:ILookUpService_GetAllRegistrationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTreatmentType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllTreatmentType" message="tns:ILookUpService_GetAllTreatmentType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllTreatmentTypeResponse" message="tns:ILookUpService_GetAllTreatmentType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAreasofExpertise">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllAreasofExpertise" message="tns:ILookUpService_GetAllAreasofExpertise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllAreasofExpertiseResponse" message="tns:ILookUpService_GetAllAreasofExpertise_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpactValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientImpactValues" message="tns:ILookUpService_GetAllPatientImpactValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientImpactValuesResponse" message="tns:ILookUpService_GetAllPatientImpactValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostCodeInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetPostCodeInfo" message="tns:ILookUpService_GetPostCodeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetPostCodeInfoResponse" message="tns:ILookUpService_GetPostCodeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPsychologicalFactors">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllPsychologicalFactors" message="tns:ILookUpService_GetAllPsychologicalFactors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllPsychologicalFactorsResponse" message="tns:ILookUpService_GetAllPsychologicalFactors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientWorkstatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientWorkstatus" message="tns:ILookUpService_GetAllPatientWorkstatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientWorkstatusResponse" message="tns:ILookUpService_GetAllPatientWorkstatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientImpacts" message="tns:ILookUpService_GetAllPatientImpacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientImpactsResponse" message="tns:ILookUpService_GetAllPatientImpacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpactOnWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientImpactOnWork" message="tns:ILookUpService_GetAllPatientImpactOnWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientImpactOnWorkResponse" message="tns:ILookUpService_GetAllPatientImpactOnWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProposedTreatmentMethod">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllProposedTreatmentMethod" message="tns:ILookUpService_GetAllProposedTreatmentMethod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllProposedTreatmentMethodResponse" message="tns:ILookUpService_GetAllProposedTreatmentMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientLevelOfRecovery">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientLevelOfRecovery" message="tns:ILookUpService_GetAllPatientLevelOfRecovery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientLevelOfRecoveryResponse" message="tns:ILookUpService_GetAllPatientLevelOfRecovery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoryBespokeServicesByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetTreatmentCategoryBespokeServicesByTreatmentCategoryID" message="tns:ILookUpService_GetTreatmentCategoryBespokeServicesByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetTreatmentCategoryBespokeServicesByTreatmentCategoryIDResponse" message="tns:ILookUpService_GetTreatmentCategoryBespokeServicesByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDuration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllDuration" message="tns:ILookUpService_GetAllDuration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllDurationResponse" message="tns:ILookUpService_GetAllDuration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientRole" message="tns:ILookUpService_GetAllPatientRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILookUpService/GetAllPatientRoleResponse" message="tns:ILookUpService_GetAllPatientRole_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILookUpService" type="tns:ILookUpService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllTreatmentCategory">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllTreatmentCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPricingType">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllPricingType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceLevelAgreement">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllServiceLevelAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssessmentService">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllAssessmentService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssessmentType">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllAssessmentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelegatedAuthorisation">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllDelegatedAuthorisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricingTypesByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetPricingTypesByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInvoiceMethod">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllInvoiceMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelegatedAuthorisationTypes">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllDelegatedAuthorisationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDocumentSetupTypes">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllDocumentSetupTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailType">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllEmailType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComplaintStatus">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllComplaintStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComplaintType">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllComplaintType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRegistrationType">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllRegistrationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTreatmentType">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllTreatmentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAreasofExpertise">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllAreasofExpertise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpactValues">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllPatientImpactValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostCodeInfo">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetPostCodeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPsychologicalFactors">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllPsychologicalFactors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientWorkstatus">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllPatientWorkstatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpacts">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllPatientImpacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpactOnWork">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllPatientImpactOnWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProposedTreatmentMethod">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllProposedTreatmentMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientLevelOfRecovery">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllPatientLevelOfRecovery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoryBespokeServicesByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetTreatmentCategoryBespokeServicesByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDuration">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllDuration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientRole">
+      <soap:operation soapAction="http://tempuri.org/ILookUpService/GetAllPatientRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LookUpService">
+    <wsdl:port name="BasicHttpBinding_ILookUpService" binding="tns:BasicHttpBinding_ILookUpService">
+      <soap:address location="http://182.73.98.146:8081/ITS/LookUpService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

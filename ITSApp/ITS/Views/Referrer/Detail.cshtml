@@ -1,0 +1,208 @@
+﻿@using System.Web.Script.Serialization
+@model ITS.Domain.ViewModels.ReferrerDetailViewModel
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Referrer Details</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home" class="tip-bottom"><i class="icon-home">
+    </i>Referrer</a><a href="#" class="tip-bottom">Detail</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Referrer Details</h5>
+                </div>
+                <div class="widget-content nopadding" id="divDetailForm">
+                    @Html.Partial("Referrer/_DetailFormPartial")
+                </div>
+            </div>
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Head Office Details</h5>
+                </div>
+                <div class="widget-content nopadding" id="divOficeLocationDetailForm">
+                    @Html.Partial("Referrer/_OfficeLocationDetailFormPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" href="#divAddReferrerLocation" role="button"
+                data-toggle="modal">Add</a>
+            @Html.Partial("Referrer/_AddOfficeLocationPartial")
+            <div class="widget-box" id="divReferrerLocation">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Office Locations</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Referrer/_OfficeLocationGridPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" href="#divAddProject" role="button" data-toggle="modal">
+                Add</a>
+            @Html.Partial("Referrer/_AddProjectPartial")
+            <div class="widget-box">
+                <div class="widget-title">
+                    <a href="#collapseOne" data-toggle="collapse" class=""><span class="icon"><i class="icon-arrow-right">
+                    </i></span>
+                        <h5>
+                            Projects</h5>
+                    </a>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Referrer/_ProjectGridPartial")
+                </div>
+            </div>
+          <a class="btn btn-small btn-primary" id="addGroup" href="#divAddReferrerGroup" role="button"
+                data-toggle="modal">Add</a>
+              @Html.Partial("Referrer/_AddGroupPartial")           
+            <div class="widget-box" >
+                <div class="widget-title">
+                    <a href="#collapseTwo" data-toggle="collapse" class=""><span class="icon"><i class="icon-arrow-right">
+                    </i></span>
+                        <h5>
+                            Groups</h5>
+                    </a>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Referrer/_GroupDetailGrid")
+                </div>
+            </div>
+        </div>
+        <!-- test -->
+        <!-- test -->
+    </div>
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2012 - 2013 &copy; ITS Portal v1.0
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/common/TreatmentCategoryGridViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/referrer/DetailViewModel.js")" type="text/javascript"></script>
+    <script  src="@Url.Content("~/Scripts/knockout/viewmodel/views/referrer/OfficeLocationDetailViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrer/ProjectGridViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrer/OfficeLocationGridViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrer/AddOfficeLocationViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/Scripts/knockout/viewmodel/shared/referrer/AddProjectViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrer/AddReferrerTreatmentCategoryViewModel.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrer/AddGroupUserViewModel.js")"  type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrer/GroupDetailViewModel.js")"  type="text/javascript"></script>  
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+
+        var referrerDetailViewModel = new ReferrerDetailViewModel(model.Referrer);
+        ko.applyBindings(referrerDetailViewModel, $("#divDetailForm").get(0));
+
+
+        var referrerOfficeLocationDetailViewModel = new ReferrerOfficeLocationDetailViewModel();
+        ko.applyBindings(referrerOfficeLocationDetailViewModel, $("#divOficeLocationDetailForm").get(0));
+          referrerOfficeLocationDetailViewModel.Init(model.ReferrerMainLocation);
+
+        var referrerProjectGridViewModel = new ReferrerProjectGridViewModel();
+        ko.applyBindings(referrerProjectGridViewModel, $("#divReferrerProjectGrid").get(0));
+        referrerProjectGridViewModel.Init(model.ReferrerProjects);
+
+        var officeLocationGridViewModel = new OfficeLocationGridViewModel();
+        ko.applyBindings(officeLocationGridViewModel, $("#divReferrerLocation").get(0));
+        officeLocationGridViewModel.Init(model.ReferrerLocations);
+
+        var addOfficeLocationViewModel=new AddOfficeLocationViewModel(model.Referrer.ReferrerID);
+        ko.applyBindings(addOfficeLocationViewModel, $("#divAddReferrerLocation").get(0));
+        
+        var addReferrerProjectViewModel = new AddReferrerProjectViewModel(model.Referrer.ReferrerID);
+        ko.applyBindings(addReferrerProjectViewModel, $("#divAddProject").get(0));
+
+        // ReferrerTreatmentCategory
+        // TODO : Here triage is Mock value, need to be updated
+        // This method need to be moved from here, as this model will be initialized when the "Add Treatment Category" button is clicked (wrt to Selected Project)
+        var addReferrerTreatmentCategoryViewModel = new AddReferrerTreatmentCategoryViewModel(model.ReferrerTreamentCategories,model.Referrer.ReferrerID);
+        ko.applyBindings(addReferrerTreatmentCategoryViewModel, $("#divAddTreatmentCategoryRenderPartial").get(0));
+
+        var _addUserViewModel = new AddGroupUserViewModel(model.Referrer.ReferrerID);
+        ko.applyBindings(_addUserViewModel, $("#divAddReferrerGroup").get(0));
+
+
+        var groupdetailViewModel = new GroupDetailViewModel();
+        ko.applyBindings(groupdetailViewModel, $("#divReferrerGroup").get(0));
+        groupdetailViewModel.Init(model.ReferrerGroupDetail);       
+
+        function AddReferrerProjectFormSuccess(responseText, statusText, xhr, $form) {
+            referrerProjectGridViewModel.UpdateReferrerProjectGrid(responseText,$form.get(0));
+            $("#divAddProject").modal('hide');
+        } 
+
+        function AddOfficeLocationSuccess(responseText, statusText, xhr, $form) {
+            if($.parseJSON(responseText).IsMainOffice){
+                referrerOfficeLocationDetailViewModel.Init($.parseJSON(responseText));
+            }
+            officeLocationGridViewModel.UpdateOfficeLocationGrid(responseText,$form.get(0));
+            $("#divAddReferrerLocation").modal('hide');
+        } 
+        
+        function UpdateReferrerProjectFormSuccess(responseText, statusText, xhr, $form) {
+            referrerProjectGridViewModel.UpdateSelectedReferrerProject($.parseJSON(responseText));
+        } 
+        
+        function UpdateOfficeLocationFormSuccess(responseText, statusText, xhr, $form){
+            if($.parseJSON(responseText).IsMainOffice){
+                referrerOfficeLocationDetailViewModel.Init($.parseJSON(responseText));
+            }
+            officeLocationGridViewModel.UpdateOfficeLocationGridAfterSubmit($.parseJSON(responseText));
+        }
+
+        function InitAddReferrerProjectTreatmentModal(referrerProjectID, isTriage){
+            addReferrerTreatmentCategoryViewModel.Init(referrerProjectID, isTriage);
+        }
+        
+        function AddTreatmentCategoryFormSuccess(responseText, statusText, xhr, form) {
+          if(responseText!=-1) {
+            referrerProjectGridViewModel.AddTreatmentCategory($.parseJSON(responseText));
+            referrerProjectGridViewModel.UpdateSelectedReferrerProjectStatus();
+            
+            }
+            $("#divAddTreatmentCategoryRenderPartial").modal('hide');
+        }
+        
+        function UpdateTreatmentCategoryFormSuccess(responseText) {
+            referrerProjectGridViewModel.UpdateSelectedReferrerProjectStatus();
+            $(".modal").modal('hide');
+            alert("Updated Sucessfully");
+        }
+
+
+        $(function () {
+        $("input[name='objIsPolicyDetail']").click(function () {
+        if ($("#IsPolicyDetailYes").is(":checked")) 
+        {
+            $("#IsPolicyDetailOpenOrDropdownsDiv").show();
+            document.getElementById("IsPolicyDetailOpenOrDropdownsNo").checked = true;
+        } else if ($("#IsPolicyDetailNo").is(":checked")) 
+        {
+            $("#IsPolicyDetailOpenOrDropdownsDiv").hide();
+        }
+        });
+        });
+       
+            if ($("#IsPolicyDetailYes").is(":checked")) 
+            {
+                $("#IsPolicyDetailOpenOrDropdownsDiv").show();
+                document.getElementById("IsPolicyDetailOpenOrDropdownsNo").checked = true;
+            } else if ($("#IsPolicyDetailNo").is(":checked")) 
+            {
+                    $("#IsPolicyDetailOpenOrDropdownsDiv").hide();
+            }
+           
+    </script>
+}

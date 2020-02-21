@@ -1,0 +1,127 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.ViewModels.InvoiceViewModel.PagedCaseInvoicePatientReferrer
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Accounts Receivables</h1>
+}
+@*<div id="breadcrumb">
+    <a href="@Url.Action(ITS.Infrastructure.Global.GlobalConst.Actions.InternalTasksController.Index, ITS.Infrastructure.Global.GlobalConst.Controllers.InternalTasks)" title="Go to Home" class="tip-bottom">
+        <i class="icon-home"></i>Internal Tasks</a><a href="#" class="tip-bottom">Referral Received</a>
+</div>*@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12" id="divAccountReceivables">
+            @using (Html.BeginForm(GlobalConst.Actions.InvoiceController.Index, GlobalConst.Controllers.Invoice, FormMethod.Post, new
+            {
+                @class = "form-horizontal",
+                id = "frmInvoiceGrid",
+                encript = "multipart/form-data",
+
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateInvoiceGrid(responseText, statusText, xhr, $form); } }"
+            }))
+            {
+                
+                <!--ko if: TotalItemCount() > 0 -->
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Accounts Receivables
+                        </h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped table-hover sortable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Invoice Number
+                                    </th>
+                                    <th>
+                                        Outstanding Amount
+                                    </th>
+                                    <th>
+                                        Case Number
+                                    </th>
+                                    <th>
+                                        Patient Name
+                                    </th>
+                                    <th>
+                                        Referrer Reference Number
+                                    </th>
+                                    <th>
+                                        Referrer Contact Name
+                                    </th>
+                                    <th>
+                                        Contact Email Address
+                                    </th>
+                                    <th>
+                                        Contact Phone
+                                    </th>
+                                </tr>
+                            </thead>
+                             
+                            <tbody data-bind="foreach:caseInvoicePatientReferrer">
+                                                             
+                                <tr>
+                                    <td>
+                                       @* <a data-bind="click:$parent.getInvoiceDetail" href=""><span data-bind="text:InvoiceNumber"></span></a>*@
+                                         <a data-bind="attr:{href:ActionUrl}"><span data-bind="text:InvoiceNumber"></span></a>
+                                    </td>
+                                    <td data-bind="text:OutstandingAmount">
+                                    </td>
+                                    <td data-bind="text:CaseNumber">
+                                    </td>
+                                    <td data-bind="text: FirstName() + ' ' + LastName() ">
+                                    </td>
+                                    <td data-bind="text:CaseReferrerReferenceNumber">
+                                    </td>
+                                    <td data-bind="text:ReferrerContactFirstName() +' '+ ReferrerContactLastName() ">
+                                    </td>
+                                    <td data-bind="text:ReferrerMainContactEmail">
+                                    </td>
+                                    <td data-bind="text:ReferrerMainContactPhone">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /ko -->
+                <!--ko if: TotalItemCount() == 0 -->
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    No Results Found
+                </div>
+                <!-- /ko -->
+                <div>
+                    <input type="hidden" name="Skip" data-bind="value:Skip" />
+                    <input type="hidden" name="Take" data-bind="value:Take" />
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/Invoice/InvoiceViewModel.js")"   type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+
+     
+        var invoiceViewModel = new InvoiceViewModel();
+
+        ko.applyBindings(invoiceViewModel, $("#divAccountReceivables").get(0));
+
+        invoiceViewModel.Init(model);
+
+        function UpdateInvoiceGrid(responseText, statusText, xhr, $form) {
+            invoiceViewModel.Init($.parseJSON(responseText));
+        };
+    </script>
+}

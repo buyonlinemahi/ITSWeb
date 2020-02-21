@@ -1,0 +1,12 @@
+﻿.alertPricing
+{
+    width: auto;
+    float: left;
+    padding: 5px;
+    margin: -41px 0 5px 10px;
+    display: none;
+    background: yellow;
+    border: 1px solid gray;
+    border-radius: 5px;
+    
+}

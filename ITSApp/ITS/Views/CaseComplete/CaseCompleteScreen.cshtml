@@ -1,0 +1,287 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+@model ITS.Domain.ViewModels.InternalTasksViewModel.CaseCompleteInvoicingViewModel
+@{
+    ViewBag.Title = "Case Complete";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section AdditionalCss{
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+}
+@section ContentHeader{
+    <h1>
+        Case Completed Invoicing</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action(GlobalConst.Actions.InternalTasksController.Index, GlobalConst.Controllers.InternalTasks)" title="Go to Home" class="tip-bottom">
+        <i class="icon-home"></i>Internal Tasks</a><a href="@Url.Action(GlobalConst.Actions.CaseCompleteController.Index, GlobalConst.Controllers.CaseComplete)" class="tip-bottom">Case
+            Complete</a> <a href="#" class="tip-bottom">Case Complete Invoicing</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12" id="divCaseCompleteScreen">
+            @using (Html.BeginForm(GlobalConst.Actions.CaseCompleteController.CaseCompleteSubmit, GlobalConst.Controllers.CaseComplete, FormMethod.Post, new
+            {
+
+                @class = "form-horizontal",
+                id = "frmCaseCompleteScreen",
+                encript = "multipart/form-data",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ GenerateInvoice(); UpdateCaseCompleteInvoicing(responseText, statusText, xhr, $form); },beforeSubmit: CaseCompleteFormBeforeSubmit }"
+            }))
+            {
+                @Html.AntiForgeryToken();
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Case Treatment Pricing Type
+                        </h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped table-hover sortable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Service Date
+                                    </th>
+                                    <th>
+                                        Treatment Type
+                                    </th>
+                                    <th>
+                                        Sales Price
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!--ko if: CaseTreatmentPricingType().length  > 0 -->
+                            <tbody data-bind="foreach:CaseTreatmentPricingType">
+                                <tr>
+                                    <td class="span2">
+                                        <div class="control-group">
+                                            <div class="controls" style="margin-left:0px">
+                                                <input type="text" name="AuditDate" class="DatePickerClass"
+                                                    data-bind=" attr: {id:'AuditDate'+ $index(), name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].DateOfService' },value:DateOfService,jqBootstrapValidation: {}"
+                                                     data-validation-regex-message="DD/MM/YYYY" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="span4">
+                                        <div class="control-group">
+                                            <div class="controls" style="margin-left:0px">
+                                                <select class="select" data-bind="options:$root.TreatmentReferrerSupplierPricings, optionsText:'PricingTypeName',optionsValue:'PricingTypeName',value:PricingTypeName,event:{change:$root.selectedValue}">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="span6">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="input-prepend ">
+                                                    <span class="add-on">£</span>
+                                                    <input type="text" data-bind="value:ReferrerPrice,attr: { name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].ReferrerPrice' },jqBootstrapValidation:{}"
+                                                        data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number"
+                                                        class="input-large" required />
+                                                    <input type="hidden" data-bind="attr: { name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].ReferrerPricingID' },value: ReferrerPricingID" />
+                                                    <input type="hidden" data-bind="attr: { name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].SupplierPriceID' },value: SupplierPriceID" />
+                                                    <input type="hidden" data-bind="attr: { name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].SupplierPrice' },value: SupplierPrice" />
+                                                    <input type="hidden" data-bind="value:CaseTreatmentPricingID,attr: { name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].CaseTreatmentPricingID' }" />
+                                                    <input type="hidden" data-bind="value:CaseID,attr: { name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].CaseID' }" />
+                                                    <input type="hidden" data-bind="value: PricingTypeName, attr: {name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].PricingTypeName' }" />
+                                                    <input type="hidden" data-bind="value: IsComplete, attr: {name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].IsComplete' }" />
+                                                    <input type="hidden" data-bind="value: WasAbandoned, attr: {name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].WasAbandoned' }" />
+                                                    <input type="hidden" data-bind="value: PatientDidNotAttend, attr: {name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].PatientDidNotAttend' }" />
+                                                    <input type="hidden" data-bind="value: AuthorizationStatus() == 0 ? 'false' : AuthorizationStatus, attr: {name : 'CaseCompleteInvoicingViewModel.CaseTreatmentPricingType['+ $index() + '].AuthorizationStatus' }" />                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <!-- /ko -->
+                        </table>
+                    </div>
+                    <!--ko if: CaseTreatmentPricingType().length == 0 -->
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;</button>
+                        No Case Treatments
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Case Bespoke Service Pricing
+                        </h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped table-hover sortable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Service Date
+                                    </th>
+                                    <th>
+                                        Treatment Type
+                                    </th>
+                                    <th>
+                                        Sales Price
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!--ko if: CaseBespokeServicePricingType().length  > 0 -->
+                            <tbody data-bind="foreach:CaseBespokeServicePricingType">
+                                <tr>
+                                    <td class="span2" data-bind="text:DateOfService">
+                                    </td>
+                                    <td class="span4" data-bind="text:BespokeServiceName">
+                                    </td>
+                                    <td class="span6">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="input-prepend">
+                                                    <span class="add-on">£</span>
+                                                    <input type="text" data-bind="value:ReferrerPrice,attr: { name : 'CaseCompleteInvoicingViewModel.CaseBespokeServicePricingType['+ $index() + '].ReferrerPrice' }"
+                                                        data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number"
+                                                        required />
+                                                    <input type="hidden" data-bind="value:CaseBespokeServiceID,attr: { name : 'CaseCompleteInvoicingViewModel.CaseBespokeServicePricingType['+ $index() + '].CaseBespokeServiceID' }" />
+                                                    <input type="hidden" data-bind="value:CaseID,attr: { name : 'CaseCompleteInvoicingViewModel.CaseBespokeServicePricingType['+ $index() + '].CaseID' }" />
+                                                    <input type="hidden" data-bind="value: BespokeServiceName, attr: {name : 'CaseCompleteInvoicingViewModel.CaseBespokeServicePricingType['+ $index() + '].BespokeServiceName' }" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <!-- /ko -->
+                        </table>
+                    </div>
+                    <!--ko if: CaseBespokeServicePricingType().length == 0 -->
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;</button>
+                        No Bespoke Services
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <div class="widget-box">
+                    <div class="widget-content">
+                        <div class="form-group">
+                            <div class="control-group">
+                                <span class="span1">Notify Referrer? </span>
+                                <input type="radio" name="NotifyReferrer" data-bind="checked:IsNotifyEmailtoReferrer"
+                                    class="radio inline" value="1" />Yes
+                                <input type="radio" name="NotifyReferrer" data-bind="checked:IsNotifyEmailtoReferrer"
+                                    class="radio inline" value="0" />No
+                                <input type="hidden" name="CaseCommunicationHistory.NotifyReferrer" data-bind="value:NotifyReferrer" />
+                                <input type="hidden" data-bind="value:CaseID" name="CaseCommunicationHistory.CaseID" />
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div data-bind="if:IsNotifyEmailtoReferrer()==true">
+                                @Html.Partial("_EmailPartial")
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                
+                <div class="well well-small">
+                    <div class="pull-right">
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-prepend ">
+                                    <span class="add-on"><strong>VAT (%)</strong> </span>
+                                    <input type="text" class="span1" min="0" max="100" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$"
+                                        data-bind=" value:VatPercentage, jqBootstrapValidation:{}" data-validation-regex-message="Must be a number" />&nbsp;
+                                    &nbsp;&nbsp; &nbsp;</div>
+                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <strong>Invoice Total : </strong><strong data-bind="text:' £'+TreatmentTotal()">
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                
+                <div class="clear">
+                </div>
+                
+                <!--ko with: ReferrerAndSupplierVATPricing -->
+                         
+                <input type="hidden" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.ReferrerPricingID"
+                    data-bind="value:ReferrerPricingID" />
+                <input type="hidden" data-bind="value:SupplierPriceID" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.SupplierPriceID" />
+            
+                <input type="hidden" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.SupplierPrice"
+                    data-bind="value:SupplierPrice" />
+                <input type="hidden" data-bind="value:SupplierID" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.SupplierID" />
+            
+                <input type="hidden" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.ReferrerProjectTreatmentID"
+                    data-bind="value:ReferrerProjectTreatmentID" />
+                <input type="hidden" data-bind="value:PricingTypeID" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.PricingTypeID" />
+            
+                <input type="hidden" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.PricingTypeName"
+                    data-bind="value:PricingTypeName" />
+                <input type="hidden" data-bind="value:SupplierTreatmentID" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.SupplierTreatmentID" />
+                <input type="hidden" data-bind="value:$root.VatPercentage" name="CaseCompleteInvoicingViewModel.ReferrerAndSupplierVATPricing.ReferrerPrice" />
+                
+                <!-- /ko -->
+                
+         
+                <div class="control-group pull-right">
+                    <button type="submit" class="btn btn-primary">
+                        SUBMIT</button>
+                    <button type="submit" class="btn btn-primary" data-bind="click:ExitClick">
+                        EXIT</button>
+                </div>
+                <input type="hidden" data-bind="value: CaseID" name="CaseID" />
+             
+            }
+            @using (Html.BeginForm("GeneratedInvoiceLetter", "File", FormMethod.Post, new { id = "frmGenerateInvoice" }))
+            {
+                @Html.AntiForgeryToken()
+                
+                <!--ko if: CaseBespokeServicePricingType().length  > 0 -->
+                <!-- ko foreach: CaseBespokeServicePricingType -->
+                <input type="hidden" data-bind="value:BespokeServiceName,attr: { name : 'CaseBespokePricing['+ $index() + '].BespokeServiceName' }" />
+                <input type="hidden" data-bind="value:ReferrerPrice,attr: { name : 'CaseBespokePricing['+ $index() + '].ReferrerPrice' }" />
+                <input type="hidden" data-bind="value:CaseBespokeServiceID,attr: { name : 'CaseBespokePricing['+ $index() + '].CaseBespokeServiceID' }" />
+                <input type="hidden" data-bind="value:CaseID,attr: { name : 'CaseBespokePricing['+ $index() + '].CaseID' }" />
+                <!-- /ko -->
+                <!-- /ko -->
+                <!--ko if: CaseTreatmentPricingType().length  > 0 -->
+                <!--ko foreach: CaseTreatmentPricingType -->
+                <input type="hidden" data-bind="value:PricingTypeName,attr: { name : 'CaseTreatmentPricing['+ $index() + '].PricingTypeName' }" />
+                <input type="hidden" data-bind="value:ReferrerPrice,attr: { name : 'CaseTreatmentPricing['+ $index() + '].ReferrerPrice' }" />
+                <input type="hidden" data-bind="value:CaseTreatmentPricingID,attr: { name : 'CaseTreatmentPricing['+ $index() + '].CaseTreatmentPricingID' }" />
+                <input type="hidden" data-bind="value:CaseID,attr: { name : 'CaseTreatmentPricing['+ $index() + '].CaseID' }" />                
+                <!-- /ko -->
+                <!-- /ko -->
+                <input type="hidden" data-bind="value: CaseID" name="CaseID" />
+            }
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/CaseComplete/CaseCompleteScreenViewModel.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+
+        var viewModel = new CaseCompleteScreenViewModel();
+        viewModel.Init(model);
+        ko.applyBindings(viewModel, $("#divCaseCompleteScreen").get(0));
+        $(document).ready(function () {
+            $('.DatePickerClass').datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1900:2035'
+            });
+        });
+    </script>
+}

@@ -1,0 +1,70 @@
+#content-header
+{
+    margin-top:-30px;
+    background:#eeeeee;
+}
+
+.column-margin 
+{
+    margin-left:70px;
+    width:1420px;
+}
+
+input[type="checkbox"] {
+margin: 1px 5px 0;
+line-height: normal;
+}
+
+.form-horizontal .controls {
+    margin-left: 30px;
+    padding: 10px 0;
+}
+
+.uneditable-input 
+{
+   margin-left:30px;
+}
+
+.search-groups1 
+{
+    margin-left: 10px;
+}
+
+.search-groups2
+{
+    width:20%;
+}
+
+.form-horizontal :first-child.controls
+ {
+padding-left: 20px;
+}
+
+.table-bordered {
+
+border-left: 0px;
+}
+
+.pull-left 
+{
+    float:none;
+}
+
+/*.modal-backdrop {
+	z-index: -1 !important;
+}*/
+
+.modal-backdrop {
+z-index: -1;
+}
+
+.modal 
+{
+z-index: 99999 !important;
+float:left;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in {
+opacity: 1;
+filter: alpha(opacity=0);
+}

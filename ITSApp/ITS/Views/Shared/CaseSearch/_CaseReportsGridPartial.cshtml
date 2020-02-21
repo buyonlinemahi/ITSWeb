@@ -1,0 +1,72 @@
+﻿<table class="table table-bordered table-striped table-hover">
+   <!--ko if:Flagisshow()== false -->
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Document Name
+            </th>
+            <th>
+                Date Uploaded
+            </th>
+            <th>
+                Uploaded By
+            </th>
+        </tr>
+    </thead>
+       <!-- /ko -->
+    <tbody data-bind="foreach: CaseReports">
+        <tr>
+            <td width="133px">
+                <a href="#" id="ViewSubmit" target="_blank" data-bind="click:$root.ViewReport">View</a>
+                <input type="hidden" name="rptCaseID" data-bind="value: CaseID" placeholder="CaseID" />
+                <input type="hidden" name="EventDescription" data-bind="value: EventDescription"
+                    placeholder="EventDescription" />
+            </td>
+            <td width="875px" data-bind="text: DocumentName">
+            </td>
+            <td data-bind="text:EventDate">
+            </td>
+            <td data-bind="text: CompletedBy">
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <!--ko if:CaseReports().length == 0 -->
+        <tr>
+            <td colspan="4">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    No records are found.
+                </div>
+            </td>
+        </tr>
+        <!-- /ko -->
+    </tfoot>
+</table>
+<div data-bind="if:IsInvoiceSent()==true">
+<div class="widget-box">
+    <div class="widget-content">
+        <div class="form-group">
+            <div class="control-group">
+            Send Invoice?
+                <input type="radio" name="SentEmail" id="rbSentEmailTrue" class="radio inline" value="1" data-bind="checked:IsNotifyEmailtoReferrer" />Yes
+                <input type="radio" name="SentEmail" id="rbSentEmailFalse" class="radio inline" value="0" data-bind="checked:IsNotifyEmailtoReferrer" />No
+            </div>
+           
+           <div data-bind="if:IsNotifyEmailtoReferrer()==true">
+            @Html.Partial("_EmailPartial")
+            <div class="control-group pull-right">
+                <button type="submit" class="btn btn-primary" data-bind="click:InvoiceEmailSend">SUBMIT</button>
+            </div>
+            <div class="clear">
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,57 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Service Date
+            </th>
+            <th>
+                Treatment Type
+            </th>
+            <th>
+                Referrer Price
+            </th>
+            <th>
+                Supplier Price
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:BespokeTreatmentPricings">
+        <tr>
+            <td data-bind="text:DateOfService">
+            </td>
+            <td data-bind="text:BespokeServiceName">
+            </td>
+            <td data-bind="text:ReferrerPrice">
+            </td>
+            <td data-bind="text:SupplierPrice">
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        @*<!--ko if:BespokeTreatmentPricings().length > 0 -->
+        <tr>
+            <td class="span2">
+                Total Accounts Payables :
+            </td>
+            <td data-bind="text:AccountPayables" class="span2">
+            </td>
+            <td class="span2">
+                Total Accounts Receivables :
+            </td>
+            <td data-bind="text:(AccountPayables()-SupplierPriceTotal())" class="span2">
+            </td>
+        </tr>
+        <!-- /ko -->*@
+        <!--ko if:BespokeTreatmentPricings().length == 0 -->
+        <tr>
+            <td colspan="4">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    No records are found.
+                </div>
+            </td>
+        </tr>
+        <!-- /ko -->
+    </tfoot>
+</table>

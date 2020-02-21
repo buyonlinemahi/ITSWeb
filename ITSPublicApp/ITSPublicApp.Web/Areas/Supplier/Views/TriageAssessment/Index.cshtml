@@ -1,0 +1,101 @@
+﻿@using System.Web.Script.Serialization
+@using ITSPublicApp.Infrastructure.Global;
+@using System.Configuration;
+@model ITSPublicApp.Domain.ViewModels.TriageAssessmentViewModel
+@{
+    ViewBag.Title = "Supplier Portal - Triage Assessment";
+    Layout = "~/Areas/Supplier/Views/Shared/_LayoutForm.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+<script type="text/javascript" src="/scripts/viewmodels/areas/shared/supplier/TriageAssessmentViewModel.js"></script>
+<script>
+    $(function() {
+        var casePatientTreatment = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.CasePatientTreatment)));
+        var model = new TriageAssessmentViewModel();
+        ko.applyBindings(model);
+        model.loadPatientDemographics(casePatientTreatment);
+    });
+</script>
+<form action="/Supplier/TriageAssessment/Save" method="post" id="TriageAssessmentForm"
+enctype="multipart/form-data">
+<!-- ko with: CasePatientTreatment -->
+
+<p>
+    <strong>Patient Demographics</strong></p>
+<div class="row3-label-initial">
+    <ul>
+        <li>Patient First Name:</li>
+        <li>Patient Address:</li>
+        <li>Patient Region:</li>
+        <li>Patient Home Phone:</li>
+        <li>Case Number:</li>
+        <li style="width: 500px">Patient Treatment Category:</li>
+    </ul>
+
+</div>
+<div class="row3-input-initial">
+    <ul>
+        <li><span id="FirstName" data-bind="text:FirstName"></span></li>
+        <li><span name="Address" data-bind="text:Address"></span></li>
+        <li><span data-bind="text:Region"></span></li>
+        <li><span data-bind="text:HomePhone()==null?'--':HomePhone"></span></li>
+        <li class="case-refraction"><span data-bind="text:CaseNumber"></span></li>
+        <li><span data-bind="text:TreatmentCategoryName"></span></li>
+    </ul>
+</div>
+<div class="row3-label-initial">
+    <ul>
+        <li>Patient Surname:</li>
+        <li>Patient City / Town:</li>
+        <li>Patient Post Code:</li>
+        <li>Patient Mobile:</li>
+        <li style="width: 500px">Referrer Reference Number:</li>
+        <li>Patient Treatment Type:</li>
+    </ul>
+</div>
+<div class="row3-input-initial">
+    <ul>
+        <li><span data-bind="text:LastName"></span></li>
+        <li><span data-bind="text:City"></span></li>
+        <li><span data-bind="text:PostCode" style="text-transform:uppercase"></span></li>
+        <li><span data-bind="text:MobilePhone()==null?'--':MobilePhone"></span></li>
+        <li><span data-bind="text:CaseReferrerReferenceNumber"></span></li>
+        <li><span data-bind="text:TreatmentTypeName"></span></li>
+    </ul>
+</div>
+<div class="clear">
+</div>
+<p>
+    <strong>Triage Assessment</strong>
+</p>
+<div class="row3-label-initial">
+    <ul>
+
+
+       <!-- ko if:((TreatmentCategoryID() =='1') || (TreatmentCategoryID() =='2')||(TreatmentCategoryID() =='3'))  -->
+    
+        <li class="case-dl-link"><a href="@Url.Content(ConfigurationManager.AppSettings["PhysioTriageAssessmentForm"])">
+            Download Assessment</a></li>
+        <!-- /ko -->
+   
+        <!-- ko if:((TreatmentCategoryID() == '4') || (TreatmentCategoryID() == '5') || (TreatmentCategoryID() =='6') || (TreatmentCategoryID() == '7'))-->
+        <li class="case-dl-link"><a href="@Url.Content(ConfigurationManager.AppSettings["PsychologicalTriageAssessmentForm"])">
+            Download Assessment</a></li>
+        <!-- /ko -->
+    </ul>
+</div>
+<div class="row3-input">
+    <ul>
+        <li>
+            <input type="file" name="TriageAssessmentUploadFile" id="TriageAssessmentUploadFile" />
+            <input type="hidden" name="CasePatientTreatment.CaseID" data-bind="value:CaseID" />
+            <input type="hidden" name="CasePatientTreatment.CaseNumber" data-bind="value:CaseNumber" />
+        </li>
+    </ul>
+</div>
+<!-- /ko -->
+<p>
+    <input type="button" class="its-submitbutton" data-bind="click:submit" /></p>
+<div class="clear">
+</div>
+</form>

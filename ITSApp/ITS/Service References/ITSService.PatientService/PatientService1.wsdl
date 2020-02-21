@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PatientService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/PatientService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/PatientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/PatientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPatientService_AddPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_AddPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_UpdatePatientByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_UpdatePatientByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetPatientByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetPatientByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetAllPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetAllPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetPatientAndCaseByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientAndCaseByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetPatientAndCaseByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientAndCaseByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPatientService">
+    <wsdl:operation name="AddPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/AddPatient" message="tns:IPatientService_AddPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/AddPatientResponse" message="tns:IPatientService_AddPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/UpdatePatientByPatientID" message="tns:IPatientService_UpdatePatientByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/UpdatePatientByPatientIDResponse" message="tns:IPatientService_UpdatePatientByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetPatientByPatientID" message="tns:IPatientService_GetPatientByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/GetPatientByPatientIDResponse" message="tns:IPatientService_GetPatientByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetAllPatient" message="tns:IPatientService_GetAllPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/GetAllPatientResponse" message="tns:IPatientService_GetAllPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientAndCaseByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetPatientAndCaseByCaseID" message="tns:IPatientService_GetPatientAndCaseByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/GetPatientAndCaseByCaseIDResponse" message="tns:IPatientService_GetPatientAndCaseByCaseID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPatientService" type="tns:IPatientService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/AddPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/UpdatePatientByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/GetPatientByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/GetAllPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientAndCaseByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/GetPatientAndCaseByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PatientService">
+    <wsdl:port name="BasicHttpBinding_IPatientService" binding="tns:BasicHttpBinding_IPatientService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/ITS/PatientService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

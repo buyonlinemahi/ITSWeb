@@ -1,0 +1,100 @@
+
+.indentmenu{
+font: bold 13px Arial;
+width: 100%; /*leave this value as is in most cases*/
+}
+
+.indentmenu ul{
+margin: 0;
+padding: 0;
+float: left;
+/* width: 80%; width of menu*/
+/*border-top: 1px solid darkred; /*darkred border*/
+margin:0 30px 0 0px;
+}
+
+.indentmenu ul li{
+display: inline;
+/*margin-right:4px;*/
+}
+
+.indentmenu ul li a{
+float: left;
+color: black; /*text color*/
+/*padding: 15px 23px;*/
+text-decoration: none;
+background:#f0f0f0;
+width:200px;
+height:40px;
+line-height:3.2em;
+text-align:center;
+margin-right:5px;
+}
+
+.indentmenu ul li a:visited{
+color: black;
+}
+
+.indentmenu ul li a.selected{
+color: white !important;
+background:url('/Content/Images/its-addreferral-butt-active.jpg');
+width:200px;
+height:40px;
+line-height:3.2em;
+text-align:center;
+}
+
+
+
+.indentmenu-2{
+font: bold 13px Arial;
+width: 100%; /*leave this value as is in most cases*/
+}
+
+.indentmenu-2 ul{
+margin: 0;
+padding: 0;
+float: left;
+/* width: 80%; width of menu*/
+/*border-top: 1px solid darkred; /*darkred border*/
+margin:0 0 0 8px;
+}
+
+.indentmenu-2 ul li{
+display: inline-block;
+/*margin-right:4px;*/
+}
+
+.indentmenu-2 ul li a{
+float: left;
+color: black; /*text color*/
+/*padding: 15px 23px;*/
+text-decoration: none;
+background:#f0f0f0;
+width:146px;
+height:41px;
+line-height:1.4em;
+text-align:center;
+margin:3px 5px 0 0;
+padding-top:12px;
+}
+
+.indentmenu-2 ul li a:visited{
+color: black;
+}
+
+.indentmenu-2 ul li a.selected{
+color: white !important;
+background:url('/Content/Images/its-supplierl-butt-active.jpg');
+width:171px;
+height:41px;
+line-height:1.4em;
+text-align:center;
+}
+.icon-bg {
+background:#ed0606;border-radius:40px;color:#fff;padding:3px 5px;margin-left:-20px;font-size: 11px;
+}
+.icon-bg-1 {
+background:#ed060600;border-radius:40px;color:#fff;padding:3px 5px;margin-left:-20px;font-size: 11px;
+}
+

@@ -1,0 +1,49 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Patient Name
+            </th>
+            <th>
+               Case Number
+            </th>
+            <th>
+              Post Code
+            </th>
+            <th>
+              Referrer Reference Number
+            </th>
+            <th>
+               Current Status
+            </th>
+             <th>
+             Treatment Category 
+            </th>
+            <th>
+              Treatment Type 
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:Cases">
+        <tr>
+            <td align="center" data-bind="text:FirstName() + ' '+ LastName()" >
+                
+            </td>
+            <td >
+             <a data-bind="attr: { href: '/CaseSearch/Detail/' + CaseID() }">
+              <span data-bind="text:CaseNumber"/></a>
+            </td>
+            <td data-bind="text:PostCode" style="text-transform:uppercase">
+            </td>
+            <td data-bind="text:CaseReferrerReferenceNumber">
+           
+            </td>
+            <td data-bind="text:Definition">
+            </td>
+            <td data-bind="text:TreatmentCategoryName">
+            </td>
+            <td data-bind="text:TreatmentTypeName">
+            </td>
+        </tr>
+    </tbody>
+</table>

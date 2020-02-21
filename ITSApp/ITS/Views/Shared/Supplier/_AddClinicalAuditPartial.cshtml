@@ -1,0 +1,94 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divAddClinicalAudit" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.AddSupplierClinicalAudit, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmAddSupplierClinicalAudit",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddClinicalAuditFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: ClinicalAuditFormBeforeSubmit, clearForm: true }"
+}))
+    {
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel">
+                Add New Clinical Audit</h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>ITS Case Number
+                </label>
+                <div class="controls">
+                     <input class="input-small" type="text" id="txtItsReferenceNumber" name="CaseNumber" required  data-bind=" event: { change:GetPatientName }"/>
+                    <input type="hidden" name="CaseID" data-bind="value: CaseID" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    Patient Name:
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-small" id="txtPatientName" name="PatientName" readonly />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Pass or Fail
+                </label>
+                <div class="controls">
+                    <label class="radio inline">
+                        <input type="radio" value="true" value="1" name="AuditPass" data-bind="jqBootstrapValidation: {}"
+                            minchecked="1" data-validation-minchecked-message="Choose atleast one" />Pass
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" value="2" name="AuditPass" data-bind="jqBootstrapValidation: {}" />Fail
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    <span style="color: Red">*</span> Auditor</label>
+                <div class="controls">
+                    <select id="UserID1" name="UserID" data-bind="options:Users, optionsText:'UserName',optionsValue:'UserID',optionsCaption: 'Choose...',jqBootstrapValidation: {}"
+                        required>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span> Date Audited</label>
+                <div class="controls">
+                    <input type="text" id="AuditDate1" name="AuditDate" class="input-small datepicker" 
+                        data-bind="datepicker: { autoclose: true,format: 'dd/mm/yyyy' },jqBootstrapValidation: {}" data-validation-regex-message="DD/MM/YYYY" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fileInput">
+                    Document Name</label>
+                <div class="controls">
+                    <input id="DocumentName1" name="DocumentName" type="text" class="input-file" data-bind="jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fileInput">
+                    Clinical Audit Document Upload</label>
+                <div class="controls">
+                    <input type="file" name="ClinicalAuditDocumentFileUpload" id="ClinicalAuditDocumentFileUpload1"
+                        data-bind="jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" data-bind="value:SupplierID" name="SupplierID" />
+
+        <div class="modal-footer">
+            <button id="btnClinicalSave" type="submit" class="btn btn-primary" data-bind="bootstrapButton : DisableAddButton">
+                Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    }
+</div>

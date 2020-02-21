@@ -1,0 +1,87 @@
+﻿@using ITS.Infrastructure.Global;
+@*
+
+  Latest Version : 1.1
+
+  History Revision
+  Edited By   :  Pardeep Kumar
+  Date        :  07-Nov-2012
+  Description :  Added menus and Banner in New Internal Masterpage
+
+*@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MockUp</title>
+    <script src="@Url.Content("~/Scripts/Jquery-1.8.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.core.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.position.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.widget.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.menu.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.bgiframe-2.1.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.effect.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.dialog.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.button.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.autocomplete.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.ui.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout-2.0.0.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout.mapping.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.dialog.css")" rel="stylesheet"  type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/InternalLayout.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Jquery-ui.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/reveal.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-extenders.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-binding-handlers.js")"
+        type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="main_container">
+            <div id="header">
+                <div id="logo">
+                    <div id="logo-text">
+                        <span>ITS Portal <font size="3"><b>v1.0</b></font></span></div>
+                </div>
+                <div id="menu-right">
+                    <ul>
+                        <li><a href="@Url.Action(GlobalConst.Actions.Area.Internal.InternalTaskController.Index, GlobalConst.Controllers.Area.Internal.InternalTask, new { area = GlobalConst.Areas.Internal })">
+                            Home</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-bottom: 1px solid #BEBEC0; height: 6px; margin-left: -20px; position: absolute;
+                width: 1025px;">
+                &nbsp
+            </div>
+            <div id="nav-bar">
+                <ul id="nav">
+                    <li><a  href="@Url.Action(GlobalConst.Actions.Area.Internal.InternalTaskController.Index, GlobalConst.Controllers.Area.Internal.InternalTask, new { area = GlobalConst.Areas.Internal })">
+                        Internal Task</a> </li>
+                    <li><a href="#">Case Search</a></li>
+                    <li><a href="/Referrer/Index">
+                        Referrer Setup</a></li>
+                    <li><a href="@Url.Action(GlobalConst.Actions.SupplierController.Index, GlobalConst.Controllers.Supplier, new { area = "" })">
+                        Supplier Setup</a></li>
+                    <li><a href=" @Url.Action(GlobalConst.Actions.PractitionerController.Index, GlobalConst.Controllers.Practitioner, new { area = "" })">
+                        Practitioner Setup</a></li>
+                    <li><a href="#">Finance</a></li>
+                    <li><a href="#">Reporting</a></li>
+                    <li><a href="@Url.Action(GlobalConst.Actions.UserController.Index, GlobalConst.Controllers.User, new { area = "" })">
+                        Managment</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </div>
+            <div id="innerBody">
+                @RenderBody()
+            </div>
+        </div>
+</body>
+</html>

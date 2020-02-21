@@ -1,0 +1,224 @@
+﻿ #supplierSetupOuter{width:984px;margin:25px auto;}
+  #supplierSetupOuter .SearchCretaria{float:left; padding-right: 87px;}
+ #supplierSetupOuter .supplierArea{padding: 30px 20px 38px 5px;}
+ #supplierSetupOuter .supplierArea input[type="radio"]{padding:20px;}
+.outer-container .supplierSearch{border:1px solid;padding:5px 5px 5px 19px;}
+.outer-container .supplierSearch input[type="text"]{  margin-left: 10px;
+    padding: 5px 5px 5px 21px;
+    width: 424px;}
+
+.outer-container .supplierSearch input[type="submit"]{background: none repeat scroll 0 0 #EBE8D8;
+    font-weight: lighter;
+    height: 34px;
+    margin: 11px 15px;
+    width: 100px;}
+
+
+
+.outer-container{width:984px;margin:0 auto;font-size:13px; font-family:Arial;overflow:hidden;margin-top:-40px; }
+.outer-container .search-container{overflow:hidden;}
+
+.outer-container .search-container .left{float:left; width: 583px;border:1px solid black; }
+.outer-container .search-container .left .lbl-search{float:left;font-weight:bold;display:block;line-height:52px;padding-left:18px;padding-right:21px;}
+.outer-container .search-container .left .left-text {float:right;width: 356px;border-left:1px solid black;}
+.outer-container .search-container .left  input[type="text"]{ float: right; height: 22px;  width: 322px;text-indent: 10px;margin:15px}
+.outer-container .search-container .right{}
+.outer-container .search-container .right input[type="submit"]{background: none repeat scroll 0 0 #EBE8D8;font-weight: lighter;   height: 34px;  margin: 11px 15px; width: 100px;}
+
+.outer-container .messageDiv{float:left;margin: 10px 10px 0;text-align:center;width: 362px;}
+.outer-container  .message{  background: none repeat scroll 0 0 yellow; color: Green; font-family: Arial;font-size: 12px;  font-weight: bold;   padding: 5px;   }
+
+.outer-container .referrer-cantainer{float:left; margin-top:32px;border: 1px solid;}
+.outer-container .referrer-cantainer .left-ref{float:left;width:400px;}
+.outer-container .referrer-cantainer .left-ref .ref-heading span{color:Red;}
+.outer-container .referrer-cantainer .left-ref .ref-heading{float:left;font-weight:bold;padding:13px;border-left:1px solid #000;border-top:1px solid #000;background:#77b531;width:170px;}
+.outer-container .referrer-cantainer .left-ref .ref-text{float:right;border-left:1px solid #000;border-top:1px solid #000;border-right:1px solid #000;}
+.outer-container .referrer-cantainer .left-ref .ref-text input[type="text"]{float: right; height: 23px; margin: 6px 7px 6px 7px;-moz-margin: 7px 7px 8px 8px;  width: 180px;text-indent: 10px;}
+
+
+
+.outer-container .referrer-cantainer .right-ref{float:left;width:390px;}
+.outer-container .referrer-cantainer .right-ref .ref-heading span{color:Red;}
+.outer-container .referrer-cantainer .right-ref .ref-heading{float:left;font-weight:bold;padding:13px;border-left:1px solid #000;border-top:1px solid #000;background:#77b531;width:160px;}
+.outer-container .referrer-cantainer .right-ref .ref-text{float:right;border-left:1px solid #000;border-top:1px solid #000;border-right:1px solid #000;}
+.outer-container .referrer-cantainer .right-ref .ref-text input[type="text"]{float: right; height: 23px; margin: 6px 7px 6px 7px;-moz-margin-top: 7px;-moz-margin-right:7px;-moz-margin-bottom:8px;-moz-margin-left:8px;  width: 180px;text-indent: 10px;}
+.outer-container .referrer-cantainer .right-ref .rdo-btn{}
+.outer-container .referrer-cantainer .right-ref .rdo-btn input[type="radio"]{margin:62px 0 0 50px;}
+
+
+.outer-container .referrer-cantainer .ranking{float:right;}
+.outer-container .referrer-cantainer .ranking .txtRanking{padding:5px;}
+.outer-container .referrer-cantainer .ranking .txtRanking input[type="text"]{height: 23px;width:118px;}
+.outer-container .referrer-cantainer .ranking .Notes{float:right;}
+.outer-container .referrer-cantainer .ranking .Notes textarea{overflow:auto;height:118px;width:184px;}
+
+/*Treatment catagories*/
+.outer-container .referrer-cantainer .treatmentcatagory{float:left;}
+.outer-container .referrer-cantainer .treatmentcatagory .SelectedChk{}
+.outer-container .referrer-cantainer .treatmentcatagory input[type="checkbox"]{ margin-left: 78px;}
+.outer-container .referrer-cantainer .treatmentcatagory .heading{background: none repeat scroll 0 0 #77B531;
+    border: 1px solid;
+    float: left;
+    padding: 12px;
+    width: 173px;}
+    
+  .outer-container .referrer-cantainer .treatmentcatagory .eachloop{ border: 1px solid;
+    padding: 10px;
+    width: 960px;}
+    
+  .outer-container .referrer-cantainer .WheelChair{float:left;}
+ .outer-container .referrer-cantainer .WheelChair .checkboxes{border: 1px solid;
+    float: left;
+    padding: 5px 106px 5px 0;;}   
+.outer-container .referrer-cantainer .WheelChair input[type="checkbox"]{}
+.saveServices{float:right;}
+.saveServices input[type="submit"]{background: none repeat scroll 0 0 #EBE8D8;font-weight: lighter;   height: 34px;  margin: 11px 15px; width: 100px;}
+.border-bottom{border-bottom:1px solid #000;}
+#referrerDiv{ margin-top: -46px;}
+#referrerDiv .right{float:right;}
+#referrerDiv .right input[type="submit"]{background: none repeat scroll 0 0 #EBE8D8;font-weight: lighter;   height: 34px;  margin: 11px 15px; width: 100px;}
+.clear{clear:both;}
+
+.lblErrorCls{background: none repeat scroll 0 0 yellow;
+    font-size: 15px;
+    padding: 7px;}
+ 
+ 
+ 
+    
+.outer-container  #tabs-inner {padding:20px;float:left;}  
+.outer-container  #tabs-inner ul{list-style:none;}
+.outer-container  #tabs-inner ul li{display:inline;}
+.outer-container  #tabs-inner ul li a{background: none repeat scroll 0 0 #77B531; font-family:Arial;font-size:12px;  border-left: 1px solid;   margin-left: -3px;  padding: 20px 39px 20px 40px;  text-align: center;  text-decoration: none;}
+.outer-container  #tabs-inner ul li a:hover{background: none repeat scroll 0 0 green;font-family:Arial;font-size:12px;  border-left: 1px solid; margin-left: -3px; padding: 20px 39px 20px 40px;  text-align: center; text-decoration: none;}
+
+
+/*Pricing Tab*/
+
+.outer-container .price-cantainer
+{ float :left;
+    margin-top: 20px;
+}
+.outer-container .price-cantainer .left
+{
+    float: left;
+}
+.outer-container .price-cantainer .left span
+{
+    color: Red;
+}
+.outer-container .price-cantainer .left .heading-Price-type
+{
+    float: left;
+    background: #77b531;
+    border: 1px solid;
+    width: 130px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+.outer-container .price-cantainer .left .heading-Price
+{
+    float: right;
+    background: #77b531;
+    border: 1px solid;
+    width: 80px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+.outer-container .price-cantainer .left .text-Price-text
+{
+    float: left;
+    width: 130px;
+    text-align: left;
+    height: 20px;
+    padding: 5px;
+    border: 1px solid;
+}
+.outer-container .price-cantainer .left .text-Price
+{
+    float: right;
+    border: 1px solid;
+    width: 86px;
+    padding: 2px;
+}
+.outer-container .price-cantainer .left .text-Price input[type="text"]
+{
+    border: 0 solid;
+    float: right;
+    height: 18px;
+    padding: 6px 2px 2px;
+    width: 80px;
+}
+
+
+.outer-container .price-cantainer .right
+{
+    float: right;
+}
+.outer-container .price-cantainer .right span
+{
+    color: Red;
+}
+.outer-container .price-cantainer .right .heading-Price-type
+{
+    float: right;
+    background: #77b531;
+    border: 1px solid;
+    width: 140px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+.outer-container .price-cantainer .right .heading-Price
+{
+    float: left;
+    background: #77b531;
+    border: 1px solid;
+    width: 140px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+.outer-container .price-cantainer .right .text-Price-text
+{
+    float: left;
+    width: 140px;
+    text-align: left;
+    height: 20px;
+    padding: 5px;
+    border: 1px solid;
+}
+.outer-container .price-cantainer .right .text-Price
+{
+    float: left;
+    border: 1px solid;
+    width: 156px;
+    padding: 2px;
+}
+.outer-container .price-cantainer .right .text-Price input[type="text"]
+{
+    float: right;
+    width: 150px;
+    padding: 6px 2px 2px 2px;
+}
+
+   
+  .alertSupplierPricing
+{
+     background: none repeat scroll 0 0 yellow;
+    border: 1px solid gray;
+    border-radius: 5px 5px 5px 5px;
+    display:none;
+    margin-top: -10px;
+    padding: 5px;
+    width: 210px;
+    position:absolute;
+    
+}
+

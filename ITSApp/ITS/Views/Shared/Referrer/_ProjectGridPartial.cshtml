@@ -1,0 +1,211 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divReferrerProjectGrid">
+    <div class="in collapse" id="collapseOne" style="height: auto;">
+        <div class="widget-content">
+            <div class="accordion" id="collapse-group">
+                <div class="accordion-group widget-box">
+                    <div class="accordion-heading" data-bind="foreach:ReferrerProjects">
+                        <div class="widget-title">
+                            <a data-parent="#collapse-group" data-bind="attr:{href:'#'+ReferrerProjectID()}"
+                                data-toggle="collapse">
+                                <h5>
+                                    <span data-bind="text:ProjectName"></span>&nbsp;(<span data-bind="text:(StatusID() == 1 ?  'Complete':'In-complete')"></span>)
+                                </h5>
+                            </a><a class="label label-info" data-bind="click:$root.viewReferrerProject, attr:{href: '#divViewReferrerProject'+ReferrerProjectID()}"
+                                role="button" data-toggle="modal">View</a>
+                        </div>
+                        <!-- for now put the edit project modal(simple way first), for rapid dev/prototyping inside the for loop -->
+                        <div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true" data-bind="attr: {id: 'divViewReferrerProject'+ReferrerProjectID() }">
+                            @using (Html.BeginForm(GlobalConst.Actions.ReferrerProjectController.UpdateReferrerProject, GlobalConst.Controllers.ReferrerProject, FormMethod.Post,
+                               new
+                               {
+                                   id = "frmUpdateReferrerProject",
+                                   @class = "form-horizontal",
+                                   data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateReferrerProjectFormSuccess(responseText, statusText, xhr, $form);},beforeSubmit:UpdateReferrerProjectFormBeforeSubmit}"
+                               }))
+                            {
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        ×</button>
+                                    <h3 id="myModalLabel">View/Edit Referrer Project
+                                    </h3>
+                                </div>
+                               
+                                <div class="modal-body">
+                                    <div class="control-group">
+                                        <label class="control-label" for="input01">
+                                            <span style="color: Red">*</span>Project Name
+                                        </label>
+                                        <div class="controls">
+                                            <input name="ProjectName" type="text" data-bind="value: ProjectName,jqBootstrapValidation: {}"
+                                                required />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="optionsCheckbox">
+                                            <span style="color: Red">*</span>Central E-mail</label>
+                                        <div class="controls">
+                                            <input name="CentralEmail" type="text" data-validation-regex-regex='^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$'
+                                                data-validation-regex-message="Not a valid email address" placeholder="email@email.com"
+                                                data-bind="value: CentralEmail,jqBootstrapValidation: {}" required />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">
+                                            <span style="color: Red">*</span>E-mail Sending Options</label>
+                                        <div class="controls">
+                                            <label class="radio-pop inline">
+                                                <input type="radio" name="EmailSendingOptionID" data-bind="checked: EmailSendingOptionID().toString()"
+                                                    value="1" />
+                                                Send All
+                                            </label>
+                                            <label class="radio-pop inline">
+                                                <input type="radio" name="EmailSendingOptionID" data-bind="checked: EmailSendingOptionID().toString()"
+                                                    value="2" />
+                                                CC All
+                                            </label>
+                                            <label class="radio-pop inline">
+                                                <input type="radio" name="EmailSendingOptionID" data-bind="checked: EmailSendingOptionID().toString()"
+                                                    value="3" />
+                                                None
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @*  <div class="control-group">
+                                        <label class="control-label">
+                                            First Appointment</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="FirstAppointmentOffered" data-bind="checked: FirstAppointmentOffered().toString()"
+                                                       value="true" />
+                                                Yes
+                                            </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="FirstAppointmentOffered" data-bind="checked: FirstAppointmentOffered().toString()"
+                                                       value="false" />
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>*@
+                                    <div class="control-group">
+                                        <label class="control-label">
+                                            Triage Assessment</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="IsTriage" data-bind="checked: IsTriage().toString()" value="true" />
+                                                Yes
+                                            </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="IsTriage" data-bind="checked: IsTriage().toString()" value="false" />
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">
+                                            Active</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                 <input type="radio" name="IsActive" data-bind="checked: IsActive().toString()" value="true" />                                              
+                                                Yes
+                                            </label>
+                                            <label class="radio inline">
+                                                 <input type="radio" name="IsActive" data-bind="checked: IsActive().toString()" value="false" />                                              
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input type="hidden" name="ReferrerID" data-bind="value:ReferrerID" />
+                                            <input type="hidden" name="StatusID" data-bind="value:StatusID" />
+                                            <input type="hidden" name="ReferrerProjectID" data-bind="value:ReferrerProjectID" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" type="submit">
+                                        Save changes</button>
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                        Close</button>
+                                </div>
+                           
+                            }
+                        </div>
+                        <!-- end edit project modal -->
+                        <div class="accordion-body collapse" data-bind="attr:{id:ReferrerProjectID()}">
+                            <div class="widget-content">
+                                <a class="btn btn-small btn-primary" data-bind="click: function () { $root.AddReferrerProjectTreatmentCategory($data); $root.SetSelectedReferrerProject($data); }" role="button" data-toggle="modal" href="#divAddTreatmentCategoryRenderPartial">Add Treatment Category </a>
+                                <!-- table for treatments inside a project -->
+                                <table class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Action
+                                            </th>
+                                            <th>Treatment Category
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach: TreatmentCategories">
+                                        <tr>
+                                            <td>
+                                                <a role="button" data-toggle="modal" data-bind="click: function () { $parent.viewTreatmentCategory($data); $root.SetSelectedReferrerProject($parent); }, attr:{href: '#divViewTreatmentCategory'+$parent.ReferrerProjectID()}">View</a>
+                                            </td>
+                                            <td>
+                                                <a data-bind="attr: { href: '/Referrer/ProjectTreatment/'+ TreatmentID() }"><span data-bind="text: TreatmentCategoryName"></span></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- end of table for treatments inside a project -->
+                            </div>
+                        </div>
+                        <!--modal -->
+                        <div class="modal hide fade" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true" data-bind="with: SelectedTreatmentCategory, attr:{id: 'divViewTreatmentCategory'+ReferrerProjectID()}">
+                            @using (Html.BeginForm("UpdateTreatmentCategoryPricing", "ReferrerShared", FormMethod.Post, new { id = "frmAUpdateTreatmentCategoryPricing", data_bind = "ajaxForm: { success: function(responseText, statusText, xhr, $form){ UpdateTreatmentCategoryFormSuccess(responseText); }, beforeSubmit: UpdateTreatmentCategoryFormBeforeSubmit }" }))
+                            {
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        ×</button>
+                                    <h3 id="myModalLabel" data-bind="text: TreatmentCategoryName"></h3>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- ko foreach: $parent.FilterTreatmentCategoryPricing(TreatmentCategoryID(), $parent.IsTriage(), TreatmentCategoryPricings) -->
+                                    <div class="control-group">
+                                        <label class="control-label" data-bind="text: PricingTypeName">
+                                        </label>
+                                        <div class="controls">
+                                            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].PricingTypeID' }, value: PricingTypeID" />
+                                            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].PricingID' }, value: PricingID" />
+                                            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ReferrerProjectTreatmentID' }, value: $parent.TreatmentID" />
+                                            <div class="input-prepend">
+                                                <span class="add-on">£</span>
+                                                <input type="text" data-bind="attr: { name: '['+ $index() + '].Price' }, value: Price, jqBootstrapValidation: {}" required data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number" />
+                                                <!--<span data-bind="text: 'price['+ $index() + '].price'"></span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" type="submit">
+                                        Save changes</button>
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true" data-bind="click: CloseClick">
+                                        Close</button>
+                                </div>
+                            }
+                        </div>
+                        <!-- end modal -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" id="divAddTreatmentCategoryRenderPartial">
+    @Html.Partial("Referrer/_AddTreatmentCategoryPartial")
+</div>

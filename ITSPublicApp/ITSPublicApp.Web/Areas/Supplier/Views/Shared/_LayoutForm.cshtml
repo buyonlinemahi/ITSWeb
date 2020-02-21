@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml2/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/reset.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its-supplier.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/ajaxtabs.css")" />
+    <script src="@Url.Content("~/Scripts/jquery-v3.4.1.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout-3.0.0.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout.mapping.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.maskedinput.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/InputMaskViewModel.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function validate(data,lblmsg) {
+        if (data.value != "" && data.value!="__/__/____") {
+            re = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$/;
+            if (re.test(data.value)) {
+               $('#'+lblmsg).text("");
+            }
+            else {
+                $('#'+data.id).val('');
+              $('#'+lblmsg).text("DD/MM/YYYY");;
+               $('#'+data.id).focus();
+              
+            }
+        }
+        else {
+              $('#'+lblmsg).text("");
+              
+
+        }
+        }
+
+        function disableRightClick() {
+            return false;
+        }
+    </script>
+</head>
+<body id="its-supplier-form" oncontextmenu=" return disableRightClick();">
+    <div id="its-container">
+        <div id="loader-main-div" class="hidden">
+            <div class="loaderbg"></div>
+            <div id="loader"></div>
+            </div>
+        <div class="its-supplier-form-wrapper">
+            @{
+                Html.RenderPartial("_Header");
+            }
+            @{
+                Html.RenderPartial("_HeaderLinks");   
+            }
+            <div class="clear">
+            </div>
+            <div class="its-sub-header">
+            </div>
+            
+            <div class="its-content">
+                @RenderBody()
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                if ($(".hasDatepicker").length)
+                    $(".hasDatepicker").datepicker({
+                      dateFormat:'dd/mm/yy',
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: '1990:2035'
+                       
+                    });
+                $('.hasDatepicker').mask('99/99/9999');
+                $("#CaseAppointmentDateAppointmentTime").mask('99:99');
+            });
+        </script>
+    </div>
+    @{
+        Html.RenderPartial("_Footer");
+    }
+</body>
+</html>

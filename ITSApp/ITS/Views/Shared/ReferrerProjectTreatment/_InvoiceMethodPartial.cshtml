@@ -1,0 +1,111 @@
+﻿@using ITS.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.ReferrerProjectTreatmentSharedController.UpdateInvoiceMethod, GlobalConst.Controllers.ReferrerProjectTreatmentShared, FormMethod.Post,
+    new
+    {
+        id = "frmUpdateInvoiceMethod",
+        @class = "form-horizontal",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm: { success: function(responseText, statusText, xhr, $form){ UpdateReferrerInvoiceMethodSuccess(responseText); }, beforeSubmit: UpdateReferrerInvoiceMethodFormBeforeSubmit }"
+    }))
+{
+
+    <div class="Header span12">
+        <div class="HeaderTitle">
+        </div>
+        <div class="span12">
+            <h5>
+                Choose an Invoicing Method here
+            </h5>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid myrow">
+            <div class="span2">
+                <h5>
+                    Input Method</h5>
+            </div>
+            <div class="span6 rightspan">
+                <h5>
+                    Price</h5>
+            </div>
+        </div>
+    </div>
+   
+    <!-- ko foreach:ReferrerInvoiceMethods -->
+    
+    
+    <div class="control-group">
+        <label class="control-label pull-left">
+            
+               
+                <span data-bind="text:InvoiceMethodName"></span>
+        </label>
+        <div class="controls">
+            <div class="input-prepend span11">
+            
+                <span class="add-on"> <input type="radio" data-bind="attr: { value: InvoiceMethodID,name:'InvoiceMethodID' }, checked: $parent.InvoiceMethodID" /></span>
+                <span class="add-on">£</span>
+                <input type="text" data-bind="visible:(InvoiceMethodID() == '1')" readonly="readonly"
+                    value="N/A" />
+                <input type="text" placeholder="0" data-bind="
+                                        attr:{name:($parent.InvoiceMethodID() == InvoiceMethodID() ? 'InvoicePrice' : ' ')}, 
+                                        value: ($parent.InvoiceMethodID() == InvoiceMethodID() ? ((InvoiceMethodID() == '1' ? 0 :$parent.InvoicePrice)) : 0),
+                                        visible: !(InvoiceMethodID() == '1'),
+                                        enable: ($parent.InvoiceMethodID() == InvoiceMethodID() ? true: false)
+                                        ,jqBootstrapValidation: {}" required data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$"
+                    data-validation-regex-message="Must be a number" />
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+       
+    <div class="container-fluid">
+        <div class="row-fluid myrow">
+            <div class="Header span6">
+                <div class="HeaderTitle">
+                </div>
+                <div class="span12">
+                    <h5>
+                        Add a Management Fee here if applicable
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+          
+            Management Fee
+        </label>
+        <div class="controls">
+            <div class="input-prepend span11">
+             <span class="add-on">  <input type="checkbox" data-bind="checked:ManagementFeeEnabled" /></span>
+                <span class="add-on">£</span>
+                <input type="text" name="ManagementPrice" placeholder="0" data-bind="enable:ManagementFeeEnabled(),value:ManagementFeeEnabled() ? ManagementPrice : 0,jqBootstrapValidation: {}"
+                    required data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number" />
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+  
+    <div class="control-group">
+        <div class="controls">
+            <input type="hidden" name="ManagementFeeEnabled" data-bind="value:ManagementFeeEnabled" />
+            @*<input type="hidden" name="ReferrerInvoiceMethodTreatment" data-bind="value:ko.toJSON(InvoiceMethod)" />*@
+            <input type="hidden" name="ReferrerProjectTreatmentID" data-bind="value:ReferrerProjectTreatmentID" />
+            <input type="hidden" name="ReferrerProjectTreatmentInvoiceID" data-bind="value:ReferrerProjectTreatmentInvoiceID" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="column-groups-button">
+            <button id="btnSave" type="submit" class="btn btn-primary">
+                Update</button>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+
+}

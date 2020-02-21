@@ -1,0 +1,92 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Supplier
+@*
+ Latest Version   : 1.0
+  Author          : Vishal 
+  Date            : 26-Dec-2012
+  Version         : 1.0
+  Description     : Created and Added design for Insured Partial tab   
+  *@
+<link href="@Url.Content("Content/SupplierInsuredPartial.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">   
+ 
+    function ValidateInsuranceForm() {
+        var result = InsuredViewModel.ValidateInsuranceForm("fileToUpload");
+
+        if (result === true) {
+            GetInsuredUrl();
+        }
+        return result;
+    }
+
+    $(function () {
+        var InsuranceUrls = {
+            UrlGetSupplierInsured: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierInsuranceController.GetSupplierInsured, GlobalConst.Controllers.Area.Internal.SupplierInsured, new { area = "" })",
+            UrlRemoveFile: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierInsuranceController.RemoveFile, GlobalConst.Controllers.Area.Internal.SupplierInsured, new { area = "" })",
+            UrlUpdateSupplierInsurance: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierInsuranceController.UpdateSupplierInsurance, GlobalConst.Controllers.Area.Internal.SupplierInsured, new { area = "" })",
+            UrlAddSupplierInsurance: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierInsuranceController.AddSupplierInsurance, GlobalConst.Controllers.Area.Internal.SupplierInsured, new { area = "" })"    
+        };
+        InsuredViewModel.InitializeInsuranceUrls(InsuranceUrls);
+
+        var pickerOpts = {
+            dateFormat: 'dd-mm-yy',
+            changeYear: true
+        };
+        $("#_datepicker").datepicker(pickerOpts);
+    });
+</script>
+<form id="SupplierInsuredform" enctype="multipart/form-data" method="post" onsubmit="return ValidateInsuranceForm()">
+<div id="divInsuredSpinner" style="position: absolute; top: 20%; left: 50%">
+</div>
+<div id="supplierInsured">
+    <div id="registrationDocumentname" style="width: auto;">
+        <div style="width: 900px; float: left; padding: 20px; font-weight: bold;">
+            <div style="float: left; width: 415px;">
+                <span style="float: right; color: #FF0000; font-size: x-large; font-weight: bold;"
+                    data-bind="visible:DocumentNameValidate">*</span> <span style="float: right; padding-right: 40px;
+                        margin-right: 30px;">Document Name </span>
+            </div>
+            <div style="float: left; width: 415px;">
+                <input type="text" name="DocumentName" data-bind="value:DocumentName" style="width: 300px" />
+            </div>
+            <br />
+            <div style="float: right; width: 600px; padding: 10px;">
+                <input type="file" name="InsuredDocumentFile" id="fileToUpload" />
+                <input type="hidden" name="SupplierID" id="supplierID" data-bind="value:SupplierID" />
+                <input type="hidden" name="DocumentTypeID" id="documentTypeId" data-bind="value:DocumentTypeID" />
+                <input type="hidden" name="SupplierInsuredID" data-bind="value:SupplierInsuredID" />
+                <input type="hidden" name="SupplierDocumentID" data-bind="value:SupplierDocumentID" />
+                <input type="hidden" name="UploadDate" id="UploadDate" data-bind="value:UploadDate" />
+                <input type="hidden" name="UploadPath" id="hdnSupplierInsurredFile" data-bind="value:UploadPath" />
+            </div>
+            <br />
+            <div style="float: left; padding-right: 185px; width: 200px;">
+                <span style="float: right">Insurance Link</span></div>
+            <div style="float: left; width: 450px;">
+                <a style="color: Blue;" data-bind="attr:{href:InsuredDocumentUrl},text: displayfileName,visible: IsEnable">
+                </a><a href='javascript:(void)' style="margin-left: 100px; color: Blue;" data-bind="click: RemoveFile,visible: IsEnable">
+                    Remove</a>
+            </div>
+        </div>
+    </div>
+    <div style="float: left; font-weight: bold; margin-left: 122px; padding: 20px;">
+        <div style="float: left; width: 100px; background-color: #77B531; padding: 8px; border: 1px solid">
+            <span>Level of Cover</span>
+        </div>
+        <div style="border: 1px solid; float: left; width: 200px;">
+            <input type="text" name="LevelOfCover" data-bind="value:LevelOfCover" style="margin: 5px 5px 4px 0" />
+        </div>
+        <div style="float: left; width: 100px; background-color: #77B531; padding: 8px; border: 1px solid">
+            <span>Renewal Date</span>
+        </div>
+        <div style="border: 1px solid; float: left; width: 200px">
+            <input type="text" name="RenewalDate" id="_datepicker" data-bind="value:RenewalDate" readonly="readonly"
+                style="margin: 5px 5px 4px 0" />
+        </div>
+    </div>
+    <div style="width: 900px; float: left; padding: 20px; font-weight: bold;">
+        <input type="submit" value="Save" style="float: right; background: none repeat scroll 0 0 #EBE8D8;
+            margin-right: 50px; padding: 7px 15px;" />
+    </div>
+</div>
+</form>

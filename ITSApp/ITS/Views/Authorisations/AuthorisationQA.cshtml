@@ -1,0 +1,153 @@
+﻿@model ITS.Domain.ViewModels.InternalTasksViewModel.AuthorisationQAViewModel 
+@using ITS.Infrastructure.Global;
+@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "Authorisation QA";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Authorisation QA</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action(GlobalConst.Actions.InternalTasksController.Index, GlobalConst.Controllers.InternalTasks)" title="Go to Home" class="tip-bottom">
+        <i class="icon-home"></i>Internal Tasks</a><a href="@Url.Action(@GlobalConst.Actions.AuthorisationController.Index, @GlobalConst.Controllers.Authorisation)" class="tip-bottom">Authorisations</a>
+    <a href="#" class="tip-bottom">Authorisation QA</a>
+</div>
+<div class="container-fluid" id="divAuthorisationQA">
+    <div class="row-fluid">
+        <div class="span12">
+            @using (Html.BeginForm(GlobalConst.Actions.AuthorisationController.UpdateAuthorisationQA, GlobalConst.Controllers.Authorisation, FormMethod.Post, new
+
+            {
+                @class = "form-horizontal",
+                id = "frmUpdateAuthorisationQa",
+                encript = "multipart/form-data",
+
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateAuthorisationQASuccess(responseText, statusText, xhr, $form); }, beforeSubmit: UpdateAuthorisationQAFormBeforeSubmit }"
+            }))
+            {
+                @Html.AntiForgeryToken();
+                <!--ko with:CaseAssessment-->
+                
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>
+                        </h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                     Treatment Sessions:</label>
+                                <div class="controls">
+                                    <input type="text"  id="TreatmentSession" name="TreatmentSession" readonly> </input>
+                                </div>
+                            </div>
+
+
+                            <div class="control-group">
+                                <label class="control-label">
+                                   Assessment:</label>
+                                <div class="controls">
+                                    <input type="text"  id="AssessmentServiceName" name="AssessmentServiceName" readonly></input>
+                                </div>
+                            </div>
+
+
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Recommended Treatment:</label>
+                                <div class="controls">
+                                    <span data-bind="text:CaseAssessmentDetail.PatientRecommendedTreatmentSessions">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="control-group" data-bind="visible:AssessmentAuthorisationID()==2">
+                                <label class="control-label">
+                                    Modified Treatment:</label>
+                                <div class="controls">
+                                    <textarea rows="4" placeholder="Modified Treatment" data-bind="text:AuthorisationDetail"
+                                        readonly></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="CaseAssessment.CaseID" data-bind="value:CaseID" />
+                <!--/ko-->
+                
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>
+                            Case Treatment Pricing</h5>
+                    </div>
+                    @Html.Partial("Authorisations/_AddAuthorisationCaseTreatmentPricingPartial")                    
+                    <div class="widget-content">
+                        <a class="btn btn-small btn-primary" href="#divCreateCaseTreatmentGrid" role="button"
+                            data-toggle="modal" data-bind="enable:(CaseAssessment.AssessmentAuthorisationID()==2 || CaseAssessment.AssessmentAuthorisationID()==1)">
+                            Add</a>
+                        @Html.Partial("Authorisations/_AuthorisationCaseTreatmentPricingGridPartial", new { name = "CaseTreatmentPricings" })
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>
+                            Bespoke Treatment Pricing</h5>
+                    </div>
+                    @Html.Partial("Authorisations/_AddAuthorisationBespokeCasePricingPartial")
+                    <div class="widget-content">
+                        <a class="btn btn-small btn-primary" href="#divCreateBespokeGrid" data-bind="enable:(CaseAssessment.AssessmentAuthorisationID()==2 || CaseAssessment.AssessmentAuthorisationID()==1)"
+                            role="button" data-toggle="modal">Add</a>
+                        @Html.Partial("Authorisations/_AuthorisationBespokeCaseTreatmentPricingGridPartial", new { name = "CaseBespokeServicePricing" })
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="well well-small">
+                    <div class="span1 pull-right">
+                        <strong data-bind="text:'£'+TreatmentTotal()"></strong>
+                    </div>
+                    <div class="span2 pull-right">
+                        Treatment Total:
+                    </div>
+                </div>
+              
+                <div class="clear">
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSave" type="submit" class="btn btn-primary">
+                        Send</button>
+                    <button type="button" data-bind="click:PrintAuthorisationQA" class="btn btn-primary">
+                        Print</button>
+                    <button class="btn" data-bind="click:function(){if(confirm('Are you sure to close this screen?'))window.location='/Authorisations'}">
+                        close</button>
+                </div>
+                
+            }
+        </div>
+    </div>
+</div>
+<br />
+<div class="row-fluid">
+    <div id="footer" class="span12">
+        2012 - 2013 &copy; ITS Portal v1.0
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/Authorisations/AuthorisationQAViewModel.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+     var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+     var authorisationViewModel=new AuthorisationViewModel();
+     authorisationViewModel.Init(model);
+      
+     ko.applyBindings(authorisationViewModel, $("#divAuthorisationQA").get(0));
+    </script>
+}

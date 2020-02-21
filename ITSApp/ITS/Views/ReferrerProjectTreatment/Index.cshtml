@@ -1,0 +1,169 @@
+﻿@model ITS.Domain.ViewModels.ReferrerViewModel.ReferrerProjectTreamentIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>Treatment Details</h1>
+}
+<div id="breadcrumb">
+    <a href="/Referrer/Index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Referrer</a><a href="javascript:window.location=document.referrer" title="Go to referrer detail"><i
+        class="icon-home"></i>Referrer Detail</a><a href="#" class="tip-bottom">Project Treatment Detail</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>Treatment Pricing</h5>
+                </div>
+                <div class="widget-content nopadding" id="divProjectTreatmentPricingDetailForm">
+                    @Html.Partial("ReferrerProjectTreatment/_TreatmentPricingPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>Service Level Agreements</h5>
+                </div>
+                <div class="widget-content nopadding" id="divProjectTreatmentSLADetailForm">
+                    @Html.Partial("ReferrerProjectTreatment/_ServiceLevelAgreementPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+    @*  <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Finance</h5>
+                </div>
+                <div class="widget-content nopadding" id="divProjectTreatmentFinanceDetailForm">
+                   @Html.Partial("ReferrerProjectTreatment/_FinancePartial")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Invoice Methods</h5>
+                </div>
+                <div class="widget-content nopadding" id="divProjectTreatmentInvoiceMethodDetailForm">
+                    @Html.Partial("ReferrerProjectTreatment/_InvoiceMethodPartial")
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>Delegate Authorisation</h5>
+                </div>
+                <div class="widget-content nopadding" id="divViewDelegateAuthorization">
+                    @Html.Partial("ReferrerProjectTreatment/_DelegateAuthorisationPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>Email Setup</h5>
+                </div>
+                <div class="widget-content nopadding" id="divEmailSetup">
+                    @Html.Partial("ReferrerProjectTreatment/_EmailSetupPartial")
+                </div>
+            </div>
+        </div>
+    </div>*@
+    @*<div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Assessment Services</h5>
+                </div>
+                <div class="widget-content nopadding" id="divAssesmentService">
+                    @Html.Partial("ReferrerProjectTreatment/_AssessmentServicesPartial")
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>Document Setup</h5>
+                </div>
+                <div class="widget-content nopadding" id="divDocumentSetup">
+                    @Html.Partial("ReferrerProjectTreatment/_DocumentSetupPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrerProjectTreatment/TreatmentPricingViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrerProjectTreatment/DelegateAuthorisationViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrerProjectTreatment/ServiceLevelAgreementViewModel.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrerProjectTreatment/FinanceViewModel.js")" type="text/javascript"></script>*@
+    @*<script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrerProjectTreatment/EmailSetupViewModel.js")"  type="text/javascript"></script>*@
+    @*<script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrerProjectTreatment/InvoiceMethodViewModel.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/referrerProjectTreatment/DocumentSetupViewModel.js")" type="text/javascript"></script>
+    <script src="../../Scripts/knockout/viewmodel/shared/referrer/ProjectGridViewModel.js"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+
+   
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var treatmentPricingViewModel = new TreatmentPricingViewModel(model.IsTriage,model.ProjectTreatment.TreatmentCategoryID,model.ProjectTreatmentPricing,model.ProjectTreatment.ReferrerProjectID);
+        ko.applyBindings(treatmentPricingViewModel, $('#divProjectTreatmentPricingDetailForm').get(0));
+        // treatmentPricingViewModel.Init(model.ProjectTreatmentPricing);
+
+        //var financeViewModel = new FinanceViewModel();
+        //ko.applyBindings(financeViewModel, $('#divProjectTreatmentFinanceDetailForm').get(0));
+        //financeViewModel.Init(model.ProjectTreatment);
+
+
+        //var invoiceMethodViewModel = new InvoiceMethodViewModel();
+        //ko.applyBindings(invoiceMethodViewModel, $('#divProjectTreatmentInvoiceMethodDetailForm').get(0));
+        //invoiceMethodViewModel.Init(model.ProjectTreatmentInvoiceMethod);
+
+
+        var delegateAuthorisationViewModel = new DelegateAuthorisationViewModel();
+        ko.applyBindings(delegateAuthorisationViewModel, $('#divViewDelegateAuthorization').get(0));
+        delegateAuthorisationViewModel.Init(model.ProjectTreatmentDelegateAuthorisation);
+
+        var serviceLevelAgreementViewModel = new ServiceLevelAgreementViewModel();
+        ko.applyBindings(serviceLevelAgreementViewModel, $('#divProjectTreatmentSLADetailForm').get(0));
+        serviceLevelAgreementViewModel.Init(model.ProjectTreatmentSLA);
+
+        //var emailSetupViewModel = new EmailSetupViewModel();
+        //ko.applyBindings(emailSetupViewModel, $('#divEmailSetup').get(0));
+        //emailSetupViewModel.Init(model.ProjectTreatmentEmailSetup);
+   
+
+        var documentSetupViewModel = new DocumentSetupViewModel();
+        ko.applyBindings(documentSetupViewModel, $('#divDocumentSetup').get(0));
+        documentSetupViewModel.Init(model.ProjectTreatmentDocumentSetup);
+   
+   
+    </script>
+}

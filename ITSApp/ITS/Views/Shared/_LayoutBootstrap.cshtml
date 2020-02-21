@@ -1,0 +1,132 @@
+﻿@using ITS.Infrastructure.Global;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>@ViewBag.Title</title>@*<meta charset="UTF-8" />*@
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/bootstrap-responsive.min.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/its-portal.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/custom.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/bootstrap-sortable.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/bootstrap-datepicker.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/bootstrap-typeahead.css")" type="text/css" />
+    <link href="@Url.Content("~/Content/its-print.css")" rel="stylesheet" type="text/css" media="print" />
+    @RenderSection("AdditionalCss", false)
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap/css/ie7.css")" />
+    <![endif]-->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap/css/ie8.css")" />
+    <![endif]-->
+    <!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap/css/ie9.css")" />
+    <![endif]-->
+    <!--[if IE 10]>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap/css/ie10.css")" />
+    <![endif]-->
+    <script type="text/javascript">
+        function Print() {
+            window.print();
+        }        
+    </script>
+      <script type="text/javascript">
+          function disableRightClick() {
+              return false;
+          }
+        </script>
+
+</head>
+<body oncontextmenu=" return disableRightClick();">
+    <div id="header">
+        <h1>
+            <a href="./dashboard.html">Unicorn Admin</a></h1>
+    </div>
+    <div id="user-nav" class="navbar navbar-inverse">
+        <ul class="nav btn-group">
+            <li class="btn btn-inverse"><a title="" href="@Url.Action(GlobalConst.Actions.InternalTasksController.Index, GlobalConst.Controllers.InternalTasks)">
+                <i class="icon icon-home"></i><span class="text">Home</span></a></li>
+            <li class="btn btn-inverse"><a title="" onclick="Print();" href="#"><i class="icon icon-file"></i><span class="text">Print</span></a></li>
+            <li class="btn btn-inverse"><a title="" href="@Url.Action(GlobalConst.Actions.HomeController.LogOut, GlobalConst.Controllers.Home)">
+                <i class="icon icon-time"></i><span class="text">Logout</span></a></li>
+        </ul>
+    </div>
+    <div id="sidebar">
+        <ul>
+            <li><a href="@Url.Action(GlobalConst.Actions.InternalTasksController.Index, GlobalConst.Controllers.InternalTasks, new { area = "" })">
+                <i class="icon icon-glass"></i><span>Internal Task</span></a></li>
+            <li><a href="@Url.Action(GlobalConst.Actions.CaseSearchController.Index, GlobalConst.Controllers.CaseSearch, new { area = "" })">
+                <i class="icon icon-music"></i><span>Case Search</span></a></li>
+            <li><a href="@Url.Action(GlobalConst.Actions.ReferrerController.Index, GlobalConst.Controllers.Referrer, new { area = "" })">
+                <i class="icon icon-search"></i><span>Referrer Setup</span></a></li>
+            <li><a href="@Url.Action(GlobalConst.Actions.SupplierController.Index, GlobalConst.Controllers.Supplier, new { area = "" })">
+                <i class="icon icon-envelope"></i><span>Supplier Setup</span></a></li>
+            <li><a href="@Url.Action(GlobalConst.Actions.PractitionerController.Index, GlobalConst.Controllers.Practitioner, new { area = "" })">
+                <i class="icon icon-heart"></i><span>Practitioner Setup</span></a></li>
+            @*<li><a href="@Url.Action(GlobalConst.Actions.InvoiceController.Index, GlobalConst.Controllers.Invoice, new { area = "" })">
+                <i class="icon icon-star"></i><span>Finance</span></a></li>*@
+            <li><a href="#"><i class="icon icon-star-empty"></i><span>Reporting</span></a></li>
+            <li><a href="@Url.Action(GlobalConst.Actions.UserController.Index, GlobalConst.Controllers.User, new { area = "" })">
+                <i class="icon icon-user"></i><span>Management</span></a></li>
+            <li><a href="#"><i class="icon icon-film"></i><span>Resources</span></a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="content-header">
+            @RenderSection("ContentHeader", true)
+        </div>
+        <div id="loader-main-div" class="hidden">
+            <div class="loaderbg"></div>
+            <div id="loader"></div>
+        </div>
+        @RenderBody()
+    </div>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootstrap-sortable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/jquery.form.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootstrap-datepicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootstrap-jqBootstrapValidation.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootsrap-typeahead.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootsrap-ajaxutil.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootstrap-filestyle.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/knockout.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/knockout.mapping.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-binding-handlers.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-extenders.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-observables.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.maskedinput.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/InputMaskViewModel.js")" type="text/javascript"></script>
+  
+    <script src="../../Scripts/bootstrap-multiselect.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.js")"  type="text/javascript"></script>
+    
+    <link href="../../Content/bootstrap-multiselect.css" rel="stylesheet" />    
+    
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$(".hasDatepicker").datepicker("option", "yearRange", "1900:2035");
+            //$(".datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+            //$('.datepicker').mask('99/99/9999');
+        });
+
+        function postalCodeFormat(elem) {            
+            var val2 = val1 = elem.value.replace(/ /g, '');
+            if (val1.length > 3) {
+                val1 = val1.substr(0, val1.length - 3);
+                elem.value = (val1 + ' ' + val2.substr(val1.length, val2.length));
+            }
+        }
+    </script>
+    @RenderSection("AdditionalScripts", false)
+</body>
+@*<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>*@
+</html>
+

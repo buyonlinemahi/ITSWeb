@@ -1,0 +1,57 @@
+﻿
+.its-referrer-setup-border
+{
+    border-top: 2px dotted #BEBEC0;
+    margin: 30px 0 40px;
+}
+.outer-container{width:984px;margin:0 auto;font-size:13px; font-family:Arial;overflow:hidden;margin-top:50px; }
+.outer-container .search-container{overflow:hidden;}
+
+.outer-container input[type="text"]
+{
+    box-shadow: 1px 1px 1px #BFD1D3;
+    height: 30px;
+    line-height: 1;
+    text-indent: 10px;
+    width: 258px;
+}
+.outer-container .search-container .left{float:left; width: 583px;border:1px solid #BEBEC0; }
+.outer-container .search-container .left .lbl-search{float:left;font-weight:bold;display:block;line-height:52px;padding-left:18px;padding-right:21px;}
+.outer-container .search-container .left .left-text {float:right;width: 356px;border-left:1px solid #BEBEC0;}
+.outer-container .search-container .left  input[type="text"]{ float: right; height: 22px;  width: 322px;text-indent: 10px;margin:15px}
+.outer-container .search-container .right{}
+.outer-container .search-container .right input[type="submit"]{background: none repeat scroll 0 0 #EBE8D8;font-weight: lighter;   height: 34px;  margin: 11px 15px; width: 100px;}
+
+.outer-container .messageDiv{float:left;margin: 10px 10px 0;text-align:center;width: auto;}
+.outer-container  .message{  background: none repeat scroll 0 0 yellow; color: Green; font-family: Arial;font-size: 12px;  font-weight: bold;   padding: 5px;   }
+
+.outer-container .referrer-cantainer{float:left;}
+.outer-container .referrer-cantainer .left-ref{float:left;width:492px;margin-top: 36px;}
+.outer-container .referrer-cantainer .left-ref .ref-heading span{color:Red;}
+.outer-container .referrer-cantainer .left-ref .ref-heading{float:left;padding:16px 15px 15px ;width:224px;font-size:14px;}
+.outer-container .referrer-cantainer .left-ref .ref-text{float:right;}
+.outer-container .referrer-cantainer .left-ref .ref-text input[type="text"]{float: right; height: 30px; margin: 6px 7px 6px 7px;-moz-margin: 7px 7px 8px 8px;  width: 217px;text-indent: 10px;}
+
+
+
+.outer-container .referrer-cantainer .right-ref{float:right;width:492px;margin-top: 36px;}
+.outer-container .referrer-cantainer .right-ref .ref-heading span{color:Red;}
+.outer-container .referrer-cantainer .right-ref .ref-heading{float:left;padding:16px 15px 15px ;width:224px;font-size:14px;}
+.outer-container .referrer-cantainer .right-ref .ref-text{float:right;}
+.outer-container .referrer-cantainer .right-ref .ref-text input[type="text"]{float: right;
+    height: 30px;
+    margin: 6px 7px;
+    text-indent: 10px;
+    width: 217px;}
+.outer-container .referrer-cantainer .right-ref .rdo-btn{}
+.outer-container .referrer-cantainer .right-ref .rdo-btn input[type="radio"]{margin:62px 0 0 50px;}
+
+.border-bottom{border-bottom:1px solid #000;}
+#referrerDiv{ margin-top: -46px;}
+#referrerDiv .right{float:right;}
+#referrerDiv .right input[type="submit"]{background: none repeat scroll 0 0 #EBE8D8;font-weight: lighter;   height: 34px;  margin: 11px 15px; width: 100px;}
+.clear{clear:both;}
+
+.lblErrorCls{background: none repeat scroll 0 0 yellow;
+    font-size: 15px;
+    padding: 7px;}

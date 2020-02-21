@@ -1,0 +1,116 @@
+body
+{
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin:0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+#wrapper{margin: 0 auto;border:1px solid #000;}
+#wrapper #outerHeader{height:64px;border-bottom:1px solid #000;}
+#wrapper #header{margin:0 5px 0 5px;height:53px;background:url(../Content/Images/h_bg.png) repeat-x,top left;border: 2px groove #CDCDCD;text-align:center;}
+#wrapper #header #logo{ color: #FFFFFF;font-size: 2.3em;padding: 8px;}
+#wrapper #header #logo  #logo-ITS{}
+#wrapper #header #logo  #logo-ITS span{font-size:30px;}
+#wrapper #header #menu{float:right;margin-right: 60px;margin-top:-45px;}
+#wrapper #header #menu ul{display:block;}
+#wrapper #header #menu ul li{width:300px;display:inline;}
+#wrapper #header #menu ul li a{color:#fff;text-decoration:none;  font-weight: bold; padding: 13px;}
+#wrapper #internal{float:left;border-bottom: none;border-left:1px solid #000000;margin:10px 0 0 -36px;}
+#internal ul {margin: 0;  list-style-type: none;  text-align: center; background-color: #bdbdbd; } 
+#internal ul li { display: inline; } 
+#internal ul li a {background-color: #BDBDBD; border-left: 1px solid; border-top: 1px solid;color: #000000; float: left; padding: 10px 25px;text-align: center;text-decoration: none;} 
+#internal ul l a:last-child{border-right:1px solid #000;}
+#internal ul li a:hover { color: #000;background-color: #7d7d7d;padding: 10px 25px;}
+.last{border-right:1px solid #000;}
+#cantainer{border:1px solid #000;margin:0 5px 20px 5px;overflow:hidden;}
+.clear{clear:both;}
+
+
+@media screen and (max-width:1246px)
+{
+     #wrapper{background:#cdcdcd;}
+     #wrapper #header #menu ul li{width:95%;display:inline;}
+     #wrapper #header #logo{float:left;}
+     #wrapper #header #logo  #logo-ITS span{font-size:20px;}
+     #wrapper #header #menu{float:right;margin-top:-40px;}
+     #wrapper #header #menu ul li a{color:#fff;font-size:11px;}
+}
+@media screen and (max-width:400px)
+{
+    #wrapper{background:Green;}
+    #wrapper #header #menu{display:none;}
+    #wrapper #header #logo{text-align:center; width:100%;}
+    #internal ul li{display:block;}
+    #internal ul li a {width:90%;}
+    #wrapper #internal {text-align:center;width:80%;margin:0 auto;}
+   
+}

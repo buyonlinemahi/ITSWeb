@@ -1,0 +1,58 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Payment Amount
+            </th>
+            <th>
+                Adjusted Payment
+            </th>
+            <th>
+                Check Number
+            </th>
+            <th>
+                BACS
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                User
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:InvoicePaymentHistory">
+        <tr>
+            <td>
+                <center>
+                    <span data-bind="text:Payment"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:AdjustedPayment"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:CheckNumber"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:BACS"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:InvoicePaymentDate"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:UserName"></span>
+                </center>
+            </td>
+        </tr>
+    </tbody>
+</table>

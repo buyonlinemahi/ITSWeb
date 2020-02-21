@@ -1,0 +1,22 @@
+﻿ *
+    {
+        font-family:Verdana;
+        font-size:15px;
+        }
+    .clear{clear:clear}
+    .topBgColor{background-color:#77b531;}
+    
+    #container {width: 420px; }
+    
+    .mainScreen { width:100%;border:1px solid black;border-bottom:0px;}
+    
+    .mainScreen .left {float:left;width:49%;}
+    .mainScreen .right{float:right;width:49%}
+    .mainScreen .topGreen {padding:8px; }
+    .mainScreen .screenBody input[type="checkbox"]{margin:2px 0px 0px -22px;float:left;}
+    .mainScreen .screenBody ul { }
+    .mainScreen .screenBody ul li {display:block;}
+    
+    .reffAssign {width:100%;border:1px solid black;margin-top:15px}
+    .reffAssign .left{float:left;padding:10px;background-color: #77b531;width:35%;border-right:1px solid black;}
+    .reffAssign .right{float:right ;padding:8px;text-align:center ;}

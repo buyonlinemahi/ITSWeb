@@ -1,0 +1,125 @@
+﻿
+    #ReferrerCaseOuter
+    {
+        width: 984px;
+        margin: 25px auto;
+    }
+    #ReferrerCaseOuter .SearchCretaria
+    {
+       margin:0 auto;
+       text-align:center;
+        padding-bottom: 14px;
+    }
+    #ReferrerCaseOuter .SearchCretaria input[type="radio"]{padding-left:20px;}
+    #ReferrerCaseOuter .CaseArea
+    {
+        padding: 30px 20px 38px 5px;
+    }
+    #ReferrerCaseOuter .CaseArea input[type="radio"]
+    {
+        padding: 20px;
+    }
+    .outer-container .CaseSearch
+    {
+        border: 1px solid;
+        padding: 5px 5px 5px 19px;
+    }
+    .outer-container .CaseSearch input[type="text"]
+    {
+        margin-left: 10px;
+        padding: 5px 5px 5px 21px;
+        width: 424px;
+    }
+    
+    .outer-container .CaseSearch input[type="submit"]
+    {
+        background: url("/Content/Images/its-tbl-headbg.jpg") repeat scroll 0 0 #CCCCCC font-weight: lighter;
+        height: 34px;
+        margin: 11px 15px;
+        width: 100px;
+    }
+    .CaseSearchContainer
+    {
+        width: 1000px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
+    
+     .CaseSearchContainer-row
+     {
+        width: 1000px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+      }
+    
+     .CaseSearchContainer-row .row-cell
+    {
+        background: #fff;
+        border: 1px solid;
+        float: left;
+        font-family: Arial;
+        padding: 12px;
+        text-align: center;
+        width: 160px;
+        height: 20px;
+        font-size:12px;
+    }
+    
+    .CaseSearchContainer .heading
+    {
+        background: url("/Content/Images/its-tbl-headbg.jpg") repeat scroll 0 0 #CCCCCC;
+        border: 1px solid;
+        float: left;
+        font-family: Arial;
+        font-weight: bold;
+        height: 25px;
+        padding: 12px;
+        text-align: center;
+        width: 160px;
+    }
+    .CaseSearchContainer .text
+    {
+        float: left;
+        width: 145.5px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid;
+        font-family: Arial;
+    }
+    .CaseSearchContainer .text a
+    {
+        color: Blue;
+    }
+    .submitLink
+    {
+        height: 20px;
+    }
+    .saveButton
+    {
+        padding: 10px;
+        float: right;
+    }
+    
+    .saveButton input[type="submit"]
+    {
+        padding: 10px;
+        background: none repeat scroll 0 0 #EBE8D8;
+        width: 100px;
+    }
+    
+    #ReferrerCaseDiv{width:700px;margin:0 auto; text-align:center;}
+    #ReferrerCaseDiv input[type="text"]{width:300px;padding:7px;margin-left:10px;margin-right:10px;height}
+    #ReferrerCaseDiv input[type="submit"]{padding:5px;width:150px;}
+      
+    /* =========== Supplier Search Style  ==================================*/
+      
+    #SupplierCaseOuter { width: 984px; margin: 25px auto; }      
+    #SupplierCaseOuter .SearchCretaria { margin:0 auto; text-align:center; padding-bottom: 14px; }
+    #SupplierCaseOuter .SearchCretaria input[type="radio"]{padding-left:20px;}
+    #SupplierCaseOuter .CaseArea { padding: 30px 20px 38px 5px; }
+    #SupplierCaseOuter .CaseArea input[type="radio"] { padding: 20px; }      
+    #SupplierCaseDiv{width:700px;margin:0 auto; text-align:center;}
+    #SupplierCaseDiv input[type="text"]{width:300px;padding:7px;margin-left:10px;margin-right:10px;}
+    #SupplierCaseDiv input[type="submit"]{padding:5px;width:150px;}
+      
+      

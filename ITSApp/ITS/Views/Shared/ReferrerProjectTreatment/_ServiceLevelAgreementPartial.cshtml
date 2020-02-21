@@ -1,0 +1,53 @@
+﻿@using ITS.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.ReferrerProjectTreatmentSharedController.UpdateProjectTreatmentSLA, GlobalConst.Controllers.ReferrerProjectTreatmentShared, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmUpdateSLAInfo",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateProjectTreatmentSLAFormSuccess(responseText, statusText, xhr, $form);},beforeSubmit:UpdateProjectTreatmentSLAFormBeforeSubmit}"
+}))
+{
+    <!-- ko foreach:ServiceLevelAgreementSLA -->
+    
+    <div class="control-group">
+        <label class="control-label">
+            <span style="color: Red">*</span> <span data-bind="text:ServiceLevelAgreementName">
+            </span>
+        </label>
+        <div class="controls">
+            <div class="span12">
+                <input type="text" id="NumberOfDays" class="service-treat-set" data-bind="attr: { name: '['+ $index() + '].NumberOfDays' },value:NumberOfDays,jqBootstrapValidation: {}"
+                    required data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number" />
+                Days&nbsp&nbsp
+               <span class="pull-right mrg-rght20">
+                 <div class="radio-service inline">
+                    <input type="radio" value="true" data-bind="attr: { name: '['+ $index() + '].Enabled' },checked: Enabled().toString()" />
+                </div>
+                On
+                <div class="radio-service inline">
+                    <input type="radio" value="false" data-bind="attr: { name: '['+ $index() + '].Enabled' },checked: Enabled().toString()" />
+                </div>
+                Off
+                   </span>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div>
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ProjectTreatmentSLAID' },value:ProjectTreatmentSLAID" />
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ReferrerProjectTreatmentID' },value:ReferrerProjectTreatmentID" />
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ServiceLevelAgreementID' },value:ServiceLevelAgreementID" />
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ServiceLevelAgreementName' },value:ServiceLevelAgreementName" />
+        </div>
+    </div>
+    <!-- /ko -->
+    <div class="modal-footer">
+        <div class="column-groups-button">
+            <button id="btnSave" type="submit" class="btn btn-primary">
+                Update</button>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+        
+}

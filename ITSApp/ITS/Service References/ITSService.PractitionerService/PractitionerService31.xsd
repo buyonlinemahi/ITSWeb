@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ITSService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfAreasofExpertise">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AreasofExpertise" nillable="true" type="tns:AreasofExpertise" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAreasofExpertise" nillable="true" type="tns:ArrayOfAreasofExpertise" />
+  <xs:complexType name="AreasofExpertise">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AreasofExpertiseCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="AreasofExpertiseID" type="xs:int" />
+      <xs:element minOccurs="0" name="AreasofExpertiseName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AreasofExpertise" nillable="true" type="tns:AreasofExpertise" />
+  <xs:complexType name="Practitioner">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PractitionerID" type="xs:int" />
+      <xs:element minOccurs="0" name="PractitionerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PractitionerQualification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PractitionerQualificationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PractitionerRegistration" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PractitionerRegistrationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PractitionerRegistrationTypeExpiry" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PractitionerYearsQualified" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Practitioner" nillable="true" type="tns:Practitioner" />
+  <xs:complexType name="ArrayOfPractitioner">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Practitioner" nillable="true" type="tns:Practitioner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPractitioner" nillable="true" type="tns:ArrayOfPractitioner" />
+  <xs:complexType name="PractitionerExpertise">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AreaofExpertiseID" type="xs:int" />
+      <xs:element minOccurs="0" name="PractitionerExpertiseID" type="xs:int" />
+      <xs:element minOccurs="0" name="PractitionerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PractitionerExpertise" nillable="true" type="tns:PractitionerExpertise" />
+  <xs:complexType name="ArrayOfPractitionerExpertise">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PractitionerExpertise" nillable="true" type="tns:PractitionerExpertise" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPractitionerExpertise" nillable="true" type="tns:ArrayOfPractitionerExpertise" />
+  <xs:complexType name="ArrayOfTreatmentCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentCategory" nillable="true" type="tns:TreatmentCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentCategory" nillable="true" type="tns:ArrayOfTreatmentCategory" />
+  <xs:complexType name="TreatmentCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentCategory" nillable="true" type="tns:TreatmentCategory" />
+</xs:schema>

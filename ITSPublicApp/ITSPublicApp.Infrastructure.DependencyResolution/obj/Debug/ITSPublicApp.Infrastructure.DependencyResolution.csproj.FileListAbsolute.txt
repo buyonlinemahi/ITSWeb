@@ -1,0 +1,5 @@
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.DependencyResolution\bin\Debug\ITSPublicApp.Infrastructure.DependencyResolution.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.DependencyResolution\bin\Debug\ITSPublicApp.Infrastructure.DependencyResolution.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.DependencyResolution\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.DependencyResolution\obj\Debug\ITSPublicApp.Infrastructure.DependencyResolution.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.DependencyResolution\obj\Debug\ITSPublicApp.Infrastructure.DependencyResolution.pdb

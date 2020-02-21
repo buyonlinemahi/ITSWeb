@@ -1,0 +1,105 @@
+﻿@*
+ Latest Version :1.4
+
+  Author          : Vishal
+  Date            : 12-Nov-2012
+  Version         : 1.0
+  Description     : design for Email Setup tab 
+
+  Updated By      : Vijay Kumar
+  Date            : 07-Dec-2012
+   Version        : 1.1
+  Description     : Updated the design for Email Setup tab 
+
+   Updated By      : Anuj Batra 
+   Date            : 07-Dec-2012
+   Version        : 1.2
+  Description     : Updated the design for Email Setup tab 
+
+     Updated By   : Vijay Kumar 
+   Date           : 11-Dec-2012
+   Version        : 1.3
+  Description     : Changed data-bind property of rediobutton i.e(EmailTypeName to EmailTypeID) so that default value is going to bind with EmailTypeID not with EmailTypeName
+
+  Updated By     : Pardeep Kumar
+  Date           : 11-Dec-2012
+  Version        : 1.4
+  Description    : fixed some design issues (horizontal alliengment of radio buttons)
+
+  *@
+<link href=="@Url.Content("~/Content/EmailSetupPartial.css")" rel="stylesheet" type="text/css" />
+<div class="outter-assess-container" id="divEmailSetupContainer">
+    <div>
+        <span class="textweight">Emails To Referrer test</span>
+    </div>
+    <br />
+    <div>
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 900px">
+            <tr>
+                <td data-bind="foreach: ReferrerEmails">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                        <tr>
+                            <td style="width: 250px">
+                                <div data-bind="text: EmailTypeName">
+                                </div>
+                            </td>
+                            <td style="width: 650px;">
+                                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                                    <tr>
+                                        <td data-bind="foreach: EmailValueTypes">
+                                            <input type="radio" value="Default" data-bind="attr: { value: TypeID, name: $parent.EmailTypeID }, checked: $parent.EmailTypeValueID, enable: IsEnabled" />
+                                            <span  data-bind="text: EmailType"></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 25px">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <span class="textweight">Emails To Supplier</span>
+    </div>
+    <br />
+    <div>
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 900px">
+            <tr>
+                <td data-bind="foreach: SupplierEmails">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                        <tr>
+                            <td style="width: 250px">
+                                <div data-bind="text: EmailTypeName">
+                                </div>
+                            </td>
+                            <td style="width: 650px">
+                                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                                    <tr>
+                                        <td data-bind="foreach: EmailValueTypes">
+                                            <input type="radio" value="Default" data-bind="attr: { value: TypeID, name: $parent.EmailTypeID }, checked: $parent.EmailTypeValueID, enable: IsEnabled" /><span
+                                                data-bind="text: EmailType"></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 25px">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="inputs">
+        @*<input type="submit" value="Amend" data-bind="enable:notAvailable" />*@
+        <input type="submit" value="Save" id="updateEmailstypes" data-bind="click:UpdateEmailstypes,enable:ViewEnabled" />
+        @*<input type="submit" value="Cancel" data-bind="enable:notAvailable" />*@
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@using ITS.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.ReferrerProjectTreatmentSharedController.UpdateReferrerProjectTreatmentEmail, GlobalConst.Controllers.ReferrerProjectTreatmentShared,
+    FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmUpdateEmailSetup",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateProjectTreatmentEmailSetupFormSuccess();} }"
+}))
+{
+    <!-- ko foreach :ProjectTreatmentEmailSetup -->
+    <div class="container-fluid" data-bind="style: { display:IsTextVisible() == true ? 'block' : 'none'}">
+        <div class="row-fluid myrow">
+            <div class="Header span6">
+                <div class="HeaderTitle">
+                </div>
+                <div class="span12">
+                    <h5 data-bind="text:UserTypeID()== 2 ? 'Emails To Referrer':'Emails To Supplier'">
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label blue1">
+            <span data-bind="text:EmailTypeName"></span>
+        </label>
+        <div class="controls" data-bind="foreach:EmailTypeValues">
+            <input type="radio" data-bind="attr:{name: '['+ $parentContext.$index() + '].EmailTypeValueID'},value:EmailTypeValueID,checked:$parent.EmailTypeValueID,enable:EmailTypeValueName()!='Custom'" />
+            <span data-bind="text:EmailTypeValueName"></span>
+        </div>
+    </div>
+    <div>
+        <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ReferrerProjectTreatmentEmailID' },value:ReferrerProjectTreatmentEmailID" />
+        <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ReferrerProjectTreatmentID' },value:ReferrerProjectTreatmentID" />
+        <input type="hidden" data-bind="attr: { name: '['+ $index() + '].EmailTypeID' },value:EmailTypeID" />
+    </div>
+    <!--/ko-->
+    <div class="modal-footer">
+        <div class="column-groups-button">
+            <button id="btnSave" type="submit" class="btn btn-primary" data-loading-text="Saving...">
+                Update</button>
+        </div>
+        <div class="clear">
+        </div>
+    </div>    
+}

@@ -1,0 +1,104 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+@model ITS.Domain.ViewModels.ReferrerIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Referrers</h1>
+}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <a class="btn btn-primary btn-block" href="@Url.Action("Add")">Add New Referrer</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12" id="divReferrerIndex">
+            <div class="widget-box collapsible">
+                <div class="widget-title">
+                    <a href="#searchDivCollapse" data-toggle="collapse" class="collapsed"><span class="icon">
+                        <i class="icon-align-justify"></i></span>
+                        <h5>
+                            Referrer Search</h5>
+                    </a>
+                </div>
+                <div class="collapse" id="searchDivCollapse" style="height: 0px;">
+                    <div class="widget-content nopadding">
+                        @using (Html.BeginForm(GlobalConst.Actions.ReferrerController.Search, GlobalConst.Controllers.Referrer, FormMethod.Post, new
+                        {
+                            @class = "form-horizontal",
+
+                        }))
+                        {
+
+                            <div class="control-group">
+                               @* <div class="column-margin">
+                                    <div class="column-groups span3">
+                                        <label>
+                                            <input type="radio" name="ReferrerSearch.SearchCriteria" value="1"  data-bind="jqBootstrapValidation: {} "
+                                                minchecked="1" data-validation-minchecked-message="Choose atleast one" />Referrer Name</label>
+                                    </div>
+                                  @*  <div class="column-groups span3">
+                                        <label>
+                                            <input type="radio" name="ReferrerSearch.SearchCriteria" value="2" />Referrer Treatment</label>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                    <p class="help-block">
+                                    </p>
+                                </div>*@
+                            </div>
+                        
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Referrer Name</label>
+                                <div class="controls">
+                                    <div class="search-groups1">
+                                        <input type="text" name="ReferrerSearch.SearchText" placeholder="Enter Text" data-bind="jqBootstrapValidation: {} " required/>
+                                        <input type="hidden" name="Skip" value="0" />
+                                        <input type="hidden" name="Take" value="10" />
+                                        <span class="button-adjustment">
+                                            <button type="submit" class="btn btn-primary">
+                                                Search</button></span>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Recently Added Referrers</h5>
+                </div>
+                <div class="widget-content nopadding" id="divReferrers">
+                    @Html.Partial("Referrer/_ReferrerGridPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section AdditionalScripts{
+
+ <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/referrer/IndexViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierGridViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+
+        var referrerGridViewModel = new ReferrerGridViewModel();
+        ko.applyBindings(referrerGridViewModel, $('#divReferrerIndex').get(0));
+        referrerGridViewModel.Init(model.Referrers);
+       
+//         var practitionerSearchViewModel = new SearchViewModel();
+//        ko.applyBindings(practitionerSearchViewModel, $("#searchDivCollapse").get(0));
+    </script>
+}

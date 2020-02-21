@@ -1,0 +1,41 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Contact Phone
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th>
+                User Types
+            </th>
+            <th>
+                Date Added
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:Users">
+        <tr>
+            <td>
+                <a data-bind="attr: { href: '/User/Detail/' + UserID()  }">View</a>
+            </td>
+            <td data-bind="text:FirstName() +' '+ LastName() ">
+            </td>
+            <td data-bind="text:Telephone">
+            </td>
+            <td data-bind="text:Email">
+            </td>
+            <td data-bind="text:(UserTypeID()==1 ? 'Internal' :(UserTypeID()==2 ? 'Referrer' : 'Supplier' ) )">
+            </td>
+            <td data-bind="text: DateAdded">
+            </td>
+        </tr>
+    </tbody>
+</table>

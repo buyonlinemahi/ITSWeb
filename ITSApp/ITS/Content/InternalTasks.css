@@ -1,0 +1,133 @@
+﻿.divBody
+{
+    width: 984px;
+    height: auto;
+    border: 1px solid #BEBEC0;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 2px 2px 2px #D0D1D3;
+    position: absolute;
+    padding-bottom: 20px;
+    float: left;
+}
+.goback
+{
+    background: none repeat scroll 0 0 #AFAFAF;
+    box-shadow: 1px 1px 1px #CDCDCD;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 4px;
+    text-align: center;
+    width: 52px;
+    margin-top: 10px;
+}
+.goback a
+{
+    text-decoration: none;
+    color: #fff;
+}
+.clear
+{
+    clear: both;
+}
+
+.outer-container-project .location-frame
+{
+    width: 100%;
+    margin: 3px;
+    text-align: center;
+}
+.location-frame .location-frame-row
+{
+    width: 100%;
+}
+.location-frame
+{
+    box-shadow: 1px 3px 2px #CDCDCD;
+}
+
+.location-frame .location-frame-row .row-color:nth-child(odd)
+{
+    background: #cdcdcd;
+}
+.location-frame .location-frame-row .location-frame--row-cellHeading
+{
+    width: 11.7%;
+    border: 1px solid #BEBEC0;
+    border-right: 0px;
+    border-bottom: 0px;
+    float: left;
+    padding: 13px;
+    background-color: #77b531;
+    font-weight: bold;
+    text-align: center;
+}
+.location-frame .location-frame-row .location-frame--row-cell
+{
+    border: 1px solid #BEBEC0;
+    float: left;
+    height: 20px;
+    padding: 12px;
+    text-align: center;
+    width: 13.7%;
+    word-wrap: break-word;
+    overflow:hidden;
+}
+.location-frame .location-frame-row .location-frame--row-cell span
+{
+    padding: 0;
+    margin: 0;
+}
+.location-frame--row-cell-left
+{
+    border-right: 1px solid;
+    float: left;
+    margin-top: -6px;
+    padding: 5px 15px 8px 4px;
+}
+.ui-tabs .ui-tabs-nav li a
+{
+    float: left;
+    padding: 1.7em 1.75em;
+    text-decoration: none;
+}
+.addlocationpopup
+{
+    /* border-style: solid;     border-width: 2px;*/
+    -moz-border-radius: 15px;
+    width: auto;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    height: auto;
+    position: relative;
+    padding: 10px;
+}
+.location-frame .location-frame-row .location-frame--row-cell input[type="text"]
+{
+    width: 125px;
+    text-align: center;
+}
+.addlocationBtnDiv
+{
+    float: left;
+    padding: 1px;
+    font-weight: bold;
+    background-color: White;
+}
+#DivReferrer
+{
+    width: 984px;
+    margin: 10px auto;
+}
+#DivReferrer #DivHeading
+{
+    background: none repeat scroll 0 0 #77B531;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding: 12px;
+     border-radius: 5px 5px 0 0;
+}
+

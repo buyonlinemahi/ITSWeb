@@ -1,0 +1,480 @@
+﻿@using System.Web.Script.Serialization
+@model ITS.Domain.ViewModels.InitialAssessmentQAViewModel
+@{
+    ViewBag.Title = "InitialAssessment";
+    Layout = "~/Areas/Internal/Views/Shared/_InternalLayout.cshtml";  
+}
+<link href="../../../../Content/InitialAssessmentPartial.css" rel="stylesheet" type="text/css" />
+<script src="../../../../Scripts/viewmodels/areas/internal/shared/InternalTask/InitialAssessmentQAViewModel.js"
+    type="text/javascript"></script>
+<script src="../../../../Scripts/knockout.validation.js" type="text/javascript"></script>
+<script src="../../../../Scripts/moment.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(function () {
+        
+        var viewModel = new InitialAssessmentQAViewModel();
+        ko.applyBindings(viewModel);
+        viewModel.Init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model)));
+    });
+</script>
+<div id="divInitialAccessment123">
+    <div id="Initial-assessment" class="fontSize">
+        <div id="view-guid-lines">
+            <b><a href="#">View QA Guidelines</a></b></div>
+        <div class="clear">
+        </div>
+        <div class="finl-qa-rep-hedng">
+            <b>Patient Details</b>
+        </div>
+        <div id="demographic-info">
+            <div id="left">
+                <div id="headings">
+                    <div class="heading">
+                        Patient Name:
+                    </div>
+                    <div class="heading">
+                        Date of Birth:
+                    </div>
+                    <div class="heading">
+                        Date of Referral:
+                    </div>
+                </div>
+                <div class="txtbx">
+                    <input type="text" data-bind="value:PatientName" />
+                </div>
+                <div class="txtbx">
+                    <input type="text" data-bind="value:DateOfBirth" />
+                </div>
+                <div class="txtbx">
+                    <input type="text" data-bind="value:DateOfReferral" />
+                </div>
+            </div>
+            <div id="right">
+                <div id="headings">
+                    <div class="heading">
+                        Practitioner Name:
+                    </div>
+                    <div class="heading">
+                        Date of Accident:
+                    </div>
+                    <div class="heading">
+                        Date of Initial Assessment:
+                    </div>
+                </div>
+                <div class="txtbx">
+                    <input type="text" />
+                </div>
+                <div class="txtbx">
+                    <input type="text" data-bind="value:DateOfAccident" />
+                </div>
+                <div class="txtbx">
+                    <input type="text" data-bind="value:DateOfInitialAssessment" />
+                </div>
+            </div>
+        </div>
+        <div class="its-initial-assessment-border">
+        </div>
+        <div class="clear">
+        </div>
+        <div id="PatientConsent">
+            <div class="PCHeading">
+                Patient Consent</div>
+            <div class="discription">
+                Has the patient given consent for this assessment report to be passed to their solicitor,the
+                treating physiotherapist and the
+                <br />
+                funding party?</div>
+            <div class="yes">
+                <input type="radio" name="patienCont" value="1" data-bind="checked:HasPatientConsentForm" />Yes
+            </div>
+            <div class="no">
+                <input type="radio" name="patienCont" value="0" data-bind="checked:HasPatientConsentForm" />No
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="its-initial-assessment-border">
+        </div>
+        <div id="injury-symptom-del">
+            <div class="injry-heding">
+                <b>Injury and symptom details</b>
+            </div>
+            <div class="span-hd">
+                Please give a brief description of the incident and diagnosis/injury. Please include
+                whether the patient attended A&E and/or their GP:</div>
+            <div class="txtarea">
+                <textarea data-bind="value:IncidentAndDiagnosisDescription"></textarea>
+            </div>
+            <div class="its-initial-assessment-border">
+            </div>
+            <div class="injry-heding white-colr">
+                <strong>Please give a brief description of the incident and diagnosis/injury. Please
+                    include whether the patient attended A&E and/or their GP:</strong></div>
+            <div class="Symptom">
+                <span>Symptom Description / Affected Area</span>
+            </div>
+            <div class="Pain">
+                <span>Pain Score (please give a score out of 10)</span>
+            </div>
+            <div class="Restriction">
+                <span>Restriction to range of movement</span>
+            </div>
+            <div class="symptoms-injuries">
+                <div data-bind="foreach:CaseAssessmentPatientInjuries">
+                    <div class="txtboxes">
+                        <input type="text" data-bind="value:AffectedArea" /><input type="text" data-bind="value:PainScore" /><input
+                            type="text" data-bind="value:RestrictionPercentage" /><div class="clear">
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="addmore">
+                <a href="#" data-bind="click:AddMoreInjuryAndSymptoms">Add more Injury and symptom</a></div>
+            <div class="clear">
+            </div>
+            <div class="its-initial-assessment-border">
+            </div>
+            <div style="margin: 10px; font-size: 14px;">
+                Please detail any neural symptoms present with reference to the symptoms above::</div>
+            <div class="txtarea">
+                <textarea data-bind="value:NeuralSymptomDescription"></textarea>
+            </div>
+        </div>
+        @*    Second*@
+        <div id="factor-treatmen">
+            <div class="injry-heding">
+                <b>Factors affecting treatment</b></div>
+            <div style="margin: 10px; font-size: 14px;">
+                Please give a brief description of any pre-existing conditions which may affect
+                the patient’s recovery and return to work:</div>
+            <div class="txtarea">
+                <textarea data-bind="value:PreExistingConditionDescription"></textarea>
+            </div>
+            <div style="margin: 10px; font-size: 14px;">
+                What color of flag does the patient demonstrate?</div>
+            <div class="flags">
+                <ul style="list-style-type: none;" data-bind="foreach:PsychologicalFactors">
+                    <li>
+                        <div class="flag-name">
+                            <span data-bind="text:PsychologicalFactorName"></span>
+                        </div>
+                        <div class="flag-rdio">
+                            <input type="radio" name="as" class="its-radiobutton" data-bind="value:PsychologicalFactorID,checked:PsychologicalFactorIDCheckedVal" />
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="its-initial-assessment-border">
+            </div>
+            <div class="Is-patien-under-tret">
+                <div class="first">
+                    Is the patient already undergoing any treatment?</div>
+                <div class="second">
+                    <input type="radio" value="1" data-bind="checked:IsPatientUndergoingTreatment">Yes</input></div>
+                <div class="third">
+                    <input type="radio" value="0" data-bind="checked:IsPatientUndergoingTreatment">No</input></div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="Is-patien-under-tret">
+                <div class="first">
+                    Is the patient currently taking any medication?</div>
+                <div class="second">
+                    <input type="radio" value="1" data-bind="checked:IsPatientTakingMedication">Yes</input></div>
+                <div class="third">
+                    <input type="radio" value="0" data-bind="checked:IsPatientTakingMedication">No</input></div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="Is-patien-under-tret">
+                <div class="first">
+                    Does the patient require any further investigation?</div>
+                <div class="second">
+                    <input type="radio" value="1" data-bind="checked:PatientRequiresFurtherInvestigation">Yes</input></div>
+                <div class="third">
+                    <input type="radio" value="0" data-bind="checked:PatientRequiresFurtherInvestigation">No</input></div>
+            </div>
+            <div class="clear">
+            </div>
+            <div>
+                <div class="txtboxes">
+                </div>
+                <div class="clear">
+                </div>
+                <div style="margin: 10px; font-size: 14px;">
+                    If yes to any of the above, please detail:</div>
+                <div class="txtarea">
+                    <textarea data-bind="value:FactorsAffectingTreatmentDescription"></textarea>
+                </div>
+            </div>
+            <div class="its-initial-assessment-border">
+            </div>
+            <div class="impact-life-style">
+                Impact on Lifestyle
+            </div>
+            <div>
+                <div class="work-impact" data-bind="foreach:CaseAssessmentPatientImpacts">
+                    <div class="wrk-border">
+                        <div class="first-left" style="font: 14px">
+                            <span data-bind="text:PatientImpactName"></span>
+                        </div>
+                        <div class="second-left" style="font: 14px">
+                            <ul data-bind="foreach:PatientImpactValues">
+                                <li>
+                                    <input type="radio" data-bind="value:PatientImpactValueID,checked:$parent.PatientImpactValueID,name:$parent.PatientImpactID" />
+                                    <span data-bind="text:PatientImpactValueName"></span></li>
+                            </ul>
+                        </div>
+                        <div class="third-left" style="font: 14px">
+                            <p>
+                                Comment:<br />
+                                <textarea data-bind="value:Comment"></textarea></p>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="its-initial-assessment-border">
+        </div>
+        <div id="factor-treatmen">
+            <div class="impact-life-style">
+                Impact on Work
+            </div>
+            <div class="impact-on-work">
+                <div style="margin: 10px; font-size: 14px;">
+                    Patient’s occupation:</div>
+                <textarea data-bind="value:PatientOccupation"></textarea>
+            </div>
+            <div class="impact-on-work">
+                <div style="margin: 10px; font-size: 14px;">
+                    Is the patient’s role manual, sedentary or mixed?</div>
+                <textarea data-bind="value:PatientRole"></textarea>
+            </div>
+            <div class="impact-on-work">
+                <div class="Is-patien-under-tret">
+                    <div class="first">
+                        Was the patient working at the time of the accident?</div>
+                    <div class="second">
+                        <input type="radio" value="1" data-bind="checked:WasPatientWorkingAtTheTimeOfTheAccident" />Yes</input></div>
+                    <div class="third">
+                        <input type="radio" value="0" data-bind="checked:WasPatientWorkingAtTheTimeOfTheAccident" />No</input></div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="Is-patien-under-tret">
+                    <div class="first">
+                        Has the patient had any time off work?</div>
+                    <div class="second">
+                        <input type="radio" value="1" data-bind="checked:HasThePatientHadTimeOff" />Yes</input></div>
+                    <div class="third">
+                        <input type="radio" value="0" data-bind="checked:HasThePatientHadTimeOff" />No</input></div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="Is-patien-under-tret">
+                    <div class="first">
+                        Has the patient returned to work?</div>
+                    <div class="second">
+                        <input type="radio" value="1" data-bind="checked:HasThePatientReturnedToWork" />Yes</input></div>
+                    <div class="third">
+                        <input type="radio" value="0" data-bind="checked:HasThePatientReturnedToWork" />No</input></div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="row">
+                    <div style="margin: 10px; font-size: 14px;">
+                        If they have been absent, how many days/weeks have they been absent?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="text" style="padding: 3px; width: 380px;" data-bind="value: AbsentDetail" /></div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="Is-patien-under-tret">
+                    <div class="first">
+                        Is the patient still suffering a financial loss as a result of being off work?</div>
+                    <div class="second">
+                        <input type="radio" value="1" data-bind="checked:IsPatientSufferingFinancialLoss" />Yes</div>
+                    <div class="third">
+                        <input type="radio" value="0" data-bind="checked:IsPatientSufferingFinancialLoss" />No</input></div>
+                </div>
+                <div class="clear">
+                </div>
+                <div style="margin: 10px; font-size: 14px;">
+                    Current work status</div>
+                <div class="flags">
+                    <ul style="list-style-type: none;" data-bind="foreach:PatientWorkstatuses">
+                        <li>
+                            <div class="flag-name">
+                                <span data-bind="text:PatientWorkstatusName"></span>
+                            </div>
+                            <div class="flag-rdio">
+                                <input type="radio" name="PatientWorkStatus" data-bind="attr: {value: PatientWorkstatusID},checked:PatientWorkstatusIDCheckedVal" />
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+                <div style="margin: 10px; font-size: 14px;">
+                    Current impact on work</div>
+                <div class="flags">
+                    <ul style="list-style-type: none;" data-bind="foreach:PatientImpactOnWorks">
+                        <li>
+                            <div class="flag-name">
+                                <span data-bind="text:PatientImpactOnWorkName"></span>
+                            </div>
+                            <div class="flag-rdio">
+                                <input type="radio" name="PatientImpactOnWork" data-bind="attr: {value: PatientImpactOnWorkID},checked:PatientImpactOnWorkIDCheckedVal">
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="its-initial-assessment-border">
+                </div>
+            </div>
+            <div id="factor-treatmen">
+                <div class="impact-life-style">
+                    Treatment Recommendation
+                </div>
+                <div class="impact-on-work">
+                    <div class="Is-patien-under-tret">
+                        <div class="first">
+                            How many sessions do you recommend?</div>
+                        <div class="second">
+                            <input data-bind="value:PatientRecommendedTreatmentSessions" style="box-shadow: 1px 1px 1px #BFD1D3;
+                                height: 27px; line-height: 1; text-indent: 10px; width: 258px;"></input></div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="Is-patien-under-tret">
+                        <div class="first">
+                            Over what period should these be carried out?</div>
+                        <div class="second">
+                            <input data-bind="value:PatientTreatmentPeriod" style="box-shadow: 1px 1px 1px #BFD1D3;
+                                height: 27px; line-height: 1; text-indent: 10px; width: 258px;"></input></div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="Is-patien-under-tret">
+                        <div class="first">
+                            What is the anticipated date of discharge?</div>
+                        <div class="second">
+                            <input  data-bind="value:AnticipatedDateOfDischarge" id="AnticipatedDateOfDischarge"
+                                style="box-shadow: 1px 1px 1px #BFD1D3; height: 27px; line-height: 1; text-indent: 10px;
+                                width: 258px;" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$"></input></div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="left">
+                    <div style="margin: 10px; font-size: 14px;">
+                        What level of recovery do you anticipate the patient will make following treatment?</div>
+                    <div class="flags">
+                        <ul style="list-style-type: none;" data-bind="foreach:PatientLevelOfRecoveries">
+                            <li>
+                                <div class="flag-name">
+                                    <span data-bind="text:PatientLevelOfRecoveryName"></span>
+                                </div>
+                                <div class="flag-rdio">
+                                    <input type="radio" class="its-radiobutton" name="PatientLevelOfRecovery" data-bind="attr: {value: PatientLevelOfRecoveryID }, checked:PatientLevelOfRecoveryIDCheckedVal" />
+                                </div>
+                                <div class="clear">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="impact-on-work">
+                        <div class="Is-patien-under-tret">
+                            <div class="first">
+                                Has the patient been given a home exercise programme?</div>
+                            <div class="second">
+                                <input value="1" data-bind="checked:HasPatientHomeExerciseProgramme" type="radio">Yes</input></div>
+                            <div class="third">
+                                <input value="0" data-bind="checked:HasPatientHomeExerciseProgramme" type="radio">No</input></div>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div style="margin: 10px; font-size: 14px;">
+                        What level of recovery do you anticipate the patient will make following treatment?</div>
+                    <div class="flags">
+                        <ul style="list-style-type: none;" data-bind="foreach:ProposedTreatmentMethods">
+                            <li>
+                                <div class="flag-name">
+                                    <span data-bind="text:ProposedTreatmentMethodName"></span></span>
+                                </div>
+                                <div class="flag-rdio">
+                                    <input type="radio" name="ProposedTreatmentMethodID" data-bind="attr: {value: ProposedTreatmentMethodID},checked:ProposedTreatmentMethodIDCheckedVal" />
+                                </div>
+                                <div class="clear">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="injry-heding" style="margin: 12px auto auto; width: 945px;">
+                    <b>Additional information</b></div>
+                <div class="txtarea">
+                    <textarea data-bind="value:AdditionalInformation"></textarea></div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="its-initial-assessment-border">
+            </div>
+            <div class="rating-scor">
+                <div class="ratng">
+                    <span>Rating score:&nbsp&nbsp&nbsp<input type="text" data-bind="value:Rating" /></span>
+                </div>
+                <div style="float: right;">
+                    <input type="submit" style="padding: 10px; width: 100px;" value="Print" data-bind="click:PrinBlankInitialAssessmentQA" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div style="padding: 15px">
+                @Html.Partial(ITS.Infrastructure.Global.GlobalConst.PartialViews.Area.InternalArea + ITS.Infrastructure.Global.GlobalConst.PartialViews.Area.Internal.MainScreen.CaseTreatmentPricingPartial + ITS.Infrastructure.Global.GlobalConst.PartialViews.Area.Cshtml)
+            </div>
+            <div style="padding: 15px">
+                @Html.Partial(ITS.Infrastructure.Global.GlobalConst.PartialViews.Area.InternalArea + ITS.Infrastructure.Global.GlobalConst.PartialViews.Area.Internal.MainScreen.CaseBespokePricingPartial + ITS.Infrastructure.Global.GlobalConst.PartialViews.Area.Cshtml)
+            </div>
+            <div style="text-align: right;" class="submit-reject">
+                Accept
+                <input type="radio" name="IsAcceptedGroup" value="1" data-bind="checked:IsAccepted" />
+                Reject
+                <input type="radio" name="IsAcceptedGroup" value="2" data-bind="checked:IsAccepted" />
+            </div>
+            <div class="clear">
+            </div>
+            <div data-bind="visible: IsAccepted()==false">
+                <div class="span-hd">
+                    Message to Supplier
+                </div>
+                <div class="txtarea">
+                    <textarea data-bind="value: DeniedMessage"></textarea>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div style="text-align: right;" class="submit">
+                <input type="button" value="Submit" data-bind="click:Submit,enable:EnableSubmitButton" />
+                <input type="button" value="Close" data-bind="click:Close" />
+            </div>
+        </div>
+    </div>
+</div>

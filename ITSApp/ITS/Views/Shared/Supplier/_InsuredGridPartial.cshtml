@@ -1,0 +1,111 @@
+﻿@using ITS.Infrastructure.Global;
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Document Name
+            </th>
+            <th>
+                Level of Cover
+            </th>
+            <th>
+                Renew Date
+            </th>
+            <th>
+                View Upload
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: Insurances">
+        <tr>
+            <td>
+                <a href="#divViewInsured" role="button" data-toggle="modal" data-bind="click:$root.viewInsurance">
+                    View</a> / <a href="#" data-bind="click:$root.deleteInsurance">Delete</a>
+            </td>
+            <td data-bind="text: DocumentName">
+            </td>
+            <td data-bind="text: LevelOfCover">
+            </td>
+            <td data-bind="text: RenewalDate">
+            </td>
+            <td>
+                <a data-bind="attr : { href : DocumentURLUnescaped }">View Upload</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="divViewInsured" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" data-bind="with:SelectedSupplierInsured">
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.UpdateSupplierInsurance, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new
+{
+
+    @class = "form-horizontal",
+    id = "frmUpdateSupplierInsurance",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateInsurance(responseText, statusText, xhr, $form); },beforeSubmit: $root.UpdateInsuredFormBeforeSubmit }"
+}))
+    {
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.DeSelectCurrentSelectedSupplierInsured">
+                ×</button>
+            <h3 id="myModalLabel">
+                View/Edit Insured</h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Document Name
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="DocumentName" id="InsuredDocumentName"
+                        placeholder="Document Name" data-bind="value:DocumentName,jqBootstrapValidation: {}" 
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Level of Cover
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="LevelOfCover" id="InsuredLevelOfCover"
+                        placeholder="level of letter" data-bind="value:LevelOfCover,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Renewal Date
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="RenewalDate" id="InsuredRenewalDate"
+                        placeholder="Renew date" data-bind="value:RenewalDate, datepicker: { autoclose: true,format:'dd/mm/yyyy' },jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fileInput">
+                    <span style="color: Red">*</span>Insured Document Upload
+                </label>
+                <div class="controls">
+                    <input type="file" class="input-xlarge" name="InsuredDocumentFile" id="InsuredDocumentFile" />
+                    <input type="hidden" name="SupplierID" id="InsuredSupplierId" data-bind="value:SupplierID" />
+                    <input type="hidden" name="SupplierInsuredID" id="SupplierInsuredID" data-bind="value:SupplierInsuredID" />
+                    <input type="hidden" name="SupplierDocumentID" id="SupplierDocumentID" data-bind="value:SupplierDocumentID" />
+                    <input type="hidden" name="UploadPath" id="UploadPath" data-bind="value:UploadPath" />
+                    <input type="hidden" name="RenewalDate" id="RenewalDate" data-bind="value:RenewalDate" />
+                    <input type="hidden" name="LevelOfCover" id="LevelOfCover" data-bind="value:LevelOfCover" />
+                     <input type="hidden" name="DocumentUrl" id="DocumentUrl" data-bind="value:DocumentUrl" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bind="bootstrapButton : $root.DisableUpdateButton">
+                Save changes</button> 
+            <button class="btn" data-bind="click:$root.InsuranceCloseClick">
+                Close</button>
+        </div>
+    }
+</div>

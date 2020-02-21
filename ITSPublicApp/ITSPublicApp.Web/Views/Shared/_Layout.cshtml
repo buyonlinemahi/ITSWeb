@@ -1,0 +1,71 @@
+﻿ <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insight Portal - Login</title>
+      <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/reset.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its-main.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/ajaxtabs.css")" />
+    <script src="@Url.Content("~/Scripts/jquery-v3.4.1.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout-3.0.0.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout.mapping.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.maskedinput.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    
+<!--[if lt IE 9]>
+<script src="../Scripts/html5shiv.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its_ms121213.css")">
+    <script type="text/javascript">
+        function disableRightClick() {
+            return false;
+        }
+</script>
+</head>
+
+<body oncontextmenu=" return disableRightClick();">
+<header>
+	<section>
+        <img src="@Url.Content("~/Content/Images/logoMain_IHMG.gif")" alt="Innovate Healthcare Management Group - Excellence Technology Results logo" />
+        <div>Insight Portal</div>
+    </section>
+</header>
+<div class="conWrapper">
+    @RenderSection("featured", required: false)
+    <!--content-->
+    @RenderBody()
+    <footer>
+		<div class="left">
+        	<p><a href="http://www.innovatehmg.co.uk/" title="Visit www.innovatehmg.co.uk" target="_blank">www.innovatehmg.co.uk</a></p>
+        </div>
+        <div class="center">
+        	<p>&copy; Copyright <span id="currentyear"></span> Innovate Healthcare Management Group, <br />All Rights Reserved</p>
+        </div>
+        <div class="right">
+           <p> Tel. No.: 0161 475 0619</p>
+           <p>Innovate Treatment Services,<br />
+           Regent House<br />
+           Stockport, SK4 1BS</p>
+        </div>    
+        <span class="clearBlock"></span>
+    </footer>
+ <script type="text/javascript">
+     $(document).ready(function () {
+         if ($(".hasDatepicker").length)
+             $(".hasDatepicker").datepicker("option", "yearRange", "1900:2035");
+     });
+    </script>
+</div><!-- class="conWrapper">-->
+    @RenderSection("scripts", required: false)
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#currentyear").text(new Date().getFullYear());
+    });
+</script>
+</body>
+</html>
+
+
+

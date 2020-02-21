@@ -1,0 +1,33 @@
+﻿<div id="divFinalVersionUpload" class="modal hide fade  form-horizontal" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            Final Version Upload</h3>
+    </div>
+    <div class="modal-body">
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                <span style="color: Red">*</span>Document Name
+            </label>
+            <div class="controls">
+                <input type="text" name="CaseAssessmentDocument.DocumentName" data-bind="value:UploadedDocumentName" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                <span style="color: Red">*</span>Select  File
+            </label>
+            <div class="controls" id="DocUploadDiv">
+                <input type="file"  id="finalVersionFileUpload" name="CaseAssessmentDocument.FinalVersionFileUpload"
+                    data-buttontext="Select File" />
+            </div>
+        </div>
+        <input type="hidden" name="CaseAssessmentDocument.CaseID" data-bind="value:CaseID" />
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-bind="click:UploadFinalVersion">
+            Upload</button>
+    </div>
+</div>

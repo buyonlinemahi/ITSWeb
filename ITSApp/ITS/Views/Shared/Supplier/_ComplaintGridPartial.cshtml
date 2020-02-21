@@ -1,0 +1,92 @@
+﻿@using ITS.Infrastructure.Global;
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Complaint Date
+            </th>
+            <th>
+                Complaint Type
+            </th>
+            <th>
+                Complaint Status
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:SupplierComplaintsArray">
+        <tr>
+            <td>
+                <a href="#divViewComplaint" data-toggle="modal" role="button" data-bind="click: $root.viewComplaint">
+                    View</a> <a href="" role="button" data-bind="click: $root.deleteComplaint">/
+                        Delete</a>
+            </td>
+            <td data-bind="text: ComplaintDate">
+            </td>
+            <td data-bind="text: ComplaintTypeName">
+            </td>
+            <td data-bind="text: ComplaintStatusName">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="divViewComplaint" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" data-bind="with: SelectedComplaint">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            View / Amend Complaint</h3>
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.UpdateSupplierComplaint, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new { id = "frmSupplierComaplaintEdit", @class = "form-horizontal", data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateSupplierComplaintFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: $root.UpdateComplaintFormBeforeSubmit  }" }))
+    {
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Complaint Date
+                </label>
+                <div class="controls">
+                    <input type="text" name="ComplaintDate" class="input-xlarge datepicker" data-bind="value:ComplaintDate, datepicker: { autoclose: true,format:'dd/mm/yyyy' }, jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="optionsCheckbox">
+                    <span style="color: Red">*</span>Complaint Type</label>
+                <div class="controls">
+                    <select id="ComplaintTypeID1" name="ComplaintTypeID" data-bind="options:ComplaintTypes, optionsValue:'ComplaintTypeID',optionsText:'ComplaintTypeName',value:ComplaintTypeID ,jqBootstrapValidation: {}" required>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    <span style="color: Red">*</span>Complaint Status</label>
+                <div class="controls">
+                    <select id="ComplaintStatusID1" name="ComplaintStatusID" data-bind="options:ComplaintStatuses, optionsValue:'ComplaintStatusID',optionsText:'ComplaintStatusName',value:ComplaintStatusID,jqBootstrapValidation: {} " required>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    <span style="color: Red">*</span>Description</label>
+                <div class="controls">
+                    <textarea name="ComplaintDescription" rows="3" data-bind="value:ComplaintDescription,jqBootstrapValidation: {}"
+                        required class="input-xlarge"></textarea>
+                    <input type="hidden" data-bind="value:SupplierID" name="SupplierID" />
+                    <input type="hidden" data-bind="value:SupplierComplaintID" name="SupplierComplaintID" />
+                    <input type="hidden" data-bind="value:ComplaintStatusName" name="ComplaintStatusName" />
+                    <input type="hidden" data-bind="value:ComplaintTypeName" name="ComplaintTypeName" />
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal-footer">
+            <button id="btnComplaintUpdate"   type="submit" class="btn btn-primary" data-bind="bootstrapButton : $root.DisableUpdateButton">
+                Update</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.closeButtonClick">
+                Close</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,126 @@
+﻿@using ITS.Infrastructure.Global;
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Document
+            </th>
+            <th>
+                View Upload
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: ClinicalAudits">
+        <tr>
+            <td>
+                <a href="#divViewClinicalAudit" role="button" data-toggle="modal" data-bind="click: $root.viewClinicalAudit">
+                    View</a> / <a href="#" role="button" data-bind="click: $root.DeleteClinicalAudit">Delete</a>
+            </td>
+            <td data-bind="text: DocumentName">
+            </td>
+            <td>
+                <a traget="blank" data-bind="attr : { href : DocumentURLUnescaped }">View Upload</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="divViewClinicalAudit" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" data-bind="with: SelectedClinicalAudit">
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.UpdateSupplierClinicalAudit, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmUpdateSupplierClinicalAudit",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateClinicalAuditFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: $root.UpdateClinicalAuditFormBeforeSubmit }"
+}))
+    {
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.DeSelectCurrentSelectedSupplierClinicalAudit">x</button>
+            <h3 id="myModalLabel">Clinical Audit</h3>
+        </div>
+        <div class="modal-body">
+            <div class="modal-body">
+                <div class="control-group">
+                    <label class="control-label" for="input01">
+                        <span style="color: Red">*</span>ITS Case Number
+                    </label>
+                    <div class="controls">
+                        <input class="input-small" type="text" id="txtItsReferenceNumber" name="CaseNumber" required  data-bind=" event: { change:GetPatientName }"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">
+                        Patient Name:
+                    </label>
+                    <div class="controls">
+                        <input type="text" class="input-small" id="txtPatientName" name="PatientName"  readonly />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">
+                        <span style="color: Red">*</span>Pass or Fail
+                    </label>
+                    <div class="controls">
+                        <label class="radio inline">
+                            <input type="radio" value="true" data-bind="checked: AuditPass().toString()" name="AuditPass" />Pass
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" value="false" data-bind="checked: AuditPass().toString()" name="AuditPass" />Fail
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="select01">
+                        <span style="color: Red">*</span> Auditor</label>
+                    <div class="controls">
+                        <select id="UserID" name="UserID" data-bind="options:Users, optionsText:'UserName',optionsValue:'UserID',value:UserID, optionsCaption: 'Choose...',jqBootstrapValidation: {}"
+                            required>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">
+                        <span style="color: Red">*</span> Date Audited</label>
+                    <div class="controls">
+                        <input type="text" id="AuditDate" name="AuditDate" class="input-small datepicker" 
+                            name="AuditDate" data-bind="value:AuditDate, jqBootstrapValidation: {},masked: AuditDate, mask : '99/99/9999'"
+                            required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="fileInput">
+                        Document Name</label>
+                    <div class="controls">
+                        <input id="DocumentName" name="DocumentName" type="text" class="input-file" data-bind="value:DocumentName, jqBootstrapValidation: {}"
+                            required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="fileInput">
+                        Clinical Audit Document Upload</label>
+                    <div class="controls">
+                        <input type="file" name="ClinicalAuditDocumentFileUpload" id="ClinicalAuditDocumentFileUpload" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="SupplierID" id="ClinicalSupplierId" data-bind="value:SupplierID" />
+        <input type="hidden" name="SupplierDocumentID" id="SupplierDocumentID" data-bind="value:SupplierDocumentID" />
+        <input type="hidden" name="SupplierClinicalAuditID" id="SupplierClinicalAuditID"
+            data-bind="value:SupplierClinicalAuditID " />
+        <input type="hidden" name="CaseID" id="CaseID" data-bind="value:CaseID " />
+        <input type="hidden" name="UploadPath" id="UploadPath" data-bind="value:UploadPath " />
+        <input type="hidden" name="DocumentUrl" id="DocumentUrl" data-bind="value:DocumentUrl " />
+        
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" data-bind="bootstrapButton : $root.DisableUpdateButton">
+                Save changes</button>
+            <button class="btn" aria-hidden="true" data-bind="click: $root.ClinicalCloseClick">
+                Close</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,133 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Suppliers</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+        Suppliers</a><a href="#" class="tip-bottom">Search</a>
+</div>
+<div class="container-fluid" id="SupplierSearchDiv">
+    <div class="row-fluid">
+        <div class="span12">
+            <a class="btn btn-primary pull-right input-block-level" href="@Url.Action(GlobalConst.Actions.SupplierController.Add, GlobalConst.Controllers.Supplier)">
+                Add New Supplier</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box collapsible">
+                <div class="widget-title">
+                    <a href="#searchDivCollapse" data-toggle="collapse" class="collapsed"><span class="icon">
+                        <i class="icon-align-justify"></i></span>
+                        <h5>
+                            Supplier Search</h5>
+                    </a>
+                </div>
+                <div class="collapse" id="searchDivCollapse" style="height: 0px;">
+                    <div class="widget-content nopadding" id="divSupplierSearch">
+                        @using (Html.BeginForm("SearchSupplier", "SupplierShared", FormMethod.Post, new
+                        {
+                            id = "frmfSearchSupplier",
+                            enctype = "multipart/form-data",
+                            @class = "form-horizontal",
+                            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateSupplierGrid(responseText, statusText, xhr, $form); },beforeSubmit: searchFormBeforeSubmit  }"
+                        }))
+                        {
+                            
+                            <!-- ko with : SupplierSearch -->
+                            <div class="control-group">
+                                <div class="column-margin">
+                                    <div class="column-groups span2">
+                                        <label>
+                                            <input type="radio" name="SupplierSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} " required  value="1" /> Supplier Name</label>
+                                    </div>
+                                    <div class="column-groups span2">
+                                        <label>
+                                            <input type="radio" name="SupplierSearch.SearchCriteria" data-bind="checked:SearchCriteria,jqBootstrapValidation: {} " required  value="2" /> Supplier Post Code</label>
+                                    </div>
+                                    <div class="column-groups span3">
+                                        <label>
+                                            <input type="radio" name="SupplierSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} " required  value="3" /> Supplier Treatment Category</label>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                    <p class="help-block"></p>
+                                 </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Supplier Search</label>
+                                <div class="controls">
+                                    <div class="search-groups1">
+                                        <input type="text" name="SupplierSearch.SearchText" data-bind="value:SearchText, jqBootstrapValidation: {} " required  placeholder="This is a placeholder..." />
+                                    </div>
+                                    <div class="search-groups2">
+                                        <button class="btn btn-primary" type="submit">
+                                            Search</button>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <!-- /ko -->
+                        <input type="hidden" name="Skip" data-bind="value:Skip" />
+                            <input type="hidden" name="Take" data-bind="value:Take" />
+                        }
+                    </div>
+                </div>
+            </div>
+            <!--ko if: TotalItemCount() > 0 -->
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Search Results</h5>
+                    </div>
+                    <div class="widget-content nopadding" id="supplierDiv">
+                        @Html.Partial("Supplier/_SupplierSearchGridPartial")
+                    </div>
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </div>
+            <!-- /ko -->
+            <!--ko if: TotalItemCount() == 0 -->
+            <div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              No Results Found
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierSearchGridViewModel.js")" ></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    
+    var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+  
+    var supplierSearchGridViewModel = new SupplierSearchGridViewModel();
+
+    if (model != null) {
+        supplierSearchGridViewModel.Init(model.Suppliers, model.SupplierSearch, model.TotalCount);
+    } else {
+        supplierSearchGridViewModel.Init('', { SearchCriteria: '', SearchText: ''}, 0);
+    }
+    
+    ko.applyBindings(supplierSearchGridViewModel, $("#SupplierSearchDiv").get(0));
+     
+     function UpdateSupplierGrid(responseText, statusText, xhr, $form) {
+ 
+    supplierSearchGridViewModel.UpdateSupplierGrid(responseText, statusText, xhr, $form);
+        //this funciton should update the supplier grid! by interacting with suppliergridview model
+    }
+   
+    </script>
+}

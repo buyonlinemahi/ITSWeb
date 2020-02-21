@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ITSPublicApp.Domain.Models.CaseDocumentUser>
+@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "CaseUploads";
+    Layout = "~/Areas/Referrer/Views/Shared/_LayoutForm.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/CaseUploadsViewModel.js")"></script>
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its-supplier.css")"/>
+<link href="@Url.Content("~/Content/CaseSearch.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/kopaging.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/knockout.mapping.js")" type="text/javascript"></script>
+<script type="text/javascript"> 
+    var _modelCaseUpload = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+    var caseUploadViewModel = new CaseUploadViewModel(_modelCaseUpload);
+    $(function () {
+        ko.applyBindings(caseUploadViewModel, $("#ReferrerCaseMainDiv").get(0));
+    });
+</script>
+@section SubHeader{
+ 
+}
+<div id="pettabs" class="indentmenu">
+    <ul>      
+         <li>@Html.ActionLink("PATIENT DETAILS", "CaseDetail", "CaseSearch",new { id = @ViewBag.CaseID },null)</li>
+         <li>@Html.ActionLink("CASE UPLOADS", "CaseUploads","CaseSearch", null, new { @class = "selected" })</li>
+        @*<li>@Html.ActionLink("CASE TREATMENT", "CaseTreatment","CaseSearch",new { id = @ViewBag.CaseID },null)</li>*@
+    </ul>
+    <br style="clear: left" />
+</div>
+<div id="ReferrerCaseMainDiv" style="padding-bottom: 75px;">
+ <div class="ITS-ref-table">
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Document Type
+                    </td>
+                    <td>
+                        Document Name
+                    </td>
+                    <td>
+                       Document Date
+                    </td>
+                    <td>
+                        Action
+                    </td>                       
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: CaseUploadArray">
+                <tr>
+                    <td data-bind="text:ReferrerDocumentTypeDesc">
+                    </td>
+                    <td data-bind="text:DocumentName">
+                    </td>
+                    <td data-bind="text:UploadDate">
+                    </td>     
+                    <td>
+                        <a href="#divViewCaseUpload" data-bind="click:$root.ViewUploads" role="button" data-toggle="modal">View</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ <a class="btn btn-small btn-primary right-pull" href="#divAddCaseUploads" role="button" data-toggle="modal"></a>
+</div>

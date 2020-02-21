@@ -1,0 +1,10 @@
+input[type="checkbox"] {
+margin: 0px 5px 0;
+line-height: normal;
+}
+
+.column-margin 
+{
+    margin-left:70px;
+    width:1415px;
+}

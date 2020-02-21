@@ -1,0 +1,139 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Referrer
+@*
+
+  * Latest Version 1.0
+  Author          : Harpreet Singh
+  Date            : 19-Dec-2012
+  Version         : 1.0
+  Description     : added design and functionality 
+  *@
+
+<form id="frmSupplier">
+<div id="divPricingSpinner" style="position: absolute; top: 20%; left: 50%">
+</div>
+
+<div class="alertSupplierPricing" id="pricingAlertSupplier">
+    <div>
+        <span>Supplier pricing successfully Updated</span>
+    </div>
+</div>
+
+<div>
+    <div class="price-cantainer">
+        <div class="left">
+            <div class="heading-Price-type">
+                Physiotherapy
+            </div>
+            <div class="heading-Price">
+                Price
+            </div>
+            <div class="clear">
+            </div>
+            <div data-bind="template: {name:'priceTypesPhysiotherapy', foreach: SupplierPricingMatrix }">
+            </div>
+        </div>
+    </div>
+    <div class="price-cantainer">
+        <div class="left">
+            <div class="heading-Price-type">
+                Psychological
+            </div>
+            <div class="heading-Price">
+                Price
+            </div>
+            <div class="clear">
+            </div>
+            <div data-bind="template: {name:'priceTypesPsychological', foreach: SupplierPricingMatrix }">
+            </div>
+        </div>
+    </div>
+    <div class="price-cantainer">
+        <div class="left">
+            <div class="heading-Price-type">
+                Diagnostic
+            </div>
+            <div class="heading-Price">
+                Price
+            </div>
+            <div class="clear">
+            </div>
+            <div data-bind="template: {name:'priceTypesDiagnostic', foreach: SupplierPricingMatrix }">
+            </div>
+        </div>
+    </div>
+    <div class="price-cantainer">
+        <div class="left">
+            <div class="heading-Price-type">
+                Specialist Services
+            </div>
+            <div class="heading-Price">
+                Price
+            </div>
+            <div class="clear">
+            </div>
+            <div data-bind="template: {name:'priceTypesSpecialistServices', foreach: SupplierPricingMatrix }">
+            </div>
+        </div>
+    </div>
+    <div style="float: right; padding: 10px;">
+        <input type="submit" id="update" value="Save" style="background: none repeat scroll 0 0 #EBE8D8;
+            font-weight: lighter; height: 34px; margin: 11px 15px; width: 100px;" data-bind="click: UpdateSupplierPricing,enable:Update" />
+        <input type="submit" value="Ammend" id="Ammend" style="background: none repeat scroll 0 0 #EBE8D8;
+            font-weight: lighter; height: 34px; margin: 11px 15px; width: 100px;" data-bind="click:AmmendPricing, enable:Ammend" />
+    </div>
+</div>
+<script id="priceTypesPhysiotherapy" type="text/html">  
+       
+     <!-- ko if: TreatmentCategoryID() =='1' -->
+        <div class="text-Price-text"  >  
+              <span>*</span> <span data-bind="uniqueFor:PricingTypeName,text:PricingTypeName" style="color:#000"  ></span>  
+                </div>  
+                  <div class="text-Price" >  
+                    <input type="text"  data-bind="uniqueId:$index,value:IsEnabled()==false ? null : $data.Price,enable:MakeEnableOrDisable,style:{background:IsEnabled()==false ? 'gray' : '#fff'}"   onkeypress="return isNumberKey(event)"    /></div>  
+                      
+                <div class="clear">  
+             </div>  
+             <!-- /ko -->
+</script>
+<script id="priceTypesPsychological" type="text/html">  
+       
+         <!-- ko if: TreatmentCategoryID() =='2' -->
+        <div class="text-Price-text"  >  
+              <span>*</span> <span data-bind="text:PricingTypeName" style="color:#000" ></span>  
+                </div>  
+                  <div class="text-Price" >  
+                    <input type="text"  data-bind="uniqueId:$index,value:IsEnabled()==false ? null : $data.Price,enable:MakeEnableOrDisable,style:{background:IsEnabled()==false ? 'gray' : '#fff'}"  onkeypress="return isNumberKey(event)"    /></div>  
+                      
+                <div class="clear">  
+             </div>  
+             <!-- /ko -->
+</script>
+<script id="priceTypesDiagnostic" type="text/html">  
+
+  <!-- ko if: TreatmentCategoryID() =='3' -->
+        <div class="text-Price-text" >  
+              <span>*</span> <span data-bind="text:PricingTypeName" style="color:#000" ></span>  
+                </div>  
+                  <div class="text-Price" >  
+
+                    <input type="text"  data-bind="uniqueId:$index,value:IsEnabled()==false ? null : $data.Price,enable:MakeEnableOrDisable,style:{background:IsEnabled()==false ? 'gray' : '#fff'}"  onkeypress="return isNumberKey(event)"    /></div>  
+                     
+                <div class="clear">  
+             </div>  
+              <!-- /ko -->
+</script>
+<script id="priceTypesSpecialistServices" type="text/html">  
+
+       <!-- ko if: TreatmentCategoryID() =='4' -->
+        <div class="text-Price-text" >  
+              <span>*</span> <span data-bind="text:PricingTypeName" style="color:#000" ></span>  
+                </div>  
+                  <div class="text-Price" >  
+                   <input type="text"  data-bind="uniqueId:$index,value:IsEnabled()==false ? null : $data.Price,enable:MakeEnableOrDisable,style:{background:IsEnabled()==false ? 'gray' : '#fff'}"  onkeypress="return isNumberKey(event)"    /></div>  
+                     
+                <div class="clear">  
+             </div>  
+             <!-- /ko -->
+</script>
+</form>

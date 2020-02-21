@@ -1,0 +1,87 @@
+﻿<style>
+    .tableTD
+    {
+        border: 1px solid #BFD1D3;
+        padding: 10px;
+        width: 206px;
+        text-align: center;
+    }
+    
+    .select
+    {
+        border: 1px solid #BFD1D3;
+        padding: 10px;
+        width: 206px;
+    }
+</style>
+<script id="bespokeTmpl" type="text/html">
+    <tr>
+        <td class="tableTD">
+            <span data-bind="text: BespokeServiceName"></span>
+            <input type="hidden" data-bind="attr: { name : 'CaseBespokeServicePricings['+ $index() + '].TreatmentCategoryBespokeServiceID' },value: TreatmentCategoryBespokeServiceID" />
+        </td>
+        <td class="tableTD">
+            <span data-bind="text: ReferrerPrice"></span>
+            <input type="hidden" data-bind="attr: { name : 'CaseBespokeServicePricings['+ $index() + '].ReferrerPrice' },value: ReferrerPrice" />
+        </td>
+        <td class="tableTD">
+            <span data-bind="text: SupplierPrice"></span>
+            <input type="hidden" data-bind="attr: { name : 'CaseBespokeServicePricings['+ $index() + '].SupplierPrice' },value: SupplierPrice" />
+        </td>
+        <td class="tableTD">
+            <a href="" data-bind="click: function(){ $data.remove(); }">delete</a>
+        </td>
+    </tr>
+</script>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Bespoke Service Name
+            </th>
+            <th>
+                Referrer Price
+            </th>
+            <th>
+                Supplier Price
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="template:{name: 'bespokeTmpl', foreach: CaseBespokeServicePricingRows}">
+    </tbody>
+    <tfoot>
+        <tr data-bind="visible: CaseBespokeServicePricingRows().length == 0">
+            <td colspan="3">
+                Bespoke grid is empty
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <select class="select" data-bind="options: CaseBespokeServicePricings, optionsText:'BespokeServiceName', value: SelectedBespokeServicePricing, optionsCaption: 'Select Bespoke'">
+                </select>
+            </td>
+            <td>
+                Referrer Price :
+                <input type="text" data-bind="value:ReferrerPrice" />
+            </td>
+            <td>
+                Supplier Price :
+                <input type="text" data-bind="value:SupplierPrice" />
+            </td>
+            <td>
+                <a href="" class="select" data-bind="click: AddNewBespokeService">Add Bespoke</a>
+            </td>
+        </tr>
+        @*<tr>
+            <td>
+                <select class="select" data-bind="options: CaseBespokeServicePricings, optionsText:'BespokeServiceName', value: SelectedBespokeServicePricing, optionsCaption: 'Select Bespoke'">
+                </select>
+            </td>
+            <td>
+                <a href="" class="select" data-bind="click: AddNewBespokeService">Add Bespoke</a>
+            </td>
+        </tr>*@
+    </tfoot>
+</table>

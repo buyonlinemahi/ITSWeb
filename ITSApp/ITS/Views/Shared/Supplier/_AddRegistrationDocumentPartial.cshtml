@@ -1,0 +1,48 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divAddRegistrationDocument" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.AddSupplierRegistrationDocument, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new { id = "frmAddRegistrationDocument", @class = "form-horizontal", enctype = "multipart/form-data", data_bind = "ajaxForm: { success: function(responseText, statusText, xhr, $form){ AddSupplierRegistrationDocumentFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: RegistrationDocumentFormBeforeSubmit, clearForm: true }" }))
+    {
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel">
+                Add New Registraion Document</h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Document Name
+                </label>
+                <div class="controls">
+                    <input type="text" id="txtdocumentname" name="DocumentName" data-bind="jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fileInput">
+                    Document Upload</label>
+                <div class="controls">
+                    <input class="input-file" type="file" id="RegistrationDocumentFileUpload"   name="RegistrationDocumentFileUpload"
+                        data-bind="jqBootstrapValidation: {}" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="hidden" id="SupplierID" name="SupplierID" data-bind="value:SupplierID" />
+                    <input type="hidden" name="UploadDate" />
+                    <input type="hidden" name="DocumentTypeID" />
+                    <input type="hidden" name="DocumentUrl" />
+                    <input type="hidden" name="UploadPath">
+                    <input type="hidden" id="UserID" name="UserID" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" type="submit"   data-bind="bootstrapButton : DisableAddButton">
+                Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    }
+</div>

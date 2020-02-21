@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/SupplierService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+  <xs:element name="GetAllSupplier">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSupplierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllSupplierResult" nillable="true" type="q1:ArrayOfSuppliersName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierBySupplierIDResult" nillable="true" type="q2:Supplier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppliersLikeSupplierName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppliersLikeSupplierNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSuppliersLikeSupplierNameResult" nillable="true" type="q3:PagedSupplierSearch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplier" nillable="true" type="q4:Supplier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplier" nillable="true" type="q5:Supplier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierBySupplierIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierAndTreatmentTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplier" nillable="true" type="q6:Supplier" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierTreatments" nillable="true" type="q7:ArrayOfSupplierTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierAndTreatmentTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierAndTreatmentTypesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllComplaintstatus">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllComplaintstatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllComplaintstatusResult" nillable="true" type="q8:ArrayOfComplaintStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllComplaintType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllComplaintTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllComplaintTypeResult" nillable="true" type="q9:ArrayOfComplaintType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierDocument" nillable="true" type="q10:SupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierDocumentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierDocument" nillable="true" type="q11:SupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierDocumentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierDocumentBySupplierIDAndDocumentTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+        <xs:element minOccurs="0" name="documentTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierDocumentBySupplierIDAndDocumentTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierDocumentBySupplierIDAndDocumentTypeIDResult" nillable="true" type="q12:ArrayOfSupplierDocumentUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierDocumentBySupplierDocumentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierDocumentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierDocumentBySupplierDocumentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSupplierDocumentBySupplierDocumentIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierComplaint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierComplaint" nillable="true" type="q13:SupplierComplaint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierComplaintResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierComplaintResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierComplaintBySupplierComplaintID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierComplaint" nillable="true" type="q14:SupplierComplaint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierComplaintBySupplierComplaintIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierComplaintBySupplierComplaintIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierComplaintBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierComplaintBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierComplaintBySupplierIDResult" nillable="true" type="q15:ArrayOfSupplierComplaint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppliersLikePostCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppliersLikePostCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSuppliersLikePostCodeResult" nillable="true" type="q16:PagedSupplierSearch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierComplaintBySupplierComplaintID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierTreatmentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierComplaintBySupplierComplaintIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSupplierComplaintBySupplierComplaintIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierTreatment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierTreatment" nillable="true" type="q17:SupplierTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierTreatmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierTreatmentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierTreatmentBySupplierTreatmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierTreatment" nillable="true" type="q18:SupplierTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierTreatmentBySupplierTreatmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierTreatmentBySupplierTreatmentIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierTreatmentBySupplierIDResult" nillable="true" type="q19:ArrayOfSupplierTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierTreatmentPricing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierTreatmentPricing" nillable="true" type="q20:SupplierTreatmentPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierTreatmentPricingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierTreatmentPricingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierTreatmentPricingByPricingID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierTreatmentPricing" nillable="true" type="q21:SupplierTreatmentPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierTreatmentPricingByPricingIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierTreatmentPricingByPricingIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentPricingBySupplierTreatmentId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierTreatmentId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentPricingBySupplierTreatmentIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierTreatmentPricingBySupplierTreatmentIdResult" nillable="true" type="q22:ArrayOfSupplierTreatmentPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRegistrationType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRegistrationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllRegistrationTypeResult" nillable="true" type="q23:ArrayOfRegistrationType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierInsurance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierInsurance" nillable="true" type="q24:SupplierInsurance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierInsuranceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierInsuranceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierInsurance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierInsurance" nillable="true" type="q25:SupplierInsurance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierInsuranceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierInsuranceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierInsuranceBySupplierInsuredID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierInsuredID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierInsuranceBySupplierInsuredIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSupplierInsuranceBySupplierInsuredIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierInsuranceBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierInsuranceBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierInsuranceBySupplierIDResult" nillable="true" type="q26:ArrayOfSupplierInsurance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditBySupplierDocumentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierDocumentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditBySupplierDocumentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierSiteAuditBySupplierDocumentIDResult" nillable="true" type="q27:ArrayOfSupplierSiteAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierSiteAuditBySupplierIDResult" nillable="true" type="q28:ArrayOfSupplierSiteAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditByUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditByUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierSiteAuditByUserIDResult" nillable="true" type="q29:ArrayOfSupplierSiteAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditBySupplierSiteAuditID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierSiteAuditID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditBySupplierSiteAuditIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierSiteAuditBySupplierSiteAuditIDResult" nillable="true" type="q30:SupplierSiteAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierSiteAuditBySupplierSiteAuditID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierSiteAudit" nillable="true" type="q31:SupplierSiteAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierSiteAuditBySupplierSiteAuditIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierSiteAuditBySupplierSiteAuditIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierSiteAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierSiteAudit" nillable="true" type="q32:SupplierSiteAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierSiteAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierSiteAuditResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierSiteAuditBySupplierSiteAuditID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierSiteAuditID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierSiteAuditBySupplierSiteAuditIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSupplierSiteAuditBySupplierSiteAuditIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierLikeTreatmentCategoryType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierLikeTreatmentCategoryTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierLikeTreatmentCategoryTypeResult" nillable="true" type="q33:PagedSupplierSearch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierClinicalAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierClinicalAudit" nillable="true" type="q34:SupplierClinicalAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierClinicalAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierClinicalAuditResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierClinicalAuditBySupplierClinicalAuditID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierClinicalAudit" nillable="true" type="q35:SupplierClinicalAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierClinicalAuditBySupplierClinicalAuditIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierClinicalAuditBySupplierClinicalAuditIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierClinicalAuditByUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierClinicalAuditByUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierClinicalAuditByUserIDResult" nillable="true" type="q36:ArrayOfSupplierClinicalAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierClinicalAuditBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierClinicalAuditBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierClinicalAuditBySupplierIDResult" nillable="true" type="q37:ArrayOfSupplierClinicalAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierClinicalAuditBySupplierClinicalAuditID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierClinicalAuditID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierClinicalAuditBySupplierClinicalAuditIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSupplierClinicalAuditBySupplierClinicalAuditIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierPractitionerRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierPractitioner" nillable="true" type="q38:SupplierPractitioner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierPractitionerRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierPractitionerRegistrationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierPractitioner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierPractitioner" nillable="true" type="q39:SupplierPractitioner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierPractitionerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierPractitionerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierPractitionerBySupplierPractitionerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierPractitionerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSupplierPractitionerBySupplierPractitionerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSupplierPractitionerBySupplierPractitionerIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierPractitionerByPractitionerRegistrationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="practitionerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierPractitionerByPractitionerRegistrationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierPractitionerByPractitionerRegistrationIDResult" nillable="true" type="q40:ArrayOfSupplierPractitioner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierPractitionerTreatmentRegistrationsBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierPractitionerTreatmentRegistrationsBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierPractitionerTreatmentRegistrationsBySupplierIDResult" nillable="true" type="q41:ArrayOfSupplierPractitionerTreatmentRegistration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierPractitionerBySupplierPractitionerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierPractitionerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierPractitionerBySupplierPractitionerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierPractitionerBySupplierPractitionerIDResult" nillable="true" type="q42:SupplierPractitioner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPractitionerLikePractitionerNameForSupplier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPractitionerLikePractitionerNameForSupplierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetPractitionerLikePractitionerNameForSupplierResult" nillable="true" type="q43:ArrayOfPractitionerTreatmentRegistration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTreatmentType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTreatmentTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllTreatmentTypeResult" nillable="true" type="q44:ArrayOfTreatmentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryIDResult" nillable="true" type="q45:ArrayOfTreatmentCategoriesTreatmentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesTreatmentTypeByTreatmentTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTreatmentCategoriesTreatmentTypeByTreatmentTypeIDResult" nillable="true" type="q46:ArrayOfTreatmentCategoriesTreatmentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryIDResult" nillable="true" type="q47:ArrayOfTreatmentCategoriesRegistrationTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="registrationTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesRegistrationTypeByRegistrationTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTreatmentCategoriesRegistrationTypeByRegistrationTypeIDResult" nillable="true" type="q48:ArrayOfTreatmentCategoriesRegistrationTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryIDResult" nillable="true" type="q49:ArrayOfTreatmentCategoriesAreasofExpertises" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="areasofExpertiseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseIDResult" nillable="true" type="q50:ArrayOfTreatmentCategoriesAreasofExpertises" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierNewPatientCases">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierNewPatientCasesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierNewPatientCasesResult" nillable="true" type="q51:ArrayOfSupplierCasePatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierExistingPatientsInitialAssessments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierExistingPatientsInitialAssessmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierExistingPatientsInitialAssessmentsResult" nillable="true" type="q52:ArrayOfSupplierCasePatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierExistingPatientsNextAssessments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierExistingPatientsNextAssessmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierExistingPatientsNextAssessmentsResult" nillable="true" type="q53:ArrayOfSupplierCasePatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierAuthorisations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierAuthorisationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierAuthorisationsResult" nillable="true" type="q54:ArrayOfSupplierCasePatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierStoppedCases">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierStoppedCasesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierStoppedCasesResult" nillable="true" type="q55:ArrayOfSupplierCasePatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+        <xs:element minOccurs="0" name="isTriage" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSupplierStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSupplierStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierWithinPostCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="distanceKM" type="xs:int" />
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierWithinPostCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierWithinPostCodeResult" nillable="true" type="q56:ArrayOfSupplierDistanceRankPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierRankingBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierRankingBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSupplierRankingBySupplierIDResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierExistsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierExistsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSupplierExistsByNameResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierExistsByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierExistsByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSupplierExistsByEmailResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppliersRecentlyAdded">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppliersRecentlyAddedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSuppliersRecentlyAddedResult" nillable="true" type="q57:ArrayOfSupplier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierClinicalAuditSupplierDocumentBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierClinicalAuditSupplierDocumentBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierClinicalAuditSupplierDocumentBySupplierIDResult" nillable="true" type="q58:ArrayOfSupplierClinicalAuditSupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierInsuranceSupplierDocumentBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierInsuranceSupplierDocumentBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierInsuranceSupplierDocumentBySupplierIDResult" nillable="true" type="q59:ArrayOfSupplierInsuranceSupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierRegistrationSupplierDocumentBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierRegistrationSupplierDocumentBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierRegistrationSupplierDocumentBySupplierIDResult" nillable="true" type="q60:ArrayOfSupplierRegistrationSupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditSupplierDocumentBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSiteAuditSupplierDocumentBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierSiteAuditSupplierDocumentBySupplierIDResult" nillable="true" type="q61:ArrayOfSupplierSiteAuditSupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierComplaintAndStatusAndTypesBySupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierComplaintAndStatusAndTypesBySupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierComplaintAndStatusAndTypesBySupplierIDResult" nillable="true" type="q62:ArrayOfSupplierComplaintAndStatusAndType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierClinicalAuditAndDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierClinicalAudit" nillable="true" type="q63:SupplierClinicalAudit" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierDocument" nillable="true" type="q64:SupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierClinicalAuditAndDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierClinicalAuditAndDocumentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierSiteAuditAndDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierSiteAudit" nillable="true" type="q65:SupplierSiteAudit" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierDocument" nillable="true" type="q66:SupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierSiteAuditAndDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierSiteAuditAndDocumentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierInsuranceAndDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierInsurance" nillable="true" type="q67:SupplierInsurance" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierDocument" nillable="true" type="q68:SupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierInsuranceAndDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierInsuranceAndDocumentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierClinicalAuditBySupplierClinicalAuditID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierClinicalAudit" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierClinicalAuditBySupplierClinicalAuditIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierClinicalAuditBySupplierClinicalAuditIDResult" nillable="true" type="q69:SupplierClinicalAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierIDResult" nillable="true" type="q70:ArrayOfSupplierTreatmentPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTriageSuppliersTreamentPricingByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTriageSuppliersTreamentPricingByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTriageSuppliersTreamentPricingByTreatmentCategoryIDResult" nillable="true" type="q71:ArrayOfSupplierSupplierTreatmentsAndSupplierTreatmenPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPricingTypesByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPricingTypesByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetPricingTypesByTreatmentCategoryIDResult" nillable="true" type="q72:ArrayOfTreatmentCategoriesPricingTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierTreatmentID" type="xs:int" />
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryIDResult" nillable="true" type="q73:ArrayOfSupplierPricingValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTriageTopSuppliersTreamentPricingByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTriageTopSuppliersTreamentPricingByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTriageTopSuppliersTreamentPricingByTreatmentCategoryIDResult" nillable="true" type="q74:ArrayOfSupplierSupplierTreatmentsAndSupplierTreatmenPricing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierIDAndPricingTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+        <xs:element minOccurs="0" name="pricingTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierIDAndPricingTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierIDAndPricingTypeIDResult" nillable="true" type="q75:ArrayOfSupplierPricingValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppliersTreamentPricingByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppliersTreamentPricingByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSuppliersTreamentPricingByTreatmentCategoryIDResult" nillable="true" type="q76:ArrayOfSupplierSupplierTreatmentsAndSupplierTreatmenPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSupplierWithinPostCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="distanceKM" type="xs:int" />
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSupplierWithinPostCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllSupplierWithinPostCodeResult" nillable="true" type="q77:ArrayOfSuppliersName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelectedSupplierDistanceRankPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierID" type="xs:int" />
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+        <xs:element minOccurs="0" name="postCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelectedSupplierDistanceRankPriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSelectedSupplierDistanceRankPriceResult" nillable="true" type="q78:SupplierDistanceRankPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierDocumentCustom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="supplierDocument" nillable="true" type="q79:SupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSupplierDocumentCustomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSupplierDocumentCustomResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierDocumentByCaseIdAndDocumentTypeId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CaseId" type="xs:int" />
+        <xs:element minOccurs="0" name="DocumentTypeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierDocumentByCaseIdAndDocumentTypeIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierDocumentByCaseIdAndDocumentTypeIdResult" nillable="true" type="q80:ArrayOfSupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierDocumentByCaseId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CaseId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierDocumentByCaseIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetSupplierDocumentByCaseIdResult" nillable="true" type="q81:ArrayOfSupplierDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

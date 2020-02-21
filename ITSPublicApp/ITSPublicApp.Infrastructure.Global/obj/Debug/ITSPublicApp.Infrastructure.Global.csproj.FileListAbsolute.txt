@@ -1,0 +1,6 @@
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Global\bin\Debug\ITSPublicApp.Infrastructure.Global.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Global\bin\Debug\ITSPublicApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Global\obj\Debug\ITSPublicApp.Infrastructure.Global.GlobalResource.resources
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Global\obj\Debug\ITSPublicApp.Infrastructure.Global.csproj.GenerateResource.Cache
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Global\obj\Debug\ITSPublicApp.Infrastructure.Global.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Global\obj\Debug\ITSPublicApp.Infrastructure.Global.pdb

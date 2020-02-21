@@ -1,0 +1,406 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.ViewModels.CaseSearchViewModel.CaseSearchDetailViewModel
+@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+    var message = TempData["AlertMessage"] ?? string.Empty;
+}
+@section AdditionalCss{
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/ bootstrap/css/its-portal.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery-ui-timepicker-addon.css")" />
+
+
+}
+@section ContentHeader{
+    <h1>Case Details</h1>
+}
+<script type="text/javascript">
+    var message = '@message';
+    if (message)
+        alert('Email send successfully.');
+</script>
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Case Seach</a><a href="#" class="tip-bottom">Case Detail</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                @*  <div class="widget-title" id="ViewAttachmentDiv">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Case Detail</h5>
+                    <!--ko if:IsFileExist-->    
+                    <a class="label label-info" role="button" data-bind="attr: { href: ReferralFileDownloadPath}">
+                        View Attachment</a>
+                    <!--/ko-->
+                </div>*@
+                <div class="widget-content nopadding" id="divMainDetailForm">
+                    <div class="control-group">
+                        <label class="control-label">
+                        </label>
+                        <div class="controls">
+                            <input type="button" class="btn btn-primary" id="btnCaseStopped" value="Case Stopped" />
+                             <!-- ko with : CasePatientReferrerSupplierWorkflow -->
+                            <a data-bind="attr: { href: '/CaseSearch/ReferralDetail/' + CaseID()}" target="_blank" class="btn btn-primary" style="float:right">View Referral</a>                            
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                    @Html.Partial("CaseSearch/_DetailFormPartial")
+                </div>
+
+
+            </div>
+            <div class="widget-box" id="divDetailSolicitor" data-bind="visible:Solicitor()!=null">
+                <div class="widget-title" id="divSolicitor">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>Solicitor Detail</h5>
+                </div>
+                <div class="widget-content nopadding" data-bind="if:Solicitor()!=null">
+                    @Html.Partial("CaseSearch/_SolicitorDetailPartial")
+                </div>
+            </div>
+
+              
+            <div class="widget-box" id="DivCADate">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>Case Appointment Date
+                    </h5>
+                </div>
+                <div class="widget-content nopadding" id="divCaseAppointmentDate">
+
+                    @Html.Partial("CaseSearch/_InitialAppointmentDateTime")
+                </div>
+            </div>
+           
+        </div>
+
+        <div id="_AddCaseTreatementGrid">
+            <a class="btn btn-small btn-primary" data-bind="click:closeCaseTreatmentPricing" href="#divCreateCaseTreatmentGridCaseSearch" role="button"
+                data-toggle="modal">Add</a>
+            @Html.Partial("CaseSearch/_AddCaseTreatmentPartialCaseSearch")
+        </div>
+
+        <div class="widget-box" id="divCaseTreatmentPricing">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-th"></i></span>
+                <h5>Case Treatment Pricing</h5>
+            </div>
+            <div class="widget-content nopadding" id="divCaseTreatmentPricingGrid">
+                @Html.Partial("CaseSearch/_ModifyCaseTreatmentPartialCaseSearch")
+                @Html.Partial("CaseSearch/_CaseTreatmentPricingGridPartial", new { name = "CaseTreatmentPricingTypes" })
+                <!--ko if:CaseTreatmentPricings ().length > 0 -->
+                <div class="well well-small">
+                    <div class="span3">
+                        Total Accounts Receivables :
+                    </div>
+                    <div class="span1">
+                        <strong data-bind="text:'£'+AccountReceivable()"></strong>
+                    </div>
+                    <div class="span3">
+                        Total Accounts Payables :
+                    </div>
+                    <div class="span1">
+                        <strong data-bind="text:'£' + AccountPayable()"></strong>
+                    </div>
+                </div>
+                <!-- /ko-->
+
+            </div>
+
+        </div>
+        <div class="widget-box" id="divCaseBespokeTreatmentPricing">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-th"></i></span>
+                <h5>Case Bespoke Treatment Pricing</h5>
+            </div>
+            <div class="widget-content nopadding" id="divCaseBespokeTreatmentPricingGrid">
+                @Html.Partial("CaseSearch/_CaseBespokeTreatmentPricingGridPartial")
+                <!--ko if:BespokeTreatmentPricings().length > 0 -->
+                <div class="well well-small">
+                    <div class="span3">
+                        Total Accounts Receivables :
+                    </div>
+                    <div class="span1">
+                        <strong data-bind="text:'£'+AccountReceivable()"></strong>
+                    </div>
+                    <div class="span3">
+                        Total Accounts Payables :
+                    </div>
+                    <div class="span1">
+                        <strong data-bind="text:'£' + AccountPayable()"></strong>
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+
+        @Html.Partial("CaseSearch/_AddCaseUploadsPartial")
+        <div class="widget-box" id="divCaseUploads">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-th"></i></span>
+                <h5>Case Uploads</h5>
+            </div>
+            <div class="widget-content nopadding">
+                @Html.Partial("CaseSearch/_CaseUploadsGridPartial")
+            </div>
+        </div>
+        <a class="btn btn-small btn-primary right-pull" href="#divAddCaseUploads" role="button" data-toggle="modal">Add</a>
+        @Html.Partial("CaseSearch/_AddCaseNotesPartial")
+        <div class="widget-box" id="divCaseNotesGrid">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-th"></i></span>
+                <h5>Case Notes</h5>
+            </div>
+            <div class="widget-content nopadding">
+                @Html.Partial("CaseSearch/_CaseNotesGridPartial")
+            </div>
+        </div>
+        <a class="btn btn-small btn-primary right-pull" href="#divAddCaseNotes" role="button" data-toggle="modal">Add</a>
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-th"></i></span>
+                <h5>Email communication
+                </h5>
+            </div>
+            <div class="widget-content nopadding" id="divEmailCommunicationGrid">
+                @Html.Partial("CaseSearch/_EmailCommunicationGridPartial")
+            </div>
+        </div>
+
+        <div class="" id="divCaseReportsDetail">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-th"></i></span>
+                <h5>Case Reports</h5>
+            </div>
+            <div class="" id="divCaseReportCustom">
+                <!--ko if:CaseReportsDetailsCustom().length > 0 -->
+                @Html.Partial("CaseSearch/_CaseReportsCustomGridPartial")
+                <!-- /ko -->
+            </div>
+            <div class="" id="divCaseReportsGrid">
+                @using (Html.BeginForm(GlobalConst.Actions.CaseSearchController.GetGeneratedAssessmentReport, GlobalConst.Controllers.CaseSearch, FormMethod.Post, new { @class = "form-horizontal", id = "frmAssessmentDownloadReport" }))
+                {    <!--ko if:CaseReports().length > 0 -->
+                    <input type="hidden" name="EventDescription" data-bind="value:EventDescription" />
+                    @Html.Partial("CaseSearch/_CaseReportsGridPartial")
+                    <!-- /ko -->
+                        
+                     
+                        
+                }
+            </div>
+
+
+
+
+        </div>
+
+        <div class="widget-box" id="divCaseHistory">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-th"></i></span>
+                <h5>Case History</h5>
+            </div>
+            <div class="widget-content nopadding" id="divCaseHistoryGrid">
+                @Html.Partial("CaseSearch/_CaseHistoryGridPartial")
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div id="footer" class="span12">
+                2012 - 2013 &copy; ITS Portal v1.0
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="changeSupplier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1000px!Important; z-index: -1 !important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-bind="click:$root.closePopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h4 class="modal-title">Change Supplier</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+
+                    @{ Html.RenderPartial("~/Views/Shared/CaseSearch/_RefferToSupplierPartial.cshtml");  }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-timepicker-addon.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/CaseHistoryGridViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/CaseReportsViewModel.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/CaseNotesGridViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/CaseUploadsGridViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/DetailFormViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/AddCaseNotesViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/AddCaseUploadsViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/EmailCommunicationViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/SolicitorDetailViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/BookIAViewModel.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/CaseBespokeTreatmentPricingGridViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/CaseTreatmentPricingGridViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/AcceptAndReferViewModelPartial.js")" type="text/javascript"></script>
+   @* <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/Referral/AcceptAndReferTriageAssessmentViewModel.js") type="text/javascript"></script>*@
+
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/CaseReportsCustomViewModel.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+      
+        //ko.applyBindings(model, $("#ViewAttachmentDiv").get(0));
+        var detailFormViewModel = new DetailFormViewModel(model);
+        detailFormViewModel.Init(model.CasePatientReferrerSupplierWorkflow, model.ReferralFileDownloadPath,model.CasePatientTreatment);
+        ko.applyBindings(detailFormViewModel, $("#divMainDetailForm").get(0));
+
+        var caseHistoryGridViewModel = new CaseHistoryGridViewModel();
+        caseHistoryGridViewModel.Init(model.CaseHistories,model.CaseAppointmentDate);
+        ko.applyBindings(caseHistoryGridViewModel, $("#divCaseHistoryGrid").get(0));
+
+        var caseNotesGridViewModel = new CaseNotesGridViewModel();
+        caseNotesGridViewModel.Init(model.CaseNotes);
+        ko.applyBindings(caseNotesGridViewModel, $("#divCaseNotesGrid").get(0));
+
+        var caseUploadsGridViewModel = new CaseUploadsGridViewModel();
+        caseUploadsGridViewModel.Init(model.CaseDocumentUsers);
+        ko.applyBindings(caseUploadsGridViewModel, $("#divCaseUploads").get(0));
+
+        var caseBespokeTreatmentPricingGridViewModel = new CaseBespokeTreatmentPricingGridViewModel();
+        caseBespokeTreatmentPricingGridViewModel.Init(model.CaseBespokeServicePricingTypes);
+        ko.applyBindings(caseBespokeTreatmentPricingGridViewModel, $("#divCaseBespokeTreatmentPricingGrid").get(0));
+
+        var caseTreatmentPricingGridViewModel = new CaseTreatmentPricingGridViewModel();
+        caseTreatmentPricingGridViewModel.Init(model);
+        ko.applyBindings(caseTreatmentPricingGridViewModel, $("#divCaseTreatmentPricingGrid").get(0));
+        ko.applyBindings(caseTreatmentPricingGridViewModel, $("#divCreateCaseTreatmentGridCaseSearch").get(0));
+
+        var addCaseNotesViewModel = new AddCaseNotesViewModel(model.CasePatientReferrerSupplierWorkflow.CaseID);
+        ko.applyBindings(addCaseNotesViewModel, $("#divAddCaseNotes").get(0));
+
+        var addCaseUploadsViewModel = new AddCaseUploadsViewModel(model.CasePatientReferrerSupplierWorkflow.CaseID);
+        ko.applyBindings(addCaseUploadsViewModel, $("#divAddCaseUploads").get(0));
+
+        var emailCommunication = new EmailCommunicationViewModel();
+        ko.applyBindings(emailCommunication, $("#divEmailCommunicationGrid").get(0));
+        emailCommunication.Init(model.CaseCommunicationHistoryUser);
+
+        var solicitorDetailViewModel = new SolicitorDetailViewModel();
+        solicitorDetailViewModel.Init(model.Solicitor);
+        ko.applyBindings(solicitorDetailViewModel, $("#divDetailSolicitor").get(0));
+
+        var CaseReportsGridViewModel = new CaseReportsGridViewModel();
+        CaseReportsGridViewModel.Init(model.CaseReportsDetails,model.CaseReportsDetailsCustom);
+        ko.applyBindings(CaseReportsGridViewModel, $("#divCaseReportsGrid").get(0));
+
+        var acceptAndReferViewModel = new AcceptAndReferViewModel(model);
+        acceptAndReferViewModel.Init(model);        
+        ko.applyBindings(acceptAndReferViewModel, $("#divAcceptAndRefer1").get(0));
+
+        var caseReportCustom = new CaseReportCustom();
+        caseReportCustom.Init(model.CaseReportsDetailsCustom,model.ReportFileDownloadPath);        
+        ko.applyBindings(caseReportCustom, $("#divCaseReportCustom").get(0));
+
+        function AddCaseNotesFormSuccess(responseTxt) {
+
+            caseNotesGridViewModel.AddCaseNotes(responseTxt);
+            $("#divAddCaseNotes").modal('hide');
+        }
+
+        function AddCaseUploadsFormSuccess(responseText, statusText, xhr, $form) {
+            caseUploadsGridViewModel.AddCaseUploads(responseText);
+            $("#divAddCaseUploads").modal('hide');
+        }
+
+        function UpdateSolicitorFormSuccess(responseText, statusText, xhr, $form) 
+        {
+            alert(responseText);
+        }
+        function openReferralDetails()
+        {
+            window.location = "/CaseSearch/ReferralDetail/" + addCaseNotesViewModel.CaseID();
+        }
+        var _bookIAViewModel = new BookIAViewModel();        
+        
+        _bookIAViewModel.Init(model.CaseAppointmentDate, model.CasePatientReferrerSupplierWorkflow.CaseID, model.CasePatientContactDates,model.CaseUnsuccessfullContactDates);
+        ko.applyBindings(_bookIAViewModel,$("#divCaseAppointmentDate").get(0)); 
+              
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#CaseAppointmentDateAppointmentDate").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1900:2035'
+            });
+            $("#FirstAppointmentOfferedDate").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1900:2035'
+            });      
+            $("#InjuryDate").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1900:2035'
+            });
+            $("#BirthDate").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1900:2035'
+            });
+            $("#ModifycaseSearchServiceDate").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1900:2035'
+            });
+
+            $("#caseSearchServiceDate").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1900:2035'
+            });
+
+            $("#CaseAppointmentDateAppointmentTime").timepicker();
+
+            $('.modal').css("display", "none");
+            $('.modal').css("left", "40%");
+            
+        });
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+        function postalCodeFormat(elem) {
+            var val2 = val1 = elem.value.replace(/ /g, '');
+            if (val1.length > 3) {
+                val1 = val1.substr(0, val1.length - 3);
+                elem.value = (val1 + ' ' + val2.substr(val1.length, val2.length));
+            }
+        }
+    </script>
+}
+

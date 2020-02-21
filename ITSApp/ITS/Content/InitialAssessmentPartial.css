@@ -1,0 +1,748 @@
+﻿.fontSize
+{
+    font-size: 14px;
+}
+
+.its-initial-assessment-border
+{
+    border-top: 2px dotted #BEBEC0;
+    margin: 30px 0 40px;
+}
+.white-colr
+{
+    color: #fff;
+    font-size: 14px;
+}
+
+#final-Qa-rep
+{
+    margin: 0 auto;
+    width: 984px;
+}
+
+#final-Qa-rep .finl-qa-rep-hedng
+{
+    padding: 10px;
+    margin-top: 10px;
+    background: #7DA63C;
+}
+#final-Qa-rep #final-grid-outer
+{
+   box-shadow: 1px 2px 3px #CDCDCD;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 980px;
+}
+
+#final-Qa-rep #final-grid-outer .heading
+{
+    width: 130px;
+    padding: 4px;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    height: 30px;
+   
+}
+#final-Qa-rep #final-grid-outer .row
+{
+    word-wrap: break-word;
+    width: 130px;
+    padding: 9px 4px 10px 4px;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    height: 25px;
+}
+
+
+.clear
+{
+    clear: both;
+}
+/* second screen*/
+
+
+#Initial-assessment
+{
+    font-size: 14px;
+    margin: 0 auto;
+    width: 984px;
+}
+
+#Initial-assessment .symptoms-injuries
+{
+    border: 1px solid #BEBEC0;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 2px 2px 2px #D0D1D3;
+}
+#Initial-assessment input[type="text"]
+{
+    box-shadow: 1px 1px 1px #BFD1D3;
+    height: 27px;
+    line-height: 1;
+    text-indent: 10px;
+    width: 258px;
+}
+
+#Initial-assessment input[type="radio"]
+{
+    box-shadow: 1px 1px 1px #BFD1D3;
+}
+
+#Initial-assessment textarea
+{
+    box-shadow: 1px 1px 1px #BFD1D3;
+    height: 100px;
+    width: 258px;
+}
+#Initial-assessment #view-guid-lines
+{
+    float: right;
+    padding: 10px;
+}
+#Initial-assessment .finl-qa-rep-hedng
+{
+    background: none repeat scroll 0 0 #7DA63C;
+    margin-top: 10px;
+    padding: 10px;
+    width: 964px;
+}
+#Initial-assessment #final-grid-outer-2
+{
+    width: 800px;
+    overflow: hidden;
+    margin: 10px auto 0 auto;
+}
+
+#Initial-assessment #final-grid-outer-2 .heading
+{
+    width: 188px;
+    padding: 5px;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    height: 20px;
+    background-color: #7DA63C;
+}
+#Initial-assessment #final-grid-outer-2 .row
+{
+    width: 188px;
+    padding: 5px;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    height: 25px;
+}
+
+#Initial-assessment #demographic-info
+{
+    width: 984px;
+    overflow: hidden;
+}
+#Initial-assessment #demographic-info #left
+{
+    margin-top: 10px;
+    width: 490px;
+    float: left;
+}
+#Initial-assessment #demographic-info #left #headings
+{
+    float: left;
+}
+#Initial-assessment #demographic-info #left .heading
+{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 13px 11px 11px;
+    width: 183px;
+}
+#Initial-assessment #demographic-info #left .txtbx
+{
+    float: right;
+    padding: 6px 5px 5px 5px;
+}
+#Initial-assessment #demographic-info #left .txtbx input[type="text"]
+{
+    box-shadow: 1px 1px 1px #BFD1D3;
+    height: 27px;
+    line-height: 1;
+    text-indent: 10px;
+    width: 258px;
+}
+
+#Initial-assessment #demographic-info #right
+{
+    margin-top: 10px;
+    width: 494px;
+    float: left;
+}
+#Initial-assessment #demographic-info #right #headings
+{
+    float: left;
+}
+#Initial-assessment #demographic-info #right .heading
+{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 13px 11px 11px;
+    width: 183px;
+}
+#Initial-assessment #demographic-info #right .txtbx
+{
+    float: right;
+    padding: 5.5px;
+}
+#Initial-assessment #demographic-info #right .txtbx input[type="text"]
+{
+    box-shadow: 1px 1px 1px #BFD1D3;
+    height: 27px;
+    line-height: 1;
+    text-indent: 10px;
+    width: 258px;
+}
+
+#PatientConsent
+{
+    width: 984px;
+}
+#PatientConsent .PCHeading
+{
+    background: #7DA63C;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#PatientConsent .discription
+{
+    float: left;
+    padding: 11.5px;
+    width: 791px;
+    font-size: 14px;
+}
+#PatientConsent .yes
+{
+    float: left;
+    padding: 17px;
+    width: 49px;
+}
+#PatientConsent .no
+{
+    float: left;
+    padding: 17px;
+    width: 49px;
+}
+
+#injury-symptom-del
+{
+    width: 984px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+#injury-symptom-del .span-hd
+{
+    font-size: 14px;
+    margin: 10px;
+}
+
+#injury-symptom-del .injry-heding
+{
+    background: #7DA63C;
+    padding: 10px;
+    font-weight: bold;
+}
+#injury-symptom-del .txtarea
+{
+    padding: 10px;
+}
+#factor-treatmen .flags
+{
+    border: 1px solid #BEBEC0;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 2px 2px 2px #D0D1D3;
+    margin: 0 auto;
+    width: 963px;
+}
+#factor-treatmen .flags ul li .flag-name
+{
+    float: left;
+    padding: 10px;
+    width: 600px;
+}
+
+
+#factor-treatmen .flags ul li .flag-rdio
+{
+    float: left;
+    padding: 10px;
+    width: 200px;
+}
+#factor-treatmen .Is-patien-under-tret
+{
+}
+#factor-treatmen .Is-patien-under-tret .first
+{
+    float: left;
+    font-size: 14px;
+    padding: 10px;
+    width: 400px;
+}
+#factor-treatmen .Is-patien-under-tret .second
+{
+    float: left;
+    width: 70px;
+    padding: 10px;
+}
+#factor-treatmen .Is-patien-under-tret .third
+{
+    float: left;
+    width: 70px;
+    padding: 10px;
+}
+
+#injury-symptom-del textarea
+{
+    padding: 10px;
+    width: 941px;
+    height: 100px;
+}
+#injury-symptom-del .Symptom
+{
+    float: left;
+    padding: 5px;
+    width: 323px;
+}
+#injury-symptom-del .Symptom span
+{
+    padding: 5px;
+    font-weight: bold;
+}
+#injury-symptom-del .txtboxes input[type="text"]
+{
+    margin: 6px;
+    padding: 6px;
+    width: 301px;
+}
+#injury-symptom-del .Pain
+{
+    float: left;
+    padding: 5px;
+    width: 316px;
+}
+#injury-symptom-del .txtboxes input[type="text"]
+{
+    margin: 6px;
+    padding: 6px;
+    width: 301px;
+}
+#injury-symptom-del .Pain span
+{
+    padding: 5px;
+    font-weight: bold;
+}
+#injury-symptom-del .Restriction
+{
+    float: left;
+    padding: 5px;
+    width: 313px;
+}
+#injury-symptom-del .txtboxes input[type="text"]
+{
+    margin: 6px;
+    padding: 5px;
+    width: 301px;
+}
+
+#injury-symptom-del .addmore
+{
+    float: right;
+    padding: 5px;
+}
+#injury-symptom-del .Restriction span
+{
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+
+#factor-treatmen
+{
+    width: 984px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+#factor-treatmen .injry-heding
+{
+    background: #7DA63C;
+    padding: 10px;
+    font-weight: bold;
+}
+#factor-treatmen .txtarea
+{
+    padding: 10px;
+}
+#factor-treatmen textarea
+{
+    padding: 10px;
+    width: 941px;
+}
+
+
+#factor-treatmen .flag-1
+{
+    float: left;
+    padding: 5px;
+    width: 480px;
+}
+#factor-treatmen .flag-1 span
+{
+    padding: 5px;
+    font-weight: bold;
+}
+
+#factor-treatmen .flag-2
+{
+    float: left;
+    padding: 5px;
+    width: 483px;
+}
+
+#factor-treatmen .flag-2 span
+{
+    padding: 5px;
+    font-weight: bold;
+}
+
+#factor-treatmen .divFirst
+{
+    float: left;
+}
+#factor-treatmen .divFirst .txt
+{
+    height: 138px;
+    padding: 10px;
+    text-align: left;
+}
+#factor-treatmen .divSecond
+{
+    float: left;
+}
+#factor-treatmen .divSecond .options
+{
+    float: left;
+    padding: 6.5px;
+    text-align: left;
+    width: 150px;
+}
+
+#factor-treatmen .divSecond .radio
+{
+    float: left;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+#factor-treatmen .divThird
+{
+    float: left;
+    height: 160px;
+    width: 541px;
+}
+
+#factor-treatmen .divThird span
+{
+    padding: 5px;
+    float: left;
+}
+
+#factor-treatmen .divThird textarea
+{
+    height: 101px;
+    margin-left: 5px;
+    width: 504px;
+}
+
+#factor-treatmen .impact-life-style
+{
+    background: #7DA63C;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+
+#factor-treatmen .impact-on-work 
+{
+    margin: 10px;
+}
+
+#factor-treatmen .impact-on-work  .row ul
+{
+  list-style:none;
+}
+#factor-treatmen .impact-on-work  .row ul li
+{
+  padding:10px;
+}
+#factor-treatmen .impact-on-work  .row .first-left
+{
+   float:left;
+}
+
+#factor-treatmen .impact-on-work  .row .first-second
+{
+   float:left;
+}
+
+
+#factor-treatmen .work-impact .left
+{
+    float: left;
+}
+
+#factor-treatmen .work-impact .first-left
+{
+    float: left;
+   
+    padding: 10px;
+    width: 150px;
+}
+#factor-treatmen .work-impact .wrk-border
+{
+     border: 1px solid #BEBEC0;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 2px 2px 2px #D0D1D3;
+    margin: 0 auto 10px;
+    overflow: hidden;
+    width: 982px;
+}
+#factor-treatmen .work-impact .second-left
+{
+    float: left;
+    padding: 10px;
+    width: 250px;
+}
+
+#factor-treatmen .work-impact .second-left ul
+{
+    list-style: none;
+    float: left;
+}
+
+#factor-treatmen .work-impact .second-left ul li{padding:5px;}
+#factor-treatmen .work-impact .third-left
+{
+    float: left;
+}
+
+#factor-treatmen .work-impact .third-left textarea
+{
+    width: 500px;
+}
+
+
+
+
+#factor-treatmen .work-impact .left .row
+{
+    width: 500px;
+    padding: 10px;
+}
+#factor-treatmen .work-impact .right
+{
+    float: right;
+    width: 460px;
+}
+
+#factor-treatmen .work-impact .right .left-row
+{
+    float: left;
+    padding: 8.5px;
+    text-align: center;
+    width: 228px;
+}
+#factor-treatmen .work-impact .right .right-row
+{
+    float: left;
+    padding: 8.5px;
+    text-align: center;
+    width: 195px;
+}
+#factor-treatmen .treatment-rec .left
+{
+}
+
+#factor-treatmen .treatment-rec .left
+{
+    float: left;
+}
+
+#factor-treatmen .treatment-rec .left .levl-rec
+{
+    padding: 5px 5px 5px 5px;
+    width: 480px;
+    height: 207px;
+}
+
+#factor-treatmen .treatment-rec .left .row
+{
+    width: 490px;
+    padding: 15px;
+}
+
+#factor-treatmen .treatment-rec .right
+{
+    float: right;
+    width: 460px;
+}
+
+#factor-treatmen .treatment-rec .right .row
+{
+    float: right;
+    padding: 9.5px;
+    width: 439px;
+}
+
+#factor-treatmen .treatment-rec .right .row input[type="text"]
+{
+    padding: 5px;
+    width: 426px;
+}
+
+#factor-treatmen .treatment-rec .right .left-row
+{
+    float: left;
+    padding: 8.5px;
+    text-align: left;
+    width: 228px;
+}
+#factor-treatmen .treatment-rec .right .right-row
+{
+    float: left;
+    padding: 7.5px;
+    text-align: center;
+    width: 195px;
+}
+
+#factor-treatmen .treatment-rec textarea
+{
+    margin: 10px;
+}
+
+#Initial-assessment .rating-scor
+{
+    margin: 20px;
+}
+
+#Initial-assessment .rating-scor .ratng
+{
+    float: left;
+}
+
+#Initial-assessment .rating-scor .ratng input[type="text"]
+{
+    padding: 5px;
+}
+#Initial-assessment .rating-scor .prnt
+{
+    float: right;
+}
+
+#Initial-assessment .rating-scor .prnt input[type="submit"]
+{
+    background: none repeat scroll 0 0 #EBE8D8;
+    font-size: 17px;
+    padding: 10px;
+    width: 100px;
+}
+#Initial-assessment .rating-scor span
+{
+    padding: 10px;
+    margin: 10px;
+}
+#Initial-assessment .grid
+{
+    width: 636px;
+    margin: 10px auto;
+}
+
+#Initial-assessment .grid .first
+{
+    float: left;
+}
+#Initial-assessment .grid .first .heading
+{
+    background: none repeat scroll 0 0 #7DA63C;
+    padding: 10px;
+    text-align: center;
+    width: 250px;
+}
+#Initial-assessment .grid .first .row
+{
+    padding: 5px;
+    text-align: center;
+}
+#Initial-assessment .grid .first .row input[type="text"]
+{
+    padding: 10px;
+    width: 228px;
+}
+
+
+#Initial-assessment .grid .second
+{
+    float: left;
+}
+#Initial-assessment .grid .second .heading
+{
+    background: none repeat scroll 0 0 #7DA63C;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+#Initial-assessment .grid .second .row
+{
+    padding: 5px;
+    text-align: center;
+}
+
+#Initial-assessment .grid .second .row input[type="text"]
+{
+    padding: 10px;
+    width: 180px;
+}
+
+
+
+
+#Initial-assessment .grid .third
+{
+    float: left;
+}
+#Initial-assessment .grid .third .heading
+{
+    background: none repeat scroll 0 0 #7DA63C;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+}
+#Initial-assessment .grid .third .row
+{
+    padding: 15px;
+    text-align: center;
+}
+#Initial-assessment .grid .third .row a
+{
+    text-align: center;
+    text-decoration: none;
+}
+
+#factor-treatmen .submit{float:right;margin:10px;}
+#factor-treatmen .submit input[type="button"]{width:100px;padding: 10px;}
+
+#factor-treatmen .submit-reject{float:right;margin:10px;}
+#factor-treatmen .submit-reject input[type="button"]{width:100px;padding: 10px;}

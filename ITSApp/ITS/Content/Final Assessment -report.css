@@ -1,0 +1,90 @@
+﻿
+/* First Screen*/
+#final-Qa-rep{margin:0 auto;width:984px;}
+
+#final-Qa-rep .finl-qa-rep-hedng{ background: none repeat scroll 0 0 #7DA63C;
+    border: 1px solid;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;}
+#final-Qa-rep #final-grid-outer{box-shadow: 1px 2px 3px #CDCDCD;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 980px;}
+
+ 
+  
+
+#final-Qa-rep #final-grid-outer .heading{width:152px;padding:5px;float:left;border: 1px solid #BEBEC0;text-align:center;vertical-align:middle;height:30px;background-color:#77B531;font-weight: bold;}
+#final-Qa-rep #final-grid-outer .row{width:152px;padding:9px 4px 10px 4px;float:left;border: 1px solid #BEBEC0;text-align:center;vertical-align:middle;height:25px;word-wrap:break-word;}
+
+
+.clear{clear:both;}
+/* second screen*/
+
+
+#final-Qa-rep-2{margin:0 auto;width:984px;}
+#final-Qa-rep-2 #view-guid-lines{float:right;padding:10px;}
+#final-Qa-rep-2 .finl-qa-rep-hedng{border:1px solid;padding:10px;margin-top:10px;background:#7DA63C;}
+#final-Qa-rep-2 #final-grid-outer-2{width:800px;border:1px solid;overflow:hidden;margin:10px auto 0 auto;}
+
+#final-Qa-rep-2 #final-grid-outer-2 .heading{width:188px;padding:5px;float:left;border:1px solid;text-align:center;vertical-align:middle;height:20px;background-color:#7DA63C;}
+#final-Qa-rep-2 #final-grid-outer-2 .row{width:188px;padding:5px;float:left;border:1px solid;text-align:center;vertical-align:middle;height:25px;}
+
+#final-Qa-rep-2 #demographic-info{width:984px;border:1px solid;overflow:hidden;}
+#final-Qa-rep-2 #demographic-info #left{width:490px;float:left;}
+#final-Qa-rep-2 #demographic-info #left #headings{float:left;}
+#final-Qa-rep-2 #demographic-info #left .heading{width:200px;background:#7DA63C;padding:5px;border:1px solid;}
+#final-Qa-rep-2 #demographic-info #left .txtbx{  border: 1px solid;float: right; padding: 2.5px; width: 271px;}
+#final-Qa-rep-2 #demographic-info #left .txtbx input[type="text"]{width: 265px;}
+
+#final-Qa-rep-2 #demographic-info #right{width:490px;float:right;}
+#final-Qa-rep-2 #demographic-info #right #headings{float:left;}
+#final-Qa-rep-2 #demographic-info #right .heading{width:200px;background:#7DA63C;padding:5px;border:1px solid;}
+#final-Qa-rep-2 #demographic-info #right .txtbx{  border: 1px solid;float: right; padding: 2.5px; width: 271px;}
+#final-Qa-rep-2 #demographic-info #right .txtbx input[type="text"]{width: 265px;}
+#final-Qa-rep-2 #Patient-Consent{border:1px solid;overflow:hidden;}
+#final-Qa-rep-2 #pat-hng{float:left;border-right:1px solid;padding:5px;}
+#final-Qa-rep-2 #pat-txtbx{float:right;padding: 2px;}
+#final-Qa-rep-2 #pat-txtbx input[type="text"]{width:676px;float:left;}
+#final-Qa-rep-2 #Injury-grid{border:1px solid;overflow:hidden;}
+#final-Qa-rep-2 #Injury-grid #hedng-left{float:left;text-align:center;background:#7DA63C;width:480px;border-right:1px solid;padding:5px;}
+#final-Qa-rep-2 #Injury-grid #hedng-right{float:right;text-align:center;background:#7DA63C;width:481px;padding:5px;}
+
+#final-Qa-rep-2 #Injury-grid .grid-row{ border: 1px solid; float: left; padding: 5px;text-align: center; width: 233px;}
+#final-Qa-rep-2 #Injury-grid .grid-row input[type="text"]{width:220px;}
+
+/*Third Screen */
+#final-Qa-rep-3{margin:0 auto;width:984px;}
+#final-Qa-rep-3 #Imact-grid #hedng-left{float:left;text-align:center;background:#7DA63C;width:480px;border-right:1px solid;padding:5px;}
+#final-Qa-rep-3 #Imact-grid #hedng-right{float:right;text-align:center;background:#7DA63C;width:483px;padding:5px;}
+#final-Qa-rep-3 #Imact-grid .grid-row{ border: 1px solid; float: left; padding: 5px;text-align: left; width: 233px;}
+#final-Qa-rep-3 #Imact-grid .grid-row input[type="checkbox"]{ margin-top: 0; padding: 0;}
+
+#final-Qa-rep-3 #Personal-grid .grid-row{ border: 1px solid; float: left; padding: 5px;text-align: left; width: 200px;height:18px;}
+#final-Qa-rep-3 #Personal-grid .grid-row input[type="checkbox"]{ margin-top: 0; padding: 0;}
+
+#final-Qa-rep-3 #Psycal-factr{width:400px;}
+#final-Qa-rep-3 #Psycal-factr #left-div{float:left;}
+#final-Qa-rep-3 #Psycal-factr #right-div{float:left;}
+#final-Qa-rep-3 #Psycal-factr #left-div .phy-fct-grid-row{border:1px solid;padding:6.5px;width:150px;}
+#final-Qa-rep-3 #Psycal-factr #right-div .phy-fct-grid-row{border:1px solid;padding:5px;width:150px;text-align:center;}
+#final-Qa-rep-3 #txtbox input[type="text"]{width:700px;height:80px;}
+
+#final-Qa-rep-4{margin:0 auto;width:984px;}
+#final-Qa-rep-4 #txtbox input[type="text"]{width:700px;height:60px;}
+
+#final-Qa-rep-4 #Prognosis{}
+#final-Qa-rep-4 #Prognosis #left-div-pro{float:left;}
+#final-Qa-rep-4 #Prognosis #right-div-pro{float:left;}
+#final-Qa-rep-4 #Prognosis .p-hedng{padding:5px;float:left;clear:both;}
+#final-Qa-rep-4 #Prognosis .p-txt{float:right;clear:both;padding:5px;}
+#final-Qa-rep-4 #Prognosis .p-txt input[type="text"]{width:300px;}
+
+
+
+#final-Qa-rep-4 .buton-right{float:right;}
+#final-Qa-rep-4 .buton-right input[type="submit"]{padding:5px 5px 5px 5px;width:100px;margin-right:50px;}
+
+.clear{clear:both;}

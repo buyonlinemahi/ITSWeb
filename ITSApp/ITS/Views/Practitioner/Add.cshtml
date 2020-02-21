@@ -1,0 +1,128 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Add New Practitioner</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home"><i class="icon-home"></i>Practitioner</a><a
+        href="#" class="tip-bottom">Add</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Practitioner Details</h5>
+                </div>
+                <div class="widget-content nopadding" id="divAddPractitioner">
+                    @using (Html.BeginForm(GlobalConst.Actions.PractitionerController.Save, GlobalConst.Controllers.Practitioner,
+                    FormMethod.Post, new
+                    {
+                        id = "frmAddPractitioner",
+                        @class
+                        = "form-horizontal"
+                    }))
+                    {
+                        <div class="control-group">
+                            <label class="control-label">
+                                Firstname:</label>
+                            <div class="controls">
+                                <input type="text" name="PractitionerFirstName" placeholder="John" data-bind="jqBootstrapValidation: {}"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Lastname:</label>
+                            <div class="controls">
+                                <input type="text" name="PractitionerLastName" placeholder="Doe" data-bind="jqBootstrapValidation: {}"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="control-group" >
+                            <!--<label class="control-label">Areas of expertise</label>-->
+                            <label class="control-label">
+                                Areas of expertise</label>
+                            <!--<div class="span1"></div>-->
+                            <!--<div class="span11">-->
+                            <div class="controls controls-row" data-bind="with: AreasofExpertise, jqBootstrapCheckboxGroupValidation: {}">
+                                <div class="controls span2">
+                                    <!-- ko foreach:$data.slice(0,1) -->
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="AreaofExpertiseIDs" data-bind="value:AreasofExpertiseID"
+                                            minchecked="1" data-validation-minchecked-message="Choose atleast one" />
+                                        <span data-bind="text:AreasofExpertiseName"></span>
+                                    </label>
+                                    <!-- /ko -->
+                                    <!-- ko foreach:$data.slice(1,5) -->
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="AreaofExpertiseIDs" data-bind="value:AreasofExpertiseID" />
+                                        <span data-bind="text:AreasofExpertiseName"></span>
+                                    </label>
+                                    <!-- /ko -->
+                                </div>
+                                <div class="controls span2">
+                                    <!-- ko foreach:$data.slice(5,10) -->
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="AreaofExpertiseIDs" data-bind="value:AreasofExpertiseID" />
+                                        <span data-bind="text:AreasofExpertiseName"></span>
+                                    </label>
+                                    <!-- /ko -->
+                                </div>
+                                <div class="controls span4">
+                                    <!-- ko foreach:$data.slice(10,15) -->
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="AreaofExpertiseIDs" data-bind="value:AreasofExpertiseID" />
+                                        <span data-bind="text:AreasofExpertiseName"></span>
+                                    </label>
+                                    <!-- /ko -->
+                                </div>
+                                
+                                <div class="clear">
+                                </div>
+                                <p class="help-block"></p>
+                            </div>
+                            <!--</div>-->
+                        </div>
+                        <div class="control-group">
+                        <div class="form-actions">
+                            <div class="column-groups-button">
+                                <button id="btnSave" type="submit" class="btn btn-primary btn-block" data-bind="bootstrapButton : SaveButtonDisable"
+                                    data-loading-text="Saving...">
+                                    Save</button>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script type="text/javascript">
+        //test run this will be converted to ko js
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        
+        function AddPractitionerViewModel(areasofExpertise) {
+            var self = this;
+            self.AreasofExpertise = ko.observableArray(areasofExpertise);
+            
+            self.SaveButtonDisable = ko.observable(false);
+            self.SaveValidatedClick = function ($form, event) {
+                self.SaveButtonDisable(true);
+            };
+        }
+        var viewModel = new AddPractitionerViewModel(model.AreasofExpertise);
+        ko.applyBindings(viewModel, $("#divAddPractitioner").get(0)); //submit the form in knockout js to save! do not an ajax call to save!
+    </script>
+}

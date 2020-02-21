@@ -1,0 +1,264 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Supplier
+@*
+ *Latest Version 1.0
+
+  Author          : Pardeep Kumar
+  Date            : 01-Jan-2013
+  Version         : 1.0
+  Purpose         : File added for the Supplier Clinical Audit 
+
+  *@
+<script src="@Url.Content("~/Scripts/plugins/Jquery.autocompletebyClinicalAudit.js")"
+    type="text/javascript"></script>
+<link href="@Url.Content("~/Content/SupplierClinicalAuditTabCss.css")" rel="stylesheet"
+    type="text/css" />
+<script type="text/javascript">
+    $(function () {
+
+        var ClinicalUrls = {
+            UrlGetUserByUserTypeID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.GetUserByUserTypeID, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)",
+            UrlGetSupplierClinicalAuditBySupplierID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.GetSupplierClinicalAuditBySupplierID, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)",
+            UrlUpdateSupplierClinicalAuditBySupplierClinicalAuditID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.UpdateSupplierClinicalAudit, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)",
+            UrlDeleteSupplierClinicalAuditBySupplierClinicalAuditID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.DeleteSupplierClinicalAuditBySupplierClinicalAuditID, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)",
+            UrlAddSupplierClinicalAudit: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.AddSupplierClinicalAudit, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)",
+            UrlGetPatientByPatientId: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.GetPatientNameByPatientId, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)",
+            UrlGetPatientNameByCaseId: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.GetPatientNameByCaseId, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)"
+        };
+
+        var ClinicalErrorMsg = {
+            PleaseEnterDocumentName: "@GlobalResource.PleaseEnterDocumentName",
+            PleaseSelectFile: "@GlobalResource.PleaseSelectFile",
+            PleaseEnterAuditeDate: "@GlobalResource.PleaseEnterAuditeDate",
+            PleaseChooseAuditor: "@GlobalResource.PleaseChooseAuditor",
+            PassFailStatus: "@GlobalResource.PassFailStatus"
+        }
+
+        ClinicalAuditViewModel.InitializeClinicalErrorMsg(ClinicalErrorMsg);
+        ClinicalAuditViewModel.InitializeClinicalUrls(ClinicalUrls);
+
+        //Setting for to get supplier by search cretaria
+        var clinicalSettings = {
+            actionUrl: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.GetCaseByLikeCaseNumber, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)",
+            method: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierClinicalAuditController.GetPatientNameByPatientId, GlobalConst.Controllers.Area.Internal.SupplierClinicalAudit)",
+            selected: function (event, ui) {
+                ClinicalAuditViewModel.CaseID(ui.item.CaseID);
+                
+                $.ajax({
+                    url: clinicalSettings.method,
+                    cache: false,
+                    type: "POST", dataType: "json",
+                    data: { patientId: ui.item.PatientID },
+                    success: function (data) {
+
+                        ClinicalAuditViewModel.UpdatePatientName(data);
+                    },
+                    error: function () {
+
+                    }
+                });
+            }
+
+        };
+
+        $("#CaseNumber").autocompleteCaseNumberForClinicalAudit(clinicalSettings);
+
+        var pickerOpts = {
+            dateFormat: $.datepicker.ATOM,
+            changeYear: true
+
+        };
+        //inputAuditDate
+        $("#AuditDate").datepicker(pickerOpts);
+    });
+    function ClinicalFormValidation() {
+        ClinicalAuditFormSubmitUrl();
+        return ClinicalAuditViewModel.ClinicalFormValidations();
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $("#modelPopSupplierClinicalAudit").dialog({
+                autoOpen: false,
+                width: 800,
+                modal: true,
+                buttons: {
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        });
+    });
+    $(function () {
+        $("#tabs").tabs();
+    });
+    $(function () {
+        $("#tabs-inner").tabs();
+    });
+</script>
+<div id="divClinicalSpinner" style="position: absolute; top: 20%; left: 50%">
+</div>
+<div id="divClinicalAuditContainer" class="outter-assess-container">
+    <div class="location-frame">
+        <div class="location-frame-row">
+            <div class="location-frame--row-cellHeading" style="width: 191px;">
+                ITS Reference Number
+            </div>
+            <div class="location-frame--row-cellHeading">
+                Pass or Fail
+            </div>
+            <div class="location-frame--row-cellHeading">
+                Auditor
+            </div>
+            <div class="location-frame--row-cellHeading">
+                Date Audited
+            </div>
+            <div class="location-frame--row-cellHeading" style="border-right: 1px solid black;
+                height: 15px; width: 268px;">
+                Clinical Audit Document Upload
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div style="width: 935px;" class="location-frame-row" data-bind="template: {name:'records',foreach:SupplierClinicalAuditArray}">
+        </div>
+        <div class="clear">
+        </div>
+        <div>
+            <div style="float: right; font-weight: bold; padding: 10px;">
+                <a href="javascript:void(0)" data-bind="click: showClinicModal">Add New</a>
+            </div>
+        </div>
+    </div>
+    <div id="modelPopSupplierClinicalAudit">
+        <div class="model-container">
+            <form id="SupplierClinicalform" enctype="multipart/form-data" method="post" onsubmit="return ClinicalFormValidation()">
+            <div class="row">
+                <div class="left">
+                    <span class="star">*</span> ITS Reference Number
+                </div>
+                <div class="right">
+                    <input id="CaseNumber" name="CaseNumber" type="text" class='required' data-bind="value:CaseNumber" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Patient Name:
+                </div>
+                <div class="right">
+                    <input type="text" id="PatientName" name="PatientName" class='required' data-bind="value:PatientName" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <span class="star">*</span>Pass or Fail
+                </div>
+                <div class="right">
+                    <input type="radio" value="Pass" data-bind="checked: AuditPassFail" />Pass &nbsp;&nbsp;
+                    <input type="radio" value="Fail" data-bind="checked: AuditPassFail" />Fail
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <span class="star">*</span>Auditor
+                </div>
+                <div class="right">
+                    <select id="UserID" name="UserID" data-bind="options:Users, optionsText:'UserName',optionsValue:'UserID',value:UserID, optionsCaption: 'Choose...'">
+                    </select>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left" style="border-bottom: 1px solid;">
+                    <span class="star">*</span>Date Audited
+                </div>
+                <div class="right" style="border-bottom: 1px solid;">
+                    <input type="text" id="AuditDate" name="AuditDate" readonly="readonly"
+                        data-bind="value:AuditDate" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left" style="border-bottom: 1px solid;">
+                    <span class="star">*</span>Document Name
+                </div>
+                <div class="right" style="border-bottom: 1px solid;">
+                    <input id="DocumentName" name="DocumentName" type="text" data-bind="value:DocumentName" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left" style="border-bottom: 1px solid;">
+                    <span class="star">*</span>&nbsp;Clinical Audit Document Upload
+                </div>
+                <div class="right" style="border-bottom: 1px solid;">
+                    <input type="file" name="ClinicalAuditDocumentFileUpload" id="ClinicalAuditDocumentFileUpload" />
+                    <input type="hidden" name="SupplierID" id="ClinicalSupplierId" data-bind="value:SupplierID" />
+                    <input type="hidden" name="DocumentTypeID" id="DocumentTypeID" data-bind="value:DocumentTypeID" />
+                    <input type="hidden" name="CaseID" id="CaseID" data-bind="value:CaseID" />
+                    <input type="hidden" name="AuditPassFail" id="AuditPassFail" data-bind="value:AuditPassFail" />
+                    <input type="hidden" name="SupplierDocumentID" id="SupplierDocumentID" data-bind="value:SupplierDocumentID" />
+                    <input type="hidden" name="UploadDate" id="UploadDate" data-bind="value:UploadDate" />
+                    <input type="hidden" name="ClinicalAuditOldFileName" id="ClinicalAuditOldFileName"
+                        data-bind="value:OldUploadFileName " />
+                    <input type="hidden" name="SupplierClinicalAuditID" id="SupplierClinicalAuditID"
+                        data-bind="value:SupplierClinicalAuditID " />
+                    <input type="hidden" name="AuditPass" id="AuditPass"
+                        data-bind="value:AuditPass" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="pop-buttons">
+                <input type="submit" id="btn2" value="Close" data-bind="click:Cancel" />
+                &nbsp;&nbsp;
+                <input type="submit" id="btn" data-bind="value:SaveUpdateText" />
+                <div class="clear">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script id="records" type="text/html">
+  <div class="location-frame--row-cell" style="border-bottom: 1px solid black; width: 191px;">
+                <span data-bind="text:CaseNumber"></span>
+            </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black">
+                <span data-bind="text:AuditPass"></span>
+            </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black">
+                <span data-bind="text:UserName"></span>
+            </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black">
+                <span data-bind="dateString:AuditDate,text:AuditDate"></span>
+            </div>
+            <div class="location-frame--row-cell" style="width: 267px; border-bottom: 1px solid black;
+                border-right: 1px solid black">
+                <div style="float: left; width: 85px;">
+                      <a data-bind="attr:{href:DocumentUrl}">View Upload</a>
+                    &nbsp;/ 
+                </div>
+                <div style="float: left; width: 85px">
+                    <a href="javascript:(void)" data-bind="click:$parent.AmmendClinicalAudit">Ammend </a>
+                </div>
+                <div style="float: left; width: 85px">
+                    <a href="javascript:(void)" data-bind="click:$parent.RemoveClinicalAudit">Delete </a>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+</script>

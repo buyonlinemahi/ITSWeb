@@ -1,0 +1,79 @@
+﻿@*
+
+  Page Name:  AuthorisationPartial.cshtml                      
+  Version:  1.0                                                
+  Purpose:  Create AuthorisationPartial View Page
+  Revision History:                                          
+                                                             
+    1.0 – 10/31/2012 Robin Singh   
+
+ * Description : Created AuthorisationPartial View Page
+
+*@
+<div id="DivReferrerAuthorisation">
+    <div class="Authorisation-frame">
+        <div class="Authorisation-frame-row">
+            <div class="Authorisation-frame--row-cellHeading" style="width: 80px">
+                Referrer Authorization
+            </div>
+            <div class="Authorisation-frame--row-cellHeading" style="width: 80px">
+                Due Date
+            </div>
+            <div class="Authorisation-frame--row-cellHeading" style="width: 80px">
+                Date Submited
+            </div>
+            <div class="Authorisation-frame--row-cellHeading" style="width: 157px">
+                Case Number
+            </div>
+            <div class="Authorisation-frame--row-cellHeading">
+                Patient Name
+            </div>
+            <div class="Authorisation-frame--row-cellHeading">
+                Treatment Type
+            </div>
+            <div class="Authorisation-frame--row-cellHeading" style="width: 135px">
+                Referrer Reference Number
+            </div>
+            <div class="Authorisation-frame--row-cellHeading">
+                Referrer
+            </div>
+            <div class="Authorisation-frame-row" data-bind="template: {name:'AuthorisationGrid',foreach:Authorisations}">
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        
+    </div>    
+  
+    
+    <script id="AuthorisationGrid" type="text/html">
+    <div class="Authorisationn-frame--row-cell" style="width: 80px">
+      <a href="#" id="AssessmentAuthorisationNameAnchor" data-bind="text:AssessmentAuthorisationName"></a>
+    </div>
+    <div class="Authorisationn-frame--row-cell" style="width:80px">
+         <span data-bind="text:CaseReferrerDueDate"></span>
+    </div>
+     <div class="Authorisationn-frame--row-cell" style="width: 80px">
+         <span data-bind="text:CaseSubmittedDate"></span>
+    </div>
+    <div class="Authorisationn-frame--row-cell" style="width: 157px">
+        <span data-bind="text:CaseNumber"></span>
+    </div>
+    <div class="Authorisationn-frame--row-cell" >
+        <span data-bind="text:PatientName"></span>
+    </div>
+     <div class="Authorisationn-frame--row-cell" >
+        <span data-bind="text:TreatmentTypeName"></span>
+    </div>
+    <div class="Authorisationn-frame--row-cell" style="width: 135px">
+        <span data-bind="text:CaseReferrerReferenceNumber"></span>
+    </div>
+     <div class="Authorisationn-frame--row-cell" >
+        <span data-bind="text:ReferrerName"></span>
+    </div>
+    <div class="clear">
+    </div>
+    </script>
+</div>
+@Html.Partial("~/Views/Shared/_Paging.cshtml")
+

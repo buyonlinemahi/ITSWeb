@@ -1,0 +1,38 @@
+﻿.asterik { font-family:Verdana;font-size:12px;color:Red;}
+ .ui-autocomplete-loading
+    {
+        background: white url('/Content/Images/lodder.gif') right center no-repeat;
+    }
+    #city
+    {
+        width: 25em;
+    }
+*{font-family:Arial;font-size:12px;}
+.mgt-left{float:left;padding:10px;}
+.mgt-right{float:right ;padding:10px;vertical-align:top;text-align:center;}
+.mgt-left .container{text-align:left;overflow:hidden;width:360px;}
+.mgt-left .container .left-text{  float: left;font-family: arial;font-size: 12px;font-weight: bold; padding: 7px 0 7px 5px; width: 134px;}
+.mgt-left .container .right-textbx{float:right;padding:3.5px;}
+.mgt-left .container .right-errtextbx{float:right;border:1px solid red;padding:3.5px;}
+.mgt-left .container .right-textbx input[type="text"]{width:200px;height:17px;box-shadow: 1px 1px 1px #BFD1D3;padding: 6px;}
+.mgt-left .container .right-textbx input[type="password"]{width:200px;height:17px;box-shadow: 1px 1px 1px #BFD1D3;padding: 6px;}
+
+.mgt-left .container .right-textbx select{ height: 34px;
+    padding: 5px;
+    width: 214px;box-shadow: 1px 1px 1px #BFD1D3;}
+.border-bottom-none{border-bottom:none;}
+.mgt-right{float:left;padding:10px;padding-right:100px;}
+.mgt-right .add-edit {float:left;}
+.mgt-right input[type="button"]{ background: none repeat scroll 0 0 #EBE8D8;
+    box-shadow: 1px 1px 1px #CDCDCD;
+    height: 40px;
+    margin-bottom: 13px;}
+.mgt-right .save-user-settings{float:right;}
+.mgt-right .security{float:left;font-weight: bolder; padding: 20px 20px 20px 103px}
+.mgt-right .securty-contents{padding-left: 106px;}
+.mgt-right .securty-contents table{border:1px solid #000;}
+.mgt-right .securty-contents .td-border{border:1px solid #000; text-align:center;padding:10px;}
+.mgt-right .select-all{float:right;padding:15px;}
+
+.clear{clear:both;}
+.labelClass{color: #77B531; display:none; font-size:12px; font-family:Arial;}

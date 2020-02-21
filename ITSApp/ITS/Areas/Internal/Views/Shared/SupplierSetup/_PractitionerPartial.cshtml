@@ -1,0 +1,288 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Supplier
+@*/*
+*  Latest Version  : 1.0
+
+*  Modified by  : Harpreet Singh
+*  Version      : 1.0
+*  Date         : 31-Dec-2012
+*  Description  : Created the partial view design and Popup
+
+*/
+*@
+<link href="@Url.Content("~/Content/SupplierPractitionerPartial.css")" rel="stylesheet" type="text/css" />
+<!-- SEARCH FOR PRACTITIONER BY NAME OR TREATMENT-->
+<div id="SupplierPractitionerMainDiv" style="padding-bottom: 75px;">
+    <div id="divPractitionerSpinner" style="position: absolute; top: 20%; left: 50%">
+    </div>
+    <div id="supplierSetupOuter">
+        <div class="supplierArea" style="padding: 0 20px 28px 5px; border-left: 1px solid;
+            border-right: 1px solid; border-top: 1px solid; padding: 11px 0 28px; width: 943px;">
+            <div class="SearchCretaria">
+                <b style="padding-left: 16px;">Practitione Search Criteria:</b>
+            </div>
+            <div data-bind="foreach:SearchCritaria">
+                <div class="SearchCretaria">
+                    <input type="radio" name="sarchRdio" data-bind="attr: {value:SearchCategoryID},checked:$root.CheckedSelectedUrl" /><span
+                        data-bind="text:SearchByName"></span></div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div id="supplierDiv" style="width: 945px">
+            <div class="supplierSearch">
+                <b>Practitione Seacrh:</b><input type="text" id="PractitionerNameForSupplier" name="Seacrh"
+                    data-bind="value:PractitionerSearchText" /><input type="submit" value="Search" data-bind="click:SearchforPractitioners" /><input
+                        type="submit" value="Add New" data-bind="click:showModal" />
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <div data-bind="visible:Practitioners().length > 0 ? true :false,valueUpdate: 'afterkeydown'">
+        <span style="color: Red; margin-left: 72px;">Search Results:</span>
+        <div class="practitionerContainer" style="margin: 0 auto; width: 948px;">
+            <div class="heading">
+                Practitioner Name</div>
+            <div class="heading">
+                Registration Number</div>
+            <div class="heading">
+                Treatment Category</div>
+            <div class="heading">
+                HPC/UIN</div>
+            <div class="heading">
+                Active?</div>
+            <div class="heading">
+                Attach</div>
+            <div data-bind="template: {name:'practitioners', foreach: Practitioners }" style="margin: 0 auto;
+                width: 948px;">
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div style="clear: both;">
+    </div>
+    <div data-bind="visible:SupplierAttachedPractitioners().length > 0 ? true :false,valueUpdate: 'afterkeydown'">
+        <span style="margin-left: 72px;"><b>Attached Practitioners</b></span>
+        <div style="clear: both;">
+        </div>
+        <div class="practitionerContainer" style="margin: 0 auto; width: 948px;">
+            <div class="heading">
+                Practitioner Name</div>
+            <div class="heading">
+                Registration Number</div>
+            <div class="heading">
+                Treatment Category</div>
+            <div class="heading">
+                HPC/UIN</div>
+            <div class="heading">
+                Active?</div>
+            <div class="heading">
+                Attach</div>
+            <div data-bind="template: {name:'AttachedPractitioners', foreach: SupplierAttachedPractitioners }"
+                style="margin: 0 auto; width: 948px;">
+            </div>
+        </div>
+    </div>
+</div>
+<!--END-->
+<!--MODEL POPUP DIV -->
+<div id="pratictionerPOPUP">
+    <div class="heading">
+        Add New Practitioner Pop Up
+    </div>
+    <div class="alertPracitioner" id="AddNewpracitioner">
+        <div>
+            <span>Supplier Practitioner successfully Added</span>
+        </div>
+    </div>
+    <div class="left" style="margin-top: 30px;">
+        <div class="text">
+            *First Name</div>
+        <div class="inputType">
+            <input type="text" data-bind="value:PractitionerFirstName" />
+        </div>
+        <div class="text">
+            *Last Name</div>
+        <div class="inputType">
+            <input type="text" data-bind="value:PractitionerLastName" />
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <br />
+    <br />
+    <div>
+        <b>Practitioner Registration Information</b></div>
+    <div class="left" style="margin-top: 20px;">
+        <div class="text">
+            *Treatment Category</div>
+        <div class="inputType">
+            <select style="width: 290px;" data-bind="options: PractitonerTreatmentCategories,optionsText:'TreatmentCategoryName', optionsValue : 'TreatmentCategoryID',value:TreatmentCategoryID,valueUpdate: 'change'">
+            </select>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="left">
+        <div class="clear">
+        </div>
+        <div class="text">
+            *Registration Number</div>
+        <div class="inputType">
+            <input type="text" data-bind="value:RegistrationNumber" />
+        </div>
+        <div class="clear">
+        </div>
+        <div class="text">
+            *Qualification</div>
+        <div class="inputType">
+            <input type="text" data-bind="value:Qualification" />
+        </div>
+        <div class="clear">
+        </div>
+        <div class="text">
+            *Expiry Date</div>
+        <div class="inputType">
+            <input type="text" id="datepickerExpirydate" data-bind="value:ExpiryDate" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="right">
+        <div class="text">
+            *Registration Type</div>
+        <div class="inputType">
+            <select style="width: 290px;" data-bind="options:RegistrationTypes ,optionsText:'RegistrationTypeName', optionsValue : 'RegistrationTypeID', value:RegistrationTypeID,valueUpdate: 'change'">
+            </select>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="text">
+            *Qualification Date</div>
+        <div class="inputType">
+            <input type="text" id="datepicker" data-bind="value: QualificationDate, valueUpdate: 'afterkeydown'" />
+        </div>
+        <div class="clear">
+        </div>
+        <div class="text">
+            Years Qualified</div>
+        <div class="inputType">
+            <input type="text" data-bind="value: YearsQualified,enable:false" />
+        </div>
+    </div>
+    <a href="#" data-bind="click:PractitionerRegistrationGrid" class="addRegistration">Add</a>
+    <div class="clear">
+    </div>
+    <br />
+    <!-- PRACTITIONER REGISTRATION GRID  START-->
+    <div data-bind="visible:Registrations().length > 0">
+        <b>Practitioner Registration</b>
+        <div class="practitionerContainer">
+        </div>
+        <div class="practitionerContainer">
+            <div class="heading" style="float: left; text-align: center; width: 135px;">
+                Treatment Category</div>
+            <div class="heading" style="float: left; text-align: center; width: 135px;">
+                Registration Number</div>
+            <div class="heading" style="float: left; text-align: center; width: 135px;">
+                Registration Type</div>
+            <div class="heading" style="float: left; text-align: center; width: 135px;">
+                Qualification</div>
+            <div class="heading" style="float: left; text-align: center; width: 135px;">
+                Expiry Date</div>
+            <div class="heading" style="float: left; text-align: center; width: 135px;">
+                Year Qualified
+            </div>
+            <div class="heading" style="float: left; text-align: center; width: 50px; height: 15px;">
+            </div>
+            <div class="clear">
+            </div>
+            <div data-bind="template: {name:TemplateToUse, foreach: Registrations }">
+            </div>
+        </div>
+        <!-- PRACTITIONER REGISTRATION GRID  END-->
+        <div class="clear">
+        </div>
+        <br />
+    </div>
+    <!---AREA OF EXPERISE-- START-->
+    <div>
+        <b style="margin-left: 60px">Areas of Expertise</b></div>
+    <div data-bind="foreach:AreaOfExpertiesArray" style="margin-left: 60px">
+        <div style="width: 200px; float: left; padding: 10px;">
+            <div style="float: left">
+                <input type="checkbox" data-bind="checked:IsChecked" />
+            </div>
+            <div style="float: left">
+                <span data-bind="text:AreaofExpertiseName"></span>
+            </div>
+        </div>
+    </div>
+    <!--AREA OF EXPERISE END-->
+    <div class="saveButton">
+        <input type="submit" value="Save" data-bind="click:AddPractitioner,enable:EnableSave" />
+        <input type="submit" value="Close" id="ClosePractionerPopup" data-bind="click:Cancel" />
+    </div>
+</div>
+<!--END-->
+<!--CONFIRM BOX DIV-->
+<div id="CloseWithoutSaveConfirmBox">
+    <div style="text-align: center">
+        <h3>
+            “Data has not been saved, are you sure you want to continue”</h3>
+    </div>
+    <div class="saveButton">
+        <input type="submit" value="YES" data-bind="click:CloseWithoutSave" />
+        <input type="submit" value="NO" id="ClosePractionerPopupConfirm" data-bind="click:NotCloseWithoutSave" />
+    </div>
+</div>
+<!--END-->
+<!--TEMPLATE FOR SEARCH PRACTITIONER-- START-->
+<script id="practitioners" type="text/html"> 
+<div class="clear"></div>
+<div class="text"><a href="index" data-bind="text:PractitionerFullName,click:$parent.ConfirmBox"></a></div>
+<div class="text" data-bind="text:RegistrationNumber"></div>
+<div class="text" data-bind="text:TreatmentCategoryName"></div>
+<div class="text" data-bind="text:RegistrationTypeName"></div> 
+<div class="text" data-bind="text:IsActive()==true ?'Yes':'No'"> </div> 
+<div class="text" style="height: 15px;" ><input type="submit" value="Attach" style="margin-top: -5px;" data-bind="click:$root.AttachPractitioner,enable:Enabled"/></div>
+</script>
+<!--END-->
+<!--TEMPLATE FOR ATTACHED PRACTITIONER-- START-->
+<script id="AttachedPractitioners" type="text/html"> 
+<div class="clear"></div>
+<div class="text"><a href="index" data-bind="text:PractitionerFullName,click:$parent.ConfirmBox"></a></div>
+<div class="text" data-bind="text:RegistrationNumber"></div>
+<div class="text" data-bind="text:TreatmentCategoryName"></div>
+<div class="text" data-bind="text:RegistrationTypeName"></div> 
+<div class="text" data-bind="text:IsActive()==true ?'Yes':'No'"> </div> 
+<div class="text"><a href="#" data-bind="click:$root.RemovePractitioner">Remove</a></div> 
+</script>
+<!--END-->
+<!--TEMPLATE FOR  PRACTITIONER REGISTRATIONS-- START-->
+<script id="practitionerRegistration" type="text/html"> 
+<div class="text" style="float: left; text-align: center; width: 135px;"><span data-bind="text:TreatmentCategoryName"></span> </div>
+<div class="text" style="float: left; text-align: center; width: 135px;"> <span data-bind="text:RegistrationNumber"></span></div>
+<div class="text" style="float: left; text-align: center; width: 135px;"> <span data-bind="text:RegistrationTypeName"></span></div>
+<div class="text" style="float: left; text-align: center; width: 135px;"><span data-bind="text:Qualification"></span> </div>
+<div class="text" style="float: left; text-align: center; width: 135px;"> <span data-bind="text:ExpiryDate"></span></div>
+<div class="text" style="float: left; text-align: center; width: 135px;"> <span data-bind="text:YearsQualified"></span></div>
+<div class="text" style="float: left; text-align: center; width: 50px;"> <a href="#" data-bind="click:$root.EditPractitionerRegistreationInfo">Edit</a></div>
+<div class="clear"> </div>
+</script>
+<!--END-->
+<!--TEMPLATE FOR EDIT PRACTITIONER REGISTRATION-- START-->
+<script id="EditPractitionerRegistrationTemplate" type="text/html">
+<div class="text" style="float: left; text-align: center; width: 135px;">
+<select  data-bind="options: $root.PractitonerTreatmentCategories,optionsText:'TreatmentCategoryName', optionsValue : 'TreatmentCategoryID', value:$parent.TreatmentCategoryID,valueUpdate: 'change'"> </select></div>
+<div class="text" style="float: left; text-align: center; width: 135px;"> <input type="text" style="width:125px;padding: 0.7px;" data-bind="value:RegistrationNumber"/></div>
+<div class="text" style="float: left; text-align: center; width: 135px;">   <select  data-bind="options:$root.RegistrationTypes ,optionsText:'RegistrationTypeName', optionsValue : 'RegistrationTypeID',value:$parent.RegistrationTypeID,valueUpdate: 'change'"> </select></div>
+<div class="text" style="float: left; text-align: center; width: 135px;"><input type="text" style="width:125px;padding: 0.7px;" data-bind="value:Qualification"/> </div>
+<div class="text" style="float: left; text-align: center; width: 135px;"> <input type="text" style="width:125px;padding: 0.5px;" data-bind="value:ExpiryDate" id="editExpiryDate"/></div>
+<div class="text" style="float: left; text-align: center; width: 135px;height:19px;"> <span data-bind="text:YearsQualified" ></span></div>
+<div class="text" style="float: left; text-align: center; width: 50px;"><a  href="#" data-bind="click:$root.UpdatePractitionerRegistration">Update</a> <a  href="#" data-bind="click:$root.CancelpractitionerRegistrationEdit">Cancel</a></div>
+<div class="clear"> </div>
+</script>
+<!--END-->

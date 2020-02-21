@@ -1,0 +1,40 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Follow Up Date
+            </th>
+            <th>
+                User
+            </th>
+            <th>
+                Date of Action
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:InvoiceCollectionActionHistory">
+        <tr>
+            <td>
+                <span data-bind="text:Action" class="span6"></span>
+            </td>
+            <td class="span2">
+                <center>
+                    <span data-bind="text:FollowUpDate"></span>
+                </center>
+            </td>
+            <td class="span2">
+                <center>
+                    <span data-bind="text:UserName"></span>
+                </center>
+            </td>
+            <td class="span2">
+                <center>
+                    <span data-bind="text:DateofAction"></span>
+                </center>
+            </td>
+        </tr>
+    </tbody>
+</table>

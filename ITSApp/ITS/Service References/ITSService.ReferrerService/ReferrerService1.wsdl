@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReferrerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2061/ReferrerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2061/ReferrerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2061/ReferrerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReferrerService_GetAllReferrerProjectTreatmentAuthorisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferrerProjectTreatmentAuthorisation" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllReferrerProjectTreatmentAuthorisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferrerProjectTreatmentAuthorisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentAuthorisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentAuthorisation" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentAuthorisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentAuthorisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentAuthorisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentAuthorisation" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentAuthorisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentAuthorisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_DeleteReferrerProjectTreatmentAuthorisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferrerProjectTreatmentAuthorisation" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_DeleteReferrerProjectTreatmentAuthorisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferrerProjectTreatmentAuthorisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerLocationMainOffice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerLocationMainOffice" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerLocationMainOffice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerLocationMainOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllDelegatedAuthorisationTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelegatedAuthorisationTypes" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllDelegatedAuthorisationTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelegatedAuthorisationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllDocumentSetupTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDocumentSetupTypes" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllDocumentSetupTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDocumentSetupTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllEmailType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailType" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllEmailType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllServiceLevelAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceLevelAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllServiceLevelAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceLevelAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentPricing" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentPricingByPricingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentPricingByPricingID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentPricingByPricingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentPricingByPricingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetProjectTreatmentSLAsByReferrerProjectTreatmentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTreatmentSLAsByReferrerProjectTreatmentID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetProjectTreatmentSLAsByReferrerProjectTreatmentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectTreatmentSLAsByReferrerProjectTreatmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddProjectTreatmentSLA_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProjectTreatmentSLA" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddProjectTreatmentSLA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProjectTreatmentSLAResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateProjectTreatmentSLAsByProjectTreatmentSLAID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectTreatmentSLAsByProjectTreatmentSLAID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateProjectTreatmentSLAsByProjectTreatmentSLAID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectTreatmentSLAsByProjectTreatmentSLAIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentEmailById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentEmailById" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentEmailById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentEmailByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetByReferrerProjectTreatmentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByReferrerProjectTreatmentId" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetByReferrerProjectTreatmentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByReferrerProjectTreatmentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentEmail" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentEmail" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_DeleteReferrerProjectTreatmentEmailById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferrerProjectTreatmentEmailById" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_DeleteReferrerProjectTreatmentEmailById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferrerProjectTreatmentEmailByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentDocumentSetup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentDocumentSetup" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentDocumentSetup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentDocumentSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentDocumentSetup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentDocumentSetup" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentDocumentSetup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentDocumentSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetPricingTypesByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPricingTypesByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetPricingTypesByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPricingTypesByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllReferrerProjectTreatment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferrerProjectTreatment" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllReferrerProjectTreatment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferrerProjectTreatmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllAssessmentService_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAssessmentService" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllAssessmentService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAssessmentServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllAssessmentType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAssessmentType" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllAssessmentType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAssessmentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllDelegatedAuthorisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelegatedAuthorisation" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllDelegatedAuthorisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelegatedAuthorisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllReferrerProjectTreatmentAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferrerProjectTreatmentAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllReferrerProjectTreatmentAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferrerProjectTreatmentAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatmentAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatmentAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_DeleteReferrerProjectTreatmentAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferrerProjectTreatmentAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_DeleteReferrerProjectTreatmentAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferrerProjectTreatmentAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllReferrer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferrer" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllReferrer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferrerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrer" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerAndMainLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerAndMainLocation" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerAndMainLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerAndMainLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerLocationsByReferrerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerLocationsByReferrerID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerLocationsByReferrerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerLocationsByReferrerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerLocations" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_InsertReferrerLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertReferrerLocations" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_InsertReferrerLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertReferrerLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerDetailsByReferrerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerDetailsByReferrerID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerDetailsByReferrerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerDetailsByReferrerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentsByReferrerProjectID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentsByReferrerProjectID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentsByReferrerProjectID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentsByReferrerProjectIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrer" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_DeleteByReferrerLocationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByReferrerLocationID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_DeleteByReferrerLocationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByReferrerLocationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllPricingType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPricingType" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllPricingType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPricingTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllInvoiceMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInvoiceMethod" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllInvoiceMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInvoiceMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllTreatmentCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentCategory" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetAllTreatmentCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrersLikeReferrerName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrersLikeReferrerName" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrersLikeReferrerName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrersLikeReferrerNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerAndMainLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerAndMainLocation" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerAndMainLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerAndMainLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerMainLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerMainLocation" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerMainLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerMainLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectsByReferrerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectsByReferrerID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectsByReferrerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectsByReferrerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectNameAutoComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectNameAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectNameAutoComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectNameAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProject" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectByProjectID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectByProjectID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectByProjectID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectByProjectIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProject" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatment" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_AddReferrerProjectTreatment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerProjectTreatmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatment" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_UpdateReferrerProjectTreatment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferrerProjectTreatmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID" />
+  </wsdl:message>
+  <wsdl:message name="IReferrerService_GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReferrerService">
+    <wsdl:operation name="GetAllReferrerProjectTreatmentAuthorisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatmentAuthorisation" message="tns:IReferrerService_GetAllReferrerProjectTreatmentAuthorisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatmentAuthorisationResponse" message="tns:IReferrerService_GetAllReferrerProjectTreatmentAuthorisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentAuthorisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentAuthorisation" message="tns:IReferrerService_AddReferrerProjectTreatmentAuthorisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentAuthorisationResponse" message="tns:IReferrerService_AddReferrerProjectTreatmentAuthorisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentAuthorisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentAuthorisation" message="tns:IReferrerService_UpdateReferrerProjectTreatmentAuthorisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentAuthorisationResponse" message="tns:IReferrerService_UpdateReferrerProjectTreatmentAuthorisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferrerProjectTreatmentAuthorisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentAuthorisation" message="tns:IReferrerService_DeleteReferrerProjectTreatmentAuthorisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentAuthorisationResponse" message="tns:IReferrerService_DeleteReferrerProjectTreatmentAuthorisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID" message="tns:IReferrerService_GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentIDResponse" message="tns:IReferrerService_GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerLocationMainOffice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerLocationMainOffice" message="tns:IReferrerService_UpdateReferrerLocationMainOffice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerLocationMainOfficeResponse" message="tns:IReferrerService_UpdateReferrerLocationMainOffice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelegatedAuthorisationTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllDelegatedAuthorisationTypes" message="tns:IReferrerService_GetAllDelegatedAuthorisationTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllDelegatedAuthorisationTypesResponse" message="tns:IReferrerService_GetAllDelegatedAuthorisationTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDocumentSetupTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllDocumentSetupTypes" message="tns:IReferrerService_GetAllDocumentSetupTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllDocumentSetupTypesResponse" message="tns:IReferrerService_GetAllDocumentSetupTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllEmailType" message="tns:IReferrerService_GetAllEmailType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllEmailTypeResponse" message="tns:IReferrerService_GetAllEmailType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceLevelAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllServiceLevelAgreement" message="tns:IReferrerService_GetAllServiceLevelAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllServiceLevelAgreementResponse" message="tns:IReferrerService_GetAllServiceLevelAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentPricing">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentPricing" message="tns:IReferrerService_AddReferrerProjectTreatmentPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentPricingResponse" message="tns:IReferrerService_AddReferrerProjectTreatmentPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentPricingByPricingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentPricingByPricingID" message="tns:IReferrerService_UpdateReferrerProjectTreatmentPricingByPricingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentPricingByPricingIDResponse" message="tns:IReferrerService_UpdateReferrerProjectTreatmentPricingByPricingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTreatmentSLAsByReferrerProjectTreatmentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetProjectTreatmentSLAsByReferrerProjectTreatmentID" message="tns:IReferrerService_GetProjectTreatmentSLAsByReferrerProjectTreatmentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetProjectTreatmentSLAsByReferrerProjectTreatmentIDResponse" message="tns:IReferrerService_GetProjectTreatmentSLAsByReferrerProjectTreatmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProjectTreatmentSLA">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddProjectTreatmentSLA" message="tns:IReferrerService_AddProjectTreatmentSLA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddProjectTreatmentSLAResponse" message="tns:IReferrerService_AddProjectTreatmentSLA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectTreatmentSLAsByProjectTreatmentSLAID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateProjectTreatmentSLAsByProjectTreatmentSLAID" message="tns:IReferrerService_UpdateProjectTreatmentSLAsByProjectTreatmentSLAID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateProjectTreatmentSLAsByProjectTreatmentSLAIDResponse" message="tns:IReferrerService_UpdateProjectTreatmentSLAsByProjectTreatmentSLAID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentEmailById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentEmailById" message="tns:IReferrerService_GetReferrerProjectTreatmentEmailById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentEmailByIdResponse" message="tns:IReferrerService_GetReferrerProjectTreatmentEmailById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByReferrerProjectTreatmentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetByReferrerProjectTreatmentId" message="tns:IReferrerService_GetByReferrerProjectTreatmentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetByReferrerProjectTreatmentIdResponse" message="tns:IReferrerService_GetByReferrerProjectTreatmentId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentEmail" message="tns:IReferrerService_AddReferrerProjectTreatmentEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentEmailResponse" message="tns:IReferrerService_AddReferrerProjectTreatmentEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentEmail" message="tns:IReferrerService_UpdateReferrerProjectTreatmentEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentEmailResponse" message="tns:IReferrerService_UpdateReferrerProjectTreatmentEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferrerProjectTreatmentEmailById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentEmailById" message="tns:IReferrerService_DeleteReferrerProjectTreatmentEmailById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentEmailByIdResponse" message="tns:IReferrerService_DeleteReferrerProjectTreatmentEmailById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentInvoice" message="tns:IReferrerService_AddReferrerProjectTreatmentInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentInvoiceResponse" message="tns:IReferrerService_AddReferrerProjectTreatmentInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID" message="tns:IReferrerService_GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentIDResponse" message="tns:IReferrerService_GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentInvoice" message="tns:IReferrerService_UpdateReferrerProjectTreatmentInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentInvoiceResponse" message="tns:IReferrerService_UpdateReferrerProjectTreatmentInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentDocumentSetup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentDocumentSetup" message="tns:IReferrerService_AddReferrerProjectTreatmentDocumentSetup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentDocumentSetupResponse" message="tns:IReferrerService_AddReferrerProjectTreatmentDocumentSetup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentDocumentSetup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentDocumentSetup" message="tns:IReferrerService_UpdateReferrerProjectTreatmentDocumentSetup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentDocumentSetupResponse" message="tns:IReferrerService_UpdateReferrerProjectTreatmentDocumentSetup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID" message="tns:IReferrerService_GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentIDResponse" message="tns:IReferrerService_GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricingTypesByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetPricingTypesByTreatmentCategoryID" message="tns:IReferrerService_GetPricingTypesByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetPricingTypesByTreatmentCategoryIDResponse" message="tns:IReferrerService_GetPricingTypesByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReferrerProjectTreatment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatment" message="tns:IReferrerService_GetAllReferrerProjectTreatment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatmentResponse" message="tns:IReferrerService_GetAllReferrerProjectTreatment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssessmentService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllAssessmentService" message="tns:IReferrerService_GetAllAssessmentService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllAssessmentServiceResponse" message="tns:IReferrerService_GetAllAssessmentService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssessmentType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllAssessmentType" message="tns:IReferrerService_GetAllAssessmentType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllAssessmentTypeResponse" message="tns:IReferrerService_GetAllAssessmentType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelegatedAuthorisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllDelegatedAuthorisation" message="tns:IReferrerService_GetAllDelegatedAuthorisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllDelegatedAuthorisationResponse" message="tns:IReferrerService_GetAllDelegatedAuthorisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReferrerProjectTreatmentAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatmentAssignment" message="tns:IReferrerService_GetAllReferrerProjectTreatmentAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatmentAssignmentResponse" message="tns:IReferrerService_GetAllReferrerProjectTreatmentAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentAssignment" message="tns:IReferrerService_AddReferrerProjectTreatmentAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentAssignmentResponse" message="tns:IReferrerService_AddReferrerProjectTreatmentAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentAssignment" message="tns:IReferrerService_UpdateReferrerProjectTreatmentAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentAssignmentResponse" message="tns:IReferrerService_UpdateReferrerProjectTreatmentAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferrerProjectTreatmentAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentAssignment" message="tns:IReferrerService_DeleteReferrerProjectTreatmentAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentAssignmentResponse" message="tns:IReferrerService_DeleteReferrerProjectTreatmentAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReferrer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllReferrer" message="tns:IReferrerService_GetAllReferrer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllReferrerResponse" message="tns:IReferrerService_GetAllReferrer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrer" message="tns:IReferrerService_AddReferrer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerResponse" message="tns:IReferrerService_AddReferrer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerAndMainLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerAndMainLocation" message="tns:IReferrerService_AddReferrerAndMainLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerAndMainLocationResponse" message="tns:IReferrerService_AddReferrerAndMainLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerLocationsByReferrerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerLocationsByReferrerID" message="tns:IReferrerService_GetReferrerLocationsByReferrerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerLocationsByReferrerIDResponse" message="tns:IReferrerService_GetReferrerLocationsByReferrerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerLocations" message="tns:IReferrerService_UpdateReferrerLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerLocationsResponse" message="tns:IReferrerService_UpdateReferrerLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertReferrerLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/InsertReferrerLocations" message="tns:IReferrerService_InsertReferrerLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/InsertReferrerLocationsResponse" message="tns:IReferrerService_InsertReferrerLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerDetailsByReferrerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerDetailsByReferrerID" message="tns:IReferrerService_GetReferrerDetailsByReferrerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerDetailsByReferrerIDResponse" message="tns:IReferrerService_GetReferrerDetailsByReferrerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentsByReferrerProjectID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentsByReferrerProjectID" message="tns:IReferrerService_GetReferrerProjectTreatmentsByReferrerProjectID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentsByReferrerProjectIDResponse" message="tns:IReferrerService_GetReferrerProjectTreatmentsByReferrerProjectID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrer" message="tns:IReferrerService_UpdateReferrer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerResponse" message="tns:IReferrerService_UpdateReferrer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByReferrerLocationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/DeleteByReferrerLocationID" message="tns:IReferrerService_DeleteByReferrerLocationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/DeleteByReferrerLocationIDResponse" message="tns:IReferrerService_DeleteByReferrerLocationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPricingType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllPricingType" message="tns:IReferrerService_GetAllPricingType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllPricingTypeResponse" message="tns:IReferrerService_GetAllPricingType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInvoiceMethod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllInvoiceMethod" message="tns:IReferrerService_GetAllInvoiceMethod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllInvoiceMethodResponse" message="tns:IReferrerService_GetAllInvoiceMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTreatmentCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetAllTreatmentCategory" message="tns:IReferrerService_GetAllTreatmentCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetAllTreatmentCategoryResponse" message="tns:IReferrerService_GetAllTreatmentCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrersLikeReferrerName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrersLikeReferrerName" message="tns:IReferrerService_GetReferrersLikeReferrerName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrersLikeReferrerNameResponse" message="tns:IReferrerService_GetReferrersLikeReferrerName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerAndMainLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerAndMainLocation" message="tns:IReferrerService_UpdateReferrerAndMainLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerAndMainLocationResponse" message="tns:IReferrerService_UpdateReferrerAndMainLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerMainLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerMainLocation" message="tns:IReferrerService_GetReferrerMainLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerMainLocationResponse" message="tns:IReferrerService_GetReferrerMainLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID" message="tns:IReferrerService_GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentIDResponse" message="tns:IReferrerService_GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectsByReferrerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectsByReferrerID" message="tns:IReferrerService_GetReferrerProjectsByReferrerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectsByReferrerIDResponse" message="tns:IReferrerService_GetReferrerProjectsByReferrerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectNameAutoComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectNameAutoComplete" message="tns:IReferrerService_GetReferrerProjectNameAutoComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectNameAutoCompleteResponse" message="tns:IReferrerService_GetReferrerProjectNameAutoComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProject" message="tns:IReferrerService_AddReferrerProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectResponse" message="tns:IReferrerService_AddReferrerProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectByProjectID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectByProjectID" message="tns:IReferrerService_GetReferrerProjectByProjectID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectByProjectIDResponse" message="tns:IReferrerService_GetReferrerProjectByProjectID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProject" message="tns:IReferrerService_UpdateReferrerProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectResponse" message="tns:IReferrerService_UpdateReferrerProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatment" message="tns:IReferrerService_AddReferrerProjectTreatment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentResponse" message="tns:IReferrerService_AddReferrerProjectTreatment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatment" message="tns:IReferrerService_UpdateReferrerProjectTreatment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentResponse" message="tns:IReferrerService_UpdateReferrerProjectTreatment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID" message="tns:IReferrerService_GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentIDResponse" message="tns:IReferrerService_GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReferrerService" type="tns:IReferrerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllReferrerProjectTreatmentAuthorisation">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatmentAuthorisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentAuthorisation">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentAuthorisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentAuthorisation">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentAuthorisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferrerProjectTreatmentAuthorisation">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentAuthorisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentAuthorisationByReferrerProjectTreatmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerLocationMainOffice">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerLocationMainOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelegatedAuthorisationTypes">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllDelegatedAuthorisationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDocumentSetupTypes">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllDocumentSetupTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailType">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllEmailType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceLevelAgreement">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllServiceLevelAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentPricing">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentPricingByPricingID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentPricingByPricingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectTreatmentSLAsByReferrerProjectTreatmentID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetProjectTreatmentSLAsByReferrerProjectTreatmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProjectTreatmentSLA">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddProjectTreatmentSLA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectTreatmentSLAsByProjectTreatmentSLAID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateProjectTreatmentSLAsByProjectTreatmentSLAID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentEmailById">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentEmailById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByReferrerProjectTreatmentId">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetByReferrerProjectTreatmentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentEmail">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentEmail">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferrerProjectTreatmentEmailById">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentEmailById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentInvoice">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentInvoiceByReferrerProjectTreatmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentInvoice">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentDocumentSetup">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentDocumentSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentDocumentSetup">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentDocumentSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentDocumentSetupByReferrerProjectTreatmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricingTypesByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetPricingTypesByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReferrerProjectTreatment">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssessmentService">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllAssessmentService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssessmentType">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllAssessmentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelegatedAuthorisation">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllDelegatedAuthorisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReferrerProjectTreatmentAssignment">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllReferrerProjectTreatmentAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatmentAssignment">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerProjectTreatmentAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatmentAssignment">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatmentAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferrerProjectTreatmentAssignment">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/DeleteReferrerProjectTreatmentAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReferrer">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllReferrer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrer">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerAndMainLocation">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerAndMainLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerLocationsByReferrerID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerLocationsByReferrerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerLocations">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertReferrerLocations">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/InsertReferrerLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerDetailsByReferrerID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerDetailsByReferrerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentsByReferrerProjectID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentsByReferrerProjectID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrer">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByReferrerLocationID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/DeleteByReferrerLocationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPricingType">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllPricingType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInvoiceMethod">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllInvoiceMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTreatmentCategory">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetAllTreatmentCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrersLikeReferrerName">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrersLikeReferrerName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerAndMainLocation">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerAndMainLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerMainLocation">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerMainLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentAssessmentByReferrerProjectTreatmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectsByReferrerID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectsByReferrerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectNameAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectNameAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProject">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectByProjectID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectByProjectID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProject">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerProjectTreatment">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/AddReferrerProjectTreatment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferrerProjectTreatment">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/UpdateReferrerProjectTreatment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID">
+      <soap:operation soapAction="http://tempuri.org/IReferrerService/GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReferrerService">
+    <wsdl:port name="BasicHttpBinding_IReferrerService" binding="tns:BasicHttpBinding_IReferrerService">
+      <soap:address location="http://localhost:2061/ReferrerService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,126 @@
+﻿<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Audit Notes
+            </th>
+            <th>
+                Pass/Fail
+            </th>
+            <th>
+                Audit Date
+            </th>
+            <th>
+                View Upload
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:SupplierSiteAudits">
+        <tr>
+            <td>
+                <a href="#divViewSiteAudit" role="button" data-toggle="modal" data-bind="click: $root.viewSupplierSiteAudit">
+                    View</a> / <a href="#" role="button" data-toggle="modal" data-bind="click: $root.deleteSupplierSiteAudit">
+                        Delete</a>
+            </td>
+            <td data-bind="text: AuditNotes">
+            </td>
+            <td data-bind="text: AuditPass.IsPass() == 'true'? 'Pass' : 'Fail'">
+            </td>
+            <td data-bind="text: AuditDate">
+            </td>
+            <td>
+                <a data-bind="attr:{href: DocumentURLUnescaped}"><span>View Upload</span></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="divViewSiteAudit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" data-bind="with: SelectedSupplierSiteAudit">
+    
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.DeSelectCurrentSelectedSupplierSiteAudit">
+            ×</button>
+        <h3 id="myModalLabel">
+            Add New Site Audit</h3>
+    </div>
+    @using (Html.BeginForm("UpdateSiteAudit", "SupplierShared", FormMethod.Post, new { id = "frmViewSupplierSiteAudit", @class = "form-horizontal", enctype = "multipart/form-data", data_bind = "ajaxForm: { success: function(responseText, statusText, xhr, $form){ UpdateSupplieSiteAuditFormSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: $root.UpdateSiteAuditFormBeforeSubmit }" }))
+    {
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Supplier Notes
+                </label>
+                <div class="controls">
+                    <textarea name="AuditNotes" id="AuditNotesSiteAudit" data-bind="value:AuditNotes, jqBootstrapValidation: {}" required
+                        rows="3"></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="optionsCheckbox">
+                    <span style="color: Red">*</span> Pass or Fail</label>
+                <div class="controls">
+                    <label class="radio inline">
+                        <input type="radio" value="true" name="AuditPass" data-bind="checked: AuditPass.IsPass" />
+                        Pass
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" value="false" name="AuditPass" data-bind="checked: AuditPass.IsPass" />Fail
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    <span style="color: Red">*</span> Auditor</label>
+                <div class="controls">
+                    <select id="UserIDSiteAudit" name="UserID" data-bind="options:Users, optionsText:'UserName',optionsValue:'UserID',value:UserID, optionsCaption: 'Choose...'" required >
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span> Date Audited</label>
+                <div class="controls">
+                    <input type="text" class="input-small" id="dateSiteAudit" name="AuditDate" data-bind="value:AuditDate, datepicker: { autoclose: true,format:'dd/mm/yyyy' }, jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span> Document Name</label>
+                <div class="controls">
+                    <input type="text" class="input-small" id="DocumentNameSiteAudit" name="DocumentName"
+                        data-bind="value:DocumentName, jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fileInput">
+                    View Site Audit Document Upload</label>
+                <div class="controls">
+                    <input class="input-file" type="file" name="FileUploadSiteAudit" id="fileToUploadForSiteAudit" />
+                </div>
+            </div>
+        </div>
+                  
+        <input type="hidden" data-bind="value:DocumentTypeID" data-bind="value:DocumentTypeID" />
+        <input type="hidden" name="SupplierDocumentID" data-bind="value:SupplierDocumentID" />
+        <input type="hidden" name="UploadDate" data-bind="value:UploadDate" />
+        <input type="hidden" name="SupplierSiteAuditID" data-bind="value:SupplierSiteAuditID" />
+        <input type="hidden" name="SupplierID" data-bind="value:SupplierID" />
+        <input type="hidden" name="DocumentUrl" data-bind="value:DocumentUrl" />
+@*<input type="hidden" name="DocumentName" data-bind="value:DocumentName" />*@
+        <input type="hidden" name="UploadPath" data-bind="value:UploadPath" />
+        
+           
+
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit" data-bind="bootstrapButton : $root.DisableUpdateButton">
+                Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.CloseClick">
+                Close</button>
+          
+        </div>
+    }
+</div>

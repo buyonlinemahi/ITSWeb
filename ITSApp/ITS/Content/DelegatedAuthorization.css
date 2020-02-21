@@ -1,0 +1,33 @@
+﻿ /*
+ 
+  Author          : Manjit Singh
+  Date            : 09-Nov-2012
+  Version         : 1.0
+  Description     : design for delegated authorization tab 
+  
+  
+  Modified        : Vishal sen
+  Date            : 14-Nov-2012
+  Version         : 1.1
+  Description     : Update design for delegated authorization tab
+
+*/
+  
+.outer-delegate-container{width:984px;margin:0 auto;font-size:13px; font-family:Arial;overflow:hidden;margin-top:10px;padding:10px;}
+.outer-delegate-container .header{float:left;font-weight:bold;width:300px;margin-top:10px;margin-bottom:8px;}
+.outer-delegate-container .item-delegate-container{ float:left;width:400px; padding:10px;border-left: 1px solid;}
+.outer-delegate-container .item-delegate-container .left{float:left;border-right:1px solid black;}
+.outer-delegate-container .item-delegate-container .left input[type="text"]{float: right; height: 23px; margin: 7px;margin-right:21px;margin-top:7px; width: 260px;text-indent: 10px;}
+.outer-delegate-container .item-delegate-container .left .del-auth-lefttext{float:left;padding-top:15px;padding-right:20px;padding-left: 10px;}
+.outer-delegate-container .item-delegate-container .right{float:right;}
+.outer-delegate-container .item-delegate-container .right input[type="text"]{float: right; height: 23px; margin: 7px;margin-right:21px;margin-top:7px;  width: 260px;text-indent: 10px;}
+.outer-delegate-container .item-delegate-container .right .del-auth-righttext{float:left;padding-top:15px;padding-right:20px;padding-left: 10px;}
+.outer-delegate-container .item-delegate-container-small{width:350px; border:1px solid black;padding:5px;clear:both;overflow:hidden;height:34px;}
+.outer-delegate-container .item-delegate-container-small .leftcontainer input[type="text"]{float: right; height: 23px; margin-right: 21px;margin-top: 3px;  width: 260px;text-indent: 10px;}
+.outer-delegate-container .item-delegate-container-small .del-text{float:left;padding-top:12px;padding-right:20px;padding-left: 10px;}
+.inputs{float:right;}
+.inputs input[type="submit"]{background:none repeat scroll 0 0 #EBE8D8;  margin-right: 50px;  padding: 7px 15px;}
+.LoopDelegate{ float: left; width: 933px;}
+.innerLoopDelegate{border: 1px solid; float: left; width: auto;}
+.input-dynamic-text{float: left; width: 58px;}
+.input-dynamic-text-padding-top{ padding-top: 4px}

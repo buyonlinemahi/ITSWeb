@@ -1,0 +1,152 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Users</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home" class="tip-bottom"><i class="icon-home">
+    </i>Users</a><a href="#" class="tip-bottom">Search</a>
+</div>
+<div class="container-fluid" id="UserSearchDiv">
+    <div class="row-fluid">
+        <div class="span12">
+            <a class="btn btn-primary pull-right input-block-level" href="@Url.Action(GlobalConst.Actions.UserController.Add, GlobalConst.Controllers.User)">
+                Add New User</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box collapsible">
+                <div class="widget-title">
+                    <a href="#searchDivCollapse" data-toggle="collapse" class="collapsed"><span class="icon">
+                        <i class="icon-align-justify"></i></span>
+                        <h5>
+                            User Search</h5>
+                    </a>
+                </div>
+                <div class="collapse" id="searchDivCollapse" style="height: 0px;">
+                    <div class="widget-content nopadding" id="divUserSearch">
+                        @using (Html.BeginForm(GlobalConst.Actions.UserSharedController.SearchUser, GlobalConst.Controllers.UserShared, FormMethod.Post, new
+                        {
+                            id = "frmSearchUser",
+                            enctype = "multipart/form-data",
+                            @class = "form-horizontal",
+                            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateUserGrid(responseText, statusText, xhr, $form);},beforeSubmit: searchUserFormBeforeSubmit }"
+                        }))
+                        {
+                            
+                            <!-- ko with : UserSearch -->
+                            <div class="control-group">
+                                <div class="column-margin">
+                                    <div class="column-groups span2">
+                                        <label>
+                                            <input type="radio" name="UserSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="1" />
+                                            Name</label>
+                                    </div>
+                                    <div class="column-groups span2">
+                                        <label>
+                                            <input type="radio" name="UserSearch.SearchCriteria" data-bind="checked:SearchCriteria,jqBootstrapValidation: {} "
+                                                required value="2" />
+                                            User Name</label>
+                                    </div>
+                                    <div class="column-groups span2">
+                                        <label>
+                                            <input type="radio" name="UserSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="3" />
+                                            User Type Name</label>
+                                    </div>
+                                         <div class="column-groups span2">
+                                        <label>
+                                            <input type="radio" name="UserSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="4" />
+                                            Referrer Name</label>
+                                    </div>
+                                         <div class="column-groups span2">
+                                        <label>
+                                            <input type="radio" name="UserSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="5" />
+                                            Supplier Name</label>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                    <p class="help-block">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    User Search</label>
+                                <div class="controls">
+                                    <div class="search-groups1">
+                                        <input type="text" name="UserSearch.SearchText" data-bind="value:SearchText, jqBootstrapValidation: {} "
+                                            required placeholder="Enter text" />
+                                    </div>
+                                    <div class="search-groups2">
+                                        <button class="btn btn-primary" type="submit">
+                                            Search</button>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <!-- /ko -->
+                            <input type="hidden" name="Skip" data-bind="value:Skip" />
+                            <input type="hidden" name="Take" data-bind="value:Take" />
+                        }
+                    </div>
+                </div>
+            </div>
+            <!--ko if: TotalItemCount() > 0 -->
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Search Results</h5>
+                </div>
+                <div class="widget-content nopadding" id="UserDiv">
+                    @Html.Partial("User/_SearchGridPartial")
+                </div>
+                @Html.Partial("~/Views/Shared/_Paging.cshtml")
+            </div>
+            <!-- /ko -->
+            <!--ko if: TotalItemCount() == 0 -->
+            <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert">
+                    &times;</button>
+                No Results Found
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/User/SearchViewModel.js")" ></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    
+    var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+  
+    var UserSearchGridViewModel = new SearchViewModel();
+    
+    if (model != null) {
+        UserSearchGridViewModel.Init(model.Users, model.UserSearch, model.TotalCount);
+    } else {
+        UserSearchGridViewModel.Init('', { SearchCriteria: '', SearchText: ''}, 0);
+    }
+    
+    ko.applyBindings(UserSearchGridViewModel, $("#UserSearchDiv").get(0));
+     
+    function UpdateUserGrid(responseText, statusText, xhr, $form) {
+           UserSearchGridViewModel.UpdateUserGrid(responseText, statusText, xhr, $form);
+     }
+
+      
+    </script>
+}

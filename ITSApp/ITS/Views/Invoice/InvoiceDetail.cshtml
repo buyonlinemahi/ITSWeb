@@ -1,0 +1,136 @@
+﻿@model ITS.Domain.ViewModels.InvoiceViewModel.InvoiceDetailViewModel
+@{
+    ViewBag.Title = "InvoiceDetail";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Invoice Detail</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action(ITS.Infrastructure.Global.GlobalConst.Actions.InvoiceController.Index, ITS.Infrastructure.Global.GlobalConst.Controllers.Invoice)"  class="tip-bottom">
+        <i class="icon-home"></i>Accounts Receivables </a><a href="#" class="tip-bottom">Invoice
+            Detail</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-content nopadding" id="divInvoiceDetail">
+                    @Html.Partial("Invoice/_InvoiceDetailPartial")
+                </div>
+            </div>
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Apply Payment</h5>
+                </div>
+                <div class="widget-content nopadding" id="divApplyPayment">
+                    @Html.Partial("Invoice/_ApplyPaymentPartial")
+                </div>
+            </div>
+            <div class="widget-box" id="divPaymentHistoryGrid">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Payment History</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Invoice/_PaymentHistoryGridPartial")
+                </div>
+            </div>
+            <div class="widget-box" id="divCollectionAction">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Collections Action</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Invoice/_CollectionActionPartial")
+                </div>
+            </div>
+            <div class="widget-box" id="divActionHistoryGrid">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Action History</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Invoice/_ActionHistoryGridPartial")
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div id="footer" class="span12">
+                    2012 - 2013 &copy; ITS Portal v1.0
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/Invoice/InvoiceDetailViewModel.js")"type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/Invoice/AddPaymentAmountViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/Invoice/PaymentHistoryViewModel.js")"
+
+        type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/Invoice/AddCollectionActionViewModel.js")"
+        type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/Invoice/CollectionActionHistoryViewModel.js")"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+
+     
+        var invoiceDetailViewModel = new InvoiceDetailViewModel();
+         ko.applyBindings(invoiceDetailViewModel, $("#divInvoiceDetail").get(0));
+        invoiceDetailViewModel.Init(model);
+
+        var addPaymentAmountViewModel=new AddPaymentAmountViewModel(model.CaseInvoicePatientReferrer!=null? model.CaseInvoicePatientReferrer.InvoiceID:null,model.CaseInvoicePatientReferrer!=null?model.CaseInvoicePatientReferrer.OutstandingAmount:null);
+        ko.applyBindings(addPaymentAmountViewModel, $("#divApplyPayment").get(0));
+
+       
+        var paymentAmountHistoryViewModel=new PaymentHistoryViewModel();
+        ko.applyBindings(paymentAmountHistoryViewModel, $("#divPaymentHistoryGrid").get(0));
+        paymentAmountHistoryViewModel.Init(model.InvoicePaymentHistory);
+         
+        var addCollectionActionViewModel=new AddCollectionActionViewModel(model.CaseInvoicePatientReferrer!=null?model.CaseInvoicePatientReferrer.InvoiceID:null);
+        ko.applyBindings(addCollectionActionViewModel, $("#divCollectionAction").get(0));
+
+
+        var collectionActionHistoryViewModel=new CollectionActionHistoryViewModel();
+        ko.applyBindings(collectionActionHistoryViewModel, $("#divActionHistoryGrid").get(0));
+        collectionActionHistoryViewModel.Init(model.InvoiceCollectionActionHistory);
+
+
+       function AddPaymentAmountSuccess(responseText, statusText, xhr, $form){
+     
+       if(responseText==-1)
+       {
+         alert("Error while payment please try again");
+         addPaymentAmountViewModel.SetDefaultValue();
+       }
+       else{
+       paymentAmountHistoryViewModel.UpdatePaymentHistoryGrid(responseText);
+       addPaymentAmountViewModel.AddPaymentSuccess(responseText);
+       invoiceDetailViewModel.OutstandingAmount(addPaymentAmountViewModel.OutstandingAmount());
+       }
+       };
+
+       function AddCollectionActionSuccess(responseText, statusText, xhr, $form)
+       {
+       if(responseText==-1)
+       {
+       alert("Error while saving please try again");
+       }
+       else{
+        collectionActionHistoryViewModel.UpdateCoolectionActionGrid(responseText);
+       }
+       };
+
+
+
+
+    </script>
+}

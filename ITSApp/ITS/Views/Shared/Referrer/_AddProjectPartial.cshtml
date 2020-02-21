@@ -1,0 +1,108 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divAddProject" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="divAddProjectLabel"
+    aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="divAddProjectLabel">
+            Add New Project</h3>
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.ReferrerProjectController.AddReferrerProject, GlobalConst.Controllers.ReferrerProject, FormMethod.Post, new
+                {
+                    id = "frmAddReferrerProject",
+                    @class = "form-horizontal",
+                    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddReferrerProjectFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit:AddReferrerProjectFormBeforeSubmit, clearForm: true }"
+                }))
+    {
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Project Name
+                </label>
+                <div class="controls">
+                    <input type="text" id="ProjectName" name="ProjectName" data-bind="jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="optionsCheckbox">
+                    <span style="color: Red">*</span>Central E-mail</label>
+                <div class="controls">
+                    <input type="text" id="CentralEmail" name="CentralEmail" data-validation-regex-regex='^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$'
+                        data-validation-regex-message="Not a valid email address" placeholder="email@email.com"
+                        data-bind="jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    <span style="color: Red">*</span>E-mail Sending Options</label>
+                <div class="controls">
+                
+                        <input class="radio-accept-2 inline" type="radio" name="EmailSendingOptionID" value="1" />
+                        Send All
+                 
+                        <input class="radio-accept-2 inline" type="radio" name="EmailSendingOptionID" value="2" />
+                        CC All
+                    
+                        <input class="radio-accept-2 inline" type="radio" name="EmailSendingOptionID" value="3" checked />
+                        None
+                   
+                </div>
+            </div>
+          @*  <div class="control-group">
+                <label class="control-label">
+                    First Appointment</label>
+                <div class="controls">
+                    <label class="radio inline">
+                        <input type="radio" name="FirstAppointmentOffered" value="true" />
+                        Yes
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="FirstAppointmentOffered" value="false" checked />
+                        No
+                    </label>
+                </div>
+            </div>*@
+            <div class="control-group">
+                <label class="control-label">
+                    Triage Assessment</label>
+                <div class="controls">
+                    <label class="radio inline">
+                        <input type="radio" name="IsTriage" value="true" />
+                        Yes
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="IsTriage" value="false" checked />
+                        No
+                    </label>
+                </div>
+            </div>
+             <div class="control-group">
+                <label class="control-label">
+                    Active</label>
+                <div class="controls">
+                    <label class="radio inline">
+                        <input type="radio" name="IsActive" value="true" checked />
+                        Yes
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="IsActive" value="false"  />
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="hidden" name="ReferrerID" data-bind="value:ReferrerID" />
+                    <input type="hidden" name="StatusID" data-bind="value:StatusID" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">
+                Save</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    }
+</div>

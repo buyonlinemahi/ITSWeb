@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/AssessmentService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+  <xs:element name="AddCaseAssessmentRating">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessmentRating" nillable="true" type="q1:CaseAssessmentRating" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCaseAssessmentRatingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCaseAssessmentRatingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+        <xs:element minOccurs="0" name="assessmentServiceID" type="xs:int" />
+        <xs:element minOccurs="0" name="rating" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+        <xs:element minOccurs="0" name="assessmentServiceID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentRatingByCaseIDAndAssessmentServiceIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentRatingByCaseIDAndAssessmentServiceIDResult" nillable="true" type="q2:CaseAssessmentRating" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientImpactValues">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientImpactValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllPatientImpactValuesResult" nillable="true" type="q3:ArrayOfPatientImpactValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientImpacts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientImpactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllPatientImpactsResult" nillable="true" type="q4:ArrayOfPatientImpact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPsychologicalFactors">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPsychologicalFactorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllPsychologicalFactorsResult" nillable="true" type="q5:ArrayOfPsychologicalFactor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientWorkstatus">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientWorkstatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllPatientWorkstatusResult" nillable="true" type="q6:ArrayOfPatientWorkstatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientImpactOnWork">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientImpactOnWorkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllPatientImpactOnWorkResult" nillable="true" type="q7:ArrayOfPatientImpactOnWork" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientLevelOfRecovery">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientLevelOfRecoveryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllPatientLevelOfRecoveryResult" nillable="true" type="q8:ArrayOfPatientLevelOfRecovery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProposedTreatmentMethod">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProposedTreatmentMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllProposedTreatmentMethodResult" nillable="true" type="q9:ArrayOfProposedTreatmentMethod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoryBespokeServicesByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoryBespokeServicesByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTreatmentCategoryBespokeServicesByTreatmentCategoryIDResult" nillable="true" type="q10:ArrayOfTreatmentCategoryBespokeService" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreatmentCategoriesBespokeServicesByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetTreatmentCategoriesBespokeServicesByTreatmentCategoryIDResult" nillable="true" type="q11:ArrayOfTreatmentCategoriesBespokeService" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCaseAssessment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessment" nillable="true" type="q12:CaseAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCaseAssessmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCaseAssessmentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentAuthorisationToModifiedByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+        <xs:element minOccurs="0" name="authorisationDetail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentAuthorisationToModifiedByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentAuthorisationToModifiedByCaseIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentAuthorisationToApprovedByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentAuthorisationToApprovedByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentAuthorisationToApprovedByCaseIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentAuthorisationToDeniedByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+        <xs:element minOccurs="0" name="deniedMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentAuthorisationToDeniedByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentAuthorisationToDeniedByCaseIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentByCaseIDResult" nillable="true" type="q13:CaseAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessment" nillable="true" type="q14:CaseAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentByCaseIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentQA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentQAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentQAResult" nillable="true" type="q15:CaseAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+        <xs:element minOccurs="0" name="caseAssessmentDetailID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentByCaseIDAndCaseAssessmentDetailIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentByCaseIDAndCaseAssessmentDetailIDResult" nillable="true" type="q16:CaseAssessment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentIsSavedByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_caseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentIsSavedByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentIsSavedByCaseIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessmentPatientImpact" nillable="true" type="q17:CaseAssessmentPatientImpact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentPatientImpactsByPatientImpactID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="patientImpactID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentPatientImpactsByPatientImpactIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentPatientImpactsByPatientImpactIDResult" nillable="true" type="q18:ArrayOfCaseAssessmentPatientImpact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentPatientImpactsByPatientImpactValueID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="patientImpactValueID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentPatientImpactsByPatientImpactValueIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentPatientImpactsByPatientImpactValueIDResult" nillable="true" type="q19:ArrayOfCaseAssessmentPatientImpact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCaseAssessmentPatientImpacts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCaseAssessmentPatientImpactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllCaseAssessmentPatientImpactsResult" nillable="true" type="q20:ArrayOfCaseAssessmentPatientImpact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseAssessmentDetailID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentPatientImpactsByCaseAssessmentDetailIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentPatientImpactsByCaseAssessmentDetailIDResult" nillable="true" type="q21:ArrayOfCaseAssessmentPatientImpact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessmentPatientInjury" nillable="true" type="q22:CaseAssessmentPatientInjury" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseAssessmentDetailID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailIDResult" nillable="true" type="q23:ArrayOfCaseAssessmentPatientInjuryBL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCaseAssessmentDetailByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCaseAssessmentDetailByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetAllCaseAssessmentDetailByCaseIDResult" nillable="true" type="q24:ArrayOfCaseAssessmentDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQASubmitedCaseAssessmentDetailsByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQASubmitedCaseAssessmentDetailsByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetQASubmitedCaseAssessmentDetailsByCaseIDResult" nillable="true" type="q25:ArrayOfCaseAssessmentDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCaseAssessmentCustom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessmentCustom" nillable="true" type="q26:CaseAssessmentCustom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCaseAssessmentCustomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCaseAssessmentCustomResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentCustom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessmentCustom" nillable="true" type="q27:CaseAssessmentCustom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseAssessmentCustomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseAssessmentCustomResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseRiewAssessmentMessageCustom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessmentCustom" nillable="true" type="q28:CaseAssessmentCustom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseRiewAssessmentMessageCustomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseRiewAssessmentMessageCustomResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseInitialAssessmentMessageCustom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessmentCustom" nillable="true" type="q29:CaseAssessmentCustom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseInitialAssessmentMessageCustomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseInitialAssessmentMessageCustomResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseFinalAssessmentMessageCustom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="caseAssessmentCustom" nillable="true" type="q30:CaseAssessmentCustom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCaseFinalAssessmentMessageCustomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseFinalAssessmentMessageCustomResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentCustomByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseAssessmentCustomByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseAssessmentCustomByCaseIDResult" nillable="true" type="q31:CaseAssessmentCustom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerCaseAssessmentModification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="referrerCaseAssessmentModification" nillable="true" type="q32:ReferrerCaseAssessmentModification" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReferrerCaseAssessmentModificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReferrerCaseAssessmentModificationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseTreatmentPricingByCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseTreatmentPricingByCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetCaseTreatmentPricingByCaseIDResult" nillable="true" type="q33:ArrayOfReferrerCaseAssessmentModificationAuthority" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerCaseAssessmentModificationsbyCaseID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferrerCaseAssessmentModificationsbyCaseIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ITSService.DTO" minOccurs="0" name="GetReferrerCaseAssessmentModificationsbyCaseIDResult" nillable="true" type="q34:ArrayOfReferrerCaseAssessmentModification" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

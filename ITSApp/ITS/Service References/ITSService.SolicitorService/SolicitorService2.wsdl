@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SolicitorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/SolicitorService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/SolicitorService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/SolicitorService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISolicitorService_AddSolicitor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSolicitor" />
+  </wsdl:message>
+  <wsdl:message name="ISolicitorService_AddSolicitor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSolicitorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISolicitorService_UpdateSolicitorBySolicitorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSolicitorBySolicitorID" />
+  </wsdl:message>
+  <wsdl:message name="ISolicitorService_UpdateSolicitorBySolicitorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSolicitorBySolicitorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISolicitorService_GetSolicitorBySolicitorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolicitorBySolicitorID" />
+  </wsdl:message>
+  <wsdl:message name="ISolicitorService_GetSolicitorBySolicitorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolicitorBySolicitorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISolicitorService_GetSolicitorByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolicitorByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="ISolicitorService_GetSolicitorByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolicitorByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISolicitorService">
+    <wsdl:operation name="AddSolicitor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISolicitorService/AddSolicitor" message="tns:ISolicitorService_AddSolicitor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISolicitorService/AddSolicitorResponse" message="tns:ISolicitorService_AddSolicitor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSolicitorBySolicitorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISolicitorService/UpdateSolicitorBySolicitorID" message="tns:ISolicitorService_UpdateSolicitorBySolicitorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISolicitorService/UpdateSolicitorBySolicitorIDResponse" message="tns:ISolicitorService_UpdateSolicitorBySolicitorID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSolicitorBySolicitorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISolicitorService/GetSolicitorBySolicitorID" message="tns:ISolicitorService_GetSolicitorBySolicitorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISolicitorService/GetSolicitorBySolicitorIDResponse" message="tns:ISolicitorService_GetSolicitorBySolicitorID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSolicitorByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISolicitorService/GetSolicitorByPatientID" message="tns:ISolicitorService_GetSolicitorByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISolicitorService/GetSolicitorByPatientIDResponse" message="tns:ISolicitorService_GetSolicitorByPatientID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISolicitorService" type="tns:ISolicitorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSolicitor">
+      <soap:operation soapAction="http://tempuri.org/ISolicitorService/AddSolicitor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSolicitorBySolicitorID">
+      <soap:operation soapAction="http://tempuri.org/ISolicitorService/UpdateSolicitorBySolicitorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSolicitorBySolicitorID">
+      <soap:operation soapAction="http://tempuri.org/ISolicitorService/GetSolicitorBySolicitorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSolicitorByPatientID">
+      <soap:operation soapAction="http://tempuri.org/ISolicitorService/GetSolicitorByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SolicitorService">
+    <wsdl:port name="BasicHttpBinding_ISolicitorService" binding="tns:BasicHttpBinding_ISolicitorService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/ITS/SolicitorService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

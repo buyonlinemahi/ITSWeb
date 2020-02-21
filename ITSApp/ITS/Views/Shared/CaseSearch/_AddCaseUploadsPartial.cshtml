@@ -1,0 +1,53 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divAddCaseUploads" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    @using (Html.BeginForm(GlobalConst.Actions.CaseSearchSharedContoller.AddCaseUploads, GlobalConst.Controllers.CaseSearchShared, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmAddCaseUploads",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddCaseUploadsFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: CaseUploadFormBeforeSubmit, clearForm: true }"
+}))
+    {
+        @Html.AntiForgeryToken();
+        <div class="modal-header">
+            <button  id="CloseBTN" type="button" class="close" data-dismiss="modal" aria-hidden="true" >×</button>
+            <h3 id="myModalLabel">Add New case upload</h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Document Name
+                </label>
+                <div class="controls">
+                    <input class="input-small" type="text" name="DocumentName" data-bind="jqBootstrapValidation: {}"
+                        required />
+                    <input type="hidden" name="CaseID" data-bind="value:CaseID" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    Select Document:
+                </label>
+                <div class="controls">
+                    <input type="file" id="DocumentFileUpload" name="DocumentFileUpload" data-bind="jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="hidden" name="DocumentTypeID" />
+                    <input type="hidden" name="UploadPath">
+                    <input type="hidden" name="UserID" />
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button id="btnClinicalSave" type="submit" class="btn btn-primary">
+                Add</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    }
+</div>

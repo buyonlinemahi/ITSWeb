@@ -1,0 +1,13 @@
+﻿ * { font-family:Verdana; font-size:15px;}
+    .clear{clear:clear}
+    #container {width: 350px; }
+    
+    #mainScreen { width:70%;border:1px solid black;margin-top:15px;margin-top:10px;}
+    #mainScreen #topGreen {background-color: #77b531;padding:8px;border-bottom:1px solid black; }
+    #mainScreen #screenBody input[type="checkbox"]{margin:2px 0px 0px -22px;float:left;}
+    #mainScreen #screenBody ul { }
+    #mainScreen #screenBody ul li {display:block;}
+    
+    .reffAssign {width:100%;border:1px solid black;margin-top:15px}
+    .reffAssign .left{float:left;padding:10px;background-color: #77b531;width:35%;border-right:1px solid black;}
+    .reffAssign .right{float:right ;padding:8px;text-align:center ;}

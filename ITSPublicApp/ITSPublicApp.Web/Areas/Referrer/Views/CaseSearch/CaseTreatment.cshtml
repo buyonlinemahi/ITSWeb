@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ITSPublicApp.Domain.Models.ReferrerCaseAssessmentModificationAuthority>
+@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "CaseTreatment";
+    Layout = "~/Areas/Referrer/Views/Shared/_LayoutForm.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/referrer/CaseTreatmentViewModel.js")"></script>
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its-supplier.css")"/>
+<link href="@Url.Content("~/Content/CaseSearch.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/kopaging.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/knockout.mapping.js")" type="text/javascript"></script>
+<script type="text/javascript"> 
+    var _modelCaseTreatment = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+    var caseTreatmentViewModel = new CaseTreatmentViewModel(_modelCaseTreatment);
+    $(function () {
+        ko.applyBindings(caseTreatmentViewModel, $("#ReferrerCaseMainDiv").get(0));
+    });
+</script>
+@section SubHeader{
+ 
+}
+<div id="pettabs" class="indentmenu">
+    <ul>      
+         <li>@Html.ActionLink("PATIENT DETAILS", "CaseDetail", "CaseSearch",new { id = @ViewBag.CaseID },null)</li>
+         <li>@Html.ActionLink("CASE UPLOADS", "CaseUploads","CaseSearch", new { id = @ViewBag.CaseID },null)</li>
+         <li>@Html.ActionLink("CASE HISTORY", "CaseTreatment","CaseSearch",null,new { @class = "selected" })</li>
+    </ul>
+    <br style="clear: left" />
+</div>
+<div id="ReferrerCaseMainDiv" style="padding-bottom: 75px;">
+ <div class="ITS-ref-table">
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Service Date
+                    </td>
+                    <td>
+                        Intervention Type
+                    </td>
+                    <td>
+                      Status
+                    </td>                                         
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: CaseTreatmentViewModelArray">
+                <tr>
+                    <td data-bind="text:DateOfService">
+                    </td>
+                    <td data-bind="text:Type">
+                    </td>
+                    <td data-bind="text:Status">
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,242 @@
+﻿@* Latest Version 1.0
+
+ *UpdatedBy       : Anuj Batra
+  Date            : 28-Nov-2012
+  Version         : 1.0
+  Purpose         : Resolved all the issues occuring due to script conflict in knockout binding.
+
+*@
+@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Referrer
+@{
+    
+    Layout = "~/Areas/Internal/Views/Shared/_InternalLayout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/plugins/jquery.autocompletebyReferrername.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/ProjectControlViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/ReferrerSetupViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/OfficeLocationViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/DelegatedAuthorisationViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/AssessementServicesViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/PricingTypesViewModel.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/InvoiceMethodViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/DocumentSetUpViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/referrersetup/EmailTypesViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/knockout.protectedobservable.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/ReferrerSetupPartial.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/ProjectControlPartial.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/knockout.numericextender.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/Jquery.checkNumericNumbers.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/knockout.validation.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<script type="text/javascript">   
+     
+
+        var referrerViewModel            =             new ReferrerControlViewModel();
+        var officeViewModel              =             new OfficeLocationViewModel();
+        var projectViewModel             =             new ProjectControlViewModel();
+        var pricingTypesViewModel        =             new PricingTypesViewModel();
+        var projectDetailsViewModel      =             new ProjectControlDetailsViewModel();
+        var assessementViewModel         =             new AssessementViewModel(); 
+        var delegatedAuthorisationViewModel =          new DelegatedAuthorisationViewModel();
+        var documentSetUpViewModel       =             new DocumentSetUpViewModel();
+        var emailTypesViewModel          =             new EmailTypesViewModel();
+        var invoiceMethodViewModel       =             new InvoiceMethodViewModel();
+
+   $(function() {
+  
+
+            ko.applyBindings(referrerViewModel, $("#referrerDiv").get(0));
+            ko.applyBindings(projectDetailsViewModel,$("#refrerrerProjects").get(0));
+            ko.applyBindings(projectDetailsViewModel,$("#divAddProjectPopUp").get(0));// Project Partial 
+            ko.applyBindings(projectDetailsViewModel, $("#saveChangesModel").get(0));
+            ko.applyBindings(pricingTypesViewModel,$("#divPricingContainer").get(0));
+            ko.applyBindings(assessementViewModel, $("#divAssessmentServicesContainer").get(0));   
+            ko.applyBindings(officeViewModel,$("#officeLocationTab").get(0));
+            ko.applyBindings(officeViewModel,$("#addNewLocation").get(0));  
+            ko.applyBindings(officeViewModel,$("#deleteConfermationPopUp").get(0)); 
+            ko.applyBindings(officeViewModel,$("#closeButtonPopUp").get(0));
+            ko.applyBindings(delegatedAuthorisationViewModel, $("#divDelegatedAuthorisationContainer").get(0));            
+            ko.applyBindings(documentSetUpViewModel, $("#divDocumentSetUpContainer").get(0));            
+            ko.applyBindings(emailTypesViewModel, $("#divEmailSetupContainer").get(0));            
+            ko.applyBindings(invoiceMethodViewModel, $("#divInvoiceMethodContainer").get(0));             
+      
+            referrerViewModel.disableInputControls(); 
+            
+            var settings = {
+            actionUrl: "@Url.Action(GlobalConst.Actions.ReferrerController.ReferrerAutoComplete, GlobalConst.Controllers.Referrer, new { area = "" })",
+            method: "@Url.Action(GlobalConst.Actions.ReferrerController.GetReferrer, GlobalConst.Controllers.Referrer, new { area = "" })",
+            referrerLocationURL: "@Url.Action(GlobalConst.Actions.ReferrerController.GetReferrerMainOffice, GlobalConst.Controllers.Referrer, new { area = "" })",
+            referrerprojectsURL: "@Url.Action(GlobalConst.Actions.Area.Internal.ReferrerSetupController.GetReferrerProjectsbyReferrerID, GlobalConst.Controllers.Area.Internal.ReferrerSetup)",
+            officeLocationURL: "@Url.Action(GlobalConst.Actions.ReferrerController.GetReferrerAllLocation, GlobalConst.Controllers.Referrer, new { area = "" })",
+            referrerprojectTreatmentsURL: "@Url.Action(GlobalConst.Actions.Area.Internal.ReferrerSetupController.AddReferrerProjectTreatment, GlobalConst.Controllers.Area.Internal.ReferrerSetup)",
+            referrerprojectTreatmentPricingsURL: "@Url.Action(GlobalConst.Actions.Area.Internal.ReferrerSetupController.GetPricingTypesByTreatmentCategoryID, GlobalConst.Controllers.Area.Internal.ReferrerSetup)",
+            referrerprojectTreatmentPricingsvaluesURL: "@Url.Action(GlobalConst.Actions.Area.Internal.ReferrerSetupController.GetReferrerProjectTreatmentPricingByReferrerProjectTreatmentID, GlobalConst.Controllers.Area.Internal.ReferrerSetup)",
+             
+            selected : function (event, ui){
+                                referrerViewModel.clearModelValues();
+                                $.ajax({
+                                    url: settings.method,
+                                    cache: false,
+                                    type: "POST", dataType: "json",
+
+                                    data: { ReferrerID : ui.item.ReferrerID },
+                                    success: function (data) {
+                                        updateReferrerModel(data);
+
+                               
+                                    }
+                                });
+                                $.ajax({
+                                    url: settings.referrerLocationURL,
+                                    cache: false,
+                                    type: "POST", dataType: "json",
+                                    data: { ReferrerID : ui.item.ReferrerID },
+                                    success: function (data) {
+                                        updateReferrerLocation(data);
+                                    }
+                                });
+
+                                $.ajax({
+                                    url: settings.referrerprojectsURL,
+                                    cache: false,
+                                    type: "POST", dataType: "json",
+                                    data: { ReferrerID : ui.item.ReferrerID },
+                                    success: function (data) {
+                                      projectDetailsViewModel.GetReferrerProjects(data);
+                                      projectDetailsViewModel.BindTreatmentCategories();
+                                      projectDetailsViewModel.ReferrerID(ui.item.ReferrerID);
+                                    }
+                                });
+                                                                  
+                                    officeViewModel.getReferrerOfficeLocation(ui.item.ReferrerID);
+                            }
+                          };
+          
+        $("#autoSeacrh").autocompletebyReferrername(settings);
+    }); 
+
+        function updateReferrerModel(data) {
+            referrerViewModel.updateModelReferrer(data);
+            $("#btnEdit").prop("disabled", false);
+            $("#autoSeacrh").prop("disabled", false);
+        } 
+        
+        function updateReferrerLocation(data) {
+            referrerViewModel.updateModelReferrerLocation(data);
+        }
+
+     
+        function updateOfficeLocationGrid(ReferrerID){
+          officeViewModel.getReferrerOfficeLocation(ReferrerID);
+        }
+
+        function InitProjectTreatments(data, project){     
+            //push new project after adding
+             if(project != null)
+                projectDetailsViewModel.Projects.push(project); 
+        }
+
+        function InitProjectDetails(referrerID){
+            $("#divProjectDetailContainer").dialog("open");
+             projectDetailsViewModel.Init();
+             projectDetailsViewModel.ReferrerID(referrerID);   
+             projectDetailsViewModel.MakeAdableprojectDetails();
+             
+        }
+       
+        function InitializeTabs(referrerProjectTreatment,IsTriage){ 
+
+        //$("#divProjectSpin").spin(true);   
+           //initialize all viewmodels for the tabs.
+           assessementViewModel.Initialize(referrerProjectTreatment); 
+           pricingTypesViewModel.InitializePricingTypes(referrerProjectTreatment,IsTriage);
+           delegatedAuthorisationViewModel.Initialize(referrerProjectTreatment);
+           invoiceMethodViewModel.InitializeInvoiceTab(referrerProjectTreatment);
+           documentSetUpViewModel.InitializeDocumentSetUp(referrerProjectTreatment);
+           emailTypesViewModel.InitializeEmailSetUp(referrerProjectTreatment);
+        }
+
+        //NOTE:-for now return false no case exist for current category
+        function checkProjectIsLinkedtoAnyCase(treatmentCategory){
+          return false;
+        }
+
+        function checkPricingTabForChanges(){
+          return pricingTypesViewModel.CheckChangesMadeInPricingTab();
+        }
+
+        function savePricing(){
+          pricingTypesViewModel.SaveFinance();
+        }
+
+        function changePricingFlag(){
+        pricingTypesViewModel.PricingFlag(false);
+        }
+
+        function getPricingTabStatus() {
+          return pricingTypesViewModel.GetPricingTabCompleteOrUnComplete();
+        }
+        
+     function enableDisablepricingMatrix(flag)
+     {
+         pricingTypesViewModel.EnableDisablePricingMatrix(flag);
+         delegatedAuthorisationViewModel.EnableDisable(flag);
+         assessementViewModel.EnableDisable(flag);
+         invoiceMethodViewModel.EnableDisable(flag);
+         documentSetUpViewModel.EnableDisable(flag);
+         emailTypesViewModel.EnableDisable(flag);
+     }
+       function enablePricing (value) {
+         pricingTypesViewModel.EnablePricing(value);
+         pricingTypesViewModel.EnableAmmendPricing(true);
+        }
+        
+        function clearAllTabs(){
+           pricingTypesViewModel.ClearModels();
+           delegatedAuthorisationViewModel.ClearDelegateModel();
+           invoiceMethodViewModel.ClearInvoiceTab();
+        }
+        
+        function clearProjectAndOfficeGrid()
+        {
+          officeViewModel.clearModelValues();
+          officeViewModel.locations([]);
+          projectDetailsViewModel.Projects([]);
+
+        }
+        function ReferrerProjects(){
+         projectDetailsViewModel.ReferrerProjects();
+        }
+</script>
+<div id="divSpin" style="position: absolute; top: 20%; left: 50%">
+</div>
+<div class="outer-container">
+    <div class="search-container">
+        <div class="left">
+            <div class="lbl-search">
+                Referrer Search (By Name):</div>
+            <div class="left-text">
+                <input type="text" id="autoSeacrh" name="autoSeacrh" /></div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.ReferrerSetupPartial);}
+</div>
+<div class="outer-container-project" id="prjectLocTabs">
+    <div id="tabs" style="float: left; padding-left: 0px; width: 982px; padding: 0px;
+        overflow: hidden;">
+        <ul>
+            <li><a href="#tabs-1">Project Control</a></li>
+            <li><a href="#officeLocationTab">Office Location</a></li>
+        </ul>
+        <div id="tabs-1" style="padding: 0px; width: 984px;">
+            @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.ProjectControlPartial);}
+        </div>
+        <div id="officeLocationTab">
+            @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.ReferrerSetup.OfficeLocationsPartial);}
+        </div>
+    </div>
+</div>

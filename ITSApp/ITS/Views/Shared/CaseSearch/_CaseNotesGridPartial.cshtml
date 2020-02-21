@@ -1,0 +1,36 @@
+﻿@using ITS.Infrastructure.Global;
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Notes
+            </th>
+            <th>Entered By
+            </th>
+            <th>Workflow
+            </th>
+            <th>Date Entered
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: CaseNotes">
+        <tr>
+            <td data-bind="text: Note" class="span9"></td>
+            <td data-bind="text: EnteredBy"></td>
+            <td data-bind="text: WorkflowDefination"></td>
+            <td data-bind="text: DateAdded"></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <!--ko if:CaseNotes().length == 0 -->
+        <tr>
+            <td colspan="4">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    No records are found.
+                </div>
+            </td>
+        </tr>
+        <!-- /ko -->
+    </tfoot>
+</table>

@@ -1,0 +1,267 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+@model ITS.Domain.ViewModels.CaseSearchViewModel.CaseSearchDetailViewModel
+
+<div class="container-fluid" id="divAcceptAndRefer1">
+    <div class="row-fluid">
+        @using (Html.BeginForm(GlobalConst.Actions.ReferralController.CaseSubmitToSupplier, GlobalConst.Controllers.Referral, FormMethod.Post, new
+            {
+                @class = "form-horizontal",
+                id = "frmReferrertoSupplier",
+                encript = "multipart/form-data",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ SubmitGenerateLetterForm(); UpdateAcceptAndReferFormSucess(responseText, statusText, xhr, $form);}}"
+            }))
+        {
+            @Html.AntiForgeryToken()         
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Referrer to Supplier</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <table class="table table-bordered table-striped table-hover sortable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Sr.No.
+                                </th>
+                                <th>
+                                    Price (Avg.)<br />
+                                    IA,&nbsp&nbsp RA,&nbsp&nbsp FA,&nbsp&nbsp TS
+                                </th>
+                                <th>
+                                    Supplier Name
+                                </th>
+                                <th>
+                                    Supplier Address
+                                </th>
+                                <th>
+                                    Supplier Postal Code
+                                </th>
+                                <th>
+                                    Supplier Telephone
+                                </th>
+                                <th>
+                                    Select Supplier
+                                </th>
+                            </tr>
+                        </thead>
+                         <!--ko if: (isTriage() == true && (workflowID() < 20 || workflowID() == 65 || workflowID() == 42) ) -->
+                                   <tbody data-bind=" foreach:TopTriageSupplierSupplierTreatmentsAndSupplierTreatmenPricing">
+
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <span data-bind="text:$index()+1"></span>
+                                    </div>
+                                </td>
+                             
+                            
+                                <td>
+                                    
+                                        £<span data-bind="text:Price"></span>
+                        
+                                </td>
+                                <td>
+                                    <span data-bind="text:SupplierName"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:Address"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:PostCode"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:Phone"></span>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="radio" name="SupplierID" id="SupplierID" data-bind="checked:SupplierID,attr:{value:SupplierID},jqBootstrapValidation:{submitSuccess: $root.SaveValidatedClick }"
+                                            required /></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                         <!--/ko-->
+                        <!--ko if: (isTriage() == false || (workflowID() >= 20 && workflowID() != 65 && workflowID() != 42 ) ) -->                                          
+                                   <tbody data-bind="foreach:SupplierDistanceRankPrice">
+                          <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <span data-bind="text:$index()+1"></span>
+                                    </div>
+                                </td>
+                             
+                            
+                                <td>
+                                    <div data-bind="foreach:PriceAverages" class="text-center">
+                                        <!--ko if: $index() != 0-->
+                                        ,
+                                        <!--/ko-->
+                                        £<span data-bind="text:Price"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span data-bind="text:SupplierName"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:Address"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:PostCode"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:Phone"></span>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="radio" name="SupplierID" id="SupplierID" data-bind="checked:SupplierID,attr:{value:SupplierID},jqBootstrapValidation:{submitSuccess: $root.SaveValidatedClick }"
+                                            required /></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                         <!--/ko-->
+                    </table>
+                </div>
+            </div>
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Referrer To Supplier</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <div class="widget-content">
+                        <div class="form-group">
+                            <label>
+                                If the Supplier you are looking or is not displayed above, select Supplier from
+                                dropdown:
+                                 <!--ko if: (isTriage() == true && (workflowID() < 20 || workflowID() == 65 || workflowID() == 42) ) -->
+                                <select data-bind="options:AllTriageSupplierSupplierTreatmentsAndSupplierTreatmenPricing,  
+                                                       
+                                                        optionsText:'SupplierName',  
+                                                        optionsCaption:'Choose...',  
+                                                        value:SelectedTriageSupplier">
+                                </select>
+                                 <!--/ko-->
+                                  <!--ko if: (isTriage() == false || (workflowID() >= 20 && workflowID() != 65 && workflowID() != 42 ) ) --> 
+                                 
+                                    <select data-bind="options:AllSupplierWithinPostCode,  
+                                                                    optionsValue:'SupplierID',  
+                                                                    optionsText:'SupplierName',  
+                                                                    optionsCaption:'Choose...',  
+                                                                    value:SelectedSupplierID">
+                                    </select>
+                              
+                                 <!--/ko-->
+                            </label>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-striped table-hover sortable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Supplier Name
+                                </th>
+                                <th>
+                                    Price (Avg.)
+                                    <br />
+                                    IA,&nbsp&nbsp RA,&nbsp&nbsp FA,&nbsp&nbsp TS
+                                </th>
+                                <th>
+                                    Supplier Address
+                                </th>
+                                <th>
+                                    Supplier Postal Code
+                                </th>
+                                <th>
+                                    Supplier Telephone
+                                </th>
+                                <th>
+                                    Select Supplier
+                                </th>
+                            </tr>
+                        </thead>
+                          <!--ko if: isTriage() == true-->
+                        <tbody data-bind="with:SelectedTriageSupplier">
+                            <tr>
+                                <td>
+                                    <span data-bind="text:SupplierName"></span>
+                                </td>
+                                <td>
+                                        £<span data-bind="text:Price"></span>
+                                </td>                             
+                                <td>
+                                    <span data-bind="text:Address"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:PostCode"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:Phone"></span>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="radio" data-bind="checked:SupplierID,attr:{value:SupplierID}, jqBootstrapValidation:{submitSuccess: $root.SaveValidatedClick }"
+                                            name="SupplierID" id="SupplierID" required /></div>
+                                </td>
+                            </tr>
+                         </tbody>
+                        <!--/ko-->
+                     <!--ko if: (isTriage() == false || (workflowID() >= 20 && workflowID() != 65) ) -->
+                           <tbody data-bind="with:$root.SelectedSupplier">
+                            <tr>
+                                <td>
+                                    <span data-bind="text:SupplierName"></span>
+                                </td>
+                                
+                                <td>
+                                     <div data-bind="foreach:PriceAverages" class="text-center">
+                                        <!--ko if: $index() != 0-->
+                                        ,
+                                        <!--/ko-->
+                                        £<span data-bind="text:Price"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span data-bind="text:Address"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:PostCode"></span>
+                                </td>
+                                <td>
+                                    <span data-bind="text:Phone"></span>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="radio" data-bind="checked:SupplierID,attr:{value:SupplierID}, jqBootstrapValidation:{submitSuccess: $root.SaveValidatedClick }"
+                                            name="SupplierID" id="SupplierID" required /></div>
+                                </td>
+                            </tr>
+                          </tbody>
+                         <!--/ko-->
+                    </table>
+                </div>
+            </div>
+            <div   style="padding-bottom:20px;" class="model-footer text-center">
+            <input type="hidden" name="hidCaseId" id="hidCaseId" value="@ViewBag.caseID" />
+                   <!--ko if: isTriage() == false-->
+                   <button type="button" class="btn btn-primary" data-bind="click : $root.btnChangeSupplier">
+                    Submit to Supplier</button>
+                  <!--/ko-->
+                    <!--ko if: isTriage() == true-->
+                      <button type="button" class="btn btn-primary" data-bind="click : $root.btnChangeTriageSupplier">
+                    Submit to Supplier</button>
+                   <!--/ko-->
+            </div>
+        }
+    </div>
+    <!-- ko with : CasePatientTreatment -->
+    @using (Html.BeginForm(GlobalConst.Actions.FileController.GeneratedPatientReferrerToSupplierLetter, GlobalConst.Controllers.File, new { area = "" }, FormMethod.Post, new { id = "frmGenerateLetters" }))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="caseID" data-bind="value: CaseID" />
+    }
+    <!-- /ko -->
+</div>
+

@@ -1,0 +1,136 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global
+@model ITS.Domain.ViewModels.PractitionerViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Practitioners</h1>
+}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <a class="btn btn-primary btn-block" href="@Url.Action(GlobalConst.Actions.PractitionerController.Add, GlobalConst.Controllers.Practitioner)">
+                Add New Practitioner</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12" id="divPractitionerSearch">
+            <div class="widget-box collapsible">
+                <div class="widget-title">
+                    <a href="#searchDivCollapse" data-toggle="collapse" class="collapsed"><span class="icon">
+                        <i class="icon-align-justify"></i></span>
+                        <h5>
+                            Practitioner Search</h5>
+                    </a>
+                </div>
+                <div class="collapse" id="searchDivCollapse" style="height: 0px;">
+                    <div class="widget-content nopadding">
+                        @using (Html.BeginForm(GlobalConst.Actions.PractitionerController.Search, GlobalConst.Controllers.Practitioner, FormMethod.Post, new
+                        {
+                            @class = "form-horizontal",
+
+                        }))
+                        {
+@* <form action="#" method="get" class="form-horizontal">*@
+                            <div class="control-group">
+                                <div class="column-margin">
+                                    <div class="column-groups span3">
+                                        <label>
+                                            <input type="radio" name="PractitionerSearch.SearchCriteria" value="1" data-bind="jqBootstrapValidation: {} "
+                                                minchecked="1" data-validation-minchecked-message="Choose atleast one" />Practitioner
+                                            Name</label>
+                                    </div>
+                                    <div class="column-groups span3">
+                                        <label>
+                                            <input type="radio" name="PractitionerSearch.SearchCriteria" value="2" data-bind="jqBootstrapValidation: {} " />Practitioner
+                                            Treatment</label>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                     <p class="help-block"></p>
+                                </div>
+                            </div>
+                        
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Practitioner Search</label>
+                                <div class="controls">
+                                    <div class="search-groups1">
+                                        <input type="text" name="PractitionerSearch.SearchText" placeholder="Enter Text"
+                                            data-bind="jqBootstrapValidation: {} " required />
+                                        <input type="hidden" name="Skip" value="0" />
+                                        <input type="hidden" name="Take" value="10" />
+                                        <span class="button-adjustment"><button type="submit" class="btn btn-primary">Search</button></span>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @*<div class="form-actions">
+                            <div class="column-groups-button">
+                                <button type="submit" class="btn btn-primary">
+                                    Add New</button>
+                            </div>
+                            <div class="column-groups-button">
+                                <button type="submit" class="btn btn-primary">
+                                    Ammend</button>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>*@ @*   </form>*@ @*}*@
+                    </div>
+                </div>
+            </div>
+            <div class="widget-box" id="divPracitionerGrid">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Recently Added Practitioners</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @*Html.Partial("Supplier/_SupplierGridPartial")*@
+                    <table class="table table-bordered table-striped table-hover sortable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Action
+                                </th>
+                                <th>
+                                    Practitioner Name
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:Practitioners">
+                            <tr>
+                                <td>
+                                    <a data-bind="attr: { href: '/Practitioner/Detail/' + PractitionerID() }">View</a> / <a href="#" data-bind="click: $root.DeletePractitioner">Delete</a>
+                                </td>
+                                <td data-bind="text:PractitionerFirstName() + ' ' + PractitionerLastName()">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootsrap-ajaxutil.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/practitioner/IndexViewModel.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+
+        var practitionerGridViewModel = new PractitionerGridViewModel();
+        ko.applyBindings(practitionerGridViewModel, $('#divPractitionerSearch').get(0));
+        practitionerGridViewModel.Init(model.Practitioners);
+       
+         var practitionerSearchViewModel = new SearchViewModel();
+        ko.applyBindings(practitionerSearchViewModel, $("#searchDivCollapse").get(0));
+
+    </script>
+}

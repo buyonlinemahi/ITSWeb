@@ -1,0 +1,138 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Supplier
+@*
+ Latest Version   : 1.0
+  Author          : Robin Singh
+  Date            : 19-Dec-2012
+  Version         : 1.0
+  Description     : Created and Added design for RegistrationDocuments Partial tab   
+  *@
+<link href="@Url.Content("~/Content/SupplierDocumentPartial.css")" rel="stylesheet"
+    type="text/css" />
+<script type="text/javascript">
+
+    $(function () {
+        var DocumentRegistrationUrls = {
+            UrlGetSupplierDocumentBySupplierIDAndDocumentTypeID: "@Url.Action(GlobalConst.Actions.Area.Internal.SupplierDocumentRegistrationController.GetSupplierDocumentBySupplierIDAndDocumentTypeID, GlobalConst.Controllers.Area.Internal.SupplierDocumentRegistration)"
+        };
+        var DocumentRegistrationErrorMsg = {
+            PleaseEnterDocumentName: "@GlobalResource.PleaseEnterDocumentName",
+            PleaseSelectFile: "@GlobalResource.PleaseSelectFile",
+            PleaseBrowsePDFFileOnly: "@GlobalResource.PleaseBrowsePDFFileOnly"
+        };
+
+        DocumentViewModel.InitializeDocumentRegistrationUrls(DocumentRegistrationUrls);
+        DocumentViewModel.InitializeDocumentRegistrationErrorMsg(DocumentRegistrationErrorMsg);
+    });
+
+    function ValidationDocumentRegistration() {
+        if (DocumentViewModel.ValidateDocumentRegistrationForm()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+</script>
+
+<div id="supplierRegistrationDocuments">
+<div id="divRegistrationDocumentSpinner" style="position: absolute; top: 20%; left: 50%">
+</div>
+    <div id="registrationDocumentname">
+        <div>
+            <label id="lbltestmsg" data-bind="text: Message">
+            </label>
+        </div>
+        <fieldset style="border: 1px solid black;">
+            <form id="formsupplierdocument" enctype="multipart/form-data" onsubmit="return ValidationDocumentRegistration()">
+            <table width="600px" class="outer-container-Documentfieldset">
+                <tr>
+                    <td>
+                        Document Name
+                    </td>
+                    <td align="center">
+                        :
+                    </td>
+                    <td>
+                        <input type="text" name="documentName" id="documentName" data-bind="value:DocumentName"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" height="5px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Document Upload
+                    </td>
+                    <td align="center">
+                        :
+                    </td>
+                    <td>
+                        <div class="row">
+                            <label>
+                                Select a File to Upload</label><br />
+                            <input type="file" name="registrationDocumentFileUpload" id="fileToUploadRegistrationDocument" data-bind="value:UploadPath"  />
+                            <input type="hidden" name="supplierID" id="supplierID" data-bind="value:SupplierID" />
+                            <input type="hidden" name="documentTypeId" id="documentTypeId" data-bind="value:DocumentTypeID" />
+                            <input type="submit" value="Upload" />
+                        </div>
+                        <div class="row" style="padding-top: 10px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" height="5px">
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </fieldset>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="outer-container-Document">
+        <div class="Document">
+            <div class="first">
+                <div class="prj-text" style="width: 520px;">
+                    <span>Document Name</span>
+                </div>
+                <div class="prj-text" style="width: 224px">
+                    <span>Date Upload</span>
+                </div>
+                <div class="prj-text">
+                    <span>Upload By</span>
+                </div>
+                <div class="clear">
+                </div>
+                <div data-bind="template: {name:'DocumentTypes', foreach: SupplierDocumentTypes }">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear">
+</div>
+<div style="text-align: center; boder: 1px; color: Red; padding-top: 10px;">
+    <span data-bind="text: Status, visible: NoRecordFound"></span>
+</div>
+<div class="clear">
+</div>
+<script id="DocumentTypes" type="text/html">
+<div class="first">
+    <div class="prj-text" style="width: 520px; background-color:White;padding-top:5px">
+    <a data-bind="attr:{href:DocumentUrl}" ><span style="font-size: 12px; color:blue" data-bind="text:DocumentName"></span></a>
+      
+    </div>
+    <div class="prj-text"  style="background-color:White;width: 224px" nowrap="nowrap">
+       <input id="dateformat" style="font-size: 12px; color: #000;border:none;background:transparent" readonly="true" data-bind="dateString:UploadDate"/>
+    </div>
+    <div class="prj-text" style="background-color:White;width: 180px;padding-top:5px">
+       <span style="font-size: 12px; color: #000" data-bind="text:UserName"></span>
+    </div>
+</div>
+
+<div class="clear">
+</div>
+             
+</script>

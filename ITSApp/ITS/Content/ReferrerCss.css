@@ -1,0 +1,75 @@
+﻿
+*{font-family:Arial;font-size:13px;}
+#search-Cantainer{padding:20px 20px 20px 20px;}
+#search-Cantainer #Search{}
+#search-Cantainer #Search #seacrh-lable{background: none repeat scroll 0 0 #77B531;border: 1px solid #000000;float: left;font-family: arial;font-size: 12px;font-weight: bold; padding: 12px 0 14px 8px;width: 200px;}
+#search-Cantainer #Search #search-text{ border: 1px solid #000000;float: left;padding: 6.5px;}
+#search-Cantainer #Search #search-text input[type="text"]{height: 22px;width: 500px;}
+#search-Cantainer #add-edit{float:left;}
+#search-Cantainer input[type="submit"]{ background: none repeat scroll 0 0 #EBE8D8;height: 40px;width: 140px;margin-left:10px;font-size:14px;font-weight:bold;}
+#search-Cantainer #save-settings{float:right;}
+
+/* Referrer Information */
+#referrer-info{padding:20px;width:100%;}
+
+#referrer-info #referrer-left-cantainer{float:left;width:599px;}
+#referrer-info #referrer-left-cantainer .ref-lable{background: none repeat scroll 0 0 #77B531;border: 1px solid #000000;float: left;font-family: arial;font-size: 13px;font-weight: bold; padding: 12px 0 14px 8px;width: 200px;}
+#referrer-info #referrer-left-cantainer .ref-text{border: 1px solid #000000;float: left;padding: 6.5px;}
+#referrer-info #referrer-left-cantainer .ref-text input[type="text"]{height: 23px;width: 368px;text-indent:20px;}
+
+
+#referrer-info #referrer-middle-cantainer{float:left;width:601px;}
+#referrer-info #referrer-middle-cantainer .ref-lable{background: none repeat scroll 0 0 #77B531;border: 1px solid #000000;float: left;font-family: arial;font-size: 13px;font-weight: bold; padding: 12px 0 14px 8px;width: 200px;}
+#referrer-info #referrer-middle-cantainer .ref-text{border: 1px solid #000000;float: left;padding: 6.5px;}
+#referrer-info #referrer-middle-cantainer .ref-text input[type="text"]{height: 23px;width: 370px;text-indent:20px;}
+#referrer-middle-cantainer #chk-box{}
+
+#referrer-middle-cantainer #chk-box #chk-send-all{float:left;padding:50px;}
+#referrer-middle-cantainer #chk-box #chk-cc-all{float:left;padding:50px;}
+#referrer-middle-cantainer #chk-box #chk-none{float:left;padding:50px;}
+
+#referrer-info #referrer-right-cantainer{float:right;width:673px;}
+#referrer-info #referrer-right-cantainer .ref-lable{background: none repeat scroll 0 0 #77B531;border: 1px solid #000000;float: left;font-family: arial;font-size: 13px;font-weight: bold; padding: 12px 0 14px 8px;width: 200px;}
+#referrer-info #referrer-right-cantainer .ref-text{border: 1px solid #000000;float: left;padding: 6.5px;}
+#referrer-info #referrer-right-cantainer .ref-text input[type="text"]{height: 23px;width: 350px;text-indent:20px;}
+
+.mgt-left{float:left;padding:10px;}
+.mgt-left .container{text-align:left;overflow:hidden;}
+.mgt-left .container .left-text{ background: none repeat scroll 0 0 #77B531; border: 1px solid #000000; float: left;font-family: arial;font-size: 13px;font-weight: bold; padding: 15px 0 14px 8px; width: 200px;}
+.mgt-left .container .right-textbx{float:right;border:1px solid #000;padding:6.5px;;}
+.mgt-left .container .right-textbx input[type="text"]{width:500px;height:26px;}
+.mgt-left .container .right-textbx select{width:506px;padding:6.5px;}
+.border-bottom-none{border-bottom:none;}
+.mgt-right{float:left;padding:10px;padding-right:100px;}
+.mgt-right .add-edit {float:left;}
+.mgt-right input[type="submit"]{height:40px;width:100px;background:#ebe8d8;}
+.mgt-right .save-user-settings{float:right;}
+.mgt-right .security{float:left;font-weight: bolder; padding: 20px 20px 20px 103px}
+.mgt-right .securty-contents{padding-left: 106px;}
+.mgt-right .securty-contents table{border:1px solid #000;}
+.mgt-right .securty-contents .td-border{border:1px solid #000; text-align:center;padding:10px;}
+.mgt-right .select-all{float:right;padding:15px;}
+
+/* Control Tabs*/
+#search-tabs{padding:20px 20px 20px 20px;}
+#search-tabs #Search{float:left;margin:0 0 0 -34px;}
+#search-tabs #Search #seacrh-lable{background: none repeat scroll 0 0 #77B531;border: 1px solid #000000;float: left;font-family: arial;font-size: 12px;font-weight: bold; padding: 12px 0 14px 8px;width: 200px;}
+#search-tabs #Search #search-text{ border: 1px solid #000000;float: left;padding: 6.5px;}
+#search-tabs #Search #search-text input[type="text"]{height: 22px;width: 500px;}
+#search-tabs #add-edit{float:left;}
+#search-tabs input[type="submit"]{ background: none repeat scroll 0 0 #EBE8D8;height: 40px;width: 140px;margin-left:10px;font-size:14px;font-weight:bold;}
+#search-tabs #save-settings{float:right;width:751px;}
+
+
+#referrer-tabs{padding:20px;}
+
+#referrer-tabs #referrer-tabs-cantainer{float:left;width:599px;margin-left:-53px;}
+#referrer-tabs #referrer-tabs-cantainer .ref-lable{background: none repeat scroll 0 0 #77B531;border: 1px solid #000000;float: left;font-family: arial;font-size: 13px;font-weight: bold; padding: 12px 0 14px 8px;width: 200px;}
+#referrer-tabs #referrer-tabs-cantainer .ref-text{border: 1px solid #000000;float: left;padding: 6.5px;}
+#referrer-tabs #referrer-tabs-cantainer .ref-text input[type="text"]{height: 23px;width: 368px;text-indent:20px;}
+
+#search-tabs #security{  border: 1px solid #000000;float: left;height: 241px;margin-left: 17%; width: 210px;}
+#search-tabs #security span{font-weight: bold;margin-top: -19px;position: absolute;}
+#search-tabs #security #main-screen{border-bottom:1px solid #000; font-weight: bold;padding: 10px;}
+#search-tabs #security input[type="checkbox"]{margin:10px;background:#bababa;}
+.clear{clear:both;}

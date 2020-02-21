@@ -1,0 +1,160 @@
+﻿@model  ITSPublicApp.Domain.ViewModels.CaseDocumentUserViewModel
+@using System.Web.Script.Serialization
+@using ITSPublicApp.Infrastructure.Global
+
+@{
+    ViewBag.Title = "CaseUploads";
+    Layout = "~/Areas/Referrer/Views/Shared/_LayoutForm.cshtml";
+   
+    
+}
+
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/referrer/CaseUploadsViewModel.js")"></script>
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its-supplier.css")"/>
+<link href="@Url.Content("~/Content/CaseSearch.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/kopaging.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/knockout.mapping.js")" type="text/javascript"></script>
+
+
+<script>    
+    $(function () {
+
+        $("#txtDocumentDate").datepicker({
+            dateFormat:'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1910:' + new Date().getFullYear()
+        });
+
+        var _modelCaseUpload = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var caseUploadViewModel = new CaseUploadViewModel(_modelCaseUpload);
+        ko.applyBindings(caseUploadViewModel, $("#ReferrerCaseMainDiv").get(0));
+
+        $("#cid").val("@ViewBag.CaseID");
+       
+
+
+    });
+
+</script>
+@section SubHeader{
+
+}
+
+<div id="pettabs" class="indentmenu">
+    <ul>
+        <li>@Html.ActionLink("PATIENT DETAILS", "CaseDetail", "CaseSearch", new { id = @ViewBag.CaseID }, null)</li>
+        <li>@Html.ActionLink("CASE UPLOADS", "CaseUploads", "CaseSearch", null, new { @class = "selected" })</li>
+        <li>@Html.ActionLink("CASE HISTORY", "CaseTreatment", "CaseSearch", new { id = @ViewBag.CaseID }, null)</li>
+
+    </ul>
+    <br style="clear: left" />
+</div>
+
+<div id="ReferrerCaseMainDiv" style="padding-bottom: 75px;">
+    <div class="ITS-ref-table">
+        <table>
+            <thead>
+                <tr>
+                    <td>Document Type
+                    </td>
+                    <td>Document Name
+                    </td>
+                    <td>Document Date
+                    </td>
+                    <td>Action
+                    </td>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: CaseUploadArray">
+                <tr>
+                    <td><span data-bind="text:ReferrerDocumentTypeDesc" /></td>
+                    <td><span data-bind="text:DocumentName" /></td>
+                    <td>
+                        <input type="hidden"  data-bind="attr: { name: 'CaseDocumentUsers['+ $index() + '\].CaseID' },value:CaseID" />
+                        <input type="hidden" data-bind="attr: { name: 'CaseDocumentUsers['+ $index() + '\].UploadPath' },value:UploadPath" />
+                        <span data-bind="text:DocumentDate"/>
+                    </td>
+                    <td>
+                        <a href="#divViewCaseUpload" data-bind="click:$root.ViewUploads" role="button" data-toggle="modal">View</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a class="btn btn-small btn-primary right-pull" href="#divAddCaseUploads" role="button" data-toggle="modal"></a>
+
+    <div class="pull-right ">
+        <input type="button" id="btnUploadDoc" class="btn-its" value="Upload Document" />
+    </div>
+
+       <input type="hidden" id="cid" name="cid" />
+    <div id="divUploadModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span>Upload</span>
+            <span class="close">&times;</span>
+            <table id="tblRefDocForm" class="table-style1">
+                <tr>
+                    <th>Document Name</th>
+                    <th>Document Date</th>
+                    <th>Document Type</th>
+                    <th>Select File</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="clearField" name="DocumentName" id="txtUploadDocName" type="text" />
+                     
+                    </td>
+                    <td>
+                        <input class="clearField" name="DocumentDate" id="txtDocumentDate" type="text" />
+                    </td>
+                    <td>
+                        <select id="ddlUploadDocType" class="clearField" data-bind="options: DocumentTypes, optionsText: 'ReferrerDocumentTypeDesc', optionsValue: 'ReferrerDocumentTypeID'"></select>
+
+                    </td>
+                    <td>
+                        <input type="file" class="clearField" name="MedicalReportFileUpload" id="fileReferrerDocumentUpload" data-bind="value:MedicalReportFileUpload" />
+
+
+
+                    </td>
+                </tr>
+            </table>
+            <div class="text-align-right">
+                <input id="btnUploadFile" type="button" data-bind="click: SaveReferrerDocument" class="btn-its mrg-top10" value="Save" />
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('divUploadModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("btnUploadDoc");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+        $("#tblRefDocForm :input").val('');
+    }
+
+</script>

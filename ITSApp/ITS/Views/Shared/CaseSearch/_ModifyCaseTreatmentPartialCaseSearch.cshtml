@@ -1,0 +1,75 @@
+﻿<div id="divModifyCaseTreatmentGridCaseSearch" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close"  data-dismiss="modal" aria-hidden="true"  data-bind="click:closeCaseTreatmentPricing" >
+            ×</button>
+        <h3 id="myModalLabel">
+            Case Treatment Grid 
+        </h3>
+    </div>
+   
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label">
+                    Service Date :
+                </label>
+                <div class="controls">
+                    <input type="text" id="ModifycaseSearchServiceDate" data-validation-regex-message="DD/MM/YYYY" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$"
+                      name="DateOfService" data-bind="jqBootstrapValidation: {},value:DateOfService,inputmask:'dd/mm/yyyy'" placeholder="" />
+                     <input type="hidden" name="ReferrerPricingID" data-bind="value: ReferrerPricingID"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                  Treatment Type :
+                </label>
+                <div class="controls">                 
+                      <select class="select" id="PricingTypeName" required="required" name="CaseTreatmentPricings.PricingTypeName"  data-bind="jqBootstrapValidation :{},options: SelectedReferrerTreatmentPricing, optionsText:'PricingTypeName', optionsValue: 'PricingTypeName',value: $root.selectedPricingTypeName, optionsCaption: 'Select Treatment'">
+                    </select>
+                     <input type="hidden" name="CaseTreatmentPricings.ReferrerPrice" data-bind="value: ReferrerPrice" />
+                     <input type="hidden" name="CaseTreatmentPricings.CaseID" data-bind="value: CaseID" />
+                     <input type="hidden" name="CaseTreatmentPricings.SupplierPrice" data-bind="value: SupplierPrice" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Referrer Price :
+                </label>
+                <div class="controls">
+                       <input type="text" id="ReferrerPrice" required="required" name="CaseTreatmentPricings.ReferrerPrice" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$"
+                        data-validation-regex-message="Must be a number" data-bind="jqBootstrapValidation :{},value:ReferrerPrice1" placeholder="" />
+                       <input type="hidden" name="CaseTreatmentPricings.SupplierPriceID" data-bind="value: SupplierPriceID" />
+                     <input type="hidden" name="CaseTreatmentPricings.PricingTypeID" data-bind="value: PricingTypeID" />
+                     <input type="hidden" name="CaseTreatmentPricings.CaseTreatmentPricingID" data-bind="value: CaseTreatmentPricingID" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Supplier Price :
+                </label>
+                <div class="controls">
+                      <input type="text" id="SupplierPrice" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$"
+                        data-validation-regex-message="Must be a number" required="required" name="CaseTreatmentPricings.SupplierPrice" data-bind="jqBootstrapValidation :{},value:SupplierPrice1" placeholder="" />
+                </div>
+            </div>
+            <div class="control-group">
+               <label class="control-label">                    
+               Authorization Status
+                </label>           
+                <div class="controls">
+                    <select class="select" id="AuthorizationStatus" required="required" name="CaseTreatmentPricings.AuthorizationStatus"  
+                    data-bind="jqBootstrapValidation :{},options: AuthorizationStatusDDL, optionsText:'name', optionsValue:'value'">                    
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" data-bind="click:ModifyTreatmentCaseSearch">
+                Save</button>
+            <button class="btn" data-bind="click:closeCaseTreatmentPricing" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    
+</div>
+

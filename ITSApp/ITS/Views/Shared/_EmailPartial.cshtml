@@ -1,0 +1,35 @@
+﻿<div class="form-group">
+    <div>   
+        <div class="control-group">
+            <label class="control-label">
+                To:</label>
+            <div class="controls">
+                <input id="inputEmailSentTo" type="email" name="CaseCommunicationHistory.SentTo" placeholder="email1@email.com" required />
+            </div>
+        </div>
+       
+        <div class="control-group">
+            <label class="control-label">
+                CC:</label>
+            <div class="controls">
+                <input type="email" name="CaseCommunicationHistory.SentCC"  placeholder="email1@email.com"  />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                Subject:</label>
+            <div class="controls">
+                <input type="text" name="CaseCommunicationHistory.Subject" placeholder="Subject" required />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                Message:</label>
+            <div class="controls">
+                <textarea placeholder="Message" name="CaseCommunicationHistory.Message" required></textarea>
+            </div>
+        </div>
+        <input type="hidden" name="CaseCommunicationHistory.DateAdded" value="@DateTime.Now" />
+        
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divAddInsured" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            Add New Insured</h3>
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.AddSupplierInsurance, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new
+{
+
+    @class = "form-horizontal",
+    id = "frmAddSupplierInsurance",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddInsurance(responseText, statusText, xhr, $form); },beforeSubmit: InsuredFormBeforeSubmit, clearForm: true }"
+}))
+    {
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Document Name
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" placeholder="documnet name" name="DocumentName"
+                        id="DocumentName" data-bind="jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Level of Cover
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="LevelOfCover" id="LevelOfCover" placeholder="level of letter"
+                        data-bind="jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Renewal Date
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge datepicker" name="RenewalDate" id="RenewalDate" data-validation-regex-message="DD/MM/YYYY" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$"
+                        placeholder="Renew Date" data-bind="datepicker: { autoclose: true,format:'dd/mm/yyyy' },jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Insured Document Upload
+                </label>
+                <div class="controls">
+                    <input type="file" class="input-xlarge" name="InsuredDocumentFile" id="InsuredDocumentFile"
+                        data-bind="jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+        </div>
+        <section>
+            <input type="hidden" data-bind="value:SupplierID" name="SupplierID"/>
+        </section>
+        <div class="modal-footer">
+            <button id="btnSave" type="submit" class="btn btn-primary" data-bind="bootstrapButton : DisableAddButton">
+                Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    }
+</div>

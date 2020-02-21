@@ -1,0 +1,79 @@
+﻿#container
+{
+    width: 420px;
+    text-align: left;
+}
+#container .headings
+{
+    width: 420px;
+    margin-top: 10px;
+}
+#container .headings .left
+{
+    background: none repeat scroll 0 0 #77B531;
+    float: left;
+    font-family: Arial;
+    font-size: 14px;
+    padding: 6px;
+    text-align: center;
+    width: 199px;
+}
+#container .headings .right
+{
+    background: none repeat scroll 0 0 #77b531;
+    float: left;
+    font-family: Arial;
+    font-size: 14px;
+    padding: 4px 4px 8px;
+    text-align: center;
+    width: 200px;
+}
+
+#container .contents
+{
+    width: 420px;
+}
+#container .contents .left
+{
+    border: 1px solid #BEBEC0;
+    float: left;
+    padding: 4px;
+    text-align: left;
+    width: 200px;
+}
+#container .contents .left input[type="checkbox"]
+{
+    box-shadow: 1px 1px 1px #BEBEC0;
+    margin-top: 15px;
+}
+#container .contents .right
+{
+    border: 1px solid #BEBEC0;
+    border-left: 0px;
+    float: left;
+    padding: 4px;
+    text-align: left;
+    width: 200px;
+}
+
+#container .contents .right input[type="checkbox"]
+{
+    box-shadow: 1px 1px 1px #BEBEC0;
+    margin-top: 15px;
+}
+
+#container .contents .inner-contents
+{
+    background: none repeat scroll 0 0 #77B531;
+    float: left;
+    font-family: Arial;
+    font-size: 14px;
+    margin: 4px 0 4px -4px;
+    padding: 4px;
+    text-align: center;
+    width: 200px;
+}
+.clear
+{
+    clear: both;
+}

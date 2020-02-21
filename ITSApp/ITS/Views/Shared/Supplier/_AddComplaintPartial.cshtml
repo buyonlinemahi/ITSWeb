@@ -1,0 +1,68 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divAddComplaint" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            Add New Complaint</h3>
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.AddSupplierComaplaint, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new
+    {
+        id = "frmAddSupplierComplaint",
+        @class = "form-horizontal",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddSupplierComplaintFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: ComplaintFormBeforeSubmit, clearForm: true }"
+    }))
+    {
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Complaint Date
+                </label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge datepicker" id="inputComplaintDate" name="ComplaintDate"
+                        data-bind="datepicker: { autoclose: true,format:'dd/mm/yyyy' },jqBootstrapValidation: {}" required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="optionsCheckbox">
+                    <span style="color: Red">*</span>Complaint Type</label>
+                <div class="controls">
+                    <select id="Comtype" name="ComplaintTypeID" data-bind="options:ComplaintTypes, optionsValue:'ComplaintTypeID',optionsText:'ComplaintTypeName', value:ComplaintTypeID"
+                        required>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    <span style="color: Red">*</span>Complaint Status</label>
+                <div class="controls">
+                    <select id="ComStatus" name="ComplaintStatusID" data-bind="options:ComplaintStatus, optionsValue:'ComplaintStatusID',optionsText:'ComplaintStatusName', value:ComplaintStatusID"
+                        required>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    <span style="color: Red">*</span>Description</label>
+                <div class="controls">
+                  <textarea class="input-xlarge" name="ComplaintDescription" id="txtComplaintDescription" rows="3" data-bind="jqBootstrapValidation: {}" required></textarea>
+                </div>
+            </div>
+            <div  class="controls">
+                <input type="hidden" name="SupplierID" data-bind="value:SupplierID" />
+                <input type="hidden" name="ComplaintStatusName" data-bind="value:ComplaintStatusName" />
+                <input type="hidden" name="ComplaintTypeName" data-bind="value:ComplaintTypeName" />
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit" id="saveComplaint"  data-bind="bootstrapButton : DisableAddButton">
+                Save</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    }
+</div>
+ 

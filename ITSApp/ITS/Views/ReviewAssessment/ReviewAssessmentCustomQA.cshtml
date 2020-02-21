@@ -1,0 +1,308 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global
+@model ITS.Domain.ViewModels.InternalTasksViewModel.ReviewAssessmentCustomQAViewModel
+@{
+    ViewBag.Title = "ReviewAssessmentQA";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section AdditionalCss{
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui-timepicker-addon.css")" rel="stylesheet" type="text/css" />
+}
+@section ContentHeader{
+    <h1>
+        Review Assessment QA</h1>
+}
+
+<div id="breadcrumb">
+    <a href="@Url.Action(GlobalConst.Actions.InternalTasksController.Index, GlobalConst.Controllers.InternalTasks)"  title="Go to Home" class="tip-bottom">
+        <i class="icon-home"></i>Internal Tasks</a><a href="@Url.Action(@GlobalConst.Actions.ReviewAssessmentController.Index, @GlobalConst.Controllers.ReviewAssessment)" class="tip-bottom">Review
+            Assessment</a> <a href="#" class="tip-bottom">Review Assessment QA</a>
+</div>
+<div class="container-fluid" id="divReviwAssessmentCustomQA">
+    <div class="row-fluid">
+        <div class="span12">
+            @using (Html.BeginForm(GlobalConst.Actions.ReviewAssessmentController.UpdateReviewAssessmentCustomQA, GlobalConst.Controllers.ReviewAssessment, FormMethod.Post, new
+            {
+                @class = "form-horizontal",
+                id = "frmUpdateReviewlAssessmentQa",
+                encript = "multipart/form-data",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateReviewAssessment(responseText, statusText, xhr, $form); },beforeSubmit: ReviewAssessmentQAFormBeforeSubmit }"
+            }))
+            {
+                @Html.AntiForgeryToken()
+                //Patient info start
+             
+                <input type="hidden" name="Case.CaseID" data-bind="value:CaseID" />
+                <input type="hidden" name="caseAssessmentCustom.CaseID" data-bind="value:CaseID" />
+                <input type="hidden" name="caseAssessmentRating.CaseID" data-bind="value:CaseID" />
+                <input type="hidden" name="CaseCommunicationHistory.CaseID" data-bind="value:CaseID" />
+                <!--ko foreach:supplierDocumentCustom -->
+                <input type="hidden" name="supplierCustom.SupplierID" data-bind="value:SupplierID" />
+                <input type="hidden" name="supplierCustom.CaseID" data-bind="value:CaseID" />
+               
+                <!--/ko -->
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>
+                            Patient Details</h5>
+                        <a data-toggle="modal" role="button" class="label label-info">View QA Guidelines</a>
+                    </div>
+                    <div class="widget-content nopadding">
+                       <!--ko with:Patient -->
+                        <div class="control-group">
+                            <label class="control-label">
+                                Patient Name:</label>
+                            <div class="controls">
+                                <input type="text" name="PatientName" data-bind="value:FirstName() + ' ' + LastName()"
+                                    readonly />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Date of Birth:</label>
+                            <div class="controls">
+                                <input type="text" name="Patient.BirthDate" data-bind="value:BirthDate" readonly />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Date of Accident:</label>
+                            <div class="controls">
+                                <input type="text" name="Patient.InjuryDate" data-bind="value:InjuryDate" readonly />
+                            </div>
+                        </div>
+                        <!--/ko-->
+                        <!--ko with:Case -->
+                        <div class="control-group">
+                            <label class="control-label">
+                                Date of Referral:
+                            </label>
+                            <div class="controls">
+                                <input type="text" name="CaseSubmittedDate" readonly data-bind="value:CaseSubmittedDate"
+                                    placeholder="Date of Referral" />
+                            </div>
+                        </div>
+                        <!--/ko-->
+                           <!--ko with:CaseAppointmentDate -->
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Date of Initial Assessment:</label>
+                                <div class="controls">
+                                    <input type="text" id="CaseAppointmentDateAppointmentDate" class="datepicker" data-bind="value:strAppointmentDate,jqBootstrapValidation: {}" data-validation-regex-message="DD/MM/YYYY" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$"
+                                        placeholder="Date of Intital Assessment" required  />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Time of Initial Assessment:
+                                </label>
+                                <div class="controls">
+                                    <input type="text" id="CaseAppointmentDateAppointmentTime" data-bind="value:strAppointmentTime,jqBootstrapValidation: {}" maxlength="7"
+                                      data-validation-regex-regex="^([0-1][0-9]|2[0-3]):([0-5][0-9])$" placeholder="Time of Intital Assessment" required />
+                                      <input type="hidden" name="CaseAppointmentDate.AppointmentDateTime" data-bind="value:AppointmentDateTime1()" />
+                                </div>
+                            </div>
+                            <!--/ko-->                      
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+                
+                //Patient info End
+           
+                <input type="hidden" name="RefferId" data-bind="value:RefferId" />
+                <input type="hidden" name="RefferProjectTreatmentID" data-bind="value:RefferProjectTreatmentID" />
+                 
+                
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>
+                            Review Assessment Document</h5>
+                    </div>
+                    <div class="widget-content">
+                        <div class="control-group">
+                            <div class="form-group">
+
+                                <div class="controls pull-right">
+                                    <a class="btn btn-small btn-primary" href="#divFinalVersionUploadFile" role="button" 
+                                        data-toggle="modal">Upload Final Version</a> <a class="btn btn-small btn-primary" data-bind="attr : { 'href':ReviewAssesessmentCustomFilePath(),'target':'_blank'}" role="button" >Download Report</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div> 
+                          
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>
+                            Further Treatment</h5>
+                    </div>
+                    <div class="widget-content">
+                        <div class="control-group">
+                            <div class="form-group">
+                            <label class="control-label-inital-1">
+                                    Further Treatment Required:</label>
+                                <div class="controls">
+                                   <span class="pull-right">
+                                     <input type="Radio" name="radioHasValue" data-bind="jqBootstrapValidation:{}" required 
+                                        class="radio inline" value="yes" />Yes
+                                    <input type="Radio" name="radioHasValue" data-bind="jqBootstrapValidation:{}" required 
+                                        class="radio inline" value="no" />No
+                                       </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div> 
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>
+                            Rating Score</h5>
+                    </div>
+                    <div class="widget-content">
+                        <div class="control-group">
+                            <div class="form-group">
+                                <div class="controls">
+                                    <input class="textarea-leset" type="text" min="1" max="10" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number" name="caseAssessmentRating.Rating"  
+                                        data-bind="value:caseAssessmentRating.Rating,jqBootstrapValidation:{}"  required  />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>                    
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Further Treatment Recommended
+                        </h5>
+                    </div>
+                    @Html.Partial("InternalTask/_AddCaseBespokePartialCustom")
+                    @Html.Partial("InternalTask/_AddCaseTreatmentPartialCustom")
+                    <div class="widget-content">
+                        <a class="btn btn-small btn-primary pull-right" href="#divCreateCaseTreatmentGrid" role="button" 
+                            data-toggle="modal">Add</a>
+                        @Html.Partial("InternalTask/_CaseTreatmentGridPartialCustom", new { name = "CaseTreatmentPricings" })
+                        <div class="clear">
+                        </div>
+                        <a class="btn btn-small btn-primary pull-right" href="#divCreateBespokeGrid" role="button" data-toggle="modal">
+                            Add</a>
+                               @Html.Partial("InternalTask/_ReviewAssessmentCaseBespokeTreatmentPricingGridPartial", new { name = "CaseBespokeServicePricing" })
+                      
+                        @*<div class="form-group">
+                            <div class="control-group">
+                                <span class="span3">Notify Referrer?</span>
+                                <span class="pull-right">
+                                    <input type="radio"  data-bind="checked:IsNotifyEmailtoReferrer" 
+                                        class="radio inline isNottify" value="1" />Yes
+                                    <input type="radio" data-bind="checked:IsNotifyEmailtoReferrer" 
+                                        class="radio inline isNottify" value="0" />No</span>
+                                <div class="pull-right">
+                                </div>
+                                <input type="hidden" name="CaseCommunicationHistory.NotifyReferrer" data-bind="value:Notify" />
+                            </div>
+                        </div>*@
+                        <div class="clear">
+                        </div>
+                        <div data-bind="if:IsNotifyEmailtoReferrer()==true">
+                            @Html.Partial("_EmailPartial")
+                        </div>
+                        <br />
+                        <div class="clear">
+                        </div>
+                  
+                        <div id="divMeassageToSupplier" class="form-group" >
+                            <label>
+                                Message to Supplier:
+                            </label>
+                           <textarea class="form-control textarea-qurtr" id="txtMessageSupplier" name="caseAssessmentCustom.ReviewAssessmentMessage" data-bind="value:caseAssessmentCustom.ReviewAssessmentMessage , jqBootstrapValidation:{}" required 
+                                rows="3"></textarea>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div class="control-group pull-right">
+                            <input type="radio" class="radio-accept-1 inline isAccepted" name="caseAssessmentCustom.isAccepted" required value="true" id="radioIsAccept"
+                                data-bind="checked:isAccepted" />
+                            Accept
+                            <input type="radio" class="radio-accept-1 inline isAccepted" name="caseAssessmentCustom.isAccepted" required value="false" 
+                                data-bind="checked:isAccepted" />
+                            Reject&nbsp&nbsp&nbsp&nbsp
+                            <button id="btnClinicalSave" type="submit" class="btn btn-primary">
+                                Send</button>
+                        </div>
+                     
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("_FinalVersionUploadPartial")
+                <div id="divFinalVersionUploadFile" class="modal hide fade  form-horizontal" tabindex="-1" 
+                    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×</button>
+                        <h3 id="myModalLabel">
+                            Final Version Upload</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="control-group">
+                            <label class="control-label" for="input01">
+                                <span style="color: Red">*</span>Select File
+                            </label>
+                            <div class="controls" id="DocUploadDiv">
+                                <input type="file" id="finalVersionFileUploadFile" name="ReviewAssessmentFileFinal"  data-buttontext="Select File" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bind="click:UploadFinalVersionFile">
+                            Upload</button>
+                    </div>
+                </div>
+            }
+          
+        </div>
+    </div>
+    </div>
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2012 - 2013 &copy; ITS Portal v1.0
+        </div>
+    </div>
+
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/ReviewAssessment/ReviewAssessmentCustomQAViewModel.js")" type="text/javascript"></script>
+      <script src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-timepicker-addon.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        reviewAssessmentQAViewModel = new ReviewAssessmentCustomQAViewModel(model);
+//        reviewAssessmentQAViewModel.Init(model);
+        ko.applyBindings(reviewAssessmentQAViewModel, $("#divReviwAssessmentCustomQA").get(0));
+       $(document).ready(function(){
+            $("#CaseAppointmentDateAppointmentDate").datepicker({
+                dateFormat:'dd/mm/yy',
+                    changeMonth: true,
+                    changeYear: true
+                });
+            $("#CaseAppointmentDateAppointmentTime").timepicker();
+            $("#AnticipatedDateOfDischarge").datepicker({ dateFormat: 'dd/mm/yy' });
+         });
+
+    </script>
+}
+<script type="text/javascript" src="@Url.Content("/Scripts/painScoreValidation.js")"></script>

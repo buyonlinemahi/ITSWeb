@@ -1,0 +1,6 @@
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.DependencyResolution\bin\Debug\ITS.Infrastructure.DependencyResolution.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.DependencyResolution\bin\Debug\ITS.Infrastructure.DependencyResolution.pdb
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.DependencyResolution\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.DependencyResolution\obj\Debug\ITS.Infrastructure.DependencyResolution.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.DependencyResolution\obj\Debug\ITS.Infrastructure.DependencyResolution.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Infrastructure.DependencyResolution\obj\Debug\ITS.Infrastructure.DependencyResolution.pdb

@@ -1,0 +1,65 @@
+﻿@using ITSPublicApp.Infrastructure.Global
+@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "StoppedCase";
+    Layout = "~/Areas/Supplier/Views/Shared/_LayoutForm.cshtml";
+}
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/StoppedCaseScreenViewModel.js")"
+    type="text/javascript"></script>
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+       
+        var stoppedCaseScreenViewModel = new StoppedCaseScreenViewModel();
+        stoppedCaseScreenViewModel.init(model);
+            ko.applyBindings(stoppedCaseScreenViewModel);
+    });
+    
+</script>
+<div class="its-content" id="divStoppedCaseScreen">
+    @using (Html.BeginForm(GlobalConst.Actions.Area.Supplier.StoppedCases.UpdateCaseStopped, GlobalConst.Controllers.Area.Supplier.StoppedCases, FormMethod.Post, new
+
+            {
+                @class = "form-horizontal",
+                id = "frmStoppedCase",
+                encript = "multipart/form-data",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateCaseStopped(responseText, statusText, xhr, $form); } }"
+            }))
+    {
+
+     
+        <div id="divCaseStopped">
+            <h1>
+                Stopped Case</h1>
+            <div class="its-authorisation-border">
+            </div>
+            <p>
+                This case has been closed by the Referrer for the following reason:.</p>
+            <div class="row2-textarea">
+                <textarea data-bind="value:AuthorisationDetail" rows="2" readonly></textarea>
+            </div>
+            <p>
+                Please stop treating the Patient and submit your final Invoice to Innovate.</p>
+            <p>
+                Please click the “Accept” button to notify Innovate that you have closed your file..</p>
+            <div class="clear">
+            </div>
+            <div class="its-authorisation-border">
+                <input type="hidden" name="caseID" data-bind="value:CaseID" />
+            </div>
+            <div class="its-authorisation-row6">
+                <p>
+                    <input type="submit" value="Accept" />
+                    <input type="button" value="Print" /></p>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+
+      
+    }
+</div>

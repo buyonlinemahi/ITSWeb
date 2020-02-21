@@ -1,0 +1,86 @@
+﻿@using ITS.Infrastructure.Global
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Supplier Name
+            </th>
+            <th>
+                Registration Number
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:SupplierPractitioners">
+        <tr>
+            <td>
+                <a href="#divViewSupplier" role="button" data-toggle="modal" data-bind="click:$root.ViewSupplierPractitioner">View</a>
+                / <a href="#" role="button" data-bind="click:$root.DeletePractitionerSupplier">Delete</a>
+            </td>
+            <td data-bind="text:SupplierName">
+            </td>
+            <td data-bind="text:RegistrationNumber">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="divViewSupplier" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" data-bind="with: SelectedSupplierPractitioner">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.CloseClick">
+            ×</button>
+        <h3 id="myModalLabel">
+            Edit Registration</h3>
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.PractitionerSharedController.UpdateSupplierPractitioner, 
+        GlobalConst.Controllers.PractitionerShared, 
+        FormMethod.Post, 
+        new
+        {
+            @class = "form-horizontal",
+            id = "frmViewPractitionerSupplier",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdatePractitionerSupplierFormSuccess(responseText, statusText, xhr, $form); } }"
+        }))
+    {
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Supplier
+                </label>
+                <div class="controls">
+                    <span data-bind="text:SupplierName"></span> 
+                    @*<select name="SupplierID" data-bind="options:Suppliers, 
+                                                        optionsValue:'SupplierID',
+                                                        optionsText:'SupplierName',
+                                                        value:SupplierID">
+                    </select>*@
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    <span style="color: Red">*</span>Practitioner Registration
+                </label>
+                <div class="controls">
+                    <select name="PractitionerRegistrationID" data-bind="options:PractitionerRegistrations, 
+                                                        optionsValue:'PractitionerRegistrationID',
+                                                        optionsText:'RegistrationNumber',
+                                                        value:PractitionerRegistrationID"></select>
+                </div>
+            </div>
+            <input type="hidden" name="SupplierName" data-bind="value:SupplierName" />
+            <input type="hidden" name="SupplierID" data-bind="value:SupplierID" />
+            <input type="hidden" name="SupplierPractitionerID" data-bind="value:SupplierPractitionerID" />
+            <input type="hidden" name="RegistrationNumber" data-bind="value:RegistrationNumber" />
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">
+                        Save</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.CloseClick">
+                    Close</button>
+            </div>
+        </div>
+        
+    }
+</div>

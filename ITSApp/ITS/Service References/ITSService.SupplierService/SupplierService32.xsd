@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ITSService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Case">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseDOI" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CasePatientContact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseRefReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseReferrerEmailContact1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseReferrerEmailContact2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseReferrerEmailContact3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseReferrerEmailContact4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseReferrerEmailContact5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseTreatmentCategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseTreatmentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Case" nillable="true" type="tns:Case" />
+  <xs:complexType name="ArrayOfCase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Case" nillable="true" type="tns:Case" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCase" nillable="true" type="tns:ArrayOfCase" />
+  <xs:complexType name="ArrayOfTreatmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentType" nillable="true" type="tns:TreatmentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentType" nillable="true" type="tns:ArrayOfTreatmentType" />
+  <xs:complexType name="TreatmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentType" nillable="true" type="tns:TreatmentType" />
+  <xs:complexType name="ArrayOfTreatmentCategoriesTreatmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentCategoriesTreatmentType" nillable="true" type="tns:TreatmentCategoriesTreatmentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentCategoriesTreatmentType" nillable="true" type="tns:ArrayOfTreatmentCategoriesTreatmentType" />
+  <xs:complexType name="TreatmentCategoriesTreatmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryTreatmentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentCategoriesTreatmentType" nillable="true" type="tns:TreatmentCategoriesTreatmentType" />
+  <xs:complexType name="ArrayOfTreatmentCategoriesRegistrationTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentCategoriesRegistrationTypes" nillable="true" type="tns:TreatmentCategoriesRegistrationTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentCategoriesRegistrationTypes" nillable="true" type="tns:ArrayOfTreatmentCategoriesRegistrationTypes" />
+  <xs:complexType name="TreatmentCategoriesRegistrationTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RegistrationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="RegistrationTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreatmentCategoryRegistrationTypeID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentCategoriesRegistrationTypes" nillable="true" type="tns:TreatmentCategoriesRegistrationTypes" />
+  <xs:complexType name="ArrayOfTreatmentCategoriesAreasofExpertises">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentCategoriesAreasofExpertises" nillable="true" type="tns:TreatmentCategoriesAreasofExpertises" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreatmentCategoriesAreasofExpertises" nillable="true" type="tns:ArrayOfTreatmentCategoriesAreasofExpertises" />
+  <xs:complexType name="TreatmentCategoriesAreasofExpertises">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AreasofExpertiseID" type="xs:int" />
+      <xs:element minOccurs="0" name="AreasofExpertiseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreatmentCategoryAreasofExpertiseID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreatmentCategoriesAreasofExpertises" nillable="true" type="tns:TreatmentCategoriesAreasofExpertises" />
+  <xs:complexType name="SupplierInsurance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LevelOfCover" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RenewalDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SupplierDocumentID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierInsuredID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierInsurance" nillable="true" type="tns:SupplierInsurance" />
+  <xs:complexType name="ArrayOfSupplierInsurance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierInsurance" nillable="true" type="tns:SupplierInsurance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierInsurance" nillable="true" type="tns:ArrayOfSupplierInsurance" />
+  <xs:complexType name="ArrayOfSupplierSiteAudit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierSiteAudit" nillable="true" type="tns:SupplierSiteAudit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierSiteAudit" nillable="true" type="tns:ArrayOfSupplierSiteAudit" />
+  <xs:complexType name="SupplierSiteAudit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuditDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AuditNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuditPass" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SupplierDocumentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierSiteAuditID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierSiteAudit" nillable="true" type="tns:SupplierSiteAudit" />
+  <xs:complexType name="SupplierDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierDocumentID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="UploadDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UploadPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierDocument" nillable="true" type="tns:SupplierDocument" />
+  <xs:complexType name="ArrayOfSupplierSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierSearch" nillable="true" type="tns:SupplierSearch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierSearch" nillable="true" type="tns:ArrayOfSupplierSearch" />
+  <xs:complexType name="SupplierSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierSearch" nillable="true" type="tns:SupplierSearch" />
+  <xs:complexType name="SupplierClinicalAudit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierClinicalAuditDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SupplierClinicalAuditID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierClinicalAuditStatus" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SupplierDocumentID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierClinicalAudit" nillable="true" type="tns:SupplierClinicalAudit" />
+  <xs:complexType name="ArrayOfSupplierClinicalAudit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierClinicalAudit" nillable="true" type="tns:SupplierClinicalAudit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierClinicalAudit" nillable="true" type="tns:ArrayOfSupplierClinicalAudit" />
+  <xs:complexType name="SupplierPractitioner">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PractitionerID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierPractitionerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierPractitioner" nillable="true" type="tns:SupplierPractitioner" />
+  <xs:complexType name="ArrayOfSupplierPractitioner">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierPractitioner" nillable="true" type="tns:SupplierPractitioner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierPractitioner" nillable="true" type="tns:ArrayOfSupplierPractitioner" />
+  <xs:complexType name="ArrayOfSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Supplier" nillable="true" type="tns:Supplier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplier" nillable="true" type="tns:ArrayOfSupplier" />
+  <xs:complexType name="Supplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEvenings" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsHomeVisit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsParking" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsWeekends" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsWheelChairAccessibility" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ranking" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Supplier" nillable="true" type="tns:Supplier" />
+  <xs:complexType name="ArrayOfSupplierTreatment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierTreatment" nillable="true" type="tns:SupplierTreatment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierTreatment" nillable="true" type="tns:ArrayOfSupplierTreatment" />
+  <xs:complexType name="SupplierTreatment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierTreatmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierTreatment" nillable="true" type="tns:SupplierTreatment" />
+  <xs:complexType name="ArrayOfComplaintStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ComplaintStatus" nillable="true" type="tns:ComplaintStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComplaintStatus" nillable="true" type="tns:ArrayOfComplaintStatus" />
+  <xs:complexType name="ComplaintStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComplaintStatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="ComplaintStatusName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ComplaintStatus" nillable="true" type="tns:ComplaintStatus" />
+  <xs:complexType name="ArrayOfComplaintType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ComplaintType" nillable="true" type="tns:ComplaintType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComplaintType" nillable="true" type="tns:ArrayOfComplaintType" />
+  <xs:complexType name="ComplaintType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComplaintTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ComplaintTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ComplaintType" nillable="true" type="tns:ComplaintType" />
+  <xs:complexType name="ArrayOfSupplierDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierDocument" nillable="true" type="tns:SupplierDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierDocument" nillable="true" type="tns:ArrayOfSupplierDocument" />
+  <xs:complexType name="SupplierComplaint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComplaintDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ComplaintDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComplaintStatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="ComplaintTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierComplaintID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierComplaint" nillable="true" type="tns:SupplierComplaint" />
+  <xs:complexType name="ArrayOfSupplierComplaint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierComplaint" nillable="true" type="tns:SupplierComplaint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierComplaint" nillable="true" type="tns:ArrayOfSupplierComplaint" />
+  <xs:complexType name="SupplierTreatmentPricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PricingID" type="xs:int" />
+      <xs:element minOccurs="0" name="PricingTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierTreatmentID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierTreatmentPricing" nillable="true" type="tns:SupplierTreatmentPricing" />
+  <xs:complexType name="ArrayOfSupplierTreatmentPricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierTreatmentPricing" nillable="true" type="tns:SupplierTreatmentPricing" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplierTreatmentPricing" nillable="true" type="tns:ArrayOfSupplierTreatmentPricing" />
+  <xs:complexType name="ArrayOfRegistrationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegistrationType" nillable="true" type="tns:RegistrationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegistrationType" nillable="true" type="tns:ArrayOfRegistrationType" />
+  <xs:complexType name="RegistrationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RegistrationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="RegistrationTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegistrationType" nillable="true" type="tns:RegistrationType" />
+</xs:schema>

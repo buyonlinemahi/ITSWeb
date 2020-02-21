@@ -1,0 +1,31 @@
+﻿<div id="divCreateCaseTreatmentGrid" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel">
+            Create Case Treatment Grid based on "How many sessions do you recommend ?"
+        </h3>
+    </div>
+   
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    Select Treatment Type :
+                </label>
+                <div class="controls">
+                    <select id="ddlTreatmentType" class="select" data-bind="options: $root.TreatmentReferrerSupplierPricing, optionsText:'PricingTypeName', value: $root.SelectedReferrerTreatmentPricing">
+                    </select>
+                </div>           
+                
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" data-bind="click:$root.addCaseTreatmentPricing">
+                Add</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    
+</div>

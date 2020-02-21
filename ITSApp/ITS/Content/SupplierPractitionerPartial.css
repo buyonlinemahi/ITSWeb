@@ -1,0 +1,151 @@
+﻿
+.practitionerContainer
+{
+    width: 945px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+.practitionerContainer .heading
+{
+    float: left;
+    width: 145.5px;
+    background: #77B531;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid;
+    font-family: Arial;
+    font-weight: bold;
+}
+.practitionerContainer .text
+{
+    float: left;
+    width: 145.5px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid;
+    font-family: Arial;
+}
+.practitionerContainer .text a
+{
+    color: Blue;
+}
+
+#pratictionerPOPUP
+{
+    width: 950px;
+    margin: 0 auto;
+}
+#pratictionerPOPUP .left
+{
+    float: left;
+}
+#pratictionerPOPUP .right
+{
+    float: right;
+}
+
+#pratictionerPOPUP .heading
+{
+    float: left;
+    width: 940px;
+    background: #77B531;
+    padding: 5px;
+    text-align: left;
+    border: 1px solid;
+    font-family: Arial;
+    font-weight: bold;
+}
+#pratictionerPOPUP .left .text
+{
+    float: left;
+    width: 150px;
+    background: #77B531;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid;
+    font-family: Arial;
+    font-weight: bold;
+}
+#pratictionerPOPUP .left .inputType
+{
+    float: left;
+    width: 295px;
+    padding: 5px;
+    border: 1px solid;
+    font-family: Arial;
+}
+#pratictionerPOPUP .left .inputType input[type="text"]
+{
+    width: 285px;
+    font-family: Arial;
+}
+
+#pratictionerPOPUP .right .text
+{
+    float: left;
+    width: 150px;
+    background: #77B531;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid;
+    font-family: Arial;
+    font-weight: bold;
+}
+#pratictionerPOPUP .right .inputType
+{
+    float: left;
+    width: 295px;
+    padding: 5px;
+    border: 1px solid;
+    font-family: Arial;
+}
+#pratictionerPOPUP .right .inputType input[type="text"]
+{
+    width: 287px;
+    font-family: Arial;
+}
+.submitLink
+{
+    height: 20px;
+}
+.saveButton
+{
+    padding: 10px;
+    float: right;
+}
+
+.saveButton input[type="submit"]
+{
+    padding: 10px;
+    background: none repeat scroll 0 0 #EBE8D8;
+    width: 100px;
+}
+.addRegistration
+{
+    color: blue;
+    float: right;
+    font-size: 16px;
+    padding: 5px;
+}
+
+
+.active
+{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: #000;
+}
+ .alertPracitioner
+{
+     background: none repeat scroll 0 0 yellow;
+    border: 1px solid gray;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 28px;
+    padding: 5px;
+    position: absolute;
+    text-align: center;
+    width: auto;
+    display:none;
+    
+}

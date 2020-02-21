@@ -1,0 +1,45 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divAddReferrerGroup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="divAddGroupLabel"
+    aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="divAddProjectLabel">Add New Group</h3>
+    </div>
+    <div class="modal-body no-scroll height-increase">
+        <div class="control-group">
+            <label class="control-label" for="input01">
+                <span style="color: Red">*</span>Group Name
+            </label>
+            <div class="controls">
+                <input type="text" id="objName" name="GroupName" data-bind="jqBootstrapValidation: {}"
+                    required />
+                <input type="text" id="objnewName" name="NewName" data-bind="jqBootstrapValidation: {}"
+                    required />
+                <input type="hidden" id="hdName" name="Name" />
+                <input type="hidden" id="hdcheck" />
+            </div>
+        </div>
+        <div id="multiDropDown">
+            <div class="control-group">
+                <label class="control-label">
+                    Users</label>
+                <div class="controls">
+                    <div class="controls">
+                        <select id="drpUserID" multiple="multiple" class="form-control" data-bind="options: UsersBindingByReferrerID,  optionsText:  function(item) { return(item.UserName) }, optionsValue: function(item) { return (item.UserID) } "></select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button id="SaveButton" class="btn btn-primary" id="btnSave" type="submit" data-bind="click:Save">Save</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+
+</div>
+
+
+

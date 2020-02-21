@@ -1,0 +1,131 @@
+﻿@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Practitioners</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home" class="tip-bottom"><i class="icon-home">
+    </i>Practitioners</a><a href="#" class="tip-bottom">Search</a>
+</div>
+<div class="container-fluid" id="PractitionerSearchDiv">
+    <div class="row-fluid">
+        <div class="span12">
+            <a class="btn btn-primary btn-block" href="@Url.Action(GlobalConst.Actions.PractitionerController.Add, GlobalConst.Controllers.Practitioner)">
+                Add New Practitioner</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box collapsible">
+                <div class="widget-title">
+                    <a href="#searchDivCollapse" data-toggle="collapse" class="collapsed"><span class="icon">
+                        <i class="icon-align-justify"></i></span>
+                        <h5>
+                            Practitioner Search</h5>
+                    </a>
+                </div>
+                <div class="collapse" id="searchDivCollapse" style="height: 0px;">
+                    <div class="widget-content nopadding" id="divPractitionerSearch">
+                        @using (Html.BeginForm(GlobalConst.Actions.PractitionerSharedController.PractitionerSearch, GlobalConst.Controllers.PractitionerShared, FormMethod.Post, new
+                        {
+                            id = "frmSearchPractitioner",
+                            enctype = "multipart/form-data",
+                            @class = "form-horizontal",
+                            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdatePractitionerGrid(responseText)},beforeSubmit: searchPractitionerFormBeforeSubmit  }"
+                        }))
+                        {
+                            <!-- ko with : PractitionerSearch -->
+                            <div class="control-group">
+                                <div class="column-groups">
+                                    <label class="control-label">
+                                        Practitioner Name</label>
+                                    <div class="controls">
+                                        <input type="radio" name="PractitionerSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                            required value="1" />
+                                    </div>
+                                </div>
+                                <div class="column-groups">
+                                    <label class="control-label">
+                                        Practitioner Treatment</label>
+                                    <div class="controls">
+                                        <input type="radio" name="PractitionerSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                            required value="2" />
+                                    </div>
+                                </div>
+                                <div class="clear">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Practitioner Search</label>
+                                <div class="controls">
+                                    <div class="search-groups1">
+                                        <input type="text" name="PractitionerSearch.SearchText" data-bind="value:SearchText, jqBootstrapValidation: {} "
+                                            required placeholder="Enter Text" />
+                                    </div>
+                                    <div class="search-groups2">
+                                        <button class="btn btn-primary" type="submit">
+                                            Search</button>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <!-- /ko -->
+                            <input type="hidden" name="Skip" data-bind="value:Skip" />
+                            <input type="hidden" name="Take" data-bind="value:Take" />
+                        }
+                    </div>
+                </div>
+            </div>
+            <!--ko if: TotalItemCount() > 0 -->
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Search Results</h5>
+                </div>
+                <div class="widget-content nopadding" id="supplierDiv">
+                    @Html.Partial("Practitioner/_SearchGridPartial")
+                </div>
+                @Html.Partial("~/Views/Shared/_Paging.cshtml")
+            </div>
+            <!-- /ko -->
+            <!--ko if: TotalItemCount() == 0 -->
+            <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert">
+                    &times;</button>
+                No Results Found
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/practitioner/SearchGridViewModel.js")" ></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    // create view model for divSuppliers
+    var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+
+    var searchGridViewModel = new SearchGridViewModel();
+
+    if (model != null) {
+        searchGridViewModel.Init(model.Practitioners, model.PractitionerSearch, model.TotalCount);
+    } else {
+        searchGridViewModel.Init('', { SearchCriteria: '', SearchText: ''}, 0);
+    }
+    ko.applyBindings(searchGridViewModel, $("#PractitionerSearchDiv").get(0));
+    
+    function UpdatePractitionerGrid(responseText) {
+        searchGridViewModel.UpdatePractitionerGrid(responseText);
+    }
+   
+    </script>
+}

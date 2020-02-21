@@ -1,0 +1,61 @@
+﻿
+.CaseStopFrameRow
+{
+    width: 980px;
+}
+.CaseStopFrameRow .CaseStopFrameRow-cellHeading
+{
+    width: 150px;
+    height: 24px;
+    vertical-align: super;
+    border: 1px solid #BEBEC0;
+    border-right: 0px;
+    border-bottom: 0px;
+    float: left;
+    background-color: #77b531;
+    text-align: center;
+    font-weight: bold;
+    padding: 7px;
+}
+
+
+
+.CaseStopFrameRow-cell
+{
+    width: 148.5px;
+    height: 24px;
+    text-align: center;
+    border: 1px solid #BEBEC0;
+    border-right: 0px;
+    border-bottom: 0px;
+    font-weight: normal;
+    padding: 7px;
+    float: left;
+    word-wrap: break-word;
+}
+
+
+
+.CaseStopFrameRow:last-child
+{
+    /* reset the style, eg: */
+    border-bottom: 1px solid #BEBEC0;
+}
+
+.CaseStopFrameRow-cell span
+{
+    padding: 0;
+    margin: 0;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.MainDivCaseStopped
+{
+    width: 980px;
+    margin: 7px auto;
+    box-shadow: 2px 2px 2px #D0D1D3;
+}

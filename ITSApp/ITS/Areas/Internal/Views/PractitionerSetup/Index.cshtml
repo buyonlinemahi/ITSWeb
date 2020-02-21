@@ -1,0 +1,65 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.Practitioner
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Internal/Views/Shared/_InternalLayout.cshtml";  
+}
+<script src="@Url.Content("~/Scripts/plugins/Jquery.AutoCompletePractitionerSetup.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/PractitionerSetup.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/practitionersetup/PractitionerSetupViewModel.js")"
+    type="text/javascript"></script>
+<script type="text/javascript">
+    var practitionerSetupViewModel = new PractitionerSetupViewModel();
+    
+$(function() {
+
+     ko.applyBindings(practitionerSetupViewModel,$("#pratictionerSetup").get(0));
+
+
+    //Setting for to get Practitioner by search cretaria
+     var Settings = {
+            
+            method: "@Url.Action(GlobalConst.Actions.Area.Internal.PractitionerSetupController.GetPractitionerByPractitionerID, GlobalConst.Controllers.Area.Internal.PractitionerSetup, new { area = "" })",
+            selected : function (event, ui){
+           
+                                $.ajax({
+                                    url: Settings.method,
+                                    cache: false,
+                                    type: "POST", dataType: "json",
+                                    data: { practitionerID : ui.item.PractitionerID },
+                                    success: function (data) {
+                                        InitializeTabs(data);
+
+
+                                    },
+                                    error:function(){
+                                     
+                                    }
+                                });
+                                }
+                          };
+      
+        $("#PractitionerSetuptSeacrh").autocompletePractitionerSetupByName(Settings);
+
+    });
+      function InitializeTabs(data){
+            //initialize all viewmodels for the tabs.
+            practitionerSetupViewModel.InitializPractitionerSetupTab(data);
+            practitionerSetupViewModel.enableExpertise(true);
+            practitionerSetupViewModel.Enabledpractitioner(true);
+            practitionerSetupViewModel.EnabledAddRegistration(true);
+        } 
+    practitionerSetupViewModel.LoadTab();
+</script>
+<div id="PractitionerDiv2">
+    <div id="PractitionerOuter">
+        <div class="PractitionerArea">
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div id="divPractitionerSetupPartialContainer">
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.PractitionerSetup.PractitionerPartial);}
+    </div>
+</div>

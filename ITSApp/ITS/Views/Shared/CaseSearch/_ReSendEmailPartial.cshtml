@@ -1,0 +1,61 @@
+﻿@using ITS.Infrastructure.Global;
+<div id="divResendEmail" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    @using (Html.BeginForm(GlobalConst.Actions.CaseSearchSharedContoller.ResendEmail, GlobalConst.Controllers.CaseSearchShared, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmResendEmail",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ ResendEmailFormSuccess(responseText, statusText, xhr, $form); },beforeSubmit: $root.ResendEmailFormBeforeSubmit, clearForm: true }"
+}))
+    {
+              
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel">
+                Resend Email</h3>
+        </div>
+        <!--ko with:SelectedItem-->
+        <div class="form-group">
+            <div>
+                <div class="control-group">
+                    <label class="control-label">
+                        To:</label>
+                    <div class="controls">
+                        <input type="text" name="SentTo" placeholder="email@email.com" data-bind="value:SentTo()"
+                            required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Subject:</label>
+                    <div class="controls">
+                        <input type="text" name="Subject" placeholder="Subject" data-bind="value:Subject()"
+                            required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Message:</label>
+                    <div class="controls">
+                        <textarea placeholder="Message" name="Message" data-bind="value:Message()" required></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="DateAdded" value="@DateTime.Now" />
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <input type="hidden" name="CaseID" data-bind="value:CaseID()" />
+            <input type="hidden" name="UploadPath" data-bind="value:UploadPath()" />
+            <input type="hidden" name="UserName" data-bind="value:UserName()" />
+            <input type="hidden" name="SentTo" data-bind="value:SentTo()" />
+            <button id="btnClinicalSave" type="submit" class="btn btn-primary">
+                Send</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+        <!--/ko-->
+    }
+</div>

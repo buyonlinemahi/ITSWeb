@@ -1,0 +1,52 @@
+﻿@using ITS.Infrastructure.Global
+
+<link href="@Url.Content("~/Content/InitialAssessmentPartial.css")" rel="stylesheet"
+    type="text/css" />
+<script src="@Url.Content("~/Scripts/moment.min.js")" ></script>
+
+<div id="initialAssessmentMainDiv">
+    <div id="final-Qa-rep">
+        <div class="finl-qa-rep-hedng" style="background: #77B531; padding: 10px; border: none;
+            color: #fff;">
+            <strong>Triage Assessment QA</strong>
+        </div>
+        <div class="clear">
+        </div>
+        <div id="final-grid-outer">
+            <div class="heading" style="background: #77B531;">
+                Due Date</div>
+            <div class="heading" style="background: #77B531;">
+                Date Received</div>
+            <div class="heading" style="background: #77B531;">
+                Case Number</div>
+            <div class="heading" style="background: #77B531;">
+                Patient Name</div>
+            <div class="heading" style="background: #77B531;">
+                Referrer Reference Numbere</div>
+            <div class="heading" style="background: #77B531;">
+                Treatment Type</div>
+            <div class="heading" style="background: #77B531;">
+                Referrer</div>
+            <div class="clear">
+            </div>
+            <div data-bind="template: {name:'TriageAssessmentGrid',foreach:Cases}">
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <br />
+    <br />
+    
+</div>
+@Html.Partial("~/Views/Shared/_Paging.cshtml")
+<script id="TriageAssessmentGrid" type="text/html"> <div class="row"> <span data-bind="text:CaseReferrerDueDate"></span>
+</div> <div class="row"> <span data-bind="text:CaseSubmittedDate"></span> </div>
+<div class="row" style="word-wrap: break-word;"> <input type="hidden" data-bind="value:CaseID"/> <a href="javascript:(void)"
+data-bind="text:CaseNumber, click:$root.CaseNumberClick" id="CaseNumberAnchor" ></a>
+</div> <div class="row"> <span data-bind="text:PatientName"></span> </div> <div
+class="row"> <span data-bind="text:CaseReferrerReferenceNumber"></span> </div> <div
+class="row"> <span data-bind="text:TreatmentTypeName"></span> </div> <div class="row">
+<span data-bind="text:ReferrerName"></span> </div> </script>

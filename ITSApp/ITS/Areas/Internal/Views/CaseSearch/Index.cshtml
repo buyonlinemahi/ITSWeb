@@ -1,0 +1,203 @@
+﻿@*
+
+  Page Name:  Index.cshtml                         
+  Version:  1.1                                                
+  Purpose:  Update Main Screen Page Design And Add Action link to call Partial Views
+  Revision History:                                          
+                                                             
+    1.0 – 10/29/2012 Robin Singh   
+
+ * Description : Create Design of Internal Portal Main Screen Page for Software
+
+ * Edited By : Robin Singh  
+ * Date :  31-Oct-2012  
+ * Version : 1.1 
+ * Description : Update Main Screen Page Design And Add Action link to call Partial Views
+
+*@
+@{
+    ViewBag.Title = "Internal Main Screen";
+    Layout = "~/Areas/Internal/Views/Shared/_InternalLayout.cshtml";
+}
+<link href="@Url.Content("~/Content/Portal.css")" rel="stylesheet" type="text/css" />
+<div>
+    <table width="90%" cellpadding="0" cellspacing="0" border="0px">
+        <tr>
+            <td align="center" valign="top" style="border: 0px; padding-top: 20px;">
+                <b>Referral Tasks:</b>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" class="paddingbytop">
+                <table width="45%" cellpadding="0" cellspacing="0" border="0px">
+                    <tr>
+                        <td>
+                            @Html.RadioButton("Allreferrals", true, true) All Referral/Task
+                        </td>
+                        <td>
+                            @Html.RadioButton("Allphysicaltherapy", false) All Physical Therapy
+                        </td>
+                        <td>
+                            @Html.RadioButton("Allphychological", false) All Phychological
+                        </td>
+                        <td>
+                            @Html.RadioButton("Alldiagnostic", false) All Diagnostic
+                        </td>
+                        <td>
+                            @Html.RadioButton("Allspecialistservice", false) AllSpecialist Services
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" class="paddingbytop">
+                <div align="center">
+                    <table cellspacing="0" cellpadding="0" border="0" class="MsoNormalTable">
+                        <tbody>
+                            <tr>
+                                <td class="TableTypeHeader" colspan="2">
+                                    <b>Type</b>
+                                </td>
+                                <td valign="top" class="TableTypeHeader" colspan="4">
+                                    <b>Summary of Tasks</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link" colspan="2">
+                                    @* <a href="/Internal/Portal/Referrals">
+                                        Ref
+                                       
+                                    </a>*@ 
+                                    <b>@Html.ActionLink("Referrals", "ReferralsPartial")</b>
+                                   @* @Html.Action("Referrals");*@
+
+                                </td>
+                                <td valign="top" colspan="4" class="linksummarynormal15">
+                                    <b>(##Number of Cases where ProcessLevel = 1 through 3##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link_forbackcolor" colspan="2">
+                                    <b><b>@Html.ActionLink("Initial Assessment QA", "InitialAssessmentPartial")</b> </b>
+                                </td>
+                                <td valign="top" class="TablesummarybycoorC2D69B" colspan="4">
+                                    <b><b>(##Number of Cases where ProcessLevel = 7##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link" colspan="2">
+                                    <b>
+                                        @Html.ActionLink("Authorisation", "AuthorisationPartial")</b>
+                                </td>
+                                <td valign="top" colspan="4" class="linksummarynormal15">
+                                    <b>(##Number of Cases where ProcessLevel = 10##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link_forbackcolor" colspan="2">
+                                    <b>
+                                        @Html.ActionLink("Review Assessment QA", "ReviewAssessmentPartial")</b>
+                                </td>
+                                <td valign="top" class="TablesummarybycoorC2D69B" colspan="4">
+                                    <b>(##Number of Cases where ProcessLevel = 14##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link" colspan="2">
+                                    <b>
+                                        @Html.ActionLink("Final Assessment QA", "FinalAssessmentPartial")</b>
+                                </td>
+                                <td valign="top" colspan="4" class="linksummarynormal15">
+                                    <b>(##Number of Cases where ProcessLevel = 16##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link_forbackcolor" colspan="2">
+                                    <b> @Html.ActionLink("Case Stopped", "CaseStoppedPartial")</b>
+                                </td>
+                                <td valign="top" class="TablesummarybycoorC2D69B" colspan="4">
+                                    <b>(##Number of Cases where ProcessLevel = 20##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link" colspan="2">
+                                    <b> @Html.ActionLink("Referral Tasks Due To day", "ReferralTasksDueTodayPartial")</b>
+                                </td>
+                                <td valign="top" colspan="4" class="linksummarynormal15">
+                                    <b>(##Number of Tasks where Due Date = Current Date ##)</b>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="height: 20px;">
+                </div>
+                <div class="horizontalLine">
+                    .
+                </div>
+                <div class="headertext">
+                    <b>Administrative Tasks:</b>
+                </div>
+                <div style="height: 20px;">
+                </div>
+                <div align="center">
+                    <table cellspacing="0" cellpadding="0" border="0" class="MsoNormalTable">
+                        <tbody>
+                            <tr>
+                                <td class="TableTypeHeader" colspan="2">
+                                    <b>Administrative Tasks</b>
+                                </td>
+                                <td valign="top" class="TableTypeHeader" colspan="4">
+                                    <b>Summary of Tasks</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link" colspan="2">
+                                    <a href="#"><b>Print Queue</b></a>
+                                </td>
+                                <td valign="top" colspan="4" class="linksummarynormal15">
+                                    <b>(##NumberofRecordswhereStatus = PrintQueue ##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link_forbackcolor" colspan="2">
+                                    <b><a href="#">Print Checks</a></b>
+                                </td>
+                                <td valign="top" colspan="4" class="TablesummarybycoorC2D69B">
+                                    <b>(##NumberofRecordswhereStatus = PrintChecks ##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link" colspan="2">
+                                    <a href="#"><b>Add Practitioner</b></a>
+                                </td>
+                                <td valign="top" colspan="4" class="linksummarynormal15">
+                                    <b>(##NumberofRecordswhereStatus = AddPractitioner ##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link_forbackcolor" colspan="2">
+                                    <b><a href="#">Case Tasks Assigned to Admin</a></b>
+                                </td>
+                                <td valign="top" colspan="4" class="TablesummarybycoorC2D69B">
+                                    <b>(##NumberofTaskswhereAssignedTo = Admin ##)</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="link" colspan="2">
+                                    <a href="#"><b>Administrative task Due Today</b></a>
+                                </td>
+                                <td valign="top" colspan="4" class="linksummarynormal15">
+                                    <b>(##Number of Tasks where Due Date = Current Date ##)</b>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="height: 25px;">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,75 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Invoice Number
+            </th>
+            <th>
+                Outstanding Amount
+            </th>
+            <th>
+                Case Number
+            </th>
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Referrer Reference Number
+            </th>
+            <th>
+                Referrer Contact Name
+            </th>
+            <th>
+                Contact Email Address
+            </th>
+            <th>
+                Contact Phone
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="with:CaseInvoicePatientReferrer">
+        <tr>
+            <td>
+                <center>
+                    <span data-bind="text:InvoiceNumber"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:$parent.OutstandingAmount"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:CaseNumber"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:FirstName() + ' ' + LastName()"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:CaseReferrerReferenceNumber"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:ReferrerContactFirstName() +' '+ ReferrerContactLastName()">
+                    </span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:ReferrerMainContactEmail"></span>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <span data-bind="text:ReferrerMainContactPhone"></span>
+                </center>
+            </td>
+        </tr>
+    </tbody>
+</table>

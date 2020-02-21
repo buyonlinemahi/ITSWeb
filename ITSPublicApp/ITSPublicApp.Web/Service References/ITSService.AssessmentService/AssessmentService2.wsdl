@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AssessmentService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/AssessmentService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/AssessmentService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/ITS/AssessmentService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAssessmentService_AddCaseAssessmentRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseAssessmentRating" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_AddCaseAssessmentRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseAssessmentRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentRatingByCaseIDAndAssessmentServiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientImpactValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactValues" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientImpactValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientImpacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpacts" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientImpacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPsychologicalFactors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPsychologicalFactors" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPsychologicalFactors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPsychologicalFactorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientWorkstatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientWorkstatus" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientWorkstatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientWorkstatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientImpactOnWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactOnWork" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientImpactOnWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientImpactOnWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientLevelOfRecovery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientLevelOfRecovery" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllPatientLevelOfRecovery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPatientLevelOfRecoveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllProposedTreatmentMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProposedTreatmentMethod" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllProposedTreatmentMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProposedTreatmentMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetTreatmentCategoryBespokeServicesByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoryBespokeServicesByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetTreatmentCategoryBespokeServicesByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoryBespokeServicesByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesBespokeServicesByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_AddCaseAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_AddCaseAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentAuthorisationToModifiedByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentAuthorisationToModifiedByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentAuthorisationToModifiedByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentAuthorisationToModifiedByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentAuthorisationToApprovedByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentAuthorisationToApprovedByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentAuthorisationToApprovedByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentAuthorisationToApprovedByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentAuthorisationToDeniedByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentAuthorisationToDeniedByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentAuthorisationToDeniedByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentAuthorisationToDeniedByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentQA_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentQA" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentQA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentQAResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentByCaseIDAndCaseAssessmentDetailIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentIsSavedByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentIsSavedByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentIsSavedByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentIsSavedByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentPatientImpactsByPatientImpactID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentPatientImpactsByPatientImpactID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentPatientImpactsByPatientImpactID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentPatientImpactsByPatientImpactIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentPatientImpactsByPatientImpactValueID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentPatientImpactsByPatientImpactValueID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentPatientImpactsByPatientImpactValueID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentPatientImpactsByPatientImpactValueIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllCaseAssessmentPatientImpacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCaseAssessmentPatientImpacts" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllCaseAssessmentPatientImpacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCaseAssessmentPatientImpactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentPatientImpactsByCaseAssessmentDetailIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllCaseAssessmentDetailByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCaseAssessmentDetailByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetAllCaseAssessmentDetailByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCaseAssessmentDetailByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetQASubmitedCaseAssessmentDetailsByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQASubmitedCaseAssessmentDetailsByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetQASubmitedCaseAssessmentDetailsByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQASubmitedCaseAssessmentDetailsByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_AddCaseAssessmentCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseAssessmentCustom" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_AddCaseAssessmentCustom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseAssessmentCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentCustom" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseAssessmentCustom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseAssessmentCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseRiewAssessmentMessageCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseRiewAssessmentMessageCustom" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseRiewAssessmentMessageCustom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseRiewAssessmentMessageCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseInitialAssessmentMessageCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseInitialAssessmentMessageCustom" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseInitialAssessmentMessageCustom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseInitialAssessmentMessageCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseFinalAssessmentMessageCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseFinalAssessmentMessageCustom" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_UpdateCaseFinalAssessmentMessageCustom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseFinalAssessmentMessageCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentCustomByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentCustomByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseAssessmentCustomByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseAssessmentCustomByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_AddReferrerCaseAssessmentModification_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerCaseAssessmentModification" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_AddReferrerCaseAssessmentModification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReferrerCaseAssessmentModificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseTreatmentPricingByCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetCaseTreatmentPricingByCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTreatmentPricingByCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetReferrerCaseAssessmentModificationsbyCaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerCaseAssessmentModificationsbyCaseID" />
+  </wsdl:message>
+  <wsdl:message name="IAssessmentService_GetReferrerCaseAssessmentModificationsbyCaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferrerCaseAssessmentModificationsbyCaseIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAssessmentService">
+    <wsdl:operation name="AddCaseAssessmentRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/AddCaseAssessmentRating" message="tns:IAssessmentService_AddCaseAssessmentRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/AddCaseAssessmentRatingResponse" message="tns:IAssessmentService_AddCaseAssessmentRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID" message="tns:IAssessmentService_UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceIDResponse" message="tns:IAssessmentService_UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID" message="tns:IAssessmentService_GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentRatingByCaseIDAndAssessmentServiceIDResponse" message="tns:IAssessmentService_GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpactValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientImpactValues" message="tns:IAssessmentService_GetAllPatientImpactValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientImpactValuesResponse" message="tns:IAssessmentService_GetAllPatientImpactValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientImpacts" message="tns:IAssessmentService_GetAllPatientImpacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientImpactsResponse" message="tns:IAssessmentService_GetAllPatientImpacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPsychologicalFactors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPsychologicalFactors" message="tns:IAssessmentService_GetAllPsychologicalFactors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPsychologicalFactorsResponse" message="tns:IAssessmentService_GetAllPsychologicalFactors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientWorkstatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientWorkstatus" message="tns:IAssessmentService_GetAllPatientWorkstatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientWorkstatusResponse" message="tns:IAssessmentService_GetAllPatientWorkstatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpactOnWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientImpactOnWork" message="tns:IAssessmentService_GetAllPatientImpactOnWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientImpactOnWorkResponse" message="tns:IAssessmentService_GetAllPatientImpactOnWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientLevelOfRecovery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientLevelOfRecovery" message="tns:IAssessmentService_GetAllPatientLevelOfRecovery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllPatientLevelOfRecoveryResponse" message="tns:IAssessmentService_GetAllPatientLevelOfRecovery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProposedTreatmentMethod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllProposedTreatmentMethod" message="tns:IAssessmentService_GetAllProposedTreatmentMethod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllProposedTreatmentMethodResponse" message="tns:IAssessmentService_GetAllProposedTreatmentMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoryBespokeServicesByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetTreatmentCategoryBespokeServicesByTreatmentCategoryID" message="tns:IAssessmentService_GetTreatmentCategoryBespokeServicesByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetTreatmentCategoryBespokeServicesByTreatmentCategoryIDResponse" message="tns:IAssessmentService_GetTreatmentCategoryBespokeServicesByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID" message="tns:IAssessmentService_GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetTreatmentCategoriesBespokeServicesByTreatmentCategoryIDResponse" message="tns:IAssessmentService_GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/AddCaseAssessment" message="tns:IAssessmentService_AddCaseAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/AddCaseAssessmentResponse" message="tns:IAssessmentService_AddCaseAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentAuthorisationToModifiedByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToModifiedByCaseID" message="tns:IAssessmentService_UpdateCaseAssessmentAuthorisationToModifiedByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToModifiedByCaseIDResponse" message="tns:IAssessmentService_UpdateCaseAssessmentAuthorisationToModifiedByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentAuthorisationToApprovedByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToApprovedByCaseID" message="tns:IAssessmentService_UpdateCaseAssessmentAuthorisationToApprovedByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToApprovedByCaseIDResponse" message="tns:IAssessmentService_UpdateCaseAssessmentAuthorisationToApprovedByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentAuthorisationToDeniedByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToDeniedByCaseID" message="tns:IAssessmentService_UpdateCaseAssessmentAuthorisationToDeniedByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToDeniedByCaseIDResponse" message="tns:IAssessmentService_UpdateCaseAssessmentAuthorisationToDeniedByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentByCaseID" message="tns:IAssessmentService_GetCaseAssessmentByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentByCaseIDResponse" message="tns:IAssessmentService_GetCaseAssessmentByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentByCaseID" message="tns:IAssessmentService_UpdateCaseAssessmentByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentByCaseIDResponse" message="tns:IAssessmentService_UpdateCaseAssessmentByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentQA">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentQA" message="tns:IAssessmentService_GetCaseAssessmentQA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentQAResponse" message="tns:IAssessmentService_GetCaseAssessmentQA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID" message="tns:IAssessmentService_GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentByCaseIDAndCaseAssessmentDetailIDResponse" message="tns:IAssessmentService_GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentIsSavedByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentIsSavedByCaseID" message="tns:IAssessmentService_UpdateCaseAssessmentIsSavedByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentIsSavedByCaseIDResponse" message="tns:IAssessmentService_UpdateCaseAssessmentIsSavedByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID" message="tns:IAssessmentService_UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactIDResponse" message="tns:IAssessmentService_UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentPatientImpactsByPatientImpactID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByPatientImpactID" message="tns:IAssessmentService_GetCaseAssessmentPatientImpactsByPatientImpactID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByPatientImpactIDResponse" message="tns:IAssessmentService_GetCaseAssessmentPatientImpactsByPatientImpactID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentPatientImpactsByPatientImpactValueID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByPatientImpactValueID" message="tns:IAssessmentService_GetCaseAssessmentPatientImpactsByPatientImpactValueID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByPatientImpactValueIDResponse" message="tns:IAssessmentService_GetCaseAssessmentPatientImpactsByPatientImpactValueID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCaseAssessmentPatientImpacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllCaseAssessmentPatientImpacts" message="tns:IAssessmentService_GetAllCaseAssessmentPatientImpacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllCaseAssessmentPatientImpactsResponse" message="tns:IAssessmentService_GetAllCaseAssessmentPatientImpacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID" message="tns:IAssessmentService_GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByCaseAssessmentDetailIDResponse" message="tns:IAssessmentService_GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID" message="tns:IAssessmentService_UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryIDResponse" message="tns:IAssessmentService_UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID" message="tns:IAssessmentService_GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailIDResponse" message="tns:IAssessmentService_GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCaseAssessmentDetailByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetAllCaseAssessmentDetailByCaseID" message="tns:IAssessmentService_GetAllCaseAssessmentDetailByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetAllCaseAssessmentDetailByCaseIDResponse" message="tns:IAssessmentService_GetAllCaseAssessmentDetailByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQASubmitedCaseAssessmentDetailsByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetQASubmitedCaseAssessmentDetailsByCaseID" message="tns:IAssessmentService_GetQASubmitedCaseAssessmentDetailsByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetQASubmitedCaseAssessmentDetailsByCaseIDResponse" message="tns:IAssessmentService_GetQASubmitedCaseAssessmentDetailsByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseAssessmentCustom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/AddCaseAssessmentCustom" message="tns:IAssessmentService_AddCaseAssessmentCustom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/AddCaseAssessmentCustomResponse" message="tns:IAssessmentService_AddCaseAssessmentCustom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentCustom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentCustom" message="tns:IAssessmentService_UpdateCaseAssessmentCustom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentCustomResponse" message="tns:IAssessmentService_UpdateCaseAssessmentCustom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseRiewAssessmentMessageCustom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseRiewAssessmentMessageCustom" message="tns:IAssessmentService_UpdateCaseRiewAssessmentMessageCustom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseRiewAssessmentMessageCustomResponse" message="tns:IAssessmentService_UpdateCaseRiewAssessmentMessageCustom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseInitialAssessmentMessageCustom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseInitialAssessmentMessageCustom" message="tns:IAssessmentService_UpdateCaseInitialAssessmentMessageCustom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseInitialAssessmentMessageCustomResponse" message="tns:IAssessmentService_UpdateCaseInitialAssessmentMessageCustom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseFinalAssessmentMessageCustom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseFinalAssessmentMessageCustom" message="tns:IAssessmentService_UpdateCaseFinalAssessmentMessageCustom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/UpdateCaseFinalAssessmentMessageCustomResponse" message="tns:IAssessmentService_UpdateCaseFinalAssessmentMessageCustom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentCustomByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentCustomByCaseID" message="tns:IAssessmentService_GetCaseAssessmentCustomByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseAssessmentCustomByCaseIDResponse" message="tns:IAssessmentService_GetCaseAssessmentCustomByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerCaseAssessmentModification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/AddReferrerCaseAssessmentModification" message="tns:IAssessmentService_AddReferrerCaseAssessmentModification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/AddReferrerCaseAssessmentModificationResponse" message="tns:IAssessmentService_AddReferrerCaseAssessmentModification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseTreatmentPricingByCaseID" message="tns:IAssessmentService_GetCaseTreatmentPricingByCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetCaseTreatmentPricingByCaseIDResponse" message="tns:IAssessmentService_GetCaseTreatmentPricingByCaseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerCaseAssessmentModificationsbyCaseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssessmentService/GetReferrerCaseAssessmentModificationsbyCaseID" message="tns:IAssessmentService_GetReferrerCaseAssessmentModificationsbyCaseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssessmentService/GetReferrerCaseAssessmentModificationsbyCaseIDResponse" message="tns:IAssessmentService_GetReferrerCaseAssessmentModificationsbyCaseID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAssessmentService" type="tns:IAssessmentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCaseAssessmentRating">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/AddCaseAssessmentRating" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentRatingByCaseIDAndAssessmentServiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentRatingByCaseIDAndAssessmentServiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpactValues">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllPatientImpactValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpacts">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllPatientImpacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPsychologicalFactors">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllPsychologicalFactors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientWorkstatus">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllPatientWorkstatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientImpactOnWork">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllPatientImpactOnWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientLevelOfRecovery">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllPatientLevelOfRecovery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProposedTreatmentMethod">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllProposedTreatmentMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoryBespokeServicesByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetTreatmentCategoryBespokeServicesByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetTreatmentCategoriesBespokeServicesByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseAssessment">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/AddCaseAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentAuthorisationToModifiedByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToModifiedByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentAuthorisationToApprovedByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToApprovedByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentAuthorisationToDeniedByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentAuthorisationToDeniedByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentQA">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentQA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentByCaseIDAndCaseAssessmentDetailID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentIsSavedByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentIsSavedByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentPatientImpactByCaseAssessmentPatientImpactID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentPatientImpactsByPatientImpactID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByPatientImpactID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentPatientImpactsByPatientImpactValueID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByPatientImpactValueID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCaseAssessmentPatientImpacts">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllCaseAssessmentPatientImpacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientImpactsByCaseAssessmentDetailID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentPatientInjuryByCaseAssessmentPatientInjuryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentPatientInjuriesByCaseAssessmentDetailID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCaseAssessmentDetailByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetAllCaseAssessmentDetailByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQASubmitedCaseAssessmentDetailsByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetQASubmitedCaseAssessmentDetailsByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCaseAssessmentCustom">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/AddCaseAssessmentCustom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseAssessmentCustom">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseAssessmentCustom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseRiewAssessmentMessageCustom">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseRiewAssessmentMessageCustom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseInitialAssessmentMessageCustom">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseInitialAssessmentMessageCustom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCaseFinalAssessmentMessageCustom">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/UpdateCaseFinalAssessmentMessageCustom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseAssessmentCustomByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseAssessmentCustomByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReferrerCaseAssessmentModification">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/AddReferrerCaseAssessmentModification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTreatmentPricingByCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetCaseTreatmentPricingByCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferrerCaseAssessmentModificationsbyCaseID">
+      <soap:operation soapAction="http://tempuri.org/IAssessmentService/GetReferrerCaseAssessmentModificationsbyCaseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AssessmentService">
+    <wsdl:port name="BasicHttpBinding_IAssessmentService" binding="tns:BasicHttpBinding_IAssessmentService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/ITS/AssessmentService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

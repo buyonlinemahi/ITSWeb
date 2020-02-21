@@ -1,0 +1,310 @@
+﻿@using ITS.Infrastructure.Global;
+@using System.Web.Script.Serialization
+@model ITS.Domain.ViewModels.SupplierViewModel
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Supplier Details</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+        Supplier</a><a href="#" class="tip-bottom">Detail</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>
+                        Supplier Details</h5>
+                </div>
+                <div class="widget-content nopadding" id="divDetailForm">
+                    @Html.Partial("Supplier/_DetailFormPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" href="#divAddTreamentCategory" role="button"
+                data-toggle="modal">Add</a>
+            @Html.Partial("Supplier/_AddTreatmentCategoryPartial")
+            <div class="widget-box" id="divTreatmentCategory">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Treatment Categories</h5>
+                </div>
+                <div class="widget-content nopadding" id="divTreatmentCategoryGrid">
+                    @Html.Partial("Common/_TreatmentCategoryGridPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" href="#divAddClinicalAudit" role="button" data-toggle="modal">
+                Add</a>
+            @Html.Partial("Supplier/_AddClinicalAuditPartial")
+            <div class="widget-box" id="divClinicalAudit">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Clinical Audits</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Supplier/_ClinicalAuditGridPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" href="#divAddSiteAudit" role="button" data-toggle="modal">
+                Add</a>
+            @Html.Partial("Supplier/_AddSiteAuditPartial")
+            <div class="widget-box" id="divSiteAudit">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Site Audits</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Supplier/_SiteAuditGridPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" href="#divAddComplaint" role="button" data-toggle="modal">
+                Add</a>
+            @Html.Partial("Supplier/_AddComplaintPartial")
+            <div class="widget-box" id="divComplaint">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Complaints</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Supplier/_ComplaintGridPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" onclick="if (confirm('You will be redirected to the Practitioner Setup Screen, are you sure you want to continue?')){ window.location.href ='@Url.Action(GlobalConst.Actions.PractitionerController.Index, GlobalConst.Controllers.Practitioner)';}">
+                Add</a>
+            <div class="widget-box" id="divPracitionerGrid">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Practitioner</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Supplier/_PractitionerGridPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" href="#divAddInsured" role="button" data-toggle="modal">
+                Add</a>
+            @Html.Partial("Supplier/_AddInsuredPartial")
+            <div class="widget-box" id="divInsured">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Insured</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    @Html.Partial("Supplier/_InsuredGridPartial")
+                </div>
+            </div>
+            <a class="btn btn-small btn-primary" href="#divAddRegistrationDocument" role="button"
+                data-toggle="modal">Add</a>
+            @Html.Partial("Supplier/_AddRegistrationDocumentPartial")
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Registration Documents</h5>
+                </div>
+                <div class="widget-content nopadding" id="divSupplierRegistrationDocument">
+                    @Html.Partial("Supplier/_RegistrationDocumentGridPartial")
+                </div>
+            </div>
+            <!-- test -->
+            <!-- test -->
+            <div class="row-fluid">
+                <div id="footer" class="span12">
+                    2012 - 2013 &copy; ITS Portal v1.0
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/common/TreatmentCategoryGridViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierTreatmentCategoryViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/AddSupplierTreatmentCategoryViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierClinicalAuditViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierDetailFormViewModel.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/AddRegistrationDocumentViewModel.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierComplaintGridViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierInsuredGridViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/AddInsuredViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/AddSupplierComplaintViewModel.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/AddClinicalAuditViewModel.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierSiteAuditViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/AddSupplierSiteAuditViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierRegistrationDocumentViewModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/SupplierPracitionerGridViewModel.js")"
+        type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/supplier/AddSupplierSiteAuditViewModel.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/plugins/Jquery.autocompletebyClinicalAudit.js")"></script>
+        
+    <script type="text/javascript">
+
+
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+
+
+        //use protoype for extending the base model
+        //SupplierTreatmentCategoryViewModel.prototype = new TreatmentCategoryGridViewModel();
+        var supplierTreatmentCategoryViewModel = new SupplierTreatmentCategoryViewModel();
+        ko.applyBindings(supplierTreatmentCategoryViewModel, $("#divTreatmentCategory").get(0));
+        //supplierTreatmentCategoryViewModel.Init(model.SupplierTreatmentCategoryPricing);
+        supplierTreatmentCategoryViewModel.InitSupplierTreatmentCategoryModel(model.SupplierTreatmentCategoryPricing, model.Supplier.IsTriage);
+
+        var addSupplierTreatmentCategoryViewModel = new AddSupplierTreatmentCategoryViewModel(model.TreatmentCategories, model.Supplier.SupplierID, model.Supplier.IsTriage);
+        ko.applyBindings(addSupplierTreatmentCategoryViewModel, $("#divAddTreamentCategory").get(0));
+
+
+        //supplier detail form
+        var supplierDetailFormViewModel = new SupplierDetailFormViewModel();
+        ko.applyBindings(supplierDetailFormViewModel, $("#divDetailForm").get(0));
+        supplierDetailFormViewModel.Init(model.Supplier);
+
+
+        //siteaudit grid
+        var supplierSiteAuditGridViewModel = new SupplierSiteAuditGridViewModel();
+        ko.applyBindings(supplierSiteAuditGridViewModel, $("#divSiteAudit").get(0));
+        supplierSiteAuditGridViewModel.Init(model.SupplierSiteAudits, model.Users);
+
+        var supplierAddSiteAuditViewModel = new AddSupplierSiteAuditViewModel();
+        ko.applyBindings(supplierAddSiteAuditViewModel, $("#divAddSiteAudit").get(0));
+        supplierAddSiteAuditViewModel.Init(model.Supplier.SupplierID, model.Users);
+
+
+        //clinical audit
+        var supplierClinicalAuditGridViewModel = new SupplierClinicalAuditGridViewModel();
+        ko.applyBindings(supplierClinicalAuditGridViewModel, $("#divClinicalAudit").get(0));
+        supplierClinicalAuditGridViewModel.Init(model.SupplierClinicalAudits, model.Users);
+
+
+        var addClinicalAuditViewModel = new AddClinicalAuditViewModel(model.Supplier.SupplierID, model.Users);
+        ko.applyBindings(addClinicalAuditViewModel, $("#divAddClinicalAudit").get(0));
+
+        //Complaints
+        var supplierComplaintGridViewModel = new SupplierComplaintGridViewModel();
+        ko.applyBindings(supplierComplaintGridViewModel, $("#divComplaint").get(0));
+        supplierComplaintGridViewModel.initializeModel(model.SupplierComplaints);
+
+
+        var addSupplierComplaintViewmodel = new AddSupplierComplaintViewModel(model.Supplier.SupplierID);
+        ko.applyBindings(addSupplierComplaintViewmodel, $("#divAddComplaint").get(0));
+
+        //Insured 
+        var supplierInsuredGridViewModel = new SupplierInsuredGridViewModel();
+        ko.applyBindings(supplierInsuredGridViewModel, $("#divInsured").get(0));
+        supplierInsuredGridViewModel.Init(model.SupplierInsurances);
+
+        var addInsuredViewModel = new AddInsuredViewModel(model.Supplier.SupplierID);
+        ko.applyBindings(addInsuredViewModel, $("#divAddInsured").get(0));
+
+        //Registration
+
+        var supplierRegistrationDocumentGridViewModel = new SupplierRegistrationDocumentGridViewModel();
+        ko.applyBindings(supplierRegistrationDocumentGridViewModel, $("#divSupplierRegistrationDocument").get(0));
+        supplierRegistrationDocumentGridViewModel.initializeSupplierRegistrationDocument(model.SupplierRegistrations);
+
+        var addRegistrationDocumentViewModel = new AddRegistrationDocumentViewModel(model.Supplier.SupplierID);
+        ko.applyBindings(addRegistrationDocumentViewModel, $("#divAddRegistrationDocument").get(0));
+
+        // Pracitioner
+        var supplierPracitionerGridViewModel = new SupplierPracitionerGridViewModel();
+        ko.applyBindings(supplierPracitionerGridViewModel, $("#divPracitionerGrid").get(0));
+        supplierPracitionerGridViewModel.loadPracitionerGrid(model.SupplierPracitioners);
+
+
+        function AddSupplierComplaintFormSuccess(responseText, statusText, xhr, $form) {
+            supplierComplaintGridViewModel.AddComplaintSuccess(responseText, statusText, $form);
+            $('#divAddComplaint').modal('hide');
+            addSupplierComplaintViewmodel.ResetDisabledAddButton();
+        }
+
+        function UpdateSupplierComplaintFormSuccess(responseText, statusText, xhr, $form) {
+            supplierComplaintGridViewModel.UpdateComplaintSuccess($.parseJSON(responseText));
+        }
+
+        //treatment category and pricing functionalities
+        function AddTreatmentCategoryFormSuccess(responseText, statusText, xhr, $form) {
+            var responseObj = $.parseJSON(responseText);
+            if (responseObj != -1)
+                supplierTreatmentCategoryViewModel.AddTreatmentCategoryAndPricing($.parseJSON(responseText));
+
+            addSupplierTreatmentCategoryViewModel.SelectedTreatmentCategory(undefined); //reset dropdown to default value
+            $("#divAddTreamentCategory").modal('hide');
+            supplierDetailFormViewModel.UpdateStatus();
+        }
+
+        function UpdateTreatmentCategoryFormSuccess(responseText, statusText, xhr, $form) {
+            $("#divViewTreamentCategory").modal('hide');
+            supplierDetailFormViewModel.UpdateStatus();
+        }
+        //end treatment category and pricing functionalities
+
+        function AddSupplierRegistrationDocumentFormSuccess(responseText, statusText, xhr, $form) {
+            supplierRegistrationDocumentGridViewModel.AddRegistrationDocument(responseText, statusText, $form);
+            $('#divAddRegistrationDocument').modal('hide');
+            addRegistrationDocumentViewModel.ResetDisabledAddButton();
+        }
+
+        function UpdateRegistrationDocumentFormSuccess(responseText, statusText, xhr, $form) {
+            supplierRegistrationDocumentGridViewModel.UpdateSelectedRegistrationDocument($.parseJSON(responseText));
+        }
+
+        //site audit functionalities
+        function UpdateSupplieSiteAuditFormSuccess(responseText, statusText, xhr, $form) {
+            supplierSiteAuditGridViewModel.UpdateSelectedSupplierSiteAudit($.parseJSON(responseText));
+            supplierSiteAuditGridViewModel.DeSelectCurrentSelectedSupplierSiteAudit();
+        }
+
+        function AddSupplierSiteAuditFormSuccess(responseText, statusText, xhr, $form) {
+            supplierSiteAuditGridViewModel.AddSupplierSiteAudit(responseText, model.Users, $form);
+            $('#divAddSiteAudit').modal('hide');
+            supplierAddSiteAuditViewModel.ResetDisabledAddButton();
+        }
+        //site audit functionalities end
+
+        //supplier detail functionalities
+        function UpdateSupplierDetailFormSuccess(responseText, statusText, xhr, $form) {
+            
+            supplierTreatmentCategoryViewModel.IsTriage(responseText.IsTriage);
+            addSupplierTreatmentCategoryViewModel.IsTriage(responseText.IsTriage);
+            supplierDetailFormViewModel.UpdateDetailSucess(responseText);
+        }
+        //supplier detail functionalities end
+
+        //Clinical Audit Form Success
+        function UpdateClinicalAuditFormSuccess(responseText, statusText, xhr, $form) {
+            supplierClinicalAuditGridViewModel.UpdateSelectedSupplierClinicalAudit($.parseJSON(responseText));
+            supplierClinicalAuditGridViewModel.DeSelectCurrentSelectedSupplierClinicalAudit();
+        }
+
+        function AddClinicalAuditFormSuccess(responseText, statusText, xhr, $form) {
+            supplierClinicalAuditGridViewModel.AddClinicalAudit(responseText, model.Users, $form.get(0));
+            $("#divAddClinicalAudit").modal('hide');
+            addClinicalAuditViewModel.ResetDisabledAddButton();
+        }
+        //end - Clinical Audit Form Success
+
+        function AddInsurance(responseText, statusText, xhr, $form) {
+            $("#divAddInsured").modal('hide');
+            //alert("Added successfully");
+            supplierInsuredGridViewModel.UpdateInsuredGrid(responseText, $form, statusText);
+            addInsuredViewModel.ResetDisabledAddButton();
+        }
+
+        function UpdateInsurance(responseText, statusText, xhr, $form) {
+            supplierInsuredGridViewModel.UpdateSelectedSupplierInsured($.parseJSON(responseText));
+            $("#divViewInsured").modal('hide');
+            //alert("Update successfully");
+            supplierInsuredGridViewModel.UpdateAndRefreshGrid(responseText, $form, statusText);
+        } 
+    </script>
+}

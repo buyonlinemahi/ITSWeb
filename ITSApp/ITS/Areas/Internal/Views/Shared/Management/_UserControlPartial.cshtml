@@ -1,0 +1,236 @@
+﻿@using ITS.Infrastructure.Global;
+@model ITS.Domain.Models.ITSUser
+<!--Management - user control tab html section here-->
+@*
+
+ * Latest Version 1.6
+ * 
+ * Author       : Harpreet Singh
+ * Date         : 27-Oct-2012
+ * Purpose      : Auto complete and Desiging of Main Screen
+ * Version      : 1.0
+ * 
+ * 
+ * Revision History
+ * Modified By   : Pardeep Kumar
+ * Date          : 03-Nov-2012
+ * Purpose       : Implemented model for AutoComplete (AutoComplete)
+ * Version       : 1.1
+
+ * Modified By   : Harpreet Singh,Pardeep Kumar
+ * Date          : 06-Nov-2012
+ * Purpose       : Populate user information in textboxes
+ * Version       : 1.2
+
+ * Modified By   : Anuj Batra
+ * Date          : 08-Nov-2012
+ * Purpose       : Implement the update user functionality.
+ * Version       : 1.3
+
+ * Revision History
+ * Modified By   : Pardeep Kumar
+ * Date          : 08-Nov-2012
+ * Purpose       : Implemented changes of model for AutoComplete (AutoComplete)
+ * Version       : 1.5
+
+ * Revision History
+ * Modified By   : Harpreet Singh
+ * Date          : 10-Nov-2012
+ * Purpose       : Remove Common JavaScript.Css
+ * Version       : 1.5
+
+ * Revision History
+ * Modified By   : Pardeep Kumar
+ * Date          : 14-Nov-2012
+ * Purpose       : jquery Updated to clear all textbox on click of Add button
+                 : updated the function callback() to insert new user according to the selected userTypeId
+                 : Changes done to bind the supplier dropdownlist (date:- 22-Nov-2012)
+ * Version       : 1.6
+ 
+*@
+<link href="@Url.Content("~/Content/Managment.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/plugins/jquery.autocompletebyusername.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/management/UserControlViewModel.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var viewModel = new UserControlViewModel();
+        ko.applyBindings(viewModel);
+       viewModel.disableInputControls();
+        var settings = {
+            actionUrl: "@Url.Action(GlobalConst.Actions.UserController.UserNameAutoComplete, GlobalConst.Controllers.User, new { area = "" })",
+            method: "@Url.Action(GlobalConst.Actions.UserController.GetUser, GlobalConst.Controllers.User, new { area = "" })",
+            selected : function (event, ui){
+                                $.ajax({
+                                    url: settings.method,
+                                    cache: false,
+                                    type: "POST", dataType: "json",
+                                    data: { userID : ui.item.UserID },
+                                    success: function (data) {
+                                        callback(data);
+                                    }
+                                });
+                            }
+        };
+        $("#txtAutoSearch").autocompletebyusername(settings, callback);
+       
+        function callback(data) {
+            $(".mgt-left input").prop("disabled", true);
+            $("#txtAutoSearch").prop("disabled", false);
+            viewModel.updateModel(data);
+            //viewModel.bindReferrer();
+            //viewModel.bindReferrerLocationByReferrerID();
+        }
+    });      
+</script>
+<form id="frmUser">
+<!--always put form tag on all form related controllers -->
+<!--knockout js will reduce the usage of razor view engine syntax-->
+<div class="mgt-left">
+    <div>
+        <label id="confermationMsg" class="labelClass">
+        </label>
+    </div>
+    <div class="container">
+        <div class="left-text">
+            User Search:
+        </div>
+        <div class="right-textbx">
+            <input type="text" name="txtAutoSearch" id="txtAutoSearch" />
+        </div>
+        <div class="clear">
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="container">
+        <div class="left-text">
+            <span class="asterik">*</span>User Type:
+        </div>
+        <div class="right-textbx">
+            <select id="UserTypes" data-bind="options: UserTypes ,optionsText:'UserType', optionsValue : 'ID', value: SelectedUserTypeID,enable:EnableUserType">
+            </select>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-text">
+            <span class="asterik">*</span>User Login:
+        </div>
+        <div class="right-textbx">
+            <input type="text" name="UserName" id="UserName" data-bind="value: UserName " />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="container ">
+        <div class="left-text">
+            <span class="asterik">*</span>User Password:
+        </div>
+        <div class="right-textbx">
+            <input type="password" name="Password" id="Password" data-bind="value: Password"
+                style="width: 200px; height: 17px" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-text">
+            <span class="asterik">*</span>User First Name:
+        </div>
+        <div class="right-textbx">
+            <input type="text" name="FirstName" id="FirstName" data-bind="value: FirstName" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-text">
+            <span class="asterik">*</span>User Surname:
+        </div>
+        <div class="right-textbx">
+            <input type="text" name="LastName" id="LastName" data-bind="value: LastName" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-text">
+            <span class="asterik">*</span>User E-mail Address:
+        </div>
+        <div class="right-textbx">
+            <input type="text" id="Email" data-bind="value: Email" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-text">
+            &nbsp;&nbsp;&nbsp;User Telephone:
+        </div>
+        <div class="right-textbx">
+            <input type="text" id="Telephone" data-bind="value:Telephone" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-text">
+            &nbsp;&nbsp;&nbsp;User Fax:
+        </div>
+        <div class="right-textbx">
+            <input type="text" id="Fax" data-bind="value: Fax" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-text">
+            &nbsp;&nbsp;&nbsp;User Group:
+        </div>
+        <div class="right-textbx">
+            <select name="usergroup" data-bind="enable:EnableUserGroup">
+            </select>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="clear">
+        </div>
+   @* <div id="partialPlaceHolder">
+        
+    </div>*@
+</div>
+<div class="mgt-right">
+    <div class="add-edit">
+        <input type="button" id="AddUser" value="Add" data-bind="click: add" />
+        <input type="button" value="Edit" id="editUser" data-bind="click: editClick, visible: ShowEditButton" />
+        <input type="button" value="Update" id="updateuser" data-bind="click: UpdateUser"
+            style="display: none;" />
+        <input type="button" value="Cancel" style="display: none;" id="cancelUpdate" data-bind="click: resetAll " />
+    </div>
+    <div class="save-user-settings">
+        <input type="button" id="save" style="width: 160px;" value="Save User settings" data-bind="click: saveNewUser, visible: ShowSaveButton"
+            disabled="true" />
+    </div>
+   <div class="clear">
+        </div>
+    <div id="InternalPartial" style="margin-top: 30px;">
+        @{
+            Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.Management.InternalSecurityPartial);
+        }
+    </div>
+    <div id="ReferrerPartial" style="padding-top: 30px; display: none;">
+        @{
+            Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.Management.ReferrerSecurityPartial);
+        }
+    </div>
+    <div id="supplierPartial" style="padding-top: 30px; display: none;">
+        @{
+            Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.Management.SupplierSecurityPartial);
+        }
+    </div>
+</div>
+<div class="clear">
+</div>
+</form>

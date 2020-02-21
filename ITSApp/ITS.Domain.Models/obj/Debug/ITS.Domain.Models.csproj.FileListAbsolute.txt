@@ -1,0 +1,5 @@
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.Models\bin\Debug\ITS.Domain.Models.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.Models\bin\Debug\ITS.Domain.Models.pdb
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.Models\obj\Debug\ITS.Domain.Models.dll
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.Models\obj\Debug\ITS.Domain.Models.pdb
+D:\Mahi_TFS\ITS\Web\ITSApp\ITS.Domain.Models\obj\Debug\ITS.Domain.Models.csprojResolveAssemblyReference.cache

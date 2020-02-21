@@ -1,0 +1,188 @@
+﻿@{
+    ViewBag.Title = "Existing Patients Next Assessment";
+}
+@section SupplierMainTabs
+{
+ 
+}
+@*<link rel="stylesheet" href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" />
+<script src="../../Scripts/bootstrap.min.js"></script>*@
+
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/ExistingPatientsNextAssessmentViewModel.js")"
+    type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its-main.css")"/>
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+
+<script>
+    var config = {
+        NoNextAssessmentFound: '@ITSPublicApp.Infrastructure.Global.GlobalResource.NoNextAssessmentFound'
+    };
+    $(function () {
+        var vm = new ExistingPatientsNextAssessmentViewModel(config);
+        ko.applyBindings(vm, $("#DivExistingPatientsNextAssessment").get(0));
+        vm.init();
+    });
+</script>
+<div id="DivExistingPatientsNextAssessment">
+
+       <div id="pettabs" class="indentmenu-2">
+        <ul>
+            <li>@Html.ActionLink("NEW PATIENTS", "Index", "NewPatients")  <span data-bind="text:NewPatientCount" id="NewPatientCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("EXISTING PATIENTS INITIAL ASSESSMENT", "Index", "ExistingPatientsInitialAssessment")  <span id="ExistingPatientsInitialAssessmentCount" data-bind="text:ExistingPatientsInitialAssessmentCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("EXISTING PATIENTS NEXT ASSESSMENT", "Index", "ExistingPatientsNextAssessment", null, new { @class = "selected" }) <span data-bind="text:ExistingPatientsNextAssessmentCount" id="ExistingPatientsNextAssessmentCount" class="icon-bg"> </span> </li>
+            <li>@Html.ActionLink("AUTHORISATION", "Index", "Authorisation")  <span data-bind="text:AuthorisationCount" id="AuthorisationCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("STOPPED CASES", "Index", "StoppedCases") <span data-bind="text:StoppedCaseCount" id="StoppedCaseCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("CASE SEARCH", "Index", "CaseSearch")  <span class="icon-bg-1" > </span></li>
+        </ul>
+        <br style="clear: left" />
+    </div>
+
+<div id="divGridDisplaySpinner" style="position: absolute; top: 50%; left: 50%">
+    <div id="divGridDisplay">
+    </div>
+</div>
+<div class="ITS-ref-table">
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    View Attachment
+                </td>
+                <td>
+                    Details 
+                </td>
+                <td>
+                    Patient Name
+                </td>
+                <td>
+                    Case Number
+                </td>
+                <td>
+                    Current Status
+                </td>
+                <td>
+                    Next Status
+                </td>
+                <td>
+                    Print
+                </td>
+                  <td>
+                    View Uploads
+                </td>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: SupplierCasePatients">
+            <tr>
+                <td>
+                    <!--ko if:IsFileExist-->
+                    <a href="#" data-bind="attr: { href: ReferralDownloadPath }">View</a>
+                    <!--/ko-->
+                </td>
+                <td>
+                    <a data-target="#divExistingPatientsNextAssessmentDetail"  data-bind="click:$parent.GetEPNATreatmentSessionDetail" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="active-link">Details</a>
+                </td>
+                <td data-bind="text:Fullname">
+                </td>
+                <td data-bind="text:CaseNumber">
+                </td>
+                <td data-bind="text:Status">
+                </td>
+                <td>
+                    <a href="#" data-bind="click:$parent.OpenLink, text:NextStatus"></a>
+                </td>
+                <td>
+                    <!--ko if:IsCustom-->
+                      <a data-bind="attr: { 'href': '@Url.Action("Download", "ExistingPatientsNextAssessment")?_caseID='+EncryptedCaseID()}">Blank RA/FA</a>
+                  @*  <a data-bind="attr: { href: ReferralDownloadPathCustom}">Blank RA/FA</a>*@
+                    <!--/ko-->
+                    <!--ko ifnot:IsCustom-->
+                    <a href="#" data-bind="click:$parent.PrinBlankRAFA">Blank RA/FA</a>
+                    <!--/ko-->
+                </td>
+                  <td>
+                     <a href="#"  data-bind="click:$root.PressBtnViewUploads" role="button" data-toggle="modal">View Uploads</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ <div class="pull-right ">
+  <input type="hidden" id="btnUploadDoc"  />
+</div>
+<div id="message-div" data-bind="text:Message">
+</div>
+ <div id="divUploadModal" class="modal">
+ <div class="modal-content-supplier">
+            <span>Upload</span>
+            <span class="close">&times;</span>
+            <table id="tblRefDocForm" class="table-style1">
+                @Html.Partial("../Shared/_CaseUploads");  
+            </table>
+        </div>
+</div>
+<div id="divExistingPatientsNextAssessmentDetail" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-top-set">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel2">Treatment Session(s)
+            </h3>
+        </div>
+
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                     Sessions Authorised :
+                </label>
+                <div class="controls" style="display: inline-block;">
+                    <input id="txtSessionsAuthorised" name="Email" readonly type="text" class="form-control-set" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                     Sessions Attended :
+                </label>
+                <div class="controls" style="display: inline-block;">
+                    <input id="txtSessionsAttended" name="Email" readonly type="text" class="form-control-set" />
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">
+                Close</button>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('divUploadModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("btnUploadDoc");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+        $("#tblRefDocForm :input").val('');
+    }
+
+</script>

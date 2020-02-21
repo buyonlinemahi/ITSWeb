@@ -1,0 +1,651 @@
+﻿.ui-autocomplete-loading
+{
+    background: white url('/Content/Images/lodder.gif') right center no-repeat;
+}
+#city
+{
+    width: 25em;
+}
+.outer-container-project
+{
+    width: 984px;
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: Arial;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.outer-container-project .search-container
+{
+}
+
+.outer-container-project .search-container .left
+{
+    float: left;
+    width: 561px;
+    margin-top: 10px;
+}
+.outer-container-project .search-container .left .lbl-search
+{
+    float: left;
+    font-weight: bold;
+    padding: 15.5px;
+    font-size: 13px;
+    width: 121px;
+}
+.outer-container-project .search-container .left .left-text
+{
+    float: right;
+}
+.outer-container-project .search-container .left input[type="text"]
+{
+    float: right;
+    height: 22px;
+    margin: 11px;
+    width: 380px;
+    text-indent: 10px;
+}
+
+.outer-container-project .search-container .right
+{
+    float: right;
+}
+.outer-container-project .search-container .right input[type="submit"]
+{
+    background: none repeat scroll 0 0 #EBE8D8;
+    font-weight: lighter;
+    height: 34px;
+    margin: 11px 16px;
+    width: 100px;
+}
+.outer-container-project .search-container .right input[type="button"]
+{
+    background: none repeat scroll 0 0 #EBE8D8;
+    font-weight: lighter;
+    height: 34px;
+    margin: 11px 16px;
+    width: 100px;
+}
+.outer-container-project .project-outer
+{
+    float: left;
+    margin-top: 10px;
+}
+.outer-container-project .project-outer .first
+{
+    width: 984px;
+}
+.outer-container-project .project-outer .first span
+{
+    color: black;
+}
+.outer-container-project .project-outer .first .prj-input
+{
+    border-top: 1px solid;
+    float: left;
+    width: 480px;
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+.outer-container-project .project-outer .first .prj-input input[type="text"]
+{
+    height: 15px;
+    margin: 4px;
+    width: 416px;
+}
+.outer-container-project .project-outer .first .prj-check
+{
+    border-right: 1px solid;
+    border-top: 1px solid;
+    float: left;
+    padding: 2px 61px 3px 12px;
+}
+.outer-container-project .project-outer .first .prj-check input[type="checkbox"]
+{
+    border: 1px solid;
+    float: left;
+    margin: 0px;
+}
+.outer-container-project .project-outer .first .prj-text
+{
+    float: left;
+    font-weight: bold;
+    padding: 7px;
+    background: #77b531;
+    width: 223px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    font-family: arial;
+    font-size: 13px;
+}
+
+.outer-container-project .project-outer .second
+{
+    width: 984px;
+}
+.outer-container-project .project-outer .second span
+{
+    color: Red;
+}
+.outer-container-project .project-outer .second .therpy
+{
+    border: 1px solid;
+    float: left;
+    width: 179px;
+    text-align: center;
+    padding: 4px 1px 5px 0;
+}
+
+.outer-container-project .project-outer .second .prj-text
+{
+    float: left;
+    font-weight: bold;
+    padding: 7px;
+    background: #77b531;
+    width: 223px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    font-family: arial;
+    font-size: 13px;
+}
+.outer-container-project .project-outer .second .prj-input input[type="text"]
+{
+    float: left;
+    font-weight: bold;
+    padding: 7px;
+    font-family: arial;
+    font-size: 13px;
+}
+
+.outer-container-project .project-outer .third
+{
+}
+.outer-container-project .project-outer .third span
+{
+    color: Red;
+}
+.outer-container-project .project-outer .third .prj-text
+{
+    float: left;
+    font-weight: bold;
+    padding: 7px;
+    background: #77b531;
+    width: 223px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    font-family: arial;
+    font-size: 13px;
+}
+.outer-container-project .project-outer .third .prj-input
+{
+    border-bottom: 1px solid;
+    float: left;
+    width: 726px;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-top: 1px solid;
+}
+.outer-container-project .project-outer .third .prj-input select
+{
+    height: 22px;
+    margin: 4px;
+    width: 416px;
+}
+
+/*menu*/
+
+.outer-container-project .menu
+{
+    border-bottom: medium none;
+    float: left;
+    margin-top: 10px;
+    font-size: 12px;
+    margin-left: -41px;
+}
+.outer-container-project .menu ul
+{
+    background-color: #BDBDBD;
+    list-style-type: none;
+    margin: 0;
+    text-align: center;
+}
+.outer-container-project .menu ul li
+{
+    display: inline;
+}
+.outer-container-project .menu ul li a
+{
+    background-color: #BDBDBD;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    color: #000000;
+    float: left;
+    padding: 16px 23px 23px 34px;
+    text-align: center;
+    text-decoration: none;
+    height: 13px;
+}
+.outer-container-project .menu ul li a:hover
+{
+    background-color: #7D7D7D;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    color: #000000;
+    float: left;
+    padding: 16px 23px 23px 34px;
+    text-align: center;
+    text-decoration: none;
+    height: 13px;
+}
+
+/*Pricing */
+
+.outer-container-project .prj-Pricing .left
+{
+    width: 486px;
+    float: left;
+}
+
+.outer-container-project .prj-Pricing .left .prj-heading
+{
+    float: left;
+    font-weight: bold;
+    padding: 5px 5px 8px;
+    border: 1px solid #000;
+    background: #77b531;
+    width: 250px;
+    font-size: 12px;
+}
+.outer-container-project .prj-Pricing .left .prj-text input[type="text"]
+{
+    float: right;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #000;
+    width: 212px;
+    height: 18px;
+}
+
+.outer-container-project .prj-Pricing .right
+{
+    width: 453px;
+    float: left;
+}
+.outer-container-project .prj-Pricing .right .prj-heading
+{
+    float: left;
+    font-weight: bold;
+    padding: 5px 5px 8px;
+    border: 1px solid #000;
+    background: #77b531;
+    width: 217px;
+    font-size: 12px;
+}
+.outer-container-project .prj-Pricing .right .prj-text input[type="text"]
+{
+    float: right;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #000;
+    width: 212px;
+    height: 18px;
+}
+
+/*Pricing and Price Left/Right Container*/
+
+.outer-container-project .price-cantainer
+{
+    margin-top: 20px;
+}
+.outer-container-project .price-cantainer .left
+{
+    float: left;
+}
+.outer-container-project .price-cantainer .left span
+{
+    color: Red;
+}
+.outer-container-project .price-cantainer .left .heading-Price-type
+{
+    float: left;
+    background: #77b531;
+    border: 1px solid;
+    width: 200px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+.outer-container-project .price-cantainer .left .heading-Price
+{
+    float: left;
+    background: #77b531;
+    border: 1px solid;
+    width: 200px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+.outer-container-project .price-cantainer .left .text-Price-text
+{
+    float: left;
+    width: 200px;
+    text-align: left;
+    height: 20px;
+    padding: 5px;
+    border: 1px solid;
+}
+.outer-container-project .price-cantainer .left .text-Price
+{
+    float: left;
+    border: 1px solid;
+    width: 206px;
+    padding: 2px;
+}
+.outer-container-project .price-cantainer .left .text-Price input[type="text"]
+{
+    float: right;
+    width: 200px;
+    padding: 6px 2px 2px 2px;
+}
+
+
+.outer-container-project .price-cantainer .right
+{
+    float: right;
+}
+.outer-container-project .price-cantainer .right span
+{
+    color: Red;
+}
+.outer-container-project .price-cantainer .right .heading-Price-type
+{
+    float: right;
+    background: #77b531;
+    border: 1px solid;
+    width: 200px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+.outer-container-project .price-cantainer .right .heading-Price
+{
+    float: left;
+    background: #77b531;
+    border: 1px solid;
+    width: 200px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+.outer-container-project .price-cantainer .right .text-Price-text
+{
+    float: left;
+    width: 200px;
+    text-align: left;
+    height: 20px;
+    padding: 5px;
+    border: 1px solid;
+}
+.outer-container-project .price-cantainer .right .text-Price
+{
+    float: left;
+    border: 1px solid;
+    width: 206px;
+    padding: 2px;
+}
+.outer-container-project .price-cantainer .right .text-Price input[type="text"]
+{
+    float: right;
+    width: 200px;
+    padding: 6px 2px 2px 2px;
+}
+
+/* bottom */
+
+.outer-container-project .project-bottom
+{
+    float: left;
+    margin-top: 10px;
+    margin-left: 1px;
+}
+.outer-container-project .project-bottom .first
+{
+    width: 984px;
+}
+.outer-container-project .project-bottom .first span
+{
+    color: Red;
+}
+
+.outer-container-project .project-bottom .first .prj-input
+{
+    float: left;
+    width: 245px;
+    border: 1px solid;
+}
+.outer-container-project .project-bottom .first .prj-input input[type="text"]
+{
+    height: 14px;
+    margin: 4px;
+    width: 180px;
+}
+.outer-container-project .project-bottom .first .prj-check
+{
+    border: 1px solid;
+    float: left;
+    padding: 3px 16px 6px 21px;
+}
+.outer-container-project .project-bottom .first .prj-check input[type="checkbox"]
+{
+    border: 1px solid;
+    float: left;
+    margin: 0px;
+}
+.outer-container-project .project-bottom .first .prj-text
+{
+    float: left;
+    font-weight: bold;
+    padding: 7px;
+    background: #77b531;
+    width: 359px;
+    font-family: arial;
+    font-size: 13px;
+    border: 1px solid;
+}
+
+
+/* Search All Project List*/
+
+.outer-container-project .Project_view-cantainer
+{
+    margin: 8px auto;
+    width: 650px;
+  border: 1px solid #BEBEC0;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 2px 2px 2px #D0D1D3;
+}
+.outer-container-project .Project_view-cantainer .left
+{
+    float: left;
+}
+.outer-container-project .Project_view-cantainer .left ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.outer-container-project .Project_view-cantainer .left span
+{
+    color: Red;
+}
+.outer-container-project .Project_view-cantainer .left .heading-Project_view-type
+{
+     background: none repeat scroll 0 0 #77B531;
+   
+    float: left;
+    font-weight: bold;
+    height: 20px;
+    padding: 9px;
+    text-align: center;
+    width: 399px;
+}
+.outer-container-project .Project_view-cantainer .left .heading-Project_view
+{
+    background: none repeat scroll 0 0 #77B531;
+    border: 1px solid #BEBEC0;
+    float: right;
+    font-weight: bold;
+    height: 22px;
+    padding: 7px;
+    text-align: center;
+    width: 100px;
+}
+.outer-container-project .Project_view-cantainer .left .Project_view-text
+{
+    border-bottom: 1px solid #BEBEC0;
+    border-right: 1px solid #BEBEC0;
+    float: left;
+    height: 20px;
+    padding: 8px;
+    text-align: left;
+    width: 400px;
+}
+.outer-container-project .Project_view-cantainer .left .Project_view_Edit
+{
+     border-bottom: 1px solid #BEBEC0;
+    float: right;
+    height: 22px;
+    padding: 7px;
+    text-align: center;
+    width: 101px;
+}
+.outer-container-project .Project_view-cantainer .left .Project_view_Edit input[type="text"]
+{
+    float: right;
+    width: 100px;
+    padding: 6px 2px 2px 2px;
+}
+
+/* For Add project */
+.outer-container-project .project-outer
+{
+    margin-top: 20px;
+}
+.outer-container-project .project-outer .Prj_Add
+{
+    text-align: right;
+    float: right;
+    height: 20px;
+    margin-top: 10px;
+}
+.outer-container-project .project-outer .Prj_Add input[type="submit"]
+{
+    float: right;
+    text-align: right;
+    margin-right: 16px;
+}
+
+
+/* Message */
+
+.outer-container-project .messageDiv
+{
+    float: left;
+    text-align: center;
+}
+.outer-container-projectr .Msg
+{
+    background: none repeat scroll 0 0 yellow;
+    color: Red;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/*Bottom*/
+
+.border-bottom
+{
+    border-bottom: 1px solid #000;
+}
+
+/*Office location tab*/
+
+.clear
+{
+    clear: both;
+}
+
+.outer-container-project .location-frame
+{
+    width: 101%;
+    margin: 0px;
+    text-align: center;
+}
+.location-frame .location-frame-row
+{
+    width: 99%;
+}
+.location-frame .location-frame-row .location-frame--row-cellHeading
+{
+    width: 13.7%;
+    border: 1px solid black;
+    border-right: 0px;
+    border-bottom: 0px;
+    float: left;
+    padding: 6px;
+    background-color: #77b531;
+    font-weight: bold;
+}
+.location-frame .location-frame-row .location-frame--row-cell
+{
+    width: 13.7%;
+    border: 1px solid black;
+    border-right: 0px;
+    border-bottom: 0px;
+    float: left;
+    padding: 6px;
+    height: 20px;
+}
+.location-frame--row-cell-left
+{
+    border-right: 1px solid;
+    float: left;
+    margin-top: -6px;
+    padding: 5px 15px 8px 4px;
+}
+.ui-tabs .ui-tabs-nav li a
+{
+    float: left;
+    padding: 1.7em 1.75em;
+    text-decoration: none;
+}
+.addlocationpopup
+{
+    /* border-style: solid;     border-width: 2px;*/
+    -moz-border-radius: 15px;
+    width: auto;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    height: auto;
+    position: relative;
+    padding: 10px;
+}
+.location-frame .location-frame-row .location-frame--row-cell input[type="text"]
+{
+    width: 125px;
+    text-align: center;
+}
+.addlocationBtnDiv
+{
+    float: left;
+    padding: 1px;
+    font-weight: bold;
+    background-color: White;
+}

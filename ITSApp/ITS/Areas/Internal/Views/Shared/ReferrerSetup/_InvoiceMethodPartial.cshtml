@@ -1,0 +1,81 @@
+﻿@*
+* Latest Version 1.0
+ * 
+ * Author       : Harpreet Singh
+ * Date         : 22-Nov-2012
+ * Purpose      : MVC create invoice method tab view/page
+ * Version      : 1.0
+ *@
+<link href="@Url.Content("~/Content/InvoiceMethodPartial.css")" rel="stylesheet" type="text/css" />
+<div class="heading">
+    <span>Choose an Invoicing Method here:</span>
+</div>
+<div class="invioce-outer">
+    <div class="invoice">
+        <div class="invoice-left-heading">
+            Invoice Method
+        </div>
+        <div class="invoice-right-heading">
+            Price
+        </div>
+        <div class="clear">
+        </div>
+        <div data-bind="template:{name:'InvoiceMethods',foreach: InvoicesTypes}">
+        </div>
+        <div class="invioce-outer-management">
+            <div class="heading">
+                <span>Add a Management Fee here if applicable:</span>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="invoice">
+                <div class="invoice-left-heading">
+                    Invoice Method
+                </div>
+                <div class="invoice-right-heading">
+                    Price
+                </div>
+                <div class="clear">
+                </div>
+                <div class="invoice-left" style="border-bottom: 1px solid #000;">
+                    <span>
+                        <input type="checkbox" data-bind="checked:ManagementFeeEnabled" />Management Fee</span>
+                </div>
+                <div class="invoice-right" style="border-bottom: 1px solid #000;">
+                    <span data-bind="validationOptions: { insertMessages: false}">
+                        <input type="text" id="InvoiceMethodName" data-bind="value:ManagementPrice,enable:managmentEnable"
+                            onkeypress="return isNumberKey(event)" /></span>
+                </div>
+                <p data-bind="validationMessage:ManagementPrice" style="padding: 5px; color: red;
+                    position: absolute; margin-left: 447px;">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear">
+</div>
+<div class="inputs">
+    @*<input type="submit" value="Amend" />*@
+    <input id="btnSave" type="button" value="Save" data-bind="click:UpdateInvoiceMethod,enable:ViewEnabled" />
+    @*<input type="submit" value="Cancel" />*@
+</div>
+<script id="InvoiceMethods" type="text/html">
+        
+   <div data-bind="foreach:InvoiceTypeArray" style="border: 1px solid;">
+            <div class="invoice-left">
+                <input type="radio" name="InvoiceMethodName" data-bind="attr: { value: InvoiceMethodID, name: InvoiceMethodName }, checked: $parent.InvoiceMethodID" />
+                <span data-bind="text:InvoiceMethodName"></span>
+            </div>
+            <div class="invoice-right" style="padding-top: 13px;">
+                <input type="text" uniqueName='true' name="InvoiceMethodName" data-bind="value:$parent.InvoiceMethodID()==InvoiceMethodID ?
+                 $parent.InvoicePrice : null,visible: !(InvoiceMethodID == '1'),enable:$parent.InvoiceMethodID=='1' ? 'true' : $parent.Enabled,valueUpdate: 'afterkeydown'" />
+                <span data-bind="visible:(InvoiceMethodID == '1') ">N/A</span>
+            </div>
+            <div class="clear">
+            </div>
+           
+            
+            </div>         
+        
+</script>

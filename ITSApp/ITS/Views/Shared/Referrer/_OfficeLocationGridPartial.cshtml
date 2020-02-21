@@ -1,0 +1,127 @@
+﻿@using ITS.Infrastructure.Global;
+<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Head Office
+            </th>
+            <th>
+                Location Name
+            </th>
+            <th>
+                Town/City
+            </th>
+            <th>
+                Post Code
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:ReferrerLocations">
+        <tr>
+            <td>
+                <a href="#divViewOfficeLocation" role="button" data-toggle="modal" data-bind="click:$root.viewOfficeLocation">
+                    View</a> / <a href="#divViewOfficeLocation" role="button" data-toggle="modal" data-bind="click:$root.viewOfficeLocation">
+                        Edit</a> <a href="#" data-bind="visible:IsMainOffice()?false:true,click:$root.DeleteOfficeLocation">
+                            / Delete</a>
+            </td>
+            <td data-bind="text:(IsMainOffice()==1?'Yes':'No')">
+            </td>
+            <td data-bind="text:Name">
+            </td>
+            <td data-bind="text:City">
+            </td>
+            <td data-bind="text:PostCode" style="text-transform:uppercase" >
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="divViewOfficeLocation" class="modal hide fade" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" data-bind="with:SelectedOfficeLocation">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.DeSelectCurrentSelectedRferrerOfficeLocation">
+            ×</button>
+        <h3 id="myModalLabel">
+            View/Edit Offoce Location</h3>
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.ReferrerSharedController.UpdateReferrerLocation, GlobalConst.Controllers.ReferrerShared, FormMethod.Post, new
+{
+
+    @class = "form-horizontal",
+    id = "frmUpdateOfficeLocation",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateOfficeLocationFormSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: UpdateOfficeLocationFormBeforeSubmit }"
+
+}))
+    {
+        
+        <div class="modal-body">
+            <div class="control-group">
+                <label class="control-label" for="input01">
+                    Head Office?:
+                </label>
+                <div class="controls">
+                    <label class="radio inline">
+                        <input type="radio" value="true" name="IsMainOffice" data-bind="checked:IsMainOffice().toString(),jqBootstrapValidation: {}"
+                            minchecked="1" data-validation-minchecked-message="Choose atleast one" />Yes
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" value="false" name="IsMainOffice" data-bind="enable:IsMainOffice()? false:true,checked:IsMainOffice().toString(),jqBootstrapValidation: {}" />No
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    Location Name:</label>
+                <div class="controls">
+                    <input name="Name" type="text" class="input-file" placeholder="Name" data-bind="value:Name,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    Location Address:</label>
+                <div class="controls">
+                    <input name="Address" type="text" class="input-file" placeholder="Address" data-bind="value:Address,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    Location Town / City</label>
+                <div class="controls">
+                    <input name="City" type="text" class="input-file" placeholder="Town/City" data-bind="value:City,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    Location Region</label>
+                <div class="controls">
+                    <input name="Region" type="text" class="input-file" placeholder="Region" data-bind="value:Region,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="select01">
+                    Location Post Code:</label>
+                <div class="controls">
+                    <input name="PostCode" id="txtPostCodeEdit" style="text-transform:uppercase" maxlength="8" type="text" onkeyup="javascript: postalCodeFormat(this)" class="input-file" placeholder="PostCode" data-bind="value:PostCode,jqBootstrapValidation: {}"
+                        required />
+                </div>
+            </div>
+        </div>
+        <input type="hidden" data-bind="value:ReferrerID" name="ReferrerID" />
+        <input type="hidden" value="true" name="IsActive" />
+        <input type="hidden" data-bind="value:ReferrerLocationID" name="ReferrerLocationID" />
+        
+        <div class="modal-footer">
+            <button id="btnClinicalSave" type="submit" class="btn btn-primary">
+                Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" data-bind="click:$root.OfficeLocationCloseClick">
+                Close</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,226 @@
+﻿@using ITS.Infrastructure.Global
+<link href="@Url.Content("~/Content/SupplierPartial.css")" rel="stylesheet" type="text/css" />
+<style>
+    .supplieSuccessMsg
+    {
+        background: none repeat scroll 0 0 yellow;
+        border: 1px solid;
+        border-radius: 5px 5px 5px 5px;
+        height: 20px;
+        margin-top: 3px;
+        padding: 2px;
+        position: absolute;
+        text-align: center;
+        width: 300px;
+        display:none;
+    }
+</style>
+<script>
+    $(function () {
+        $("#tabs-inner").tabs();
+    });
+</script>
+<div id="supplierDiv">
+    <div class="supplierSearch">
+        <b>Supplier Seacrh:</b><input type="text" id="SupplierAutoSeacrh" data-bind="value:SearchText"
+            name="autoSeacrh" /><input type="submit" value="Add New" data-bind="enable:AddNew,click:AddNewClick" />
+        <input type="submit" value="Ammend" data-bind="visible:Ammend,click:AmmendClick" />
+        <input type="submit" value="Cancel" data-bind="visible:Cancel,click:CancelClick,enable:true" />
+    </div>
+    <div class="clear">
+    </div>
+    <div>
+        <label id="lblMessage" class="supplieSuccessMsg">
+        </label>
+        @*<p data-bind="validationMessage: Phone">
+        </p>
+        <p data-bind="validationMessage:Fax">
+        </p>*@
+    </div>
+    <div class="referrer-cantainer">
+        <div class="left-ref">
+            <div class="ref-heading">
+                <span>*</span> Supplier Name:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="supplierName" data-bind="value: SupplierName,enable:Enabled" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Supplier Address:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="supplierAddress" data-bind="value: Address,enable:Enabled" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Supplier Region:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="supplierRegion" data-bind="value: Region,enable:Enabled" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Supplier Telephone Number:
+            </div>
+            <div class="ref-text">
+                <span data-bind="validationOptions: { insertMessages: false}">
+                    <input type="text" id="suppliertelephoneNumber" data-bind="value: Phone,enable:Enabled" /></span>
+            </div>
+            <br />
+            <div class="clear">
+            </div>
+        </div>
+        <div class="right-ref">
+            <div class="ref-heading">
+                <span>*</span>Supplier Website Address:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="SupplierWebsite" data-bind="value: Website,enable:Enabled" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Supplier Town/City:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="supplierCity" data-bind="value: City,enable:Enabled" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Supplier Postal Code:
+            </div>
+            <div class="ref-text">
+                <input type="text" id="supplierPostCode" data-bind="value: PostCode,enable:Enabled,valueUpdate: 'afterkeydown'" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                Supplier Fax Number:
+            </div>
+            <div class="ref-text">
+                <span data-bind="validationOptions: { insertMessages: false}">
+                    <input type="text" id="supplierFax" data-bind="value: Fax,enable:Enabled" />
+                </span>
+            </div>
+            <br />
+            <div class="clear">
+            </div>
+            <div class="rdo-btn">
+            </div>
+        </div>
+        <div class="ranking">
+            <div class="txtRanking">
+                <b>Ranking:</b><input type="text" data-bind="enable:false,value:Ranking" />
+            </div>
+            <div class="Notes">
+                <textarea id="txtNotes" scroll="" name="Notes" title="Notes: ##SupplierNotes##" data-bind="value:Notes,enable:Enabled"></textarea>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="treatmentcatagory">
+            <div class="heading">
+                <b>Treatment Categories:</b></div>
+            <div data-bind="foreach: TreatmentCategories" class="eachloop">
+                <input id="chkTreatmentCategories" type="checkbox" data-bind="checked: Enabled,enable:$parent.IsVisible" />
+                <span data-bind="text: TreatmentCategoryName"></span>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="WheelChair">
+            <div class="checkboxes">
+                <input type="checkbox" id="WheelChair4" data-bind="checked:IsWheelChairAccessibility,enable:Enabled" />Wheel
+                Chair Accesibility</div>
+            <div class="checkboxes">
+                <input type="checkbox" id="WheelChair1" data-bind="checked:IsWeekends,enable:Enabled" />Weekends</div>
+            <div class="checkboxes">
+                <input type="checkbox" id="WheelChair2" data-bind="checked:IsEvenings,enable:Enabled" />Evening</div>
+            <div class="checkboxes">
+                <input type="checkbox" id="WheelChair3" data-bind="checked:IsParking,enable:Enabled" />parking</div>
+            <div class="checkboxes">
+                <input type="checkbox" id="tWheelChair3" data-bind="checked:IsHomeVisit,enable:Enabled" />Home
+                Visits</div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="left-ref" style="width: 700px">
+            <div class="ref-heading">
+                <span>*</span> Services Available:
+            </div>
+            <div class="ref-text">
+                <input type="text" style="width: 481px" id="ServicesAvailable" />
+            </div>
+            <br />
+            <div class="ref-heading">
+                <span>*</span>Supplier Status:
+            </div>
+            <div class="ref-text">
+                <input type="text" style="width: 481px" data-bind="value:Status,enable:pricingStatus"
+                    id="SupplierStatus" />
+            </div>
+            <br />
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="saveServices">
+        <input type="submit" value="Save" data-bind="enable:Save,visible:visibleSave,click:function() { AddSupplier();}" />
+        <input type="submit" value="Save" data-bind="visible:Update,click:function() { UpdateSupplier();pricinglViewModel.UpdateSupplierPricing()}" /></div>
+</div>
+<div class="clear">
+</div>
+<div class="alertPricing" id="pricingAlert">
+    <div>
+        <span>Please complete your pricing tab first to access other tab's..</span>
+    </div>
+</div>
+<div class="clear">
+</div>
+<div id="tabs-inner" style="float: left; display: none; padding-left: 0px; width: 978px;
+    padding: 20px 0px 0px 0px; overflow: hidden;">
+    <ul id="CompletePricingTab">
+        <li><a href="#divPricingContainer">Pricing</a></li>
+        <li><a href="#divClinicalAuditContainer" data-bind="disableClick:Status()=='Completed' ? false : true,click:ClinicalAuditViewModel.LoadTab">
+            Clinical Audit</a></li>
+        <li><a href="#divSiteAuditContainer" data-bind="disableClick:Status()=='Completed' ? false : true,click:SiteAuditViewModel.LoadTab">
+            Site Audit</a></li>
+        <li><a href="#divComplaintsContainer" data-bind="disableClick:Status()=='Completed' ? false : true,click:complaintViewModel.LoadTab">
+            Complaints</a></li>
+        <li><a href="#divPractitionersContainer" data-bind="disableClick:Status()=='Completed' ? false : true,click:practitionerViewModel.LoadTab">
+            Practitioners </a></li>
+        <li><a href="#divInsuredContainer" data-bind="disableClick:Status()=='Completed' ? false : true,click:InsuredViewModel.LoadTab">
+            Insured</a></li>
+        <li><a href="#divRegistrationDocumentsContainer" data-bind="disableClick:Status()=='Completed' ? false : true,click:DocumentViewModel.LoadTab">
+            Registration Documents</a></li>
+    </ul>
+    <div id="divPricingContainer" style="height: 335px;">
+        <!-- this div should bind pricing viewmodel -->
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.SupplierSetup.PricingPartial);}
+    </div>
+    <div id="divClinicalAuditContainer">
+        <!-- this div should bind _PricingPartial viewmodel -->
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.SupplierSetup.ClinicalAuditPartial);}
+    </div>
+    <div id="divSiteAuditContainer">
+        <!-- to bind SiteAudit viewmodel -->
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.SupplierSetup.SiteAuditPartial);}
+    </div>
+    <div id="divComplaintsContainer">
+        <!-- this div should bind Complaints viewmodel -->
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.SupplierSetup.ComplaintPartial);}
+    </div>
+    <div id="divPractitionersContainer">
+        <!-- this div should bind Practitioners viewmodel -->
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.SupplierSetup.PractitionerPartial);}
+    </div>
+    <div id="divInsuredContainer">
+        <!-- this div should bind Insured viewmodel -->
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.SupplierSetup.InsuredPartial);}
+    </div>
+    <div id="divRegistrationDocumentsContainer">
+        <!-- this div should bind RegistrationDocuments viewmodel -->
+        @{Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.SupplierSetup.RegistrationDocumentsPartial);}
+    </div>
+</div>

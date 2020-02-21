@@ -1,0 +1,92 @@
+﻿@*
+
+   Latest Version : 1.0
+
+   Author   : Pardeep Kumar
+   Date     : 10-Nov-2012
+   Purpose  : Created Supplier Security Partial
+
+
+*@
+<link href="@Url.Content("~/Content/SupplierSecurityPartial.css")" rel="stylesheet"
+    type="text/css" />
+<div id="container">
+    <div style="height: 10px">
+    </div>
+    <div class="mainScreen topBgColor">
+        <div class="left" style="border-right: 1px solid black;">
+            <div class="topGreen">
+                Main Screen:
+            </div>
+        </div>
+        <div class="right">
+            <div class="topGreen">
+                Case Search:
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="mainScreen" style="border-bottom: 1px solid black;">
+        <div class="left" style="border-right: 1px solid black;">
+            <div class="screenBody">
+                <ul>
+                    <li>
+                        <input type="checkbox" data-bind="checked:supplierCaseChecked,click:supplierCaseCheckedChanged" />Case
+                        Search </li>
+                    <li>
+                        <input type="checkbox" data-bind="checked:supplierViewRefferalsMainChecked" />View
+                        Referrals </li>
+                    <li>
+                        <input type="checkbox" data-bind="checked:supplierInitialAssessChecked" />Book Initial
+                        Assessment </li>
+                    <li>
+                        <input type="checkbox" data-bind="checked:supplierInitialAssessReportChecked" />Initial
+                        Assessment Report Screen </li>
+                    <li>
+                        <input type="checkbox" data-bind="checked:supplierNextAssessReportChecked" />Next
+                        Assessment Report Screen </li>
+                    <li>
+                        <input type="checkbox" data-bind="checked:supplierCaseStoppedChecked" />Case Stopped
+                        Screen </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="screenBody">
+                <ul>
+                    <li>
+                        <input type="checkbox" data-bind="checked:supplierPatientManagementChecked, disable :supplierPatientManagementDisabled" />Patient
+                        Management </li>
+                    <li>
+                        <input type="checkbox" data-bind="checked:supplierViewRefferalsCaseScreenChecked, disable :supplierViewRefferalsDisabled" />View
+                        Referrals </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div style="height: 20px">
+    </div>
+    Supplier Assignment – Please Choose a Supplier for the User:
+    <div class="reffAssign">
+        <div class="left">
+            Supplier:
+        </div>
+        <div class="right">
+            <select id="SupplierNames" data-bind="options: SupplierNames ,optionsText:'SupplierName', optionsValue : 'SupplierID', value:selectedSupplierID,valueUpdate: 'change',  optionsCaption: 'Select...'">
+            </select>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div style="height: 20px">
+    </div>
+    <div class="">
+        <div style="text-align: right">
+            <input type="button" value="Select All" data-bind="click:supplierSelectAll" />
+            <input type="button" value="Deselect All" data-bind="click:supplierDeSelectAll" />
+        </div>
+    </div>
+</div>

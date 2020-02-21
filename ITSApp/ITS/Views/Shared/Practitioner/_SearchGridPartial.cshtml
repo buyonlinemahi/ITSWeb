@@ -1,0 +1,39 @@
+﻿
+@*@model ITS.Domain.Models.SupplierSearch*@
+<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+               Practitioner Name
+            </th>
+            <th>
+                Treatment Category Name
+            </th>
+           <th>
+                Registration Type Name
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:Practitioners">
+        <tr>
+            <td>
+                <a role="button" data-toggle="modal" data-bind="attr: { href: '/Practitioner/Detail/' + PractitionerID() }">
+                          View</a>
+            </td>
+            <td data-bind="text:PractitionerFullName">
+            </td>
+            <td data-bind="text:TreatmentCategoryName">
+            </td>
+           <td data-bind="text:RegistrationTypeName">
+            </td>
+           
+        </tr>
+    </tbody>
+</table>
+
+
+

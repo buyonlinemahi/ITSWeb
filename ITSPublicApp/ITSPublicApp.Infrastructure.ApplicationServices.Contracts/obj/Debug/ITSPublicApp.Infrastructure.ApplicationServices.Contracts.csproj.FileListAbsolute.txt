@@ -1,0 +1,4 @@
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices.Contracts\bin\Debug\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices.Contracts\bin\Debug\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices.Contracts\obj\Debug\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices.Contracts\obj\Debug\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.pdb

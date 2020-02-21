@@ -1,0 +1,123 @@
+﻿/* Latest Version 1.0
+
+
+  Author          : Manjit Singh
+  Date            : 26-Dec-2012
+  Version         : 1.0
+  Purpose         : File added for the  Supplier Site Audit 
+
+  */
+
+/*.outter-assess-container
+{
+    width: 984px;
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: Arial;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 10px;
+}
+.textweight
+{
+    font-weight: bold;
+}
+.text-margin
+{
+    margin-bottom: 16px !important;
+    margin-left: 0;
+    margin-top: 16px;
+}
+.inputs
+{
+    float: left;
+}
+.types-margin
+{
+    margin-bottom: 5px;
+}
+.leftAlign
+{
+    float: left;
+}
+.leftAlignInner
+{
+    float: left;
+    width: 170px;
+}
+.leftAlignInnerLinks
+{
+    float: left;
+    width: 60px;
+}*/
+
+
+
+
+#modelPopSupplierAudit
+{
+    border: 1px solid;
+    margin: 20px;
+    overflow: hidden;
+}
+.star
+{
+    color: Red;
+}
+.clear
+{
+    clear: both;
+}
+.model-container
+{
+}
+.model-container .row
+{
+}
+.model-container .left
+{
+    border-left: 1px solid;
+    border-top: 1px solid;
+    float: left;
+    padding: 14px;
+    width: 217px;
+    background: none repeat scroll 0 0 #77B531;
+}
+.model-container .right
+{
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-top: 1px solid;
+    float: left;
+    padding: 8px;
+    width: 470px;
+}
+.model-container .right input[type="text"]
+{
+    padding: 4px;
+    width: 250px;
+}
+.model-container .right select
+{
+    padding: 5px;
+    width: 261px;
+}
+.model-container .right textarea
+{
+    height: 100px;
+    padding: 5px;
+    width: 451px;
+}
+.pop-buttons
+{
+    padding-top: 10px;
+    float: right;
+}
+.pop-buttons input[type="submit"]
+{
+    float: right;
+    width: 80px;
+    padding: 10px;
+    background: none repeat scroll 0 0 #EBE8D;
+}
+

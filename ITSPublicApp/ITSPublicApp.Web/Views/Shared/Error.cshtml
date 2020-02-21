@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+    <style>
+        body{background:#e0e0e0;margin: 0 auto;}
+        .padd-15{padding-top:11%;}
+        .error-page{text-align:center;}
+        .error-page .error-page-h2{font-size:100px;margin-bottom:35px;text-align:center;  }
+        .error-page .error-page-p{font-size:18px; text-align:center;margin-bottom:0px;}
+        .error-page .error-Button{font-size:20px; text-align:center;color:#000 !important;}
+        .error-page .error-Button:hover{font-size:20px; text-align:center;color:#1c7206 !important;text-decoration:none;}
+        header {background: #679a01 url(../../Content/images/bg_pageHeader.gif) top repeat-x; border-bottom: 5px solid #0f578f; height: 70px;}
+        header section { margin: 0 auto;padding: 0;width: 1000px;display:block;}
+        header img {float: right;margin: 5px 0 0;max-width:100%;}
+        header div {font-family: Verdana, Geneva, sans-serif; font-size: 40px;line-height: 70px; color: #fff;}
+    </style>
+</head>
+<body>
+    <header>
+	<section>
+        <img src="/Content/Images/logoMain_IHMG.gif" alt="Innovate Healthcare Management Group - Excellence Technology Results logo">
+        <div>Insight Portal</div>
+    </section>
+</header>
+    <div class="container padd-15">
+    <div id="primary" class="content-area">
+        <div class="row">
+            <div class="error-page">
+                <h2 class="error-page-h2">Oops!</h2>
+                <p class="error-page-p">
+                    We can't seem to find the page your looking for<br />or some other error occured.
+                </p>
+                <br /><br />
+                 @if (ViewBag.Message == 2)
+                    {
+                        <a href="/Referrer/Home" class="error-Button"><i class="fa fa-arrow-left"></i> &nbsp;Back To Home&nbsp;</a>
+                    }
+                 else if (ViewBag.Message == 1)
+                    {
+                     <a href="/Supplier/NewPatients" class="error-Button"><i class="fa fa-arrow-left"></i> &nbsp;Back To Home&nbsp;</a>
+                    }
+                <br/>
+            </div>
+           
+        </div>
+        </div>
+    </div>
+
+</body>
+</html>

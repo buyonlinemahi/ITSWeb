@@ -1,0 +1,1295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73DE0BC4-0856-4EFF-929D-65A9EAA465B2}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITSPublicApp.Web</RootNamespace>
+    <AssemblyName>ITSPublicApp.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Library\External\AutoMapper\2.0.0\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.9.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.9.0\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\Library\External\EntityFramework\4.3\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\..\Library\External\CommonServiceLocator\1.0\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\..\Library\External\Unity\2.1.505.2\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\..\Library\External\Unity\2.1.505.2\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 3\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Referrer\Controllers\AddReferralController.cs" />
+    <Compile Include="Areas\Referrer\Controllers\CaseSearchController.cs" />
+    <Compile Include="Areas\Referrer\Controllers\CaseStoppedController.cs" />
+    <Compile Include="Areas\Referrer\Controllers\ModifyAuthorityController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\AuthorisationController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\BookIAController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\CaseSearchController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\ExistingPatientsInitialAssessmentController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\ExistingPatientsNextAssessmentController.cs" />
+    <Compile Include="Areas\Referrer\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\FinalAssessmentController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\InitialAssessmentController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\InitialAssessmentCustomController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\NewPatientsController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\ReviewAssessmentController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\ReviewAssessmentCustomController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\StoppedCasesController.cs" />
+    <Compile Include="Areas\Referrer\ReferrerAreaRegistration.cs" />
+    <Compile Include="Areas\Supplier\Controllers\TriageAssessmentController.cs" />
+    <Compile Include="Areas\Supplier\SupplierAreaRegistration.cs" />
+    <Compile Include="BootStrap\App.cs" />
+    <Compile Include="Configurations\ConfigureAutoMapper.cs" />
+    <Compile Include="Configurations\RegisterGlobalFilters.cs" />
+    <Compile Include="Configurations\RegisterRoutes.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PrintPopUpController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ITSService.AssessmentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITSService.CaseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITSService.LookUpService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITSService.PatientService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITSService.PractitionerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITSService.ReferrerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITSService.SupplierService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITSService.UserService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Supplier\Views\InitialAssessment\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Supplier\Views\StoppedCases\StoppedCaseScreen.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Content\ajaxtabs.css" />
+    <Content Include="Content\assessment-reports.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-modal.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-sortable.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-typeahead.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\css\custom.css" />
+    <Content Include="Content\bootstrap\css\ie7.css" />
+    <Content Include="Content\bootstrap\css\ie8.css" />
+    <Content Include="Content\bootstrap\css\ie9.css" />
+    <Content Include="Content\bootstrap\css\its-portal.css" />
+    <Content Include="Content\bootstrap\img\breadcrumb.png" />
+    <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Content\bootstrap\img\its-icons.png" />
+    <Content Include="Content\bootstrap\img\its-logo.png" />
+    <Content Include="Content\CaseSearch.css" />
+    <Content Include="Content\Images\accept-supplier.jpg" />
+    <Content Include="Content\Images\ITS-logo-1.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Jquery-ui.css" />
+    <Content Include="Content\print.css" />
+    <Content Include="Content\Images\addreferralscreen-browse.jpg" />
+    <Content Include="Content\Images\ajax-loader.png" />
+    <Content Include="Content\Images\authorisation-select-arrow.jpg" />
+    <Content Include="Content\Images\back-supplier.jpg" />
+    <Content Include="Content\Images\bg_btnGreen.gif" />
+    <Content Include="Content\Images\bg_login.gif" />
+    <Content Include="Content\Images\bg_login.jpg" />
+    <Content Include="Content\Images\bg_login2.jpg" />
+    <Content Include="Content\Images\bg_pageHeader.gif" />
+    <Content Include="Content\Images\bg_pageHeader.jpg" />
+    <Content Include="Content\Images\cancel-supplier.jpg" />
+    <Content Include="Content\Images\check-box.png" />
+    <Content Include="Content\Images\close-supplier.jpg" />
+    <Content Include="Content\Images\confirm-supplier.jpg" />
+    <Content Include="Content\Images\its-addreferral-butt-active.jpg" />
+    <Content Include="Content\Images\its-auth-active.jpg" />
+    <Content Include="Content\Images\its-bg.jpg" />
+    <Content Include="Content\Images\ITS-Innovate.png" />
+    <Content Include="Content\Images\its-login-bg.jpg" />
+    <Content Include="Content\Images\its-login.jpg" />
+    <Content Include="Content\Images\ITS-logo.png" />
+    <Content Include="Content\Images\its-supplier-form-bg.jpg" />
+    <Content Include="Content\Images\its-supplierl-butt-active.jpg" />
+    <Content Include="Content\Images\its-tbl-headbg.jpg" />
+    <Content Include="Content\Images\logoMain_IHMG.gif" />
+    <Content Include="Content\Images\print-supplier.jpg" />
+    <Content Include="Content\Images\referral-bg.jpg" />
+    <Content Include="Content\Images\save-supplier.jpg" />
+    <Content Include="Content\Images\submit-addreferralscreen.jpg" />
+    <Content Include="Content\Images\temporary-addreferrer.jpg" />
+    <Content Include="Content\Images\upload-addreferralscreen.jpg" />
+    <Content Include="Content\its-main.css" />
+    <Content Include="Content\its-supplier.css" />
+    <Content Include="Content\its_ms121213.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui-timepicker-addon.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\kopaging.min.css" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\InputMaskViewModel.js" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-v3.4.1.js" />
+    <Content Include="Scripts\jquery-ui-sliderAccess.js" />
+    <Content Include="Scripts\jquery-ui-timepicker-addon.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.spin.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\knockout-3.0.0.js" />
+    <Content Include="Scripts\knockout.validation.js" />
+    <Content Include="Scripts\knockout.mapping.js" />
+    <Content Include="Scripts\ko.pager.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Areas\Referrer\Views\Web.config" />
+    <Content Include="Areas\Supplier\Views\Web.config" />
+    <Content Include="Areas\Referrer\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Referrer\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Referrer\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Referrer\Views\AddReferral\Index.cshtml" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\plugins\knockout.dateformat.js" />
+    <Content Include="Scripts\spin.min.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\referrer\CaseDetailViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\referrer\CaseSearchViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\referrer\CaseStoppedViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\referrer\CaseTreatmentViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\referrer\CaseUploadsViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\referrer\ModifyAuthorityViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\AuthorisationViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\AuthorityAcceptanceScreenViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\CaseDetailViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\CaseSearchViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\CaseUploadsViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\FinalAssessmentViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\InitialAssessmentCustomViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\ReivewAssessmentViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\ExistingPatientsInitialAssessmentViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\ExistingPatientsNextAssessmentViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\InitialAssessmentViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\NewPatientsViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\ReviewAssessmentCustomViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\StoppedCaseScreenViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\StoppedCasesViewModel.js" />
+    <Content Include="Areas\Referrer\Views\CaseSearch\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\CaseSearch\Index.cshtml" />
+    <Content Include="Areas\Referrer\Views\ModifyAuthority\Index.cshtml" />
+    <Content Include="Areas\Referrer\Views\Shared\_LayoutForm.cshtml" />
+    <Content Include="Areas\Supplier\Views\TriageAssessment\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\FinalAssessment\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\ReviewAssessment\Index.cshtml" />
+    <Content Include="Areas\Referrer\Views\CaseStopped\Index.cshtml" />
+    <Content Include="Content\AssessmentForms\TriageAssessmentForm.docx" />
+    <Content Include="Areas\Supplier\Views\Authorisation\AuthorityAcceptanceScreen.cshtml" />
+    <Content Include="Areas\Referrer\Views\CaseSearch\CaseDetail.cshtml" />
+    <Content Include="Areas\Supplier\Views\InitialAssessmentCustom\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\ReviewAssessmentCustom\Index.cshtml" />
+    <Content Include="Areas\Referrer\Views\CaseSearch\CaseUploads.cshtml" />
+    <Content Include="Areas\Referrer\Views\CaseSearch\CaseTreatment.cshtml" />
+    <Content Include="Areas\Supplier\Views\CaseSearch\CaseDetail.cshtml" />
+    <Content Include="Areas\Supplier\Views\CaseSearch\CaseUploads.cshtml" />
+    <Content Include="Areas\Supplier\Views\Shared\_CaseUploads.cshtml" />
+    <Content Include="Content\AssessmentForms\PsychologicalTriageAssessment.docx" />
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService.wsdl" />
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService1.disco" />
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService1.wsdl" />
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService2.wsdl" />
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\configuration91.svcinfo" />
+    <None Include="Service References\ITSService.AssessmentService\configuration.svcinfo" />
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseAssessment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseAssessmentPatientImpact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseAssessmentPatientInjury.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseAssessmentRating.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseBespokeServicePricing.datasource" />
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseBespokeServicePricing1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseTreatmentPricing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseTreatmentPricingType.datasource" />
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.CaseTreatmentPricingType1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.PatientImpact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.PatientImpactOnWork.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.PatientImpactValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.PatientLevelOfRecovery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.PatientWorkCapacity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.PatientWorkstatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.ProposedTreatmentMethod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.PsychologicalFactor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.TreatmentCategoriesBespokeService.datasource" />
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.TreatmentCategoriesBespokeService1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.TreatmentCategoryBespokeService.datasource" />
+    <None Include="Service References\ITSService.AssessmentService\ITSPublicApp.Web.ITSService.AssessmentService.TreatmentCategoryBespokeService1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ITSService.CaseService\CaseService1.wsdl" />
+    <None Include="Service References\ITSService.CaseService\CaseService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.CaseService\CaseService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.CaseService\CaseService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.CaseService\CaseService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.CaseService\CaseService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseBespokeServicePricingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseDocumentUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseHistoryUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseNoteUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CasePatientReferrer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CasePatientReferrerSupplier.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CasePatientReferrerSupplierWorkflow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CasePatientSearch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseSearch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseStopReason.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseTreatmentPricingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseWorkflowCount.datasource" />
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseWorkflowPatientReferrerProject.datasource" />
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.Employment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.EmployeeDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.DrugTest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.JobDemand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.ElRehab.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.Gip.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.Iip.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.PagedCasePatientTreatmentWorkflow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.PagedCaseWorkflowPatientReferrerProject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.Policie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.PolicyOpenDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.ReferrerAuthorisations.datasource" />
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.AffectedArea.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.Admitted.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.AdditionalTest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.Tpd.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.AreasofExpertise.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.AssessmentService.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.AssessmentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.ComplaintStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.ComplaintType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.DelegatedAuthorisation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.DelegatedAuthorisationTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.DocumentSetupTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.Duration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.EmailType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.EmploymentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.FitForWork.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.Gender.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.InvoiceMethod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.NetworkRailStandardApplicable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PatientImpact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PatientImpactOnWork.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PatientImpactValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PatientLevelOfRecovery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PatientRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PatientWorkstatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PolicyCriteria.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PolicyType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PricingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.ProposedTreatmentMethod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.PsychologicalFactor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.ReasonForReferral.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.RegistrationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.RestrictionRange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.RoleType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.Reinsurer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.ServiceLevelAgreement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.StrengthTesting.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.SymptomDescription.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.TreatmentCategoriesPricingTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.TreatmentCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.TreatmentCategoryBespokeService.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.TreatmentPeriodType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.TreatmentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.TypeCover.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.UKPostCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.LookUpService\ITSPublicApp.Web.ITSService.LookUpService.WorkType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.LookUpService\LookUpService11.wsdl" />
+    <None Include="Service References\ITSService.LookUpService\LookUpService33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\LookUpService34.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.LookUpService\LookUpService35.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.PatientService\PatientService1.wsdl" />
+    <None Include="Service References\ITSService.PatientService\PatientService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.PatientService\PatientService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.PatientService\PatientService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\ITSPublicApp.Web.ITSService.PractitionerService.AreasofExpertise.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\ITSPublicApp.Web.ITSService.PractitionerService.PagedPractitionerTreatmentRegistration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\ITSPublicApp.Web.ITSService.PractitionerService.PracitionerSupplierTreatmentCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\ITSPublicApp.Web.ITSService.PractitionerService.Practitioner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\ITSPublicApp.Web.ITSService.PractitionerService.PractitionerExpertise.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\ITSPublicApp.Web.ITSService.PractitionerService.PractitionerRegistration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\ITSPublicApp.Web.ITSService.PractitionerService.SupplierPractitionerSupplier.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\ITSPublicApp.Web.ITSService.PractitionerService.TreatmentCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\PractitionerService1.wsdl" />
+    <None Include="Service References\ITSService.PractitionerService\PractitionerService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\PractitionerService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.PractitionerService\PractitionerService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.InjuredPartyRepresentative.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.InjuredRepresentativeOption.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.PagedReferrerLocationReferrer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.PrimaryCondition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.PagedReferrerSupplierCaseSearch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ProjectTreatmentSLAName.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerAssignedUser2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerDocumentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerPricingValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentEmailTypeName.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentInvoiceMethod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrersName.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerUserDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService1.wsdl" />
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.PagedSupplierSearch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierClinicalAuditSupplierDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierComplaintAndStatusAndType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierInsuranceSupplierDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierPricingValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierRegistrationSupplierDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierSiteAuditSupplierDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SuppliersName.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierSupplierTreatmentsAndSupplierTreatmenPricing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierSupplierTreatmentsAndSupplierTreatmenPricingResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.TreatmentCategoriesPricingTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\SupplierService.wsdl" />
+    <None Include="Service References\ITSService.SupplierService\SupplierService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\SupplierService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\SupplierService2.wsdl" />
+    <None Include="Service References\ITSService.SupplierService\SupplierService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\SupplierService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\SupplierService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\SupplierService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.UserService\ITSPublicApp.Web.ITSService.UserService.PagedUserTypeUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Service References\ITSService.UserService\ITSPublicApp.Web.ITSService.UserService.PasswordHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITSService.UserService\ITSPublicApp.Web.ITSService.UserService.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.UserService\configuration91.svcinfo" />
+    <None Include="Service References\ITSService.UserService\configuration.svcinfo" />
+    <None Include="Service References\ITSService.UserService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ITSService.UserService\UserService1.disco" />
+    <None Include="Service References\ITSService.PractitionerService\configuration91.svcinfo" />
+    <None Include="Service References\ITSService.PractitionerService\configuration.svcinfo" />
+    <None Include="Service References\ITSService.PractitionerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService2.disco" />
+    <None Include="Service References\ITSService.UserService\UserService11.disco" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\TriageAssessmentViewModel.js" />
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService2.disco" />
+    <None Include="Service References\ITSService.LookUpService\configuration91.svcinfo" />
+    <None Include="Service References\ITSService.LookUpService\configuration.svcinfo" />
+    <None Include="Service References\ITSService.LookUpService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\ITSService.AssessmentService\AssessmentService.disco" />
+    <None Include="Service References\ITSService.AssessmentService\AssessmentService3.disco" />
+    <None Include="Service References\ITSService.CaseService\CaseService2.disco" />
+    <None Include="Service References\ITSService.LookUpService\LookUpService11.disco" />
+    <None Include="Service References\ITSService.PatientService\PatientService1.disco" />
+    <None Include="Service References\ITSService.PractitionerService\PractitionerService1.disco" />
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService4.disco" />
+    <None Include="Service References\ITSService.SupplierService\SupplierService2.disco" />
+    <None Include="Service References\ITSService.UserService\UserService13.disco" />
+    <Content Include="Storage\Template\AddRefererrEmailTemplate.html" />
+    <Content Include="Storage\Template\RefererrDocumentUploadTemplate.html" />
+    <Content Include="Storage\Template\TreatmentMatrixDidNotAttend.html" />
+    <Content Include="Storage\Template\logo.png" />
+    <Content Include="Storage\Template\logo2.png" />
+    <Content Include="Storage\Template\logo3.png" />
+    <Content Include="Storage\Template\BookIAEmailTemplate.html" />
+    <Content Include="Storage\Template\InitialReportSubmittedTemplate.html" />
+    <Content Include="Storage\Template\TreatmentMatrixDidNotAttendCheckbox.html" />
+    <Content Include="Views\Shared\_Paging.cshtml" />
+    <Content Include="Areas\Supplier\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Supplier\Views\NewPatients\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\ExistingPatientsInitialAssessment\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\ExistingPatientsNextAssessment\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\Authorisation\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\StoppedCases\Index.cshtml" />
+    <Content Include="Areas\Supplier\Views\Shared\_LayoutForm.cshtml" />
+    <Content Include="Views\Shared\_HeaderLinks.cshtml" />
+    <Content Include="Areas\Supplier\Views\BookIA\Index.cshtml" />
+    <None Include="Service References\ITSService.CaseService\CaseService.wsdl" />
+    <None Include="Service References\ITSService.CaseService\CaseService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.CaseService\CaseService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.CaseService\CaseService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.Case.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseAppointmentDate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseContact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CasePatient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CasePatientContactAttempt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CasePatientSupplierPractitioner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.CaseWorkflowCount1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.CaseService\ITSPublicApp.Web.ITSService.CaseService.PagedReferrerAuthorisations.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PatientService\ITSPublicApp.Web.ITSService.PatientService.CasePatientTreatment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.PatientService\ITSPublicApp.Web.ITSService.PatientService.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.AssessmentService.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.AssessmentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.DelegatedAuthorisation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.DelegatedAuthorisationTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.DocumentSetupTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.EmailType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.InvoiceMethod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.PricingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ProjectTreatmentSLA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.Referrer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerLocation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentAssessment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentAuthorisation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentDocumentSetup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentEmail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentInvoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentName.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentPricing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ReferrerProjectTreatmentTreatmentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.ServiceLevelAgreement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.TreatmentCategoriesPricingTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ITSPublicApp.Web.ITSService.ReferrerService.TreatmentCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService.wsdl" />
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.ComplaintStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.ComplaintType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.PractitionerTreatmentRegistration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.RegistrationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.Supplier.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierCasePatient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierClinicalAudit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierComplaint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierDistanceRankPrice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierDocumentUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierInsurance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierPractitioner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierPractitionerTreatmentRegistration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierSiteAudit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierTreatment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.SupplierTreatmentPricing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.TreatmentCategoriesAreasofExpertises.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.TreatmentCategoriesRegistrationTypes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.TreatmentCategoriesTreatmentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\ITSPublicApp.Web.ITSService.SupplierService.TreatmentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Scripts\viewmodels\areas\shared\referrer\AddReferralViewModel.js" />
+    <None Include="Service References\ITSService.ReferrerService\configuration91.svcinfo" />
+    <None Include="Service References\ITSService.ReferrerService\configuration.svcinfo" />
+    <None Include="Service References\ITSService.ReferrerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ITSService.CaseService\configuration91.svcinfo" />
+    <None Include="Service References\ITSService.CaseService\configuration.svcinfo" />
+    <None Include="Service References\ITSService.CaseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ITSService.PatientService\configuration91.svcinfo" />
+    <None Include="Service References\ITSService.PatientService\configuration.svcinfo" />
+    <None Include="Service References\ITSService.PatientService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ITSService.SupplierService\configuration91.svcinfo" />
+    <None Include="Service References\ITSService.SupplierService\configuration.svcinfo" />
+    <None Include="Service References\ITSService.SupplierService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ITSService.CaseService\CaseService.disco" />
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService.disco" />
+    <None Include="Service References\ITSService.SupplierService\SupplierService.disco" />
+    <None Include="Service References\ITSService.CaseService\CaseService1.disco" />
+    <None Include="Service References\ITSService.ReferrerService\ReferrerService1.disco" />
+    <Content Include="Scripts\viewmodels\areas\shared\referrer\AuthorisationViewModel.js" />
+    <Content Include="Scripts\viewmodels\areas\shared\supplier\BookIAViewModel.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Supplier\Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\PrintPopUp\PrintBlankInitialAssessment.cshtml" />
+    <Content Include="Views\Shared\_ConfirmationBoxPartial.cshtml" />
+    <None Include="Service References\ITSService.UserService\UserService1.wsdl" />
+    <None Include="Service References\ITSService.UserService\UserService11.wsdl" />
+    <None Include="Service References\ITSService.UserService\UserService13.wsdl" />
+    <None Include="Service References\ITSService.UserService\UserService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.UserService\UserService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.UserService\UserService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Areas\Referrer\Views\Home\ViewAssessment.cshtml" />
+    <None Include="Service References\ITSService.UserService\UserService36.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.UserService\UserService37.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.UserService\UserService38.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ITSService.UserService\UserService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Storage\Referrers\3\8361\100\CaseUploads\17c4a766-191b-4315-ad92-fadc54b3427f.pdf" />
+    <None Include="Storage\Referrers\3\8361\120\CaseUploads\d302e57f-c5bc-4ff5-adbf-8b35629c1bf2.pdf" />
+    <None Include="Storage\Referrers\3\8361\121\CaseUploads\79c723ed-83b0-4928-a2f3-040824a7cf06.pdf" />
+    <None Include="Storage\Referrers\3\8361\122\CaseUploads\063aff88-ad6b-49af-9e68-0f090285d405.pdf" />
+    <None Include="Storage\Referrers\3\8361\123\CaseUploads\0b90de16-8cc7-4459-bc34-caef09d547f4.pdf" />
+    <None Include="Storage\Referrers\3\8361\124\CaseUploads\32307199-6bf2-47de-8c81-d458385fffc1.pdf" />
+    <None Include="Storage\Referrers\3\8361\125\CaseUploads\7cdfa35f-cd8f-439a-886d-e74ecd7688c5.pdf" />
+    <None Include="Storage\Referrers\3\8361\126\CaseUploads\98634138-b564-45ec-b1d8-6d022cdd7b4e.pdf" />
+    <None Include="Storage\Referrers\3\8361\128\CaseUploads\4ef7102e-e7a3-46a7-9cbe-458c97fecb22.pdf" />
+    <None Include="Storage\Referrers\3\8361\132\CaseUploads\c03da675-b05e-49b2-a866-71f90c2739c9.pdf" />
+    <None Include="Storage\Referrers\3\8361\133\CaseUploads\47fa1763-58cd-4a88-aa2c-374e4f0691ea.pdf" />
+    <None Include="Storage\Referrers\3\8361\144\CaseUploads\49148349-b96e-44a2-a2de-3f7976ff3284.pdf" />
+    <None Include="Storage\Referrers\3\8362\116\CaseUploads\2c8d0507-de5f-4775-9404-8d75831c48e2.pdf" />
+    <None Include="Storage\Referrers\3\8362\127\CaseUploads\0e0439e1-2ef5-4ed4-bc59-a1a7912ef4e2.pdf" />
+    <None Include="Storage\Referrers\3\8362\98\CaseUploads\2e5df516-f2fd-4d4a-8090-fa1ab5f3debf.pdf" />
+    <None Include="Storage\Referrers\3\8363\129\CaseUploads\c667daaf-cf23-4b16-92af-080ae17e0d46.pdf" />
+    <None Include="Storage\Referrers\3\8363\99\CaseUploads\7a3362e6-2dd6-47a3-a879-187c4fb1fa1c.pdf" />
+    <None Include="Storage\Referrers\3\9822\145\CaseUploads\71e5ab5c-bb38-4c05-8e20-6c6a296e7699.pdf" />
+    <None Include="Storage\Referrers\3\9822\147\CaseUploads\9006bfe2-0dd2-4240-914b-28afaad600cb.pdf" />
+    <None Include="Storage\Referrers\3\9822\148\CaseUploads\caf0fe23-d4e5-4ccc-ac6d-567edf3d1b98.pdf" />
+    <None Include="Storage\Referrers\3\9822\149\CaseUploads\8be50023-29a4-4472-bfc0-f345c8638c8b.pdf" />
+    <None Include="Storage\Referrers\3\9822\150\CaseUploads\86ec97ec-f1b5-4842-ac33-d59aab453c5f.pdf" />
+    <None Include="Storage\Referrers\3\9823\146\CaseUploads\4172ef94-a295-4100-80c0-d478a0e27872.pdf" />
+    <None Include="Storage\Referrers\424\9104\32\CaseUploads\78ebe55b-5788-474b-9d47-c991fb624bb1.pdf" />
+    <None Include="Storage\Referrers\424\9104\33\CaseUploads\145abaa3-1dcc-4a3a-b413-f79fa4dd6ad3.pdf" />
+    <None Include="Storage\Referrers\360\9076\101\CaseUploads\b16d1e2e-5a2c-42bb-beae-8f3b73a60e55.pdf" />
+    <None Include="Storage\Referrers\360\9076\73\CaseUploads\f6247530-c7d0-4b15-a09f-0f06286a1f78.pdf" />
+    <None Include="Storage\Referrers\360\9076\94\CaseUploads\69efdf70-ad3e-4347-abf5-db78be771fb0.pdf" />
+    <None Include="Storage\Referrers\360\9153\62\CaseUploads\3e2a586e-2904-400b-a796-6f4d135dd982.pdf" />
+    <None Include="Storage\Referrers\446\9112\35\CaseUploads\6f8ea2ed-a115-4348-ae5c-39bbaff67c75.pdf" />
+    <None Include="Storage\Referrers\446\9112\36\CaseUploads\491b97da-dcc4-42b5-ad40-bd315285fad7.pdf" />
+    <Content Include="Views\PrintPopUp\PrintBlankReviewAssessment.cshtml" />
+    <Content Include="Views\PrintPopUp\PrintBlankFinalAssessment.cshtml" />
+    <Content Include="Views\PrintPopUp\PrintReviewAssessment.cshtml" />
+    <Content Include="Views\PrintPopUp\PrintFinalAssessment.cshtml" />
+    <Content Include="Views\PrintPopUp\PrintInitialAssessment.cshtml" />
+    <Content Include="Views\Shared\ResetPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Referrer\Models\" />
+    <Folder Include="Areas\Supplier\Models\" />
+    <Folder Include="Models\" />
+    <Folder Include="Storage\Suppliers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITSPublicApp.Domain.Models\ITSPublicApp.Domain.Models.csproj">
+      <Project>{45AF77B5-1457-4A61-891D-B46715C51B38}</Project>
+      <Name>ITSPublicApp.Domain.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITSPublicApp.Domain.ViewModels\ITSPublicApp.Domain.ViewModels.csproj">
+      <Project>{FE6D325E-DC0B-4C87-8F9F-4D087AD35384}</Project>
+      <Name>ITSPublicApp.Domain.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITSPublicApp.Infrastructure.ApplicationFilters\ITSPublicApp.Infrastructure.ApplicationFilters.csproj">
+      <Project>{E41117A2-AD35-4FB1-9C07-0B2D7479C474}</Project>
+      <Name>ITSPublicApp.Infrastructure.ApplicationFilters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITSPublicApp.Infrastructure.ApplicationServices.Contracts\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.csproj">
+      <Project>{55F2A65D-4AD9-4998-B603-2B1ABA9D90E9}</Project>
+      <Name>ITSPublicApp.Infrastructure.ApplicationServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITSPublicApp.Infrastructure.ApplicationServices\ITSPublicApp.Infrastructure.ApplicationServices.csproj">
+      <Project>{4D983B86-1B25-481F-BD41-A0257F2C759E}</Project>
+      <Name>ITSPublicApp.Infrastructure.ApplicationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITSPublicApp.Infrastructure.Base\ITSPublicApp.Infrastructure.Base.csproj">
+      <Project>{87EA36B5-8A83-42CD-AA4F-46D654DA7478}</Project>
+      <Name>ITSPublicApp.Infrastructure.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITSPublicApp.Infrastructure.DependencyResolution\ITSPublicApp.Infrastructure.DependencyResolution.csproj">
+      <Project>{D7AD3F3E-8DD0-4095-A9C0-D97AF5D71C67}</Project>
+      <Name>ITSPublicApp.Infrastructure.DependencyResolution</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITSPublicApp.Infrastructure.Global\ITSPublicApp.Infrastructure.Global.csproj">
+      <Project>{F6A2DFAD-B129-4DB2-9363-33B121E3D8C2}</Project>
+      <Name>ITSPublicApp.Infrastructure.Global</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ITSService.AssessmentService\" />
+    <WCFMetadataStorage Include="Service References\ITSService.CaseService\" />
+    <WCFMetadataStorage Include="Service References\ITSService.LookUpService\" />
+    <WCFMetadataStorage Include="Service References\ITSService.PatientService\" />
+    <WCFMetadataStorage Include="Service References\ITSService.PractitionerService\" />
+    <WCFMetadataStorage Include="Service References\ITSService.ReferrerService\" />
+    <WCFMetadataStorage Include="Service References\ITSService.SupplierService\" />
+    <WCFMetadataStorage Include="Service References\ITSService.UserService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>18482</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:17526/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,1996 @@
+﻿@using System.Web.Script.Serialization
+
+@model ITS.Domain.ViewModels.ReferralViewModel.AddReferralViewModel
+@{
+    ViewBag.Title = "ReferralDetail";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+@section AdditionalCss{
+    <link rel="stylesheet" href="@Url.Content("~/Content/ bootstrap/css/its-portal.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui-timepicker-addon.css")" rel="stylesheet" type="text/css" />
+}
+<link href="../../Content/its-main.css" rel="stylesheet" />
+
+@section ContentHeader{
+    <h1>Referral Detail</h1>
+}
+
+
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Case Seach</a><a href="#" class="tip-bottom">Case Detail</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="its-authorisation-content">
+            @*<form action="/Referrer/AddReferral/Save" method="post" enctype="multipart/form-data"
+    id="frmAddReferral">*@
+            @using (Html.BeginForm("UpdateReferralDetail", "CaseSearch", FormMethod.Post, new
+            {
+                id = "frmAddReferral",
+                enctype = "multipart/form-data"
+            }))
+            {
+                @Html.AntiForgeryToken()
+                <span id="Message"></span>
+                <div class="its-authorisation-row1">
+                    <div class="row1-label">
+                        <ul>
+                            <li>Project:</li>
+                            <li>Assigned User:</li>
+                        </ul>
+                    </div>
+                    <div class="row1-select">
+                        <ul>
+                            <li>
+                                <select id="objReferrerProjectDropDown" data-bind="options:ReferrerProjects,
+                                    optionsText:'ProjectName',
+                                    optionsValue :'ReferrerProjectID',
+                                    optionsCaption:'Choose Project',                                    
+                                    valueUpdate:'change',
+                                    value: ReferrerProjectID">
+                                </select>
+                                <input type="hidden" name="Case.ReferrerProjectID" id="objReferrerProjectID" value='@Model.Case.ReferrerProjectID' />
+                                <input type="hidden" name="Case.CaseReferrerDueDate" value='@Model.Case.CaseReferrerDueDate' />
+                                <input type="hidden" name="Case.CaseID" value='@Model.Case.CaseID' />
+                                <input type="hidden" name="Case.CaseNumber" value='@Model.Case.CaseNumber' />
+                                <input type="hidden" name="Case.PatientID" value='@Model.Case.PatientID' />
+                                <input type="hidden" name="Case.ReferrerID" value='@Model.Case.ReferrerID' />
+                                <input type="hidden" name="Case.TreatmentTypeID" value='@Model.Case.TreatmentTypeID' />
+                                <input type="hidden" name="Case.SupplierID" value='@Model.Case.SupplierID' />
+                                <input type="hidden" name="Case.WorkflowID" value='@Model.Case.WorkflowID' />
+                                <input type="hidden" name="Case.SupplierAssignedUser" value='@Model.Case.SupplierAssignedUser' />
+                                <input type="hidden" name="Case.InnovateNote" value='@Model.Case.InnovateNote' />
+                                <input type="hidden" name="Case.IsTriage" value='@Model.Case.IsTriage' />
+                            </li>
+                            <li>
+                                <select id="objReferrerAssignedUser" name="Case.ReferrerAssignedUser" data-bind="options:ReferrerAssignedUsers,
+                                    optionsText:'AssignedUser',
+                                    optionsValue: 'USERID',
+                                    optionsCaption:'Choose User',
+                                    value: ReferrerAssignedUser">
+                                </select>
+                                <input type="button" value="Add" class="btn btn-primary mrgn-btm-10" data-bind="click: function(){ btnAddAssignUserClick() }" />
+                                <table class="table-1">
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <tbody data-bind="foreach: AssignedUserList">
+                                        <tr>
+                                            <td><span data-bind="text:UserName"></span>
+                                                <input type="hidden" data-bind="attr: { name: 'CaseReferrerAssignedUsers[' + $index() +'].CaseReferrerAssignedUserID' }, value: CaseReferrerAssignedUserID" />
+                                                <input type="hidden" data-bind="attr: { name: 'CaseReferrerAssignedUsers[' + $index() +'].UserID' }, value:UserID" />
+                                                <input type="hidden" data-bind="attr: { name: 'CaseReferrerAssignedUsers[' + $index() +'].UserName' }, value:UserName" />
+                                            </td>
+                                            <td>
+                                                <a href="#" data-bind="click: function(){ $root.btnDeleteAssignUserClick(CaseReferrerAssignedUserID) }">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>       
+                
+                <div class="its-authorisation-row1">
+                    <div class="row1-label">
+                        <ul>
+                            <li>Service Type:</li>
+                        </ul>
+                    </div>
+                    <div class="row1-select">
+                        <ul>
+                            <li>
+                                <select data-bind="options: TreatmentCategories, 
+                            optionsCaption: 'Choose Treatment Category', 
+                            optionsValue: 'ReferrerProjectTreatmentID', 
+                            optionsText: 'TreatmentCategoryName', 
+                            value: CaseReferrerProjectTreatmentID, 
+                            valueUpdate: 'change'"
+                                    id="Case_ReferrerProjectTreatmentID" name="Case.ReferrerProjectTreatmentID">
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
+
+                </div>
+                
+                <div class="its-authorisation-border">
+                </div>
+                <div class="its-authorisation-row2 mrg-25">
+                    <div>
+                        <p>
+                            Special Instructions
+                        </p>
+                        <div class="row2-textarea">
+                            <textarea cols="20" data-bind="value: CaseSpecialInstruction" id="Case_CaseSpecialInstruction"
+                                name="Case.CaseSpecialInstruction" rows="50"></textarea>
+                        </div>
+                    </div>
+                </div> 
+                <div class="its-authorisation-border">
+                </div>
+
+                <div class="its-authorisation-row3">
+                    <div class="row3-label">
+                        <ul>
+                            <li>Condition/Injury Type:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <input id="Case_InjuryType" name="Case.InjuryType" data-bind="value:InjuryType" type="text" />
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="its-authorisation-border">
+                </div>
+        
+                <div class="its-authorisation-row3">
+
+                    <div class="row3-label">
+                        <ul>
+                            <li>Title:</li>
+                            <li><span class="its-required">*</span>First Name:</li>
+                            <li><span class="its-required">*</span>Surname:</li>
+                            <li><span class="its-required">*</span>Address:</li>
+                            <li><span class="its-required">*</span>City/Town:</li>
+                            <li><span class="its-required">*</span>Region:</li>
+                            <li><span class="its-required">*</span>Post Code:</li>
+                            <li><span class="its-required">*</span>Date of Onset / Request:</li>
+                            <li><span class="its-required">*</span>Injured Party Representative: </li>
+
+                        </ul>
+                    </div>
+                    <!-- ko with : Patient -->
+                    <span data-bind="text: FirstName"></span>
+                    <!-- /ko -->
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <input data-bind="value: PatientTitle" id="Patient_Title" name="Patient.Title" type="text" />
+                            </li>
+                            <li>
+                                <input data-bind="value: PatientFirstName" id="Patient_FirstName" name="Patient.FirstName"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: PatientLastName" id="Patient_LastName" name="Patient.LastName"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: PatientAddress" id="Patient_Address" name="Patient.Address"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: PatientCity" id="Patient_City" name="Patient.City" type="text" /></li>
+                            <li>
+                                <input data-bind="value: PatientRegion" id="Patient_Region" name="Patient.Region"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: PatientPostCode" id="Patient_PostCode" style="text-transform: uppercase" name="Patient.PostCode" onkeyup="javascript: postalCodeFormat(this)" maxlength="8"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: moment(PatientInjuryDate).format('DD/MM/YYYY')" id="Patient_InjuryDate" name="Patient.InjuryDate" data-validation-regex-regex="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d+$"
+                                    type="text" />
+                                <input type="hidden" name="Patient.PatientID" data-bind="value:PatientID" />
+                                <input type="hidden" name="Patient.SpecialInstructionNotes" data-bind="value:SpecialInstructionNotes" />
+                            </li>
+                            <li>
+                                <select class="form-control" id="objInjuredPartyRepresentative" name="Patient.HasInjuredPartyRepresentative" data-bind="options: InjuredPartyRepresentativeOptionsArray, 
+                                optionsText: 'InjuredRepresentativeOptionName', optionsValue: 'InjuredRepresentativeOptionID', value: HasInjuredPartyRepresentative(), event: { change: InjuredPartyRepDropDownList }">
+                                </select>
+
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="row3-label">
+                        <ul>
+                            <li><span class="its-required">*</span>DOB:</li>
+                            <li>Age:</li>
+                            <li><span class="its-required">*</span>Main Phone:</li>
+                            <li>Work Phone:</li>
+                            <li>Mobile:</li>
+                            <li><span class="its-required">*</span>Gender:</li>
+                            <li>Email:</li>
+                            <li>Primary Condition:</li>
+                        </ul>
+                    </div>
+
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <input type="text" name="Patient.BirthDate" id="Patient_BirthDate" class="datepicker"
+                                    data-bind="value: moment(PatientBirthDate).format('DD/MM/YYYY'), valueUpdate: 'change'" onchange="javascript: calPatientAge()" />
+                            </li>
+                            <li>
+                                <input id="PatientAge" data-bind="value: PatientAge" /></li>
+                            <li>
+                                <input type="text" name="Patient.HomePhone" class="phoneMaskformat" id="Patient_HomePhone" data-bind="value: PatientHomePhone" /></li>
+                            <li>
+                                <input type="text" name="Patient.WorkPhone" class="phoneMaskformat" id="Patient_WorkPhone" data-bind="value: PatientWorkPhone" /></li>
+                            <li>
+                                <input type="text" name="Patient.MobilePhone" class="phoneMaskformat" id="Patient_MobilePhone" data-bind="value: PatientMobilePhone" /></li>
+                            <li>
+
+                                <select id="ddlGender" name="Patient.GenderID" data-bind="options: GenderTypes, optionsText: 'GenderName',optionsCaption: '--Select--', optionsValue: 'GenderID', value: GenderID"></select>
+
+                            </li>
+                            <li>
+                                <input type="text" name="Patient.Email" id="Patient_Email" data-bind="value: PatientEmail" />
+                            </li>
+                            <li>
+
+                                <select class="form-control" id="objPrimaryCondition" name="Patient.PrimaryConditionID" data-bind="options: PrimaryConditionArray, 
+                                optionsText: 'PrimaryConditionName', optionsValue: 'PrimaryConditionID', value: selectedPrimaryCondition">
+                                </select>
+
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>                
+                <div class="clear">
+                </div>
+                <div class="its-authorisation-border">
+                </div>
+
+                <div id="divInjuredPartyRepresentatives">
+
+                    <div class="row3-label">
+                        <ul>
+                            <li><span class="its-required injured-party-req">*</span>Rep First Name:</li>
+                            <li><span class="its-required injured-party-req">*</span>Rep Tel1:</li>
+                            <li>Rep Address:</li>
+                            <li><span class="its-required injured-party-req"></span>Rep Email:</li>
+
+
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                @*<input type="hidden" name="injuredPartyRepresentative.InjuredID" value='@Model.injuredPartyRepresentative.InjuredID' />*@
+                                <input data-bind="value: FirstName" id="Injured_FirstName" name="injuredPartyRepresentative.FirstName"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: Tel1" id="Injured_Tel1" class="phoneMaskformat" name="injuredPartyRepresentative.Tel1"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: Address" id="Injured_Address" name="injuredPartyRepresentative.Address"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: Email" id="Injured_Email" name="injuredPartyRepresentative.Email"
+                                    type="text" /></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="row3-label">
+                        <ul>
+                            <li><span class="its-required injured-party-req">*</span>Rep Last Name:</li>
+                            <li>Rep Tel2:</li>
+                            <li>Rep Post Code:</li>
+                            <li>Rep Relationship:</li>
+
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <input data-bind="value: LastName" id="Injured_LastName" name="injuredPartyRepresentative.LastName"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: Tel2" id="Injured_Tel2" class="phoneMaskformat" name="injuredPartyRepresentative.Tel2"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: PostCode" id="Injured_PostCode" style="text-transform: uppercase" name="injuredPartyRepresentative.PostCode" onkeyup="javascript: postalCodeFormat(this)" maxlength="8"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: Relationship" id="Injured_Relationship" name="injuredPartyRepresentative.Relationship"
+                                    type="text" /></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="clear">
+                    </div>
+                    <div class="its-authorisation-border">
+                    </div>
+                </div>       
+                 
+                <div id="divDrugTest" data-bind="if: Referrer.IsDrugandAlcoholTest">
+                    <!--ko if:model.DrugTest != null-->
+                    <div class="row3-radio mrg-25">
+                        <p>
+                            Drug and Alcohol Test
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <input type="radio" name="DrugTest.IsDrugAndAlcohalTest" value="true" id="rbtnDrugAlcohalYes" data-bind="valueUpdate:'change'" onclick="showDrugForm()" />
+                            <label for="rbtnDrugAlcohalYes">Yes</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="rbtnDrugAlcohalNo" value="false" data-bind="valueUpdate:'change'" onclick="hideDrugForm()" name="DrugTest.IsDrugAndAlcohalTest" />
+                            <label for="rbtnDrugAlcohalNo">No</label>
+                    </div>
+
+                    <div id="divDrugForm">
+                        <div class="row3-label-3">
+                            <ul>
+                                <li>Network Rail Standard Applicable:</li>
+                            </ul>
+                        </div>
+                        <div class="row3-input-oth">
+                            <ul>
+                                <li>
+                                    <select id="ddlNetworkRailStandardApplicable" name="DrugTest.NetworkRailStandardApplicableID" data-bind="options: NetworkRailStandardApplicable, optionsText: 'Description',optionsCaption: '--Select--'
+                                        , optionsValue: 'NetworkRailStandardApplicableID', value:DrugTest.NetworkRailStandardApplicableID">
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div id="">
+                            <div class="row3-label-3">
+                                <ul>
+                                    <li>Reason For Referral:</li>
+                                </ul>
+                            </div>
+                            <div class="row3-input-oth">
+                                <ul>
+                                    <li>
+                                        <select id="ddlReasonForReferral" name="DrugTest.ReasonForReferralID" data-bind="options: ReasonForReferral, optionsText: 'Description',optionsCaption: '--Select--'
+                                            , optionsValue: 'ReasonForReferralID', value: DrugTest.ReasonForReferralID">
+                                        </select>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="row3-radio mrg-25">
+                            Sentinel - Does Sentinel need updating?
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="rbtnSentinelYes" value="true" data-bind="valueUpdate:'change'" name="DrugTest.IsSentinalUpdating" onclick="rbtnSentinelYesClick()" />
+                            <label for="rbtnSentinelYes">Yes</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    <input type="radio" id="rbtnSentinelNo" value="false" data-bind="valueUpdate:'change'" name="DrugTest.IsSentinalUpdating" onclick="rbtnSentinelNoClick()" />
+                            <label for="rbtnSentinelNo">No</label>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="divSentinalNumber">
+                            <div class="row3-label-add mrg-25">
+                                <p>If Yes, please provide Sentinel number (if the Sentinel number not provided, HML is unable to book the appointment)</p>
+                            </div>
+                            <div class="row3-input-add">
+                                <ul>
+                                    <li>
+                                        <input id="txtSentinalNumber" class="input-set" name="DrugTest.SentinalNumber" type="text" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+                        <div class="row3-radio mrg-25">
+                            Additional Test
+                    <div class="additional-test" data-bind="foreach: AdditionalTests">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        
+                        <input type="radio" data-bind="attr: {id: 'chkAdditional'+ AdditionalTestID}, value: AdditionalTestID, valueUpdate:'change'
+                            , click: function(){return rbtnAdditionalClick(AdditionalTestID)}"
+                            name="DrugTest.AdditionalTestID" />
+                        <label data-bind="text:Description, attr:{for:'chkAdditional' + AdditionalTestID}"></label>
+                    </div>
+                            <input type="hidden" id="hdnAdditionalTestID" data-bind="value: DrugTest.AdditionalTestID" />
+                        </div>
+                        <div id="divAdditionalTestOther">
+                            <div class="row3-label-3">
+                                <ul>
+                                    <li>If other, please state</li>
+                                </ul>
+                            </div>
+                            <div class="row-other-textarea">
+                                <input type="hidden" name="DrugTest.DrugTestID" data-bind="value: DrugTest.DrugTestID" />
+                                <textarea cols="20" id="txtAdditionalTestOther" name="DrugTest.AdditionalTestOther" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="its-authorisation-border">
+                    </div>
+                    <!--/ko-->
+                </div>
+                <div class="clear">
+                </div>
+                <div class="row3-radio mrg-25">
+                    <p>
+                        Does Patient have Legal Representation
+                <input type="radio" value="true" data-bind="checked:PatientHasLegalRep.ForEditing, valueUpdate:'change'" id="YesPatientHasLegalRep"
+                    name="Patient.HasLegalRep" />
+                        Yes
+                <input type="radio" value="false" data-bind="checked:PatientHasLegalRep.ForEditing, valueUpdate:'change'" id="NoPatientHasLegalRep"
+                    name="Patient.HasLegalRep" />
+                    No
+                </div>
+                <div id="divSolicitor">
+                    <div class="row3-label-2">
+                        <ul>
+                            <li><span class="its-required">*</span>Solicitor Company Name:</li>
+                            <li>Solicitor Contact First Name:</li>
+                            <li>Solicitor Contact Surname:</li>
+                            <li><span class="its-required">*</span>Solicitor Address:</li>
+                            <li><span class="its-required">*</span>Solicitor City/Town:</li>
+                            <li>Solicitor Region:</li>
+                            <li><span class="its-required">*</span>Solicitor Post Code:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2 mlt10">
+                        <ul>
+                            <li>
+                                <input type="hidden" name="Solicitor.SolicitorID" data-bind="value: SolicitorID" />
+                                <input data-bind="value: SolicitorCompanyName" id="Solicitor_CompanyName" name="Solicitor.CompanyName"
+                                    type="text" />
+                            </li>
+                            <li>
+                                <input data-bind="value: SolicitorFirstName" id="Solicitor_FirstName" name="Solicitor.FirstName"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: SolicitorLastName" id="Solicitor_LastName" name="Solicitor.LastName"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: SolicitorAddress" id="Solicitor_Address" name="Solicitor.Address"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: SolicitorCity" id="Solicitor_City" name="Solicitor.City"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: SolicitorRegion" id="Solicitor_Region" name="Solicitor.Region"
+                                    type="text" /></li>
+                            <li>
+                                <input data-bind="value: SolicitorPostCode" style="text-transform: uppercase" id="Solicitor_PostCode" name="Solicitor.PostCode" onkeyup="javascript: postalCodeFormat(this)" maxlength="8"
+                                    type="text" /></li>
+                        </ul>
+                    </div>
+                    <div class="row3-label-2">
+                        <ul>
+                            <li>Solicitor Email:</li>
+                            <li><span class="its-required">*</span>Solicitor Phone:</li>
+                            <li>Solicitor Fax:</li>
+                            <li><span class="its-required">*</span>Solicitor Reference #:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input data-bind="value: SolicitorEmail" id="Solicitor_Email" name="Solicitor.Email" type="text" />
+                            </li>
+                            <li>
+                                <input data-bind="value: SolicitorPhone" class="phoneMaskformat" id="Solicitor_Phone" name="Solicitor.Phone" type="text" /></li>
+                            <li>
+                                <input data-bind="value: SolicitorFax" class="phoneMaskformat" id="Solicitor_Fax" name="Solicitor.Fax" type="text" /></li>
+                            <li>
+                                <input data-bind="value: SolicitorReferenceNumber" id="Solicitor_ReferenceNumber" name="Solicitor.ReferenceNumber" type="text" />
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="clear">
+                    </div>
+                    <div class="row3-radio">
+                        <br />
+                        <p>
+                            Referral Under Joint Instruction ?
+                <input type="radio" value="true" name="Solicitor.IsReferralUnderJointInstruction" id="YesReferralUnderJointInstruction" />
+                            Yes
+                <input type="radio" value="false" name="Solicitor.IsReferralUnderJointInstruction" id="NoReferralUnderJointInstruction" />
+                        No
+                    </div>
+
+                </div>
+                <div class="clear">
+                </div>
+
+                <div class="its-authorisation-border">
+                </div>
+                <input type="hidden" id="JobdemandID" name="JobDemand.JobDemandID" data-bind="value: JobDemandID" />
+                <div id="divJobDemand" class="mrg-25">
+                    Job Demands 
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="rdbJobDemandYes" value="true" name="JobDemand.IsJobDemand" onclick="showJobDemandForm()">
+                    <label for="rdbJobDemandYes">Yes</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                <input type="radio" class="mrg-lft30" id="rdbJobDemandNo" value="false" name="JobDemand.IsJobDemand" onclick="hideJobDemandForm()" checked="">
+                    <label for="rdbJobDemandNo">No</label>
+                </div>
+                
+                <div id="divJobDescription" hidden>
+                    <div class="row3-rado-2">
+                        <ul>
+                            <li>Standing</li>
+                            <li>Walking</li>
+                            <li>Working at height or climbing <span class="job-explanation"></span></li>
+                            <li>Extended / Prolonged Sitting</li>
+                            <li>Vocational Driving <span class="job-explanation">(Vocational Driving includes driving a motor cycle, car, lorry, passenger carrying vehicle, fork lift truck, train or automated manual handling equipment for work.) </span></li>
+                            <li>Driving LGV/PCVs</li>
+                            <li>Driving Forklift Trucks</li>
+                            <li>Working with chemicals <span class="job-explanation">(industrial / cleaning) </span></li>
+                            <li>Working with biological agents / chemicals in a lab <span class="job-explanation">(Where an individual will be working in a laboratory environment where they will be in contact with chemicals, biological 
+                        agents and / or animals or undertaking research which may include lab work.)</span></li>
+                            <li>Working with skin irritants</li>
+                            <li>Working with dangerous machinery</li>
+                            <li>Night working <span class="job-explanation">(They will regularly work for at least 3 hours between the hours of 2300 – 0600)</span></li>
+                            <li>Shift Working</li>
+                            <li>Working in confined spaces</li>
+                            <li>Working with dust or fumes</li>
+                            <li>Lifting / carrying heavy items</li>
+                            <li>Working with computers / display screens</li>
+                            <li>Working towards targets / pressured situations</li>
+                            <li>Working with vulnerable adults or children</li>
+                            <li>Healthcare Worker <span class="job-explanation">(Workers who have regular clinical contact with patients) </span></li>
+                            <li>Occasional overseas travel</li>
+                            <li>Outside work</li>
+                            <li>Noise hazard area</li>
+                            <li>Handling food<span class="job-explanation"> (Workers who will handle, process and serve food during their working day)</span></li>
+                            <li class="mrg-b0">Please state any other hazards Innovate Healthcare should be aware of</li>
+                        </ul>
+                    </div>
+                    <div class="row3-rado">
+                        <ul>
+                            <li>
+                                <input id="rbtnStandingYes" type="radio" value="true" name="JobDemand.IsStanding">
+                                <label for="rbtnStandingYes">Yes</label>
+                                <input id="rbtnStandingNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsStanding">
+                                <label for="rbtnStandingNo">No</label>
+                            </li>
+                            <li>
+                                <input id="rbtnWalkingYes" type="radio" value="true" name="JobDemand.IsWalking">
+                                <label for="rbtnWalkingYes">Yes</label>
+                                <input id="rbtnWalkingNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWalking">
+                                <label for="rbtnWalkingNo">No</label></li>
+                            <li>
+                                <input id="rbtnWorkATHeightOrClimbYes" type="radio" value="true" name="JobDemand.IsWorkATHeightOrClimb">
+                                <label for="rbtnWorkATHeightOrClimbYes">Yes</label>
+                                <input id="rbtnWorkATHeightOrClimbNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkATHeightOrClimb">
+                                <label for="rbtnWorkATHeightOrClimbNo">No</label></li>
+                            <li>
+                                <input id="rbtnExtendedOrProlongedYes" type="radio" value="true" name="JobDemand.IsExtendedOrProlonged">
+                                <label for="rbtnExtendedOrProlongedYes">Yes</label>
+                                <input id="rbtnIsExtendedOrProlongedNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsExtendedOrProlonged">
+                                <label for="rbtnIsExtendedOrProlongedNo">No</label></li>
+                            <li>
+                                <input id="rbtnVocationalDrivingYes" type="radio" value="true" name="JobDemand.IsVocationalDriving">
+                                <label for="rbtnVocationalDrivingYes">Yes</label>
+                                <input id="rbtnVocationalDrivingNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsVocationalDriving">
+                                <label for="rbtnVocationalDrivingNo">No</label></li>
+
+                            <li class="mrg-t10">
+                                <input id="rbtnDrivingLGVOrPCVsYes" type="radio" value="true" name="JobDemand.IsDrivingLGVOrPCVs">
+                                <label for="rbtnDrivingLGVOrPCVsYes">Yes</label>
+                                <input id="rbtnDrivingLGVOrPCVsNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsDrivingLGVOrPCVs">
+                                <label for="rbtnDrivingLGVOrPCVsNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnDrivingForkliftTrucksYes" type="radio" value="true" name="JobDemand.IsDrivingForkliftTrucks">
+                                <label for="rbtnDrivingForkliftTrucksYes">Yes</label>
+                                <input id="rbtnDrivingForkliftTrucksNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsDrivingForkliftTrucks">
+                                <label for="rbtnDrivingForkliftTrucksNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnWorkWithChemialsYes" type="radio" value="true" name="JobDemand.IsWorkWithChemials">
+                                <label for="rbtnWorkWithChemialsYes">Yes</label>
+                                <input id="rbtnWorkWithChemialsNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkWithChemials">
+                                <label for="rbtnWorkWithChemialsNo">No</label></li>
+
+
+                            <li>
+                                <input id="rbtnWorkBiologicalOrChemicalYes" type="radio" value="true" name="JobDemand.IsWorkBiologicalOrChemical">
+                                <label for="rbtnWorkBiologicalOrChemicalYes">Yes</label>
+                                <input id="rbtnWorkBiologicalOrChemicalNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkBiologicalOrChemical">
+                                <label for="rbtnWorkBiologicalOrChemicalNo">No</label></li>
+                            <li class="mrg-5rem">
+                                <input id="rbtnWorkWithSkinIrritantsYes" type="radio" value="true" name="JobDemand.IsWorkWithSkinIrritants">
+                                <label for="rbtnWorkWithSkinIrritantsYes">Yes</label>
+                                <input id="rbtnWorkWithSkinIrritantsNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkWithSkinIrritants">
+                                <label for="rbtnWorkWithSkinIrritantsNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnWorkWithDengerousMachineryYes" type="radio" value="true" name="JobDemand.IsWorkWithDengerousMachinery">
+                                <label for="rbtnWorkWithDengerousMachineryYes">Yes</label>
+                                <input id="rbtnWorkWithDengerousMachineryNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkWithDengerousMachinery">
+                                <label for="rbtnWorkWithDengerousMachineryNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnNightWorkYes" type="radio" value="true" name="JobDemand.IsNightWork">
+                                <label for="rbtnNightWorkYes">Yes</label>
+                                <input id="rbtnNightWorkNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsNightWork">
+                                <label for="rbtnNightWorkNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnShiftWorkYes" type="radio" value="true" name="JobDemand.IsShiftWork">
+                                <label for="rbtnShiftWorkYes">Yes</label>
+                                <input id="rbtnShiftWorkNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsShiftWork">
+                                <label for="rbtnShiftWorkNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnWorkInConfinedSpacesYes" type="radio" value="true" name="JobDemand.IsWorkInConfinedSpaces">
+                                <label for="rbtnWorkInConfinedSpacesYes">Yes</label>
+                                <input id="rbtnWorkInConfinedSpacesNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkInConfinedSpaces">
+                                <label for="rbtnWorkInConfinedSpacesNo">No</label></li>
+
+                            <li class="mrg-t1">
+                                <input id="rbtnWorkWithDustOrFumesYes" type="radio" value="true" name="JobDemand.IsWorkWithDustOrFumes">
+                                <label for="rbtnWorkWithDustOrFumesYes">Yes</label>
+                                <input id="rbtnWorkWithDustOrFumesNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkWithDustOrFumes">
+                                <label for="rbtnWorkWithDustOrFumesNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnLiftOrCarryHeavyItemsYes" type="radio" value="true" name="JobDemand.IsLiftOrCarryHeavyItems">
+                                <label for="rbtnLiftOrCarryHeavyItemsYes">Yes</label>
+                                <input id="rbtnLiftOrCarryHeavyItemsNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsLiftOrCarryHeavyItems">
+                                <label for="rbtnLiftOrCarryHeavyItemsNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnWorkWithComputerOrScreensYes" type="radio" value="true" name="JobDemand.IsWorkWithComputerOrScreens">
+                                <label for="rbtnWorkWithComputerOrScreensYes">Yes</label>
+                                <input id="rbtnWorkWithComputerOrScreensNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkWithComputerOrScreens">
+                                <label for="rbtnWorkWithComputerOrScreensNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnWorkTowardsTagetOrPressuredsituationYes" type="radio" value="true" name="JobDemand.IsWorkTowardsTagetOrPressuredsituation">
+                                <label for="rbtnWorkTowardsTagetOrPressuredsituationYes">Yes</label>
+                                <input id="rbtnWorkTowardsTagetOrPressuredsituationNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkTowardsTagetOrPressuredsituation">
+                                <label for="rbtnWorkTowardsTagetOrPressuredsituationNo">No</label></li>
+
+                            <li class="mrg-t1">
+                                <input id="rbtnWorkWithAdultOrChildrenYes" type="radio" value="true" name="JobDemand.IsWorkWithAdultOrChildren">
+                                <label for="rbtnWorkWithAdultOrChildrenYes">Yes</label>
+                                <input id="rbtnWorkWithAdultOrChildrenNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsWorkWithAdultOrChildren">
+                                <label for="rbtnWorkWithAdultOrChildrenNo">No</label></li>
+
+                            <li class="li-marg">
+                                <input id="rbtnHealthCareWorkerYes" type="radio" value="true" name="JobDemand.IsHealthCareWorker">
+                                <label for="rbtnHealthCareWorkerYes">Yes</label>
+                                <input id="rbtnHealthCareWorkerNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsHealthCareWorker">
+                                <label for="rbtnHealthCareWorkerNo">No</label></li>
+
+                            <li class="li-marg">
+                                <input id="rbtnOccasionalOverseasTravelYes" type="radio" value="true" name="JobDemand.IsOccasionalOverseasTravel">
+                                <label for="rbtnOccasionalOverseasTravelYes">Yes</label>
+                                <input id="rbtnOccasionalOverseasTravelNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsOccasionalOverseasTravel">
+                                <label for="rbtnOccasionalOverseasTravelNo">No</label></li>
+
+                            <li class="li-marg">
+                                <input id="rbtnOutsideWorkYes" type="radio" value="true" name="JobDemand.IsOutsideWork">
+                                <label for="rbtnOutsideWorkYes">Yes</label>
+                                <input id="rbtnOutsideWorkNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsOutsideWork">
+                                <label for="rbtnOutsideWorkNo">No</label></li>
+
+                            <li class="li-marg">
+                                <input id="rbtnNoisedHarzardAreaYes" type="radio" value="true" name="JobDemand.IsNoisedHarzardArea">
+                                <label for="rbtnNoisedHarzardAreaYes">Yes</label>
+                                <input id="rbtnNoisedHarzardAreaNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsNoisedHarzardArea">
+                                <label for="rbtnNoisedHarzardAreaNo">No</label></li>
+
+                            <li>
+                                <input id="rbtnHandlingFoodYes" type="radio" value="true" name="JobDemand.IsHandlingFood">
+                                <label for="rbtnHandlingFoodYes">Yes</label>
+                                <input id="rbtnHandlingFoodNo" class="mrg-lft30" type="radio" value="false" name="JobDemand.IsHandlingFood">
+                                <label for="rbtnHandlingFoodNo">No</label></li>
+
+                            <li class="mrg-b0">
+                                <textarea id="txtHazard" cols="24" rows="2" style="resize: none;" data-bind="value:FreeText" name="JobDemand.FreeText"></textarea>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="its-authorisation-border"></div> 
+                <div id="PolicyDetailDiv">
+                    <div class="row3-label-2">
+                        <ul>
+                            <li>Policy Type:</li>
+                            <li>Type Cover:</li>
+                            <li>Policy Criteria:</li>
+                            <li style="line-height: 20px; margin-top: 15px;">Rehab/Proportionate benefit available?</li>
+                            <li>Fit for Work</li>
+                            <li>Re-Insured:</li>
+                            <li>Policy Wording:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input type="hidden" name="Policie.PolicyID" data-bind="value: PolicyID" />
+                                <select name="Policie.PolicyTypeId" data-bind="options: PolicyTypes, optionsText: 'PolicyTypeName',optionsCaption: '--Select--', optionsValue: 'PolicyTypeID', value: $root.SelectedPolicyTypeID"></select>
+                            </li>
+                            <li>
+                                <select name="Policie.TypeCoverId" data-bind="options: TypeCovers, optionsText: 'TypeCoverName',optionsCaption: '--Select--', optionsValue: 'TypeCoverID', value: TypeCoverId"></select>
+                            </li>
+                            <li>
+                                <select id="" name="Policie.PolicyCriteriaId" data-bind="options: PolicyCriterias, optionsText: 'PolicyCriteriaName',optionsCaption: '--Select--', optionsValue: 'PolicyCriteriaID', value: PolicyCriteriaId"></select>
+                            </li>
+                            <li>
+                                <select id="" name="Policie.RehabProportionateBenefit" data-bind="value:RehabProportionateBenefit">
+                                    <option value="">Select</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select id="" name="Policie.FitForWorkId" data-bind="options: FitForWorks, optionsText: 'FitforWorkName',optionsCaption: '--Select--', optionsValue: 'FitforWorkID', value: FitForWorkId"></select>
+                            </li>
+                            <li>
+                                <select id="" name="Policie.ReInsuredId" data-bind="value: ReInsuredId">
+                                    <option value="">Select</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            <li>
+                                <input id="" name="Policie.PolicyWording" type="text" data-bind="value:PolicyWording" class="fulltextarea-policy" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row3-label-2 mrgleft-14">
+                        <ul>
+                            <li>Reference No:</li>
+                            <li>Admitted:</li>
+                            <li>Benefit Date:</li>
+                            <li>Monthly Value:</li>
+                            <li>Weekly Value:</li>
+                            <li>End Benefit Date:</li>
+                            <li>Name of Reinsurer:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input id="" name="Policie.ReferenceNo" data-bind="value:PolicieReferenceNo" type="text" maxlength="25" />
+                            </li>
+                            <li>
+                                <select name="Policie.AdmittedId" data-bind="options: Admitteds, optionsText: 'AdmittedName',optionsCaption: '--Select--', optionsValue: 'AdmittedID', value: AdmittedId"></select>
+                            </li>
+                            <li>
+                                <!-- ko if: BenefitDate != null -->
+                                <input id="txtPolicieBenefitDate" name="Policie.BenefitDate" data-bind="value:moment(BenefitDate).format('DD/MM/YYYY')" class="datepicker" type="text" />
+                                <!-- /ko -->
+                                <!-- ko if: BenefitDate == null -->
+                                <input id="txtPolicieBenefitDate1" name="Policie.BenefitDate" class="datepicker" type="text" />
+                                <!-- /ko -->
+                            </li>
+                            <li>
+                                <div class="input-container">
+                                    <i class="fa fa-gbp icon"></i>
+                                    <input id="txtmonthlyvalue" name="Policie.MonthlyValue" data-bind="value:MonthlyValue" type="text" />
+                                </div>
+                            </li>
+                            <li class="mrg-15">
+                                <div class="input-container">
+                                    <i class="fa fa-gbp icon"></i>
+                                    <input id="txtWeeklyValue" name="Policie.WeeklyValue" data-bind="value:WeeklyValue" type="text" />
+                                </div>
+                            </li>
+                            <li class="mrg-15">
+                                <!-- ko if: EndBenefitDate != null -->
+                                <input id="txtPolicieEndBenefitDate" name="Policie.EndBenefitDate" data-bind="value:moment(EndBenefitDate).format('DD/MM/YYYY')" class="datepicker" type="text" />
+                                <!-- /ko -->
+                                <!-- ko if: EndBenefitDate == null -->
+                                <input id="txtPolicieEndBenefitDate1" name="Policie.EndBenefitDate" data-bind="value:EndBenefitDate" class="datepicker" type="text" />
+                                <!-- /ko -->
+                            </li>
+                            <li>
+                                <select name="Policie.NameOfReinsurerID" data-bind="options: Reinsurers, optionsText: 'NameOfReinsurer', optionsValue: 'ReinsurerID', value : NameOfReinsurerID"></select>
+                        </ul>
+                    </div>
+
+                    <div class="clear">
+                    </div>
+                    <div class="its-authorisation-border">
+                    </div>
+                </div>
+                
+                <div id="GIPDiv" class="its-authorisation-row3">
+                    <div class="row3-label">
+                        <ul>
+                            <li>Policy Reference Number:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <input id="GIPNewPolicyReferenceNumber" data-bind="value:NewPolicyReferenceNumber" name="Case.NewPolicyReferenceNumber" type="text" /></li>
+                        </ul>
+                    </div>
+                    <div class="row3-label">
+                        <ul>
+                            <li>Type Cover GIP:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <select class="form-control" id="objGip" name="GipID" data-bind="options: GipArray,optionsText: 'GipName', optionsValue: 'GipID', value: selectedGip"></select></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="its-authorisation-border"></div>
+                </div>
+        
+                <div id="IIPDiv" class="its-authorisation-row3">
+                    <div class="row3-label">
+                        <ul>
+                            <li>Policy Reference Number:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <input id="IIPNewPolicyReferenceNumber" data-bind="value:NewPolicyReferenceNumber" name="Case.NewPolicyReferenceNumber" type="text" /></li>
+                        </ul>
+                    </div>
+                    <div class="row3-label">
+                        <ul>
+                            <li>Type Cover IIP:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <select class="form-control" id="objIip" name="IipID" data-bind="options: IipArray,optionsText: 'IipName', optionsValue: 'IipID', value: selectedIip"></select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="its-authorisation-border"></div>
+                </div>
+       
+                <div id="TPDDiv" class="its-authorisation-row3">
+                    <div class="row3-label">
+                        <ul>
+                            <li>Policy Reference Number:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <input id="TPDNewPolicyReferenceNumber" data-bind="value:NewPolicyReferenceNumber" name="Case.NewPolicyReferenceNumber" type="text" /></li>
+                        </ul>
+                    </div>
+                    <div class="row3-label">
+                        <ul>
+                            <li>Type Cover TPD:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <select class="form-control" id="objTpd" name="TpdID" data-bind="options: TpdArray,optionsText: 'TpdName', optionsValue: 'TpdID', value: selectedTpd"></select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="its-authorisation-border"></div>
+                </div>
+        
+                <div id="ELRehabDiv" class="its-authorisation-row3">
+                    <div class="row3-label">
+                        <ul>
+                            <li>Policy Reference Number:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <input id="ELNewPolicyReferenceNumber" data-bind="value:NewPolicyReferenceNumber" name="Case.NewPolicyReferenceNumber" type="text" /></li>
+                        </ul>
+                    </div>
+                    <div class="row3-label">
+                        <ul>
+                            <li>Type Cover EL Rehab:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input">
+                        <ul>
+                            <li>
+                                <select class="form-control" id="objElRehab" name="Case.IsNewPolicyTypeID" data-bind="options: ElRehabArray,optionsText: 'ElRehabName', optionsValue: 'ElRehabID', value: selectedElRehab"></select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="its-authorisation-border"></div>
+                </div>
+       
+                
+                <div id="PolicyOpenDetailDiv">
+                    <div class="row3-label-2">
+                        <ul>
+                            <li>Policy Type:</li>
+                            <li>Type Cover:</li>
+                            <li>Policy Criteria:</li>
+                            <li style="line-height: 20px; margin-top: 15px;">Rehab/Proportionate benefit available?</li>
+                            <li>Fit for Work</li>
+                            <li>Re-Insured:</li>
+                            <li>Name of Reinsurer:</li>
+                            <li>Policy Wording:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input type="hidden" name="policyOpenDetail.PolicyOpenDetailID" data-bind="value:PolicyOpenDetailID" />
+                                <input id="" name="policyOpenDetail.PolicyType" type="text" data-bind="value:PolicyType" maxlength="25" />
+                            </li>
+                            <li>
+                                <input id="" name="policyOpenDetail.TypeCover" type="text" data-bind="value:TypeCover" maxlength="25" />
+                            </li>
+                            <li>
+                                <input id="" name="policyOpenDetail.PolicyCriteria" type="text" data-bind="value:PolicyCriteria" maxlength="25" />
+                            </li>
+                            <li class="">
+                                <input id="" name="policyOpenDetail.RehabORProportionate" type="text" data-bind="value:RehabORProportionate" maxlength="25" />
+                            </li>
+                            <li>
+                                <input id="" name="policyOpenDetail.FitforWork" type="text" data-bind="value:FitforWork" maxlength="25" />
+                            </li>
+                            <li>
+                                <input id="" name="policyOpenDetail.ReInsured" type="text" data-bind="value:ReInsured" maxlength="25" />
+                            <li>
+                                <input id="" name="policyOpenDetail.NameofReinsurer" type="text" data-bind="value:NameofReinsurer" maxlength="25" />
+                            <li>
+                                <input id="" name="policyOpenDetail.OpenPolicyWording" type="text" data-bind="value:OpenPolicyWording" class="fulltextarea" />
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="row3-label-2 mrgleft-14">
+                        <ul>
+                            <li>Reference No:</li>
+                            <li>Admitted:</li>
+                            <li>Benefit Date:</li>
+                            <li>Monthly Value:</li>
+                            <li>End Benefit Date:</li>
+
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input id="" name="policyOpenDetail.ReferenceNo" type="text" data-bind="value:ReferenceNo" maxlength="25" />
+                            </li>
+                            <li>
+                                <input id="" name="policyOpenDetail.Admitted" type="text" data-bind="value:Admitted" maxlength="25" />
+                            </li>
+                            <li>
+
+                                <!-- ko if: OpenBenefitDate != null -->
+                                <input id="txtPolicieopenBenefitDate" name="policyOpenDetail.OpenBenefitDate" data-bind="value:moment(OpenBenefitDate).format('DD/MM/YYYY')" type="text" /></li>
+                            <!-- /ko -->
+                            <!-- ko if: OpenBenefitDate == null -->
+                            <input id="txtPolicieopenBenefitDate1" name="policyOpenDetail.OpenBenefitDate" class="datepicker" type="text" />
+                            <!-- /ko -->
+                            <li>
+                                <div class="input-container">
+                                    <i class="fa fa-gbp icon"></i>
+                                    <input id="txtopenmonthlyvalue" name="policyOpenDetail.OpenMonthlyValue" data-bind="value:OpenMonthlyValue" type="text" />
+                                </div>
+                            </li>
+                            <li>
+                                <!-- ko if: OpenEndBenefitDate != null -->
+                                <input id="txtPolicieOpenEndBenefitDate" name="policyOpenDetail.OpenEndBenefitDate" data-bind="value:moment(OpenEndBenefitDate).format('DD/MM/YYYY')" type="text" /></li>
+                            <!-- /ko -->
+                            <!-- ko if: OpenEndBenefitDate == null -->
+                            <input id="txtPolicieOpenEndBenefitDate1" name="policyOpenDetail.OpenEndBenefitDate" class="datepicker" type="text" />
+                            <!-- /ko -->
+
+                        </ul>
+                    </div>
+
+
+                    <div class="clear">
+                    </div>
+                    <div class="its-authorisation-border">
+                    </div>
+                </div>
+                <div id="EmploymentDetailDiv">
+                    <div class="row3-label-2">
+                        <ul>
+                            <li>Employment:</li>
+                            <li>Company Name:</li>
+                            <li>Job Role:</li>
+                            <li>Address:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input type="hidden" name="Employment.EmploymentId" data-bind="value:EmploymentId" />
+                                <select name="Employment.EmploymentTypeId" data-bind="options: EmploymentTypes, optionsText: 'EmploymentTypeName',optionsCaption: '--Select--', optionsValue: 'EmploymentTypeID', value:EmploymentTypeId"></select>
+                            </li>
+                            <li>
+                                <input id="" name="Employment.CompanyName" type="text" data-bind="value:CompanyName" maxlength="25" /></li>
+                            <li>
+                                <input id="" name="Employment.JobRole" type="text" data-bind="value:JobRole" maxlength="40" /></li>
+                            <li>
+                                <input id="" name="Employment.Address" type="text" data-bind="value:EmploymentAddress" maxlength="40" /></li>
+                        </ul>
+                    </div>
+                    <div class="row3-label-2 mrgleft-14">
+                        <ul>
+                            <li>Contact Name:</li>
+                            <li>Primary Phone:</li>
+                            <li>Email:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input id="" name="Employment.ContactName" data-bind="value:ContactName" type="text" maxlength="25" /></li>
+                            <li>
+                                <input class="phoneMaskformat" id="txtEmploymentPrimaryPhone" data-bind="value:PrimaryPhone" name="Employment.PrimaryPhone" type="text" maxlength="25" /></li>
+                            <li>
+                                <input id="" name="Employment.Email" data-bind="value: EmploymentEmail" type="text" maxlength="50" /></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clear"></div> 
+                <div class="its-authorisation-border"></div>
+                
+                <div class="clear" id="EmploymentDetailSecondDiv">
+                    <div class="row3-label-2">
+                        <ul>
+                            <li>Job Title:</li>
+                            <li>Usual Job Role Type:</li>
+                            <li>Current Role Type:</li>
+                            <li>Date of First Absence:</li>
+                            <li>Agile Worker:</li>
+                            <li>Office Location of Referrer:</li>
+                            <li>Division:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input id="" name="EmployeeDetail.jobTitle" data-bind="value:jobTitle" type="text" maxlength="50" />
+                            </li>
+                            <li>
+                                <select name="EmployeeDetail.UsualJobRoleTypeID" data-bind="options: RoleTypes, optionsText: 'RoleName',optionsCaption: '--Select--', optionsValue: 'RoleTypeID', value: EmployeeDetail.UsualJobRoleTypeID"></select>
+                            </li>
+                            <li>
+                                <select name="EmployeeDetail.CurrentRoleTypeID" data-bind="options: RoleTypes, optionsText: 'RoleName',optionsCaption: '--Select--', optionsValue: 'RoleTypeID', value: EmployeeDetail.CurrentRoleTypeID"></select>
+                            </li>
+                            <li>
+                                <input type="text" name="EmployeeDetail.DateofFirstAbsence" id="Emp_Date" data-bind="value: (DateofFirstAbsence != null) ? moment(DateofFirstAbsence).format('DD/MM/YYYY'):'', valueUpdate: 'change'" onchange="javascript: calPatientAge()" />
+                                <span id="lblError1" class="warningcustom"></span>
+
+                            </li>
+                            <li>
+                                <select name="EmployeeDetail.AgileWorkerID" data-bind="options:WorkTypes, optionsText: 'WorkName',optionsCaption: '--Select--', optionsValue: 'WorkTypeID',value: EmployeeDetail.AgileWorkerID"></select>
+                            </li>
+                            <li>
+                                <input id="" name="EmployeeDetail.OfficeLocation" data-bind="value:OfficeLocation" type="text" maxlength="50" />
+                            </li>
+                            <li>
+                                <input id="" name="EmployeeDetail.jobTitle" type="text" data-bind="value: jobTitle" />
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="row3-label-2 mrgleft-14">
+                        <ul>
+                            <li>National INS Number:</li>
+                            <li>Usual Hours:</li>
+                            <li>Current Hours:</li>
+                            <li>Currently Absent From Work:</li>
+                            <li>Office Based:</li>
+                            <li>Line Manager:</li>
+                            <li>Employee Number / RE&ID:</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-2">
+                        <ul>
+                            <li>
+                                <input id="" name="EmployeeDetail.NationalINSNumber" type="text" data-bind="value: NationalINSNumber" maxlength="20" />
+                            </li>
+                            <li>
+                                <input id="" name="EmployeeDetail.UsualHours" type="text" data-bind="value: UsualHours" maxlength="20" />
+                            </li>
+                            <li>
+                                <input id="" name="EmployeeDetail.CurrentHours" type="text" maxlength="20" data-bind="value: CurrentHours" />
+                            </li>
+                            <li>
+                                <select name="EmployeeDetail.CurrentlyAbsentFromWorkID" data-bind="options:WorkTypes, optionsText:'WorkName',optionsCaption: '--Select--', optionsValue: 'WorkTypeID',value: EmployeeDetail.CurrentlyAbsentFromWorkID"></select>
+                            </li>
+                            <li>
+                                <select name="EmployeeDetail.OfficeBasedID" data-bind="options: WorkTypes, optionsText: 'WorkName',optionsCaption: '--Select--', optionsValue: 'WorkTypeID', value: EmployeeDetail.OfficeBasedID"></select>
+                            </li>
+                            <li>
+                                <input id="" name="EmployeeDetail.LineManager" type="text" data-bind="value: LineManager" maxlength="20" />
+                            </li>
+
+                            <li>
+                                <input id="" name="EmployeeDetail.EmployeeNumber" type="text" data-bind="value: EmployeeNumber" maxlength="20" />
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="clear">
+                        <div class="row3-label-2">
+                            <ul class="padd-0set">
+                                <li>Overview of Type of Illness or Injury:</li>
+                                <li>Any Known Medication or Treatments:</li>
+                            </ul>
+                        </div>
+                        <div class="row3-input-2">
+                            <ul class="padd-0set">
+                                <li>
+                                    <input id="" name="EmployeeDetail.TypeofIllness" type="text" data-bind="value: TypeofIllness" maxlength="200" /></li>
+                                <li>
+                                    <input id="" name="EmployeeDetail.MedicationOrTreatment" data-bind="value: MedicationOrTreatment" type="text" maxlength="200" /></li>
+                            </ul>
+                        </div>
+
+                        <div class="row3-label-2 mrgleft-14">
+                            <ul>
+                                <li>Any Previous Related Absence:</li>
+                                <li>Adjustments & Support Already Provided (EAP)? </li>
+                            </ul>
+                        </div>
+                        <div class="row3-input-2">
+                            <ul>
+                                <li>
+                                    <input id="" name="EmployeeDetail.PreRelatedAbsence" type="text" data-bind="value: PreRelatedAbsence" maxlength="200" /></li>
+                                <li>
+                                    <input id="" name="EmployeeDetail.EAP" data-bind="value: EAP" type="text" maxlength="200" /></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row3-label-refr">
+                        <ul class="padd-0set">
+                            <li>What is the current impact of the injury / illness on the employee's ability to perform</li>
+                        </ul>
+                    </div>
+                    <div class="row3-input-refr">
+                        <ul class="padd-0set">
+                            <li>
+                                <input id="" name="EmployeeDetail.IllnessEmpAbilityToPerform" type="text" maxlength="200" class="fulltextarea-2" data-bind="value: IllnessEmpAbilityToPerform">
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="clear">
+                </div>
+                <div class="its-authorisation-border hide">
+                </div>
+                
+                <div class="clear">
+                </div>
+        
+                <div class="its-authorisation-row3 mrg-25 hide">
+
+                    <div class="row3-radio hide">
+                        <p>
+                            Send Invoices To &nbsp;&nbsp;
+                <input type="radio" value="ReferrerProjectUser" name="Case.SendInvoiceTo" id="RefeerProjectUserID" data-bind="checked:CaseSendInvoiceTo.ForEditing, valueUpdate:'change'" />
+                            Referrer Project User &nbsp;&nbsp;
+                <input type="radio" value="Other" id="sendInvoiceToID" name="Case.SendInvoiceTo" data-bind="checked:CaseSendInvoiceTo.ForEditing, valueUpdate:'change'" />
+                            Other
+                        </p>
+                    </div>
+                    <div id="DivSendInvoiceTo">
+                        <div class="row3-label">
+                            <ul>
+                                <li>Name:</li>
+                            </ul>
+                        </div>
+
+                        <div class="row3-input">
+                            <ul>
+                                <li>
+                                    <input type="text" name="Case.SendInvoiceName" id="objSendInvoiceName" data-bind="value: SendInvoiceName" />
+                                    <span id="lblError12" class="warningcustom"></span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="row3-label">
+                            <ul>
+                                <li>Email:</li>
+                            </ul>
+                        </div>
+
+                        <div class="row3-input">
+                            <ul>
+
+                                <li>
+                                @*// <input id="objSendInvoiceEmail" name="Case.SendInvoiceEmail" data-bind="value: SendInvoiceEmail" /></li>*@
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+
+                </div>
+              
+                <div class="its-authorisation-border"></div>  
+                
+                <div id="AdditionalQuestionSection">
+
+                    <div class="row4-label-4 mtop">
+                        <ul>
+                            <li>Innovate will provide an opinion on the employees anticipated RTW date, advice to promote and support the employees RTW and guidance as to whether the Equality Act would apply. If there are any further queries then please indicate these below:</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="row4-input-4">
+                        <ul>
+                            <li>Additional Question 1</li>
+                            <li>
+                                <textarea id="" name="employeeDetail.AdditionalQuestion1" data-bind="value: AdditionalQuestion1" type="text" class="fulltextarea-addop"></textarea></li>
+                            <li>Additional Question 2</li>
+                            <li>
+                                <textarea id="" name="employeeDetail.AdditionalQuestion2" data-bind="value: AdditionalQuestion2" type="text" class="fulltextarea-addop"></textarea></li>
+                            <li>Further Question 1@*(May incur an additional charge)*@</li>
+                            <li>
+                                <textarea id="" name="employeeDetail.FurtherQuestion1" data-bind="value: FurtherQuestion1" type="text" class="fulltextarea-addop"></textarea></li>
+                            <li>Further Question 2@*(May incur an additional charge)*@</li>
+                            <li>
+                                <textarea id="" name="employeeDetail.FurtherQuestion2" data-bind="value: FurtherQuestion2" type="text" class="fulltextarea-addop"></textarea></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+               
+                <div class="row3-label-2 mlt10">
+                    <ul>
+                        <li><span class="its-required">*</span>Cost Centre / Organisation / Location:</li>
+                        <li><span class="its-required"></span>Referrer Reference Number:</li>
+                    </ul>
+                </div>
+                <div class="row3-input-2">
+                    <ul>
+                        <li>
+                            <select name="Case.OfficeLocationID" data-bind="options:ReferrerLocations,
+                    optionsValue:'ReferrerLocationID',
+                    optionsText:'Name',
+                    optionsCaption:'Choose Office Location',
+                    value:ReferrerLocationID,
+                    valueUpdate:'change'"
+                                id="ReferrerLocationID">
+                            </select>
+                        </li>
+                        <li>
+                            <input data-bind="value: CaseReferrerReferenceNumber" id="Case_CaseReferrerReferenceNumber"
+                                name="Case.CaseReferrerReferenceNumber" type="text" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="its-authorisation-border">
+                </div>
+                <div class="its-authorisation-row5 mrg-25">
+                    <p>
+                        Contact Options:
+                    </p>
+                    <p>
+                        Below you can select contacts from the users you have set up with ITS to receive
+                        reports and notifications via e-mail for this referral.
+                    </p>
+                </div>
+                
+                <div class="row3-label">
+                    <ul>
+                        <li><span class="its-required">*</span> Email Contact:</li>
+                    </ul>
+                </div>
+                <div class="row3-input">
+                    <ul>
+                        <li>
+                            <select data-bind="options: UserContacts, 
+                        optionsCaption: 'Choose Referrer', 
+                        optionsText: 'FullName',
+                        value: selectedContact"
+                                id="ddlUserContacts">
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row3-label">
+                    <ul>
+                        <li>Email Address on file: </li>
+                    </ul>
+                </div>
+                <div class="row3-input">
+                    <ul>
+                        <li>
+                            <input type="text" data-bind="value: selectedContact() ? selectedContact().Email : ''"
+                                id="txtSelectedContact" /></li>
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+                <p class="authorisation-link">
+                    <a href="#" style="font-size: 15PX" data-bind="click:addContact">Add Email Contact</a>
+                </p>
+                <div class="authorisation-email-contacts">
+                    <div class="email-contacts-headers">
+                        Email Contacts
+                    </div>
+                    <div class="emc-col1">
+                        <ul data-bind="foreach: { data: CaseContacts, as: 'CaseContacts' }">
+                            <li><span data-bind="text: Contact.Details"></span>
+                                <input type="hidden" data-bind="value: Contact.UserID,attr: { name: 'CaseContacts[' + $index() +'].UserID' }" /></li>
+                        </ul>
+                    </div>
+                    <div class="emc-col2">
+                        <ul data-bind="foreach: { data: CaseContacts, as: 'CaseContacts' }">
+                            <li><a href="#" data-bind="visible:showRemove,click:$root.deleteContact">Remove this
+                    Contact</a> </li>
+                        </ul>
+                    </div>
+                    <div style="padding: 10px" id="GridEmailContactMessage">
+                        Please add an Email Contact.
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="its-authorisation-border">
+                </div>
+                <div class="its-authorisation-row6">
+                    <p>
+                        <input type="button" class="btn btn-primary btn-set-2 ui-button ui-widget ui-state-default" data-bind="click: submit, enable:enableAddReferrer" value="Update">
+                    </p>
+                </div>
+                <div class="clear">
+                </div>
+                <input type="hidden" name="ReferrerProject.ReferrerProjectID" id="ReferrerProjectID"
+                    data-bind="value:ReferrerProjectID" />
+                <input type="hidden" name="ReferrerProject.IsTriage" id="ReferrerProject.IsTriage"
+                    data-bind="value:ReferrerProjectIsTriage" />
+            }
+            @*</form>*@
+        </div>
+    </div>
+</div>
+
+
+<script src="../../Scripts/Jquery-1.8.2.js"></script>
+<script src="../../Scripts/knockout-2.0.0.js"></script>
+<script src="../../Scripts/knockout.mapping.js"></script>
+<script src="../../Scripts/jquery.maskedinput.min.js"></script>
+
+<script src="../../Scripts/jquery-ui.min.js"></script>
+<script src="../../Scripts/jquery.form.js"></script>
+<script src="../../Scripts/knockout.validation.js"></script>
+
+<script src="../../Scripts/moment.min.js"></script>
+<script src="../../Scripts/knockout/viewmodel/shared/CaseSearch/ReferralDetailViewModel.js"></script>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-timepicker-addon.js")" type="text/javascript"></script>
+}
+<script>
+    var _isDirty = false;
+    
+    $("#Patient_BirthDate").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });
+    $("#Patient_InjuryDate").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });
+       
+    $("#txtPolicieBenefitDate").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });
+       
+    $("#txtPolicieBenefitDate1").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });
+
+    $("#txtPolicieEndBenefitDate").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });        
+    
+    
+    $("#txtPolicieEndBenefitDate1").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });    
+    
+    $("#Emp_Date").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });  
+    
+    $("#txtPolicieopenBenefitDate").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });        
+    
+    
+    $("#txtPolicieOpenEndBenefitDate").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });    
+    $("#txtPolicieopenBenefitDate1").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });        
+    
+    
+    $("#txtPolicieOpenEndBenefitDate1").datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1910:' + new Date().getFullYear()
+    });    
+
+    $('#dialog-confirm').dialog('option', 'dialogClass', 'alert');
+
+    var ITSUser = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.ITSUser)));
+    var model = new AddReferralViewModel(ITSUser);
+    var cases = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Case)));
+    var patient = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Patient)));    
+    var policie = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Policie)));   
+    var employment = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Employment)));
+    var Solicitor = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Solicitor)));       
+    var referrer = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Referrer)));    
+    var injuredPartyRepresentative = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.injuredPartyRepresentative)));    
+    var caseContacts = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.CaseContacts)));
+    var EmployeeDetail = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.EmployeeDetail));
+    var JobDemand = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.JobDemand));
+    var CaseReferrerAssignedUsers = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.CaseReferrerAssignedUsers));
+    var PolicyOpenDetail = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.policyOpenDetail));
+    
+    model.AssignedUserList(CaseReferrerAssignedUsers);
+    model.CaseID(cases.CaseID);
+    model.ReferrerProjectID = cases.ReferrerProjectID;
+    model.SelectedCaseReferrerProjectTreatmentID(cases.ReferrerProjectTreatmentID);
+    model.SendInvoiceName(cases.SendInvoiceName);
+    // model.SendInvoiceEmail(cases.SendInvoiceEmail);
+    model.ReferrerAssignedUser = cases.ReferrerAssignedUser;
+    model.CaseSpecialInstruction(cases.CaseSpecialInstruction);
+    model.EmailCaseContacts(caseContacts);    
+    model.InjuryType = cases.InjuryType;
+    model.CaseReferrerReferenceNumber = cases.CaseReferrerReferenceNumber;
+    model.IsNewPolicyTypeID=cases.IsNewPolicyTypeID;
+    model.NewPolicyReferenceNumber=cases.NewPolicyReferenceNumber;
+    model.ReferrerLocationID(cases.ReferrerLocationID);
+    model.PatientID = patient.PatientID;
+    model.PatientTitle = patient.Title;
+    model.PatientFirstName = patient.FirstName;
+    model.PatientLastName = patient.LastName;
+    model.PatientAddress = patient.Address;
+    model.PatientCity = patient.City;
+    model.PatientRegion = patient.Region;
+    model.PatientPostCode = patient.PostCode;
+    model.PatientInjuryDate = patient.InjuryDate;
+    model.PatientBirthDate = patient.BirthDate;
+    model.PatientHomePhone = patient.HomePhone;
+    model.PatientWorkPhone = patient.WorkPhone;
+    model.PatientMobilePhone = patient.MobilePhone;
+    model.GenderID = patient.GenderID;
+    model.PatientEmail = patient.Email;    
+    model.HasInjuredPartyRepresentative(patient.HasInjuredPartyRepresentative);    
+    model.SpecialInstructionNotes = patient.SpecialInstructionNotes;
+    model.PrimaryConditionID(patient.PrimaryConditionID);
+    //model.PatientHasLegalRep(patient.HasLegalRep);
+   
+    $(document).ready(function(){   
+        aleart("P");
+        if(patient.HasLegalRep == "True")
+        {
+            $("#YesPatientHasLegalRep").prop("checked", true);
+            $('#divSolicitor').show();            
+        } else {            
+            $("#NoPatientHasLegalRep").prop("checked", true);
+            $('#divSolicitor').hide();
+        }
+        
+        if(Solicitor != null)
+        {
+            if(Solicitor.IsReferralUnderJointInstruction == "True")
+            {            
+                $("#YesReferralUnderJointInstruction").prop("checked", true);
+            }        
+            else{
+                $("#NoReferralUnderJointInstruction").prop("checked", true);
+            }
+        }
+
+        if(cases.SendInvoiceTo == "ReferrerProjectUser")
+        {
+            $("#RefeerProjectUserID").prop("checked", true);
+            $('#DivSendInvoiceTo').hide('slow');
+        }
+        else
+        {
+            $("#sendInvoiceToID").prop("checked", true);
+            $('#DivSendInvoiceTo').show('slow');
+        }                
+        $("#chkAdditional"+$("#hdnAdditionalTestID").val()).attr('checked', true);         
+        if (referrer.IsPolicyDetail == true) {
+            if (referrer.IsPolicyDetail == true && referrer.IsPolicyDetailOpenOrDropdowns == "Dropdowns") {             
+                $('#PolicyOpenDetailDiv').hide();
+                $('#PolicyDetailDiv').show();
+            }
+            else {
+                $('#PolicyOpenDetailDiv').show();
+                $('#PolicyDetailDiv').hide();           
+            }
+        }
+        else
+        {
+            $('#PolicyOpenDetailDiv').hide();
+            $('#PolicyDetailDiv').hide();
+        } 
+        if (referrer.IsNewPolicyTypes == "GIP") {
+            $('#GIPDiv').show();
+            $('#IIPDiv').hide();
+            $('#TPDDiv').hide();
+            $('#ELRehabDiv').hide();
+            $('#PolicyOpenDetailDiv').hide();
+            $('#PolicyDetailDiv').hide();  
+        }
+        else if (referrer.IsNewPolicyTypes == "IIP") {
+            $('#GIPDiv').hide();
+            $('#IIPDiv').show();
+            $('#TPDDiv').hide();
+            $('#ELRehabDiv').hide();
+            $('#PolicyOpenDetailDiv').hide();
+            $('#PolicyDetailDiv').hide();  
+        }
+        else if (referrer.IsNewPolicyTypes == "TPD") {
+            $('#GIPDiv').hide();
+            $('#IIPDiv').hide();
+            $('#TPDDiv').show();
+            $('#ELRehabDiv').hide();
+            $('#PolicyOpenDetailDiv').hide();
+            $('#PolicyDetailDiv').hide();  
+        }
+        else if (referrer.IsNewPolicyTypes == "ELRehab")
+        {
+            $('#GIPDiv').hide();
+            $('#IIPDiv').hide();
+            $('#TPDDiv').hide();
+            $('#ELRehabDiv').show();
+            $('#PolicyOpenDetailDiv').hide();
+            $('#PolicyDetailDiv').hide();  
+        }
+        else
+        {
+            $('#GIPDiv').hide();
+            $('#IIPDiv').hide();
+            $('#TPDDiv').hide();
+            $('#ELRehabDiv').hide();
+        }
+    });
+
+  
+    if( referrer.IsAdditionalQuestion == true )
+    {
+        $('#AdditionalQuestionSection').show();
+        model.AdditionalQuestion1 = EmployeeDetail.AdditionalQuestion1;
+        model.AdditionalQuestion2=EmployeeDetail.AdditionalQuestion2;
+        model.FurtherQuestion1=EmployeeDetail.FurtherQuestion1;
+        model.FurtherQuestion2=EmployeeDetail.FurtherQuestion2;
+    }
+    else
+    {
+        $('#AdditionalQuestionSection').hide();
+    }
+
+    if (patient.HasInjuredPartyRepresentative > 1) {
+        model.FirstName(injuredPartyRepresentative.FirstName);
+        model.LastName(injuredPartyRepresentative.LastName);
+        model.ReferralID(injuredPartyRepresentative.ReferralID);
+        model.Tel1(injuredPartyRepresentative.Tel1);
+        model.Tel2(injuredPartyRepresentative.Tel2);
+        model.Address(injuredPartyRepresentative.Address);
+        model.PostCode(injuredPartyRepresentative.PostCode);
+        model.Email(injuredPartyRepresentative.Email);
+        model.Relationship(injuredPartyRepresentative.Relationship);
+    }
+
+    
+    if(policie != null)
+    {      
+        model.PolicyID = policie.PolicyID;    
+        model.SelectedPolicyTypeID = policie.PolicyTypeId;
+        model.PolicieReferenceNo = policie.ReferenceNo;
+        model.TypeCoverId = policie.TypeCoverId;
+        model.AdmittedId = policie.AdmittedId;
+        model.PolicyCriteriaId = policie.PolicyCriteriaId;
+        model.BenefitDate = policie.BenefitDate;  
+        model.NameOfReinsurerID = policie.NameOfReinsurerID;
+        if(policie.RehabProportionateBenefit != null)
+        {
+            if(policie.RehabProportionateBenefit)
+            {   
+                model.RehabProportionateBenefit = 'true';
+            }
+            else 
+            { 
+                model.RehabProportionateBenefit = 'false';
+            }
+        }
+        
+        if(policie.ReInsuredId)
+        { 
+            model.ReInsuredId = 'true';
+        }
+        else 
+        { 
+            model.ReInsuredId = 'false';
+        }        
+        model.EndBenefitDate = policie.EndBenefitDate;
+        model.MonthlyValue = policie.MonthlyValue;
+        model.WeeklyValue = policie.WeeklyValue;
+        model.FitForWorkId = policie.FitForWorkId;
+        model.PolicyWording = policie.PolicyWording;
+        model.NameOfReinsurer = policie.NameOfReinsurer;
+    }
+    
+
+    if( PolicyOpenDetail != null)
+    { 
+        model.PolicyOpenDetailID = PolicyOpenDetail.PolicyOpenDetailID;
+        model.PolicyType = PolicyOpenDetail.PolicyType;
+        model.TypeCover = PolicyOpenDetail.TypeCover;
+        model.PolicyCriteria = PolicyOpenDetail.PolicyCriteria;
+        model.RehabORProportionate = PolicyOpenDetail.RehabORProportionate;
+        model.FitforWork = PolicyOpenDetail.FitforWork;
+        model.ReInsured = PolicyOpenDetail.ReInsured;
+        model.ReferenceNo = PolicyOpenDetail.ReferenceNo;
+        model.Admitted = PolicyOpenDetail.Admitted;
+        model.OpenBenefitDate = PolicyOpenDetail.OpenBenefitDate;
+        model.OpenMonthlyValue = PolicyOpenDetail.OpenMonthlyValue;
+        model.OpenEndBenefitDate = PolicyOpenDetail.OpenEndBenefitDate;
+        model.NameofReinsurer = PolicyOpenDetail.NameofReinsurer;
+        model.OpenPolicyWording = PolicyOpenDetail.OpenPolicyWording;
+    }
+   
+    
+    if(referrer.IsEmploymentDetail && employment != null)
+    {
+        $('#EmploymentDetailDiv').show();
+        model.EmploymentId = employment.EmploymentId;
+        model.EmploymentTypeId = employment.EmploymentTypeId;
+        model.CompanyName= employment.CompanyName;
+        model.JobRole = employment.JobRole;
+        model.EmploymentAddress = employment.Address;
+        model.ContactName = employment.ContactName;
+        model.PrimaryPhone = employment.PrimaryPhone;
+        model.EmploymentEmail = employment.Email;
+    }
+    else{
+        $('#EmploymentDetailDiv').hide();
+    }
+
+    if(referrer.IsEmploeeDetail && EmployeeDetail != null)
+    {
+        $('#EmploymentDetailSecondDiv').show();
+        model.jobTitle = EmployeeDetail.jobTitle;
+        model.NationalINSNumber = EmployeeDetail.NationalINSNumber;
+        model.LineManager = EmployeeDetail.LineManager;
+        model.EmployeeNumber = EmployeeDetail.EmployeeNumber;
+        
+        model.UsualJobRoleTypeID = EmployeeDetail.UsualJobRoleTypeID;
+        model.CurrentRoleTypeID = EmployeeDetail.CurrentRoleTypeID;
+        model.DateofFirstAbsence = EmployeeDetail.DateofFirstAbsence;
+        model.AgileWorkerID = EmployeeDetail.AgileWorkerID;
+        model.OfficeLocation = EmployeeDetail.OfficeLocation;
+        model.UsualHours = EmployeeDetail.UsualHours;
+        model.CurrentHours = EmployeeDetail.CurrentHours;
+        model.CurrentlyAbsentFromWorkID = EmployeeDetail.CurrentlyAbsentFromWorkID;
+        model.OfficeBasedID = EmployeeDetail.OfficeBasedID;
+        model.TypeofIllness = EmployeeDetail.TypeofIllness;
+        model.PreRelatedAbsence = EmployeeDetail.PreRelatedAbsence;
+        model.MedicationOrTreatment = EmployeeDetail.MedicationOrTreatment;
+        model.EAP = EmployeeDetail.EAP;
+        model.TypeofIllness = EmployeeDetail.TypeofIllness;
+        model.IllnessEmpAbilityToPerform = EmployeeDetail.IllnessEmpAbilityToPerform;
+       
+    }
+    else{
+        $('#EmploymentDetailSecondDiv').hide();
+    }
+    
+    function CheckRadioButton(elem1, elem2, value)
+    {        
+        if(value == true)
+        {
+            $("#" + elem1).prop("checked", true);                  
+        } 
+        else if(value == false){            
+            $("#" + elem2).prop("checked", true);            
+        }
+    }
+    if(JobDemand != null)
+    {  
+        if(JobDemand.IsJobDemand){
+            $("#rdbJobDemandYes").prop('checked', true);
+            showJobDemandForm();
+        }
+        else{
+            $("#rdbJobDemandNo").prop('checked', true);
+            hideJobDemandForm();
+        }
+        model.JobDemandID(JobDemand.JobDemandID);
+        CheckRadioButton("rbtnStandingYes", "rbtnStandingNo", JobDemand.IsStanding)
+        model.IsStanding(JobDemand.IsStanding);
+        CheckRadioButton("rbtnWalkingYes", "rbtnWalkingNo", JobDemand.IsWalking)
+        model.IsWalking(JobDemand.IsWalking);
+        CheckRadioButton("rbtnWorkATHeightOrClimbYes", "rbtnWorkATHeightOrClimbNo", JobDemand.IsWorkATHeightOrClimb)
+        model.IsWorkATHeightOrClimb(JobDemand.IsWorkATHeightOrClimb);
+        CheckRadioButton("rbtnExtendedOrProlongedYes", "rbtnIsExtendedOrProlongedNo", JobDemand.IsExtendedOrProlonged)
+        model.IsExtendedOrProlonged(JobDemand.IsExtendedOrProlonged);
+        CheckRadioButton("rbtnVocationalDrivingYes", "rbtnVocationalDrivingNo", JobDemand.IsVocationalDriving)
+        model.IsVocationalDriving(JobDemand.IsVocationalDriving);
+        CheckRadioButton("rbtnDrivingLGVOrPCVsYes", "rbtnDrivingLGVOrPCVsNo", JobDemand.IsDrivingLGVOrPCVs)
+        model.IsDrivingLGVOrPCVs(JobDemand.IsDrivingLGVOrPCVs);
+        CheckRadioButton("rbtnDrivingForkliftTrucksYes", "rbtnDrivingForkliftTrucksNo", JobDemand.IsDrivingForkliftTrucks)
+        model.IsDrivingForkliftTrucks(JobDemand.IsDrivingForkliftTrucks);
+        CheckRadioButton("rbtnWorkWithChemialsYes", "rbtnWorkWithChemialsNo", JobDemand.IsWorkWithChemials)
+        model.IsWorkWithChemials(JobDemand.IsWorkWithChemials);
+        CheckRadioButton("rbtnWorkBiologicalOrChemicalYes", "rbtnWorkBiologicalOrChemicalNo", JobDemand.IsWorkBiologicalOrChemical)
+        model.IsWorkBiologicalOrChemical(JobDemand.IsWorkBiologicalOrChemical);
+        CheckRadioButton("rbtnWorkWithSkinIrritantsYes", "rbtnWorkWithSkinIrritantsNo", JobDemand.IsWorkWithSkinIrritants)
+        model.IsWorkWithSkinIrritants(JobDemand.IsWorkWithSkinIrritants);
+        CheckRadioButton("rbtnWorkWithDengerousMachineryYes", "rbtnWorkWithDengerousMachineryNo", JobDemand.IsWorkWithDengerousMachinery)
+        model.IsWorkWithDengerousMachinery(JobDemand.IsWorkWithDengerousMachinery);
+        CheckRadioButton("rbtnNightWorkYes", "rbtnNightWorkNo", JobDemand.IsNightWork)
+        model.IsNightWork(JobDemand.IsNightWork);
+        CheckRadioButton("rbtnShiftWorkYes", "rbtnShiftWorkNo", JobDemand.IsShiftWork)
+        model.IsShiftWork(JobDemand.IsShiftWork);
+        CheckRadioButton("rbtnWorkInConfinedSpacesYes", "rbtnWorkInConfinedSpacesNo", JobDemand.IsWorkInConfinedSpaces)
+        model.IsWorkInConfinedSpaces(JobDemand.IsWorkInConfinedSpaces);
+        CheckRadioButton("rbtnWorkWithDustOrFumesYes", "rbtnWorkWithDustOrFumesNo", JobDemand.IsWorkWithDustOrFumes)
+        model.IsWorkWithDustOrFumes(JobDemand.IsWorkWithDustOrFumes);
+        CheckRadioButton("rbtnLiftOrCarryHeavyItemsYes", "rbtnLiftOrCarryHeavyItemsNo", JobDemand.IsLiftOrCarryHeavyItems)
+        model.IsLiftOrCarryHeavyItems(JobDemand.IsLiftOrCarryHeavyItems);
+        CheckRadioButton("rbtnWorkWithComputerOrScreensYes", "rbtnWorkWithComputerOrScreensNo", JobDemand.IsWorkWithComputerOrScreens)
+        model.IsWorkWithComputerOrScreens(JobDemand.IsWorkWithComputerOrScreens);
+        CheckRadioButton("rbtnWorkTowardsTagetOrPressuredsituationYes", "rbtnWorkTowardsTagetOrPressuredsituationNo", JobDemand.IsWorkTowardsTagetOrPressuredsituation)
+        model.IsWorkTowardsTagetOrPressuredsituation(JobDemand.IsWorkTowardsTagetOrPressuredsituation);
+        CheckRadioButton("rbtnWorkWithAdultOrChildrenYes", "rbtnWorkWithAdultOrChildrenNo", JobDemand.IsWorkWithAdultOrChildren)
+        model.IsWorkWithAdultOrChildren(JobDemand.IsWorkWithAdultOrChildren);
+        CheckRadioButton("rbtnHealthCareWorkerYes", "rbtnHealthCareWorkerNo", JobDemand.IsHealthCareWorker)
+        model.IsHealthCareWorker(JobDemand.IsHealthCareWorker);
+        CheckRadioButton("rbtnOccasionalOverseasTravelYes", "rbtnOccasionalOverseasTravelNo", JobDemand.IsOccasionalOverseasTravel)
+        model.IsOccasionalOverseasTravel(JobDemand.IsOccasionalOverseasTravel);
+        CheckRadioButton("rbtnOutsideWorkYes", "rbtnOutsideWorkNo", JobDemand.IsOutsideWork)
+        model.IsOutsideWork(JobDemand.IsOutsideWork);
+        CheckRadioButton("rbtnNoisedHarzardAreaYes", "rbtnNoisedHarzardAreaNo", JobDemand.IsNoisedHarzardArea)
+        model.IsNoisedHarzardArea(JobDemand.IsNoisedHarzardArea);
+        CheckRadioButton("rbtnHandlingFoodYes", "rbtnHandlingFoodNo", JobDemand.IsHandlingFood)
+        model.IsHandlingFood(JobDemand.IsHandlingFood);        
+        model.FreeText(JobDemand.FreeText);
+    }
+    else
+    {        
+        $("#rdbJobDemandNo").prop('checked', true);
+    }
+
+    
+
+    if(patient.HasLegalRep == "True" && Solicitor != null)
+    { 
+        model.SolicitorID(Solicitor.SolicitorID);
+        model.SolicitorCompanyName(Solicitor.CompanyName);
+        model.SolicitorAddress(Solicitor.Address);
+        model.SolicitorCity(Solicitor.City);
+        model.SolicitorRegion(Solicitor.Region);
+        model.SolicitorPhone(Solicitor.Phone);
+        model.SolicitorEmail(Solicitor.Email);
+        
+        model.SolicitorFirstName(Solicitor.FirstName);
+        model.SolicitorLastName(Solicitor.LastName);
+        model.SolicitorPostCode(Solicitor.PostCode);
+        model.SolicitorFax(Solicitor.Fax);
+        model.SolicitorReferenceNumber(Solicitor.ReferenceNumber);
+        model.IsReferralUnderJointInstruction = Solicitor.IsReferralUnderJointInstruction;
+    }
+    else{
+        //$('#NoPatientHasLegalRep').prop("checked", true);
+    }
+
+    model.ReferrerProjects = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.ReferrerProjects)));
+    model.ReferrerAssignedUsers = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.ReferrerAssignedUsers)));
+    model.ReferrerLocations = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.ReferrerLocations)));   
+    model.EmploymentTypes = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.EmploymentTypes)));
+    model.PolicyTypes = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.PolicyTypes)));
+    model.TypeCovers = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.TypeCovers)));
+    model.PolicyCriterias = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.PolicyCriterias)));
+    model.FitForWorks = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.FitForWorks)));
+    model.Admitteds = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Admitteds)));
+    model.Referrer = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Referrer)));
+    //var caseContacts = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.Referrer));
+    model.WorkTypes = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.WorkTypes));
+    model.RoleTypes = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.RoleTypes));
+    model.GenderTypes =  @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.GenderTypes)));
+    model.Reinsurers =  @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.Reinsurers)));
+    model.AdditionalTests = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.AdditionalTests)));
+    model.ReasonForReferral = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.ReasonForReferral)));
+    model.NetworkRailStandardApplicable = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.NetworkRailStandardApplicable)));
+    model.DrugTest = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize((Model.DrugTest)));
+    //self.CaseContacts.push(new CaseContact(ko.toJS(self.selectedContact())));
+
+    if(model.DrugTest != null)
+    {
+        $("#ddlNetworkRailStandardApplicable").val(model.DrugTest.NetworkRailStandardApplicableID);
+        $("#ddlReasonForReferral").val(model.DrugTest.ReasonForReferralID);
+        $("#txtSentinalNumber").val(model.DrugTest.SentinalNumber);        
+        $("#txtAdditionalTestOther").val(model.DrugTest.AdditionalTestOther);        
+        
+        if(model.DrugTest.IsSentinalUpdating) {        
+            $("#rbtnSentinelYes").attr('checked', true);
+            $("#divSentinalNumber").show();
+        }
+        else{        
+            $("#rbtnSentinelNo").attr('checked', true);
+            $("#divSentinalNumber").hide();
+        }
+
+        if (model.DrugTest.AdditionalTestID == 1) {
+            $("#divAdditionalTestOther").hide();
+        }
+        else {
+            $("#divAdditionalTestOther").show();
+        }
+        //------------------- additional test --------------------
+        if(model.DrugTest.AdditionalTestID){        
+        }
+        else{        
+            $("#divAdditionalTestOther").hide();
+        }
+
+        if(model.DrugTest.IsDrugAndAlcohalTest){
+            $("#rbtnDrugAlcohalYes").attr('checked', true);
+            $("#divDrugForm").slideDown();       
+        }
+        else{
+            $("#rbtnDrugAlcohalNo").attr('checked', true);
+            $("#divDrugForm").slideUp();
+        }
+    }
+
+    function rbtnSentinelYesClick()
+    {
+        $("#divSentinalNumber").show();
+    }
+
+    function rbtnSentinelNoClick()
+    {
+        $("#divSentinalNumber").hide();
+        $("#txtSentinalNumber").val('');        
+    }
+
+   
+    
+    function rbtnAdditionalClick(val)
+    {
+        if(val == 1){
+            
+            $("#divAdditionalTestOther").hide();
+            $("#txtAdditionalTestOther").val('');
+        }
+        else{
+            $("#divAdditionalTestOther").show();
+        }
+        return true;
+    }
+
+    function hideDrugForm()
+    {
+        $("#divDrugForm").slideUp();
+    }
+
+    function showDrugForm()
+    {
+        $("#divDrugForm").slideDown();
+    }
+    //----------------
+    ko.applyBindings(model);
+    if(cases.OfficeLocationID != null)
+    {
+        model.ReferrerLocationID(cases.OfficeLocationID);
+        model.ReferrerLocationID.subscribe();                
+    }
+    model.init();
+    calPatientAge();
+    $(":input").change(function(){
+        _isDirty = true;
+    });
+
+
+    function hideJobDemandForm()
+    {
+        $("#divJobDescription").slideUp();
+    }
+
+    function showJobDemandForm()
+    {
+        $("#divJobDescription").slideDown();
+    }
+    
+    window.onbeforeunload = function (e) {
+        if (_isDirty)
+            return 'Are you sure you wish to cancel this referral? Your changes will be lost.';
+    }
+
+    function postalCodeFormat(elem) {
+        var val2 = val1 = elem.value.replace(/ /g, '');
+        if (val1.length > 3) {
+            val1 = val1.substr(0, val1.length - 3);
+            elem.value = (val1 + ' ' + val2.substr(val1.length, val2.length));
+        }
+    }
+</script>

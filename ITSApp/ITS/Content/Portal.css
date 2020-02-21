@@ -1,0 +1,174 @@
+﻿
+
+/**************************************
+  Sheet Name      :  Portal.cs
+
+  Latest Version  : 1.2
+  Purpose         : Add *{font-family:Arial;font-size:13px;} line on the TOP of Stylesheet to Handle Layout Menus for The Internal Main Screen Page.
+
+  Author          : Robin Singh
+  Date            : 27-Oct-2012
+  Version         : 1.0
+  Description     : create Stylesheet To Design Internal Main Screen Page 
+
+  Version         : 1.1
+  Edited By       : Robin Singh
+  Date            : 29-Oct-2012
+  Description     : Update Stylesheet To Design Internal Main Screen Page 
+
+  Version         : 1.2
+  Edited By       : Robin Singh
+  Date            : 30-Oct-2012
+  Description     : Add *{font-family:Arial;font-size:13px;} line on the TOP of Stylesheet to Handle Layout Menus for The Internal Main Screen Page.
+                   
+**************************************/
+*{font-family:Arial;font-size:13px;}
+body, html
+{
+    width: 100%;
+    height: 100%;
+}
+
+.MsoNormalTable
+{
+}
+.MsoNormalTable td
+{
+    padding: 5px;
+    border: 1px solid #000;
+}
+.NormaltableGreen
+{
+    width: 153;
+    border: none;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+}
+.TableTypeHeader
+{
+    width: 253px;
+    height: 9px;
+    vertical-align: top;
+    text-align: left;
+    padding-left: 10px;
+    border-top: none;
+    background: #74B230;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+}
+.TablesumarryHeader
+{
+    width: 557px;
+    height: 5px;
+    border-top: none;
+    border-left: none;
+    background: #74B230;
+}
+
+.link
+{
+    width: 189.5pt;
+    border-top: none;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    text-align: left;
+    margin-left: 10px;
+    color: Green;
+    text-decoration: none;
+}
+.link a
+{
+    width: 189.5pt;
+    border-top: none;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    text-align: left;
+    margin-left: 10px;
+    color: Blue;
+    text-decoration: none;
+}
+.link a:hover
+{
+    width: 189.5pt;
+    border-top: none;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    color: Blue;
+    text-decoration: none;
+}
+
+.link a:visited
+{
+    width: 189.5pt;
+    border-top: none;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    color: Blue;
+    text-decoration: none;
+}
+.linksummarynormal15
+{
+    width: 417.5pt;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    text-align: left;
+    margin-left: 10px;
+}
+.link_forbackcolor
+{
+    width: 189.5pt;
+    background: #C2D69B;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    text-align: left;
+    margin-left: 10px;
+    color: Blue;
+    text-decoration: none;
+}
+.link_forbackcolor a
+{
+    width: 189.5pt;
+    background: #C2D69B;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    text-align: left;
+    margin-left: 10px;
+    color: Blue;
+    text-decoration: none;
+}
+.link_forbackcolor a :hover
+{
+    width: 189.5pt;
+    background: #C2D69B;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    text-align: left;
+    margin-left: 10px;
+    color: Blue;
+    text-decoration: none;
+}
+.link_forbackcolor a :visited
+{
+    width: 189.5pt;
+    background: #C2D69B;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    text-align: left;
+    margin-left: 10px;
+    color: Blue;
+    text-decoration: none;
+}
+.TablesummarybycoorC2D69B
+{
+    width: 417.5pt;
+    background: #C2D69B;
+    padding: 0cm 5.4pt 0cm 5.4pt;
+    text-align: left;
+    margin-left: 10px;
+}
+.horizontalLine
+{
+    background-color: #CDCDCD;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.headertext
+{
+    height: 20px;
+    padding-top: 30px;
+    text-align: center;
+}
+.paddingbytop
+{
+    border: 0px;
+    padding-top: 20px;
+}

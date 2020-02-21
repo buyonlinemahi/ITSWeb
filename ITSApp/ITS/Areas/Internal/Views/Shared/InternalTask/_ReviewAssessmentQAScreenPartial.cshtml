@@ -1,0 +1,611 @@
+﻿<link href="@Url.Content("~/Content/ReviewAssessmentQAScreenPartial.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/ReviewAssessmentQAScreenViewModel.js")" type="text/javascript"></script>
+<div id="divReviewAssessmentQAScreenPartialScreen">
+    <form>
+    <div class="divWraperOuter">
+        <div class="divWraperInner">
+            <div id="firstOne">
+                <div class="divHeader">
+                    Review Assessment Report QA
+                </div>
+                <div class="divHeaderRow" style="text-align: right;">
+                    <a href="#">View QA Guidelines</a>
+                </div>
+                <div class="divHeaderRow">
+                    Demographic Information
+                </div>
+                <div id="Logic" style="height: auto; border: 1px solid; height: 265px;">
+                    <div class="divDemographicInformation">
+                        <div class="divDemographicInformationCellLeft">
+                            Patient Name:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                        <div class="divDemographicInformationCellLeft">
+                            Date of Birth:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                    </div>
+                    <div class="divDemographicInformation">
+                        <div class="divDemographicInformationCellLeft">
+                            Patient Post Code:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                        <div class="divDemographicInformationCellLeft">
+                            ITS Reference Number:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                    </div>
+                    <div class="divDemographicInformation">
+                        <div class="divDemographicInformationCellLeft">
+                            Referrer Reference Number:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                        <div class="divDemographicInformationCellLeft">
+                            Clinic Name:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                    </div>
+                    <div class="divDemographicInformation">
+                        <div class="divDemographicInformationCellLeft">
+                            Clinic Post Code:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                        <div class="divDemographicInformationCellLeft">
+                            Clinic Telephone Number:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                    </div>
+                    <div class="divDemographicInformation">
+                        <div class="divDemographicInformationCellLeft">
+                            Practitioner Name:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                        <div class="divDemographicInformationCellLeft">
+                            <span class="RequiredSpan">*</span> Assessment Date:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                    </div>
+                    <div class="divDemographicInformation">
+                        <div class="divDemographicInformationCellLeft">
+                            <span class="RequiredSpan">*</span>Final Assessment Date:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                        <div class="divDemographicInformationCellLeft">
+                            <span class="RequiredSpan">*</span> Total Sessions:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                    </div>
+                    <div class="divDemographicInformation">
+                        <div class="divDemographicInformationCellLeft">
+                            <span class="RequiredSpan">*</span>Total Cost:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                        <div class="divDemographicInformationCellLeft">
+                            <span class="RequiredSpan">*</span>Cycle Time:
+                        </div>
+                        <div class="divDemographicInformationCellRight">
+                            <input type="text" class="InputTextEntry" />
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 30px;">
+                    <b><span>Patient Consent</span></b>
+                </div>
+                <div>
+                    <div style="border: 1px solid; height: 30px; float: left; width: 49%; padding-left: 5px;">
+                        <span class="RequiredSpan">*</span>Has the Patient Completed a Consent Form?
+                    </div>
+                    <div style="border: 1px solid; height: 30px; float: left; width: 50%;">
+                        <input type="text" />
+                    </div>
+                </div>
+                <div style="height: 30px; margin-top: 35px;">
+                    <b><span style="padding-top: 10px;">Injury and Symptom Details</span></b>
+                </div>
+                <div style="height: 25px; text-align: center; background-color: #74B030;">
+                    <div style="border: 1px solid; height: 25px; float: left; width: 55%; padding-left: 5px;">
+                        The patient Describes their current symptoms as:
+                    </div>
+                    <div style="border: 1px solid; height: 25px; float: left; width: 44%;">
+                        The range of movement in the above areas affected as follows:
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkRowCellLeft">
+                        <div class="divImpactonWorkRowCell">
+                            <span class="RequiredSpan">*</span>Affected Area
+                        </div>
+                        <div class="divImpactonWorkRowCell">
+                            <span class="RequiredSpan">*</span>Pain Score (Out of 10)
+                        </div>
+                    </div>
+                    <div class="divImpactonWorkRowCellRight">
+                        <span class="RequiredSpan">*</span>Restriction – As a % of full movement
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkRowCellLeft">
+                        <div class="divImpactonWorkRowCell">
+                            <input type="text" />
+                        </div>
+                        <div class="divImpactonWorkRowCell">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <div class="divImpactonWorkRowCellRight">
+                        <input type="text" />
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkRowCellLeft">
+                        <div class="divImpactonWorkRowCell">
+                            <input type="text" />
+                        </div>
+                        <div class="divImpactonWorkRowCell">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <div class="divImpactonWorkRowCellRight">
+                        <input type="text" />
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkRowCellLeft">
+                        <div class="divImpactonWorkRowCell">
+                            <input type="text" />
+                        </div>
+                        <div class="divImpactonWorkRowCell">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <div class="divImpactonWorkRowCellRight">
+                        <input type="text" />
+                    </div>
+                </div>
+                <div style="height: 30px; margin-top: 35px;">
+                    <b>Impact on Work</b>
+                </div>
+                <div style="height: 25px; background-color: #74B030;">
+                    <div style="border: 1px solid; height: 25px; float: left; width: 484px; padding-left: 5px;">
+                        <span class="RequiredSpan">* </span>The patient is currently:
+                    </div>
+                    <div style="border: 1px solid; height: 25px; float: left; width: 484px; padding-left: 5px;">
+                        <span class="RequiredSpan">* </span>If Employed, the patient is currently working
+                        at:
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkColumn">
+                        Employed
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        Full Capacity
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkColumn">
+                        Self – Employed
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        Reduced Hours
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkColumn">
+                        Unemployed
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        Light Duties
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkColumn">
+                        Student
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        Unable to Work
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divImpactonWorkRow">
+                    <div class="divImpactonWorkColumn">
+                        Retired
+                    </div>
+                    <div class="divImpactonWorkColumn">
+                        <input type="radio" />
+                    </div>
+                </div>
+            </div>
+            <div id="second">
+                <div class="clear">
+                </div>
+                <div class="divImp-per-life">
+                    Impact on Personal Life
+                </div>
+                <div class="divImp-per-life-sim">
+                    <span class="RequiredSpan">*</span> The patient’s lifestyle is restricted in the
+                    following ways:
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        Slight
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        Moderate
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        Severe
+                    </div>
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                        Sleep
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                        Activities of Daily Living
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                        Sports and Hobbies
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divImp-per-life">
+                    Psychological Factors
+                </div>
+                <div class="divImp-per-life-sim">
+                    <span class="RequiredSpan">*</span>The patient demonstrates the following psychological
+                    factors:
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                        Red Flags
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                        Yellow Flags
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                        Blue Flags
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                        Black Flags
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="divpat-Life-sty-row">
+                    <div class="divpat-Life-sty-clmn divpat-Life-sty-clmnLeft">
+                        Pink Flags
+                    </div>
+                    <div class="divpat-Life-sty-clmn">
+                        <input type="radio" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divImp-per-life-sim">
+                    If so, please detail:
+                </div>
+                <div>
+                    <textarea class="divPsy-De-txtb"></textarea>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divpat-exp">
+                    <div class="divpat-exp-clmn">
+                        <span class="RequiredSpan">*</span> Has the patient experienced similar symptoms
+                        in the past?</div>
+                    <div class="divpat-exp-clmn">
+                        <input type="text" style="width: 400px" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divpat-exp">
+                    <div class="divpat-exp-clmn">
+                        <span class="RequiredSpan">*</span> HIs the patient undergoing any treatment at
+                        present?</div>
+                    <div class="divpat-exp-clmn">
+                        <input type="text" style="width: 400px" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divImp-per-life-sim">
+                    If so, please detail:
+                </div>
+                <div>
+                    <textarea class="divPsy-De-txtb"></textarea>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divImp-per-life">
+                    Prognosis
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divpat-exp">
+                    <div class="divpat-exp-clmn">
+                        <span class="RequiredSpan">*</span>With treatment, how many months do you anticipate
+                        it will take the patient to reach full recovery?</div>
+                    <div class="divpat-exp-clmn">
+                        <input type="text" style="width: 400px" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divpat-exp">
+                    <div class="divpat-exp-clmn">
+                        <span class="RequiredSpan">*</span>How many sessions of treatment do you recommend?</div>
+                    <div class="divpat-exp-clmn">
+                        <input type="text" style="width: 400px" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divpat-exp">
+                    <div class="divpat-exp-clmn">
+                        <span class="RequiredSpan">*</span>With treatment, what percentage of recovery do
+                        you anticipate the patient achieving?</div>
+                    <div class="divpat-exp-clmn">
+                        <input type="text" style="width: 400px" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divpat-exp">
+                    <div class="divpat-exp-clmn">
+                        <span class="RequiredSpan">*</span>Has the patient been provided with a home exercise
+                        programme?</div>
+                    <div class="divpat-exp-clmn">
+                        <input type="text" style="width: 400px" />
+                    </div>
+                </div>
+            </div>
+            <div id="ThirdScreen">
+                <div class="clear">
+                </div>
+                <div class="divImp-per-life">
+                    Additional Information
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divImp-per-life-sim">
+                    If so, please detail:
+                </div>
+                <div>
+                    <textarea style="width: 950px; height: 100px;"></textarea>
+                </div>
+                <div class="divImp-per-life-sim">
+                    Rating Score:
+                    <input type="text" />
+                </div>
+                <div style="text-align: right; float: right; padding-right: 80px;">
+                    <input type="submit" value="Print" />
+                </div>
+                <div class="divImp-per-life">
+                    Further Treatment Recommended
+                </div>
+                <div class="divImp-per-life-sim">
+                    (Fill from “How Many Sessions of Treatment do you Recommend?”)
+                </div>
+                <div class="divfut-treat-rec divfut-treat-rec-color">
+                    <div class="divfut-treat-rec-clmn" style="width: 280px;">
+                        Treatment Type
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 272px;">
+                        Referrer Price
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 180px;">
+                    </div>
+                </div>
+                <div class="divfut-treat-rec ">
+                    <div class="divfut-treat-rec-clmn" style="width: 280px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 272px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 180px;">
+                        <a href="#">Delete</a>
+                    </div>
+                </div>
+                <div class="divfut-treat-rec ">
+                    <div class="divfut-treat-rec-clmn" style="width: 280px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 272px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 180px;">
+                        <a href="#">Delete</a>
+                    </div>
+                </div>
+                <div class="divfut-treat-rec ">
+                    <div class="divfut-treat-rec-clmn" style="width: 280px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 272px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 180px;">
+                        <a href="#">Delete</a>
+                    </div>
+                </div>
+                <div class="divfut-treat-rec ">
+                    <div class="divfut-treat-rec-clmn" style="width: 280px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 272px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 180px;">
+                        <a href="#">Delete</a>
+                    </div>
+                </div>
+                <div class="divfut-treat-rec ">
+                    <div class="divfut-treat-rec-clmn" style="width: 280px;">
+                        <select style="width: 250px;">
+                            <option>a</option>
+                        </select>
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 272px;">
+                        <input type="text" style="width: 250px;" />
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 180px;">
+                        <a href="#">Add</a>
+                    </div>
+                </div>
+                <div class="divfut-treat-rec ">
+                    <div class="divfut-treat-rec-clmn" style="width: 280px;">
+                        <div style="width: 150px; float: left;">
+                            Delegated Authority:
+                        </div>
+                        <div style="width: 100px; border-left: 1px solid; float: left;">
+                        </div>
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 272px; text-align: right;">
+                        Treatment Total:
+                    </div>
+                    <div class="divfut-treat-rec-clmn" style="width: 180px;">
+                        &
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="divImp-per-life-sim">
+                    <input type="submit" value="Add Bespoke Treatment" />
+                </div>
+                <div style="text-align: right; float: right; padding-right: 40px;">
+                    <input type="radio">Accept</input>
+                    <input type="radio">Reject</input>
+                </div>
+                <div class="divImp-per-life-sim">
+                    <span class="RequiredSpan">* This field will appear after “Accept” has been clicked.</span>
+                </div>
+                <div class="divImp-per-life-sim">
+                    Email to Referrer Include Review Assessment Report?
+                    <input type="checkbox" />
+                </div>
+                <div>
+                    <textarea style="width: 950px; height: 100px;"></textarea>
+                </div>
+                <div class="divImp-per-life-sim">
+                    <span class="RequiredSpan">* *This field will appear after “Reject” has been clicked.</span>
+                </div>
+                <div class="divImp-per-life-sim">
+                    Message to Supplier
+                </div>
+                <div>
+                    <textarea style="width: 950px; height: 100px;"></textarea>
+                </div>
+                <div style="text-align: right; float: right; padding: 10px;">
+                    <input type="submit" value="Amend" />
+                    <input type="submit" value="Save" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+ </div> 

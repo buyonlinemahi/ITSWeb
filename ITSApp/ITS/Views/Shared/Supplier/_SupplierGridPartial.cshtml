@@ -1,0 +1,41 @@
+﻿@*@model ITS.Domain.Models.SupplierSearch*@
+<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Supplier Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Post Code
+            </th>
+            <th>
+                Date Added
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:Suppliers">
+        <tr>
+            <td>
+                <a data-bind="attr: { href: '/Supplier/Detail/' + SupplierID() }">
+                          View</a>
+            </td>
+            <td data-bind="text:SupplierName">
+            </td>
+            <td data-bind="text:Address">
+            </td>
+            <td data-bind="text:PostCode">
+            </td>
+            <td data-bind="text:DateAdded">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@* @Html.Partial("~/Views/Shared/_Paging.cshtml")*@
+

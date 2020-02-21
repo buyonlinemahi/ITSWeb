@@ -1,0 +1,117 @@
+﻿@model ITS.Domain.ViewModels.InternalTasksViewModel.InternalTaskIndexViewModel
+@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+@{
+    ViewBag.Title = "Internal Task";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Internal Task</h1>
+}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12" id="divInternalTask">
+            @using (Html.BeginForm(GlobalConst.Actions.InternalTasksController.GetCaseCountByTreatmentCategoryID, GlobalConst.Controllers.InternalTasks, FormMethod.Post, new
+            {
+                @class = "form-horizontal",
+                id = "frmReferralsCount",
+                encript = "multipart/form-data",
+
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateCountGrid(responseText, statusText, xhr, $form); } }"
+            }))
+            {
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Seacrh Criteria
+                        </h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <div class="control-group">
+                            <div class="column-margin">
+                                <div class="column-groups span1">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="5" data-bind="event:{change:$root.SelectedTreatment},checked:TreatmentCategoryID,jqBootstrapValidation: {} " />All</label>
+                                </div>
+                                <div class="column-groups span2">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="1" data-bind="event:{change:$root.SelectedTreatment},checked:TreatmentCategoryID,jqBootstrapValidation: {} " />
+                                        All Physiotherapy</label>
+                                </div>
+                                <div class="column-groups span2">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="2" data-bind="event:{change:$root.SelectedTreatment},checked:TreatmentCategoryID,jqBootstrapValidation: {} " />
+                                        All Psychological
+                                    </label>
+                                </div>
+                                <div class="column-groups span2">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="3" data-bind="event:{change:$root.SelectedTreatment},checked:TreatmentCategoryID,jqBootstrapValidation: {} " />
+                                        All Diagnostic
+                                    </label>
+                                </div>
+                                <div class="column-groups span2">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="4" data-bind="event:{change:$root.SelectedTreatment},checked:TreatmentCategoryID,jqBootstrapValidation: {} " />
+                                        All Special Services
+                                    </label>
+                                </div>
+                                <div class="clear">
+                                </div>
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Referral Received</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped table-hover sortable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Type
+                                    </th>
+                                    <th>
+                                        Summary of Tasks
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:caseWorkflowCount">
+                                <tr>
+                                    <td>
+                                        <a data-bind="text:Description,attr: { href:'/InternalTasks/SelectedInternalTask?selectedType='+Description() }">
+                                        </a>
+                                    </td>
+                                    <td class="text-center" data-bind="text:CaseCount">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/InternalTask/InternalTaskViewModel.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var internalTaskViewModel = new InternalTaskViewModel(model);
+        ko.applyBindings(internalTaskViewModel, $("#divInternalTask").get(0));
+        
+        function UpdateCountGrid(responseText, statusText, xhr, $form){
+        internalTaskViewModel.UpdateGrid(responseText);
+        };
+       
+    </script>
+}

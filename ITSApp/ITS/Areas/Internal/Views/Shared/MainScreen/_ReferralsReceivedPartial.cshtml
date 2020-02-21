@@ -1,0 +1,77 @@
+﻿@*<div class="reffer-task" style="margin-top: 10px;">
+    Referrals Received:
+</div>*@
+<div id="DivReferrer">
+    <div id="DivHeading">
+        Referrals Recived:</div>
+    <div>
+        <div class="location-frame">
+            <div class="location-frame-row">
+                <div class="location-frame--row-cellHeading" style="width: 6.0%; height: 17px;">
+                    Due Date
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 16.5%; height: 17px;">
+                    Case Number
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 9.2%; height: 17px;">
+                    Patient Name
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 12.9%; height: 30px; padding: 6.5px">
+                    Referrer Reference Number
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 11%; height: 17px;">
+                    Treatment Type
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 8.2%; height: 17px;">
+                    Project
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 8.2%; height: 17px;">
+                    Referrer
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 9.0%; height: 34px; padding: 4.5px">
+                    View Referral
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="location-frame-row" data-bind="template: {name:'CasesGrid',foreach:Cases}">
+            </div>
+        </div>
+        <div class="clear" style="height: 10px;">
+        </div>
+        @Html.Partial("~/Views/Shared/_Paging.cshtml")
+    </div>
+    <script id="CasesGrid" type="text/html">
+    <div class="row-color">
+        <div class="location-frame--row-cell" style=" width: 6.2%">
+            <span data-bind="text:CaseReferrerDueDate"></span>
+            
+        </div>
+        <div class="location-frame--row-cell" style=" width: 16.5%">
+            <a href="#" data-bind="text:CaseNumber,attr:{href:ActionUrl}" id="CaseNumberAnchor" ></a>
+        </div>
+        <div class="location-frame--row-cell" style=" width: 9.2%">
+            <span data-bind="text:FirstName() + ' ' + LastName()"></span>
+        </div>
+        <div class="location-frame--row-cell " style=" width: 11.9%">
+            <span data-bind="text:CaseReferrerReferenceNumber"></span>
+        </div>
+        <div class="location-frame--row-cell" style=" width: 11%">
+            <span data-bind="text:TreatmentTypeName"></span>
+        </div>
+        <div class="location-frame--row-cell" style="width: 8.2%">
+            <span data-bind="text:ProjectName"></span>
+        </div>
+        <div class="location-frame--row-cell" style=" width: 8.2%">
+            <span data-bind="text:ReferrerName"></span>
+        </div>
+        <div class="location-frame--row-cell " style="width:7.5%;">            
+            <a  href="#" data-bind="attr:{href:ReferralDownloadPath}">View</a>
+        </div>
+        </div>
+    <div class="clear">
+    </div>
+    </script>
+    <div id="AcceptAndRefPopUp">
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ITSService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Invoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsComplete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Invoice" nillable="true" type="tns:Invoice" />
+  <xs:complexType name="PagedCaseInvoicePatientReferrer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseInvoicePatientReferrer" nillable="true" type="tns:ArrayOfCaseInvoicePatientReferrer" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedCaseInvoicePatientReferrer" nillable="true" type="tns:PagedCaseInvoicePatientReferrer" />
+  <xs:complexType name="ArrayOfCaseInvoicePatientReferrer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaseInvoicePatientReferrer" nillable="true" type="tns:CaseInvoicePatientReferrer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaseInvoicePatientReferrer" nillable="true" type="tns:ArrayOfCaseInvoicePatientReferrer" />
+  <xs:complexType name="CaseInvoicePatientReferrer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseID" type="xs:int" />
+      <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseReferrerReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceActualAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="InvoiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OutstandingAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerContactFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerContactLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferrerMainContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerMainContactPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalAmountReceived" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseInvoicePatientReferrer" nillable="true" type="tns:CaseInvoicePatientReferrer" />
+  <xs:complexType name="ArrayOfInvoiceCollectionActionUserName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceCollectionActionUserName" nillable="true" type="tns:InvoiceCollectionActionUserName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceCollectionActionUserName" nillable="true" type="tns:ArrayOfInvoiceCollectionActionUserName" />
+  <xs:complexType name="InvoiceCollectionActionUserName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateofAction" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FollowUpDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceCollectionActionID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceCollectionActionUserName" nillable="true" type="tns:InvoiceCollectionActionUserName" />
+  <xs:complexType name="ArrayOfInvoicePaymentUserName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoicePaymentUserName" nillable="true" type="tns:InvoicePaymentUserName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoicePaymentUserName" nillable="true" type="tns:ArrayOfInvoicePaymentUserName" />
+  <xs:complexType name="InvoicePaymentUserName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdjustedPayment" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BACS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoicePaymentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoicePaymentID" type="xs:int" />
+      <xs:element minOccurs="0" name="Payment" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoicePaymentUserName" nillable="true" type="tns:InvoicePaymentUserName" />
+  <xs:complexType name="InvoiceCollectionAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateofAction" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FollowUpDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceCollectionActionID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceCollectionAction" nillable="true" type="tns:InvoiceCollectionAction" />
+  <xs:complexType name="InvoicePayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdjustedPayment" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BACS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoicePaymentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoicePaymentID" type="xs:int" />
+      <xs:element minOccurs="0" name="Payment" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoicePayment" nillable="true" type="tns:InvoicePayment" />
+</xs:schema>

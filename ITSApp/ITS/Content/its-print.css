@@ -1,0 +1,36 @@
+﻿
+*
+{
+    font: 11px Georgia, "Times New Roman" , Times, serif;
+    background: transparent;
+}
+#sidebar
+{
+    display: none;
+}
+#content
+{
+    padding: 0 10px 0 0;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#user-nav
+{
+    display: none;
+}
+#header
+{
+    display: none;
+}
+tr, td, th
+{
+    page-break-inside: avoid;
+}
+thead
+{
+    display: table-header-group;
+}
+a:link:after, a:visited:after {
+    content: "";
+}
+

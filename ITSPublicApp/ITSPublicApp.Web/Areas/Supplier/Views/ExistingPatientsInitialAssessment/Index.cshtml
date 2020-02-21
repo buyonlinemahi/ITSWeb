@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Existing Patients Initial Assessment";
+}
+@section SupplierMainTabs
+{
+   
+}
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/ExistingPatientsInitialAssessmentViewModel.js")"
+    type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/its-main.css")"/>
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+<script>
+    var config = {
+        NoInitialAssessmentFound: '@ITSPublicApp.Infrastructure.Global.GlobalResource.NoInitialAssessmentFound'
+    };
+
+    $(function () {
+        var vm = new ExistingPatientsInitialAssessmentViewModel(config);
+        ko.applyBindings(vm, $("#DivExistingPatientsInitialAssesment").get(0));
+        vm.init();
+    });
+</script>
+<div id="DivExistingPatientsInitialAssesment">
+     <div id="pettabs" class="indentmenu-2">
+        <ul>
+            <li>@Html.ActionLink("NEW PATIENTS", "Index", "NewPatients") <span data-bind="text:NewPatientCount" id="NewPatientCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("EXISTING PATIENTS INITIAL ASSESSMENT", "Index", "ExistingPatientsInitialAssessment", null, new { @class = "selected" }) <span data-bind="text:ExistingPatientsInitialAssessmentCount" id="ExistingPatientsInitialAssessmentCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("EXISTING PATIENTS NEXT ASSESSMENT", "Index", "ExistingPatientsNextAssessment") <span data-bind="text:ExistingPatientsNextAssessmentCount" id="ExistingPatientsNextAssessmentCount" class="icon-bg"> </span> </li>
+            <li>@Html.ActionLink("AUTHORISATION", "Index", "Authorisation")  <span data-bind="text:AuthorisationCount" id="AuthorisationCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("STOPPED CASES", "Index", "StoppedCases") <span data-bind="text:StoppedCaseCount" id="StoppedCaseCount" class="icon-bg"> </span></li>
+            <li>@Html.ActionLink("CASE SEARCH", "Index", "CaseSearch") <span class="icon-bg-1" > </span></li>
+        </ul>
+        <br style="clear: left" />
+    </div>
+<div id="divGridDisplaySpinner" style="position: absolute; top: 50%; left: 50%">
+    <div id="divGridDisplay">
+    </div>
+</div>
+<div class="ITS-ref-table">
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    View Attachment
+                </td>
+                <td>
+                    Patient Name
+                </td>
+                <td>
+                    Case Number
+                </td>
+                <td>
+                    Current Status
+                </td>
+                <td>
+                    IA Date
+                </td>
+                <td>
+                    Next Status
+                </td>
+                <td>
+                    Print
+                </td>
+                <td>
+                    View Uploads
+                </td>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: SupplierCasePatients">
+            <tr>
+                <td>
+                    <!--ko if:IsFileExist-->
+                        <a href="#" data-bind="attr: { href: ReferralDownloadPath }">View</a>
+                    <!--/ko-->
+                </td>
+                <td data-bind="text:Fullname">
+                </td>
+                <td data-bind="text:CaseNumber">
+                </td>
+                <td data-bind="text:Status">
+                </td>
+                <td data-bind="text:strInitialAssessmentDate">
+                </td>
+                <td>
+                    <a href="#" data-bind="click:$parent.Update, text:NextStatus"></a>
+                </td>
+                <td>
+                    <!--ko if:IsCustom-->
+                    <a data-bind="attr: { 'href': '@Url.Action("Download", "ExistingPatientsInitialAssessment")?_caseID='+EncryptedCaseID}"> Blank IA </a>
+                    <!--/ko-->
+                    <!--ko ifnot:IsCustom-->
+                        <a href="#" target="_blank" data-bind="click:$parent.PrinBlankIA">Blank IA</a>
+                    <!--/ko-->
+                </td>
+                <td>
+                     <a href="#"  data-bind="click:$root.PressBtnViewUploads" role="button" data-toggle="modal">View Uploads</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pull-right ">
+  <input type="hidden" id="btnUploadDoc" class="btn-its" />
+</div>
+<div id="message-div" data-bind="text:Message">
+</div>
+  <div id="divUploadModal" class="modal">
+ <div class="modal-content-supplier">
+            <span>Upload</span>
+            <span class="close">&times;</span>
+            <table id="tblRefDocForm" class="table-style1">
+                @Html.Partial("../Shared/_CaseUploads");  
+            </table>
+        </div>
+</div>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('divUploadModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("btnUploadDoc");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+        $("#tblRefDocForm :input").val('');
+    }
+
+</script>

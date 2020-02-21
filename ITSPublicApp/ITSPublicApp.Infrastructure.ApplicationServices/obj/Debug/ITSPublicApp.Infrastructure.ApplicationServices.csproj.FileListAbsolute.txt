@@ -1,0 +1,10 @@
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\bin\Debug\ITSPublicApp.Infrastructure.ApplicationServices.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\bin\Debug\ITSPublicApp.Infrastructure.ApplicationServices.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\bin\Debug\BCrypt.Net.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\bin\Debug\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\bin\Debug\ITSPublicApp.Infrastructure.Global.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\bin\Debug\ITSPublicApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\bin\Debug\ITSPublicApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\obj\Debug\ITSPublicApp.Infrastructure.ApplicationServices.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\obj\Debug\ITSPublicApp.Infrastructure.ApplicationServices.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationServices\obj\Debug\ITSPublicApp.Infrastructure.ApplicationServices.pdb

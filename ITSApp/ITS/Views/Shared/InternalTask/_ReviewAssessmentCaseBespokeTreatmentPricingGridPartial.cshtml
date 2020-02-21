@@ -1,0 +1,51 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Bespoke Treatment Type
+            </th>
+            <th>
+                Referrer Price
+            </th>
+            <th>
+                Supplier Price
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--ko foreach:CaseBespokeServicePricingRows-->
+        <tr>
+            <td>
+                <span data-bind="text: BespokeServiceName"></span>
+                <input type="hidden" data-bind="attr: { name : 'CaseBespokeServicePricings['+ $index() + '].TreatmentCategoryBespokeServiceID' },value: TreatmentCategoryBespokeServiceID" />
+            </td>
+            <td>
+                <span data-bind="text: ReferrerPrice"></span>
+                <input type="hidden" data-bind="attr: { name : 'CaseBespokeServicePricings['+ $index() + '].ReferrerPrice' },value: ReferrerPrice" />
+            </td>
+            <td>
+                <span data-bind="text: SupplierPrice"></span>
+                <input type="hidden" data-bind="attr: { name : 'CaseBespokeServicePricings['+ $index() + '].SupplierPrice' },value: SupplierPrice" />
+            </td>
+            <td>
+                <a href="" data-bind="click: function(){ $data.remove(); }">delete</a>
+            </td>
+        </tr>
+        <!--/ko-->
+    </tbody>
+    <tfoot>
+        <!--ko if: CaseBespokeServicePricingRows().length == 0 -->
+        <tr>
+            <td colspan="3">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    Case Bespoke Service Treatment Pricng Grid Empty
+                </div>
+            </td>
+        </tr>
+        <!-- /ko -->
+    </tfoot>
+</table>

@@ -1,0 +1,164 @@
+﻿
+@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+@{
+    ViewBag.Title = "Case Stopped";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Case Stopped</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action(GlobalConst.Actions.InternalTasksController.Index, GlobalConst.Controllers.InternalTasks)" title="Go to Home" class="tip-bottom">
+        <i class="icon-home"></i>Internal Tasks</a><a href="#" class="tip-bottom">Case Stopped</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12" id="divCaseStopped">
+            @using (Html.BeginForm(GlobalConst.Actions.CaseStopController.GetCaseStopped, GlobalConst.Controllers.CaseStop, FormMethod.Post, new
+            {
+                area = "",
+                @class = "form-horizontal",
+                id = "frmCaseStopped",
+                encript = "multipart/form-data",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateCaseStopGrid(responseText, statusText, xhr, $form); } }"
+            }))
+            {
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Treatment Categories
+                        </h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <div class="control-group">
+                            <div class="column-margin">
+                                <div class="column-groups span1">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="5" data-bind="checked:TreatmentCategoryID,event: { change:TreatmentCategoryIDChange}" />All</label>
+                                </div>
+                                <div class="column-groups span2">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="1" data-bind="event:{change:TreatmentCategoryIDChange}" />
+                                        All Physiotherapy</label>
+                                </div>
+                                <div class="column-groups span2">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="2" data-bind="event:{change:TreatmentCategoryIDChange}" />
+                                        All Psychological
+                                    </label>
+                                </div>
+                                <div class="column-groups span2">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="3" data-bind="event:{change:TreatmentCategoryIDChange}" />
+                                        All Diagnostic
+                                    </label>
+                                </div>
+                                <div class="column-groups span2">
+                                    <label>
+                                        <input type="radio" name="TreatmentCategoryID" value="4" data-bind="event:{change:TreatmentCategoryIDChange} " />
+                                        All Special Services
+                                    </label>
+                                </div>
+                                <div class="clear">
+                                </div>
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--ko if: TotalItemCount() > 0 -->
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>
+                            Case Stopped
+                        </h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped table-hover sortable">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>
+                                        Date Recieved
+                                    </th>
+                                    <th>
+                                        Case Number
+                                    </th>
+                                    <th>
+                                        Patient Name
+                                    </th>
+                                    <th>
+                                        Referrer Reference Number
+                                    </th>
+                                    <th>
+                                        Treatment Type
+                                    </th>
+                                    <th>
+                                        Referrer
+                                    </th>
+                                </tr>
+                            </thead>
+                       
+                            <tbody data-bind="foreach:CaseWorkflowPatientReferrerProjects">
+                                <tr>
+                                   
+                                    <td data-bind="text:CaseSubmittedDate">
+                                       
+                                    </td>
+                                  <td data-bind="text:CaseNumber">
+                                    </td>
+                                    <td>
+                                        <a data-bind="attr:{href:ActionUrl}"><span data-bind="text:FirstName() + ' ' + LastName()"></span></a>
+                                    </td>
+                                    <td data-bind="text:CaseReferrerReferenceNumber">
+                                        
+                                    </td>
+                                    <td data-bind="text:TreatmentTypeName">
+                                        
+                                    </td>
+                                    <td data-bind="text:ReferrerName">
+                                      
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /ko -->
+                <!--ko if: TotalItemCount() == 0 -->
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    No Results Found
+                </div>
+                <!-- /ko -->
+                <div>
+                    <input type="hidden" name="Skip" data-bind="value:Skip" />
+                    <input type="hidden" name="Take" data-bind="value:Take" />
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/CaseStop/CaseStopViewModel.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var caseStopViewModel = new CaseStopViewModel();
+        ko.applyBindings(caseStopViewModel, $("#divCaseStopped").get(0));
+        caseStopViewModel.Init(model);
+
+        function UpdateCaseStopGrid(responseText, statusText, xhr, $form) {
+            caseStopViewModel.Init($.parseJSON(responseText));
+        };
+
+    </script>
+}

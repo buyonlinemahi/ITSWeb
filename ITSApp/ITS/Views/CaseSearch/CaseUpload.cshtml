@@ -1,0 +1,112 @@
+﻿@model IEnumerable<ITS.Domain.Models.CaseSearch.CaseDocumentUser>
+
+@{
+    ViewBag.Title = "Case Upload";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+@section ContentHeader{
+    <h1>
+        Case Upload</h1>
+}
+    @section AdditionalScripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/CaseSearch/CaseUploadViewModel.js")"   type="text/javascript"></script>
+            <script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/knockout/viewmodel/shared/CaseSearch/AddCaseUploadsViewModel.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+
+        var caseUploadViewModel = new CaseUploadViewModel();  
+        caseUploadViewModel.Init(model);          
+        ko.applyBindings(caseUploadViewModel, $("#divCaseUpload").get(0));
+
+        var addCaseUploadsViewModel = new AddCaseUploadsViewModel(@ViewBag.CaseID);
+        ko.applyBindings(addCaseUploadsViewModel, $("#divAddCaseUploads").get(0));
+
+       
+        function AddCaseUploadsFormSuccess(responseText, statusText, xhr, $form) {
+            caseUploadViewModel.AddCaseUploads(responseText);
+            $("#divAddCaseUploads").modal('hide');
+        }
+
+        
+    </script>
+}
+ @Html.Partial("CaseSearch/_AddCaseUploadsPartial")
+<div id="divCaseUpload">
+    @using (Html.BeginForm("SaveUploadCheckData", "CaseSearchShared",
+          FormMethod.Post, new
+            {
+                id = "frmReviewAssessment1",
+                enctype = "multipart/form-data",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddCaseSearchSharedSuccess(responseText, statusText, xhr, $form); } }"
+            }))
+    {
+        
+       <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Action
+                </th>
+                <th>Document Name
+                </th>
+                <th>Date Uploaded
+                </th>    
+                <th>Uploaded By
+                </th> 
+                <th>
+                    Document Type
+                </th>
+                 <th>Supplier
+                </th>
+                <th>Referrer
+                </th>           
+                
+            </tr>
+        </thead>
+
+        <tbody data-bind="foreach: CaseDocumentUsers">
+            <tr>
+                <td>
+                    <a href="#divViewCaseUpload" data-bind="click:$root.ViewUploads" role="button" data-toggle="modal">View</a>
+                </td>
+                <td data-bind="text: DocumentName"></td>
+                <td data-bind="text: UploadDate"></td>
+               <td data-bind="text: FirstName() +' '+ LastName()"></td>
+                <td data-bind ="text : ReferrerDocumentTypeDesc "></td>
+                <td><input type="checkbox" data-bind="attr: { name:'CaseDocumentUsers['+ $index()+'].SupplierCheck',value:SupplierCheck },checked:SupplierCheck"/>
+                     <input type="hidden" data-bind="attr: { name: 'CaseDocumentUsers['+ $index() + '].DocumentName' }, value:DocumentName"/>
+                    <input type="hidden" data-bind="attr: { name: 'CaseDocumentUsers['+ $index() + '].CaseID' }, value:CaseID"/>
+                    <input type="hidden" data-bind="attr: { name: 'CaseDocumentUsers['+ $index() + '].UploadDate' }, value:UploadDate"/>
+                    <input type="hidden" data-bind="attr: { name: 'CaseDocumentUsers['+ $index() + '].DocumentTypeID' }, value:DocumentTypeID"/>
+                    <input type="hidden" data-bind="attr: { name: 'CaseDocumentUsers['+ $index() + '].ReferrerDocumentID' }, value:ReferrerDocumentID"/>
+                    <input type="hidden" data-bind="attr: { name: 'CaseDocumentUsers['+ $index() + '].CaseDocumentID' }, value:CaseDocumentID"/>
+                </td>     
+                 <td>                 
+                    <input type="checkbox" data-bind="attr: { name:'CaseDocumentUsers['+ $index()+'].ReferrerCheck',value:ReferrerCheck },checked:ReferrerCheck"/>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <!--ko if:CaseDocumentUsers().length == 0 -->
+            <tr>
+                <td colspan="4">
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;</button>
+                        No records are found.
+                    </div>
+                </td>
+            </tr>
+            <!-- /ko -->
+        </tfoot>
+    </table>
+       <input type="submit" id="saveBTN" class="btn btn-default btn-primary mrg-lft pull-right" value="Save" />    
+    }
+    
+    </div>
+     <a id="CaseBTN" class="btn btn-primary right-pull" href="#divAddCaseUploads" role="button" data-toggle="modal">Add</a>
+    
+    

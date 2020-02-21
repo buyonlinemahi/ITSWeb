@@ -1,0 +1,139 @@
+﻿@using ITS.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.SupplierSharedController.UpdateSupplier, GlobalConst.Controllers.SupplierShared, FormMethod.Post, new { id = "frmSupplierDetail", @class = "form-horizontal", data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateSupplierDetailFormSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: UpdateSupplierDetailFormBeforeSubmit }" }))
+{
+    <div class="control-group">
+        <label class="control-label">
+            Supplier Name:</label>
+        <div class="controls">
+            <input type="text" data-bind="value: SupplierName, jqBootstrapValidation: {}" name="SupplierName" placeholder="Name of Supplier" required  />
+            <input type="hidden" data-bind="value:SupplierID" name="SupplierID" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Supplier Address</label>
+        <div class="controls">
+            <input type="text" data-bind="value: Address, jqBootstrapValidation: {}" name="Address" placeholder="Address of the Supplier" required  />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Supplier Town / City</label>
+        <div class="controls">
+            <input type="text" data-bind="value: City, jqBootstrapValidation: {}" name="City" placeholder="Town / City" required />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Supplier Region</label>
+        <div class="controls">
+            <input type="text" data-bind="value: Region, jqBootstrapValidation: {}" name="Region" placeholder="Region of the Supplier" required  />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Supplier Postal Code</label>
+        <div class="controls">
+            <input type="text" data-bind="value: PostCode, jqBootstrapValidation: {}" onkeyup="javascript: postalCodeFormat(this)" maxlength="8" name="PostCode"  style="text-transform:uppercase" placeholder="Postal Code" required />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Supplier Tel Number</label>
+        <div class="controls">
+            <input type="text" data-bind="value: Phone, jqBootstrapValidation: {}" class="phoneMaskformat" name="Phone" placeholder="Telephone Number" required />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Supplier Fax Number</label>
+        <div class="controls">
+            <input type="text" data-bind="value: Fax" class="phoneMaskformat" name="Fax" placeholder="Fax" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Supplier E-mail Address</label>
+        <div class="controls">
+            <input type="text" data-bind="value: Email, jqBootstrapValidation: {}" name="Email" placeholder="email@email.com" data-validation-regex-regex='^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$' data-validation-regex-message="Not a valid email address" required  />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Supplier Website Address</label>
+        <div class="controls">
+            <input type="text" data-bind="value: Website" name="Website" placeholder="http://supplieraddress.com" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Ranking</label>
+        <div class="controls">
+            <!--<input type="text" class="uneditable-input" data-bind="value: Ranking" name="Ranking" />-->
+            <span class="uneditable-input" data-bind="text: Ranking"></span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Status</label>
+        <div class="controls">
+            <span class="uneditable-input" data-bind="text: StatusID()===1 ? 'Complete': 'InComplete'"></span>
+            <!--<input type="text" data-bind="value: StatusID()===1 ? 'Complete': 'InComplete'" name="Ranking"
+                disabled />-->
+        </div>
+    </div>
+    
+    
+    <div class="control-group">
+        <label class="control-label">
+        </label>
+        <div class="controls">
+            <label class="checkbox inline">
+                <input type="checkbox" id="IsWheelChairAccessibility" data-bind="checked: IsWheelChairAccessibility"
+                    name="IsWheelChairAccessibility" value="true" />
+                Wheelchair Accessibility
+            </label>
+            <label class="checkbox inline">
+                <input type="checkbox" id="IsWeekends" data-bind="checked: IsWeekends" name="IsWeekends"
+                    value="true" />
+                Weekends
+            </label>
+            <label class="checkbox inline">
+                <input type="checkbox" id="IsEvening" data-bind="checked: IsEvenings" name="IsEvenings"
+                    value="true" />
+                Evening
+            </label>
+            <label class="checkbox inline">
+                <input type="checkbox" id="IsParking" data-bind="checked: IsParking" name="IsParking"
+                    value="true" />
+                Parking
+            </label>
+            <label class="checkbox inline">
+                <input type="checkbox" id="IsHomeVisit" data-bind="checked: IsHomeVisit" name="IsHomeVisit"
+                    value="true" />
+                Home Visits
+            </label>
+            <label class="checkbox inline">
+                <input type="checkbox" id="IsTriage" data-bind="checked: IsTriage" name="IsTriage"
+                    value="true" />
+                Triage
+            </label>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Notes</label>
+        <div class="controls">
+            <textarea type="text" data-bind="value:$root.Notes"  name="Notes" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="form-actions">
+        <div class="column-groups-button">
+            <button id="btnSave" type="submit" class="btn btn-primary btn-block" data-bind="bootstrapButton : DisableUpdateButton"
+                data-loading-text="Saving...">
+                Update</button>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+}

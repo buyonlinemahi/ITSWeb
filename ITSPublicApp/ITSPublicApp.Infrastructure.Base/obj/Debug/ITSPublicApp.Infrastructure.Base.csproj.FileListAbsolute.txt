@@ -1,0 +1,9 @@
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\bin\Debug\ITSPublicApp.Infrastructure.Base.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\bin\Debug\ITSPublicApp.Infrastructure.Base.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\bin\Debug\ITSPublicApp.Domain.Models.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\bin\Debug\ITSPublicApp.Infrastructure.Global.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\bin\Debug\ITSPublicApp.Domain.Models.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\bin\Debug\ITSPublicApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\obj\Debug\ITSPublicApp.Infrastructure.Base.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\obj\Debug\ITSPublicApp.Infrastructure.Base.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.Base\obj\Debug\ITSPublicApp.Infrastructure.Base.pdb

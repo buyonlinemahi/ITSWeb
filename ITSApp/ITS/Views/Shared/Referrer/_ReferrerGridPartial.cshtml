@@ -1,0 +1,31 @@
+﻿<table class="table table-bordered table-striped table-hover sortable">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Referrer Name
+            </th>
+            <th>
+                Contact Email
+            </th>
+            <th>
+                Date Added
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:Referrers">
+        <tr>
+            <td>
+                <a  data-bind="attr: { href: '/Referrer/Detail/' + EncryptedReferrerID()  }">View</a>
+            </td>
+            <td data-bind="text:ReferrerName">
+            </td>
+            <td data-bind="text:ReferrerMainContactEmail">
+            </td>
+            <td data-bind="text:DateAdded">
+            </td>
+        </tr>
+    </tbody>
+</table>

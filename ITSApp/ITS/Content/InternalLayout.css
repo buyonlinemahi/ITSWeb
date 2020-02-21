@@ -1,0 +1,210 @@
+﻿*
+{
+    font-family: Arial;
+    font-size: 12px;
+}
+body, html
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background: #F0F0F0;
+}
+a
+{
+    font-family: Arial;
+    font-size: 12px;
+}
+
+#wrapper
+{
+    width: 1024px;
+    margin: 0px auto;
+    min-height: 920px;
+    border: 1px solid #BEBEC0;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 2px 2px 2px #D0D1D3;
+    background: #fff;
+}
+#wrapper #main_container
+{
+    padding: 5px;
+    overflow: hidden;
+    max-width: 984px;
+    margin: 0 auto;
+}
+#wrapper #main_container #header
+{
+    border: 1px solid #BEBEC0;
+    height: 70px;
+    background: #7da63c;
+    max-width: 984px;
+    margin: 0 auto;
+}
+#wrapper #main_container #header #logo
+{
+    float: left;
+    text-align: center;
+    width: 80%;
+}
+#wrapper #main_container #header #logo-text
+{
+    color: #fff;
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 25px;
+    padding: 15px 0 0 100px;
+}
+#wrapper #main_container #header #logo-text span
+{
+    color: #fff;
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 35px;
+    padding: 15px 0 0 100px;
+}
+#wrapper #main_container #header #menu-right
+{
+    float: right;
+    padding: 10px;
+}
+#wrapper #main_container #header #menu-right ul
+{
+    list-style: none;
+}
+#wrapper #main_container #header #menu-right ul li
+{
+    display: inline;
+}
+#wrapper #main_container #header #menu-right ul li a
+{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+}
+#wrapper #main_container #nav-bar
+{
+    width: 984px;
+    margin: 0 auto;
+}
+
+#wrapper #main_container #nav-bar #nav
+{
+    width: 100%;
+    float: left;
+    margin: 2em 0 0 0;
+    padding: 0;
+    list-style: none;
+    background-image: url('images/nav-bg.gif');
+    border-radius: 10px;
+}
+
+#wrapper #main_container #nav-bar #nav li
+{
+    float: left;
+    margin-left:7px;
+}
+
+#nav li a
+{
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+#wrapper #main_container #nav li:active
+{
+   background-image: url('images/nav-hover.gif');
+}
+#nav li a:hover
+{
+    color: #fff;
+     background-image: url('images/nav-hover.gif');
+    
+}
+/*#wrapper #main_container #nav-bar ul{list-style: none;font-size: 0px;}
+#wrapper #main_container #nav-bar ul li{ display: inline-block;}
+#wrapper #main_container #nav-bar ul li a{border: 1px solid #BEBEC0;text-decoration: none;color: #000;padding: 15px;font-weight: bold;background: #cdcdcd;}
+#wrapper #main_container #nav-bar ul li a:hover{border: 1px solid #BEBEC0;text-decoration: none;color: #000;padding: 15px;font-weight: bold;background: #7a7a7a;}*/
+#wrapper #main_container .reffer-task
+{
+    text-align: center;
+    margin-top: 80px;
+    font-weight: bold;
+}
+.clear
+{
+    clear: both;
+}
+
+#wrapper #main_container #innerBody
+{
+    padding-top: 26px;
+    overflow: visible;
+}
+
+
+#wrapper #main_container #reff-menus
+{
+    background: none repeat scroll 0 0 #77B531;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 1px 1px 1px #A2828C;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 50px;
+    list-style: none outside none;
+}
+#wrapper #main_container #reff-menus .rdo-btn
+{
+    margin: 0 auto;
+    padding: 15px;
+    width: 750px;
+    text-align: center;
+}
+#wrapper #main_container #reff-menus ul li
+{
+    display: inline;
+}
+#wrapper #main_container #reff-menus .rdo-btn input[type="radio"]
+{
+    box-shadow: 2px 2px 2px #D0D1D3;
+}
+#wrapper #main_container .summry-type
+{
+    margin: 0 auto;
+    width: 87%;
+    overflow: hidden;
+    border: 1px solid #BEBEC0;
+    border-radius: 0 0 4px 4px;
+}
+
+#wrapper #main_container .summry-type .left-type
+{
+    float: left;
+    width: 31.3%;
+}
+#wrapper #main_container .summry-type .left-type a
+{
+    font-weight: bold;
+    text-decoration: none;
+}
+#wrapper #main_container .summry-type .right-type
+{
+    float: right;
+    width: 64%;
+    font-weight: bold;
+}
+.colorLeft-type
+{
+    background-color: #c1d49b;
+    font-weight: bold;
+}
+.lineclass
+{
+    background-color: #bdbdbd;
+    height: 7px;
+    margin-top: 26px;
+}

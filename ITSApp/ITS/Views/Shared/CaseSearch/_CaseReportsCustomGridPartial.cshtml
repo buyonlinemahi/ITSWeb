@@ -1,0 +1,49 @@
+﻿<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Document Name
+            </th>
+            <th>
+                Date Uploaded
+            </th>
+            <th>
+                Uploaded By
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:CaseReportsDetailsCustom">
+        <tr>
+            <td>
+                <a data-bind="attr : { 'href': $root.Filepath() + UploadPath() }" id="ViewSubmit">View</a>
+        @*      <input type="hidden"  data-bind="value: CaseID" />*@
+      
+            </td>
+            <td data-bind="text: Documentfullname">
+            </td>
+            <td data-bind="text:UploadDate">
+            </td>
+            <td data-bind="text: UserName">
+            </td>
+        </tr>
+    </tbody>
+  <tbody>
+  
+  </tbody>
+    <tfoot>
+        <!--ko if:CaseReportsDetailsCustom().length == 0 -->
+        <tr>
+            <td colspan="4">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;</button>
+                    No records are found.
+                </div>
+            </td>
+        </tr>
+        <!-- /ko -->
+    </tfoot>
+</table>

@@ -1,0 +1,181 @@
+﻿@model ITS.Domain.ViewModels.CaseSearchViewModel.CaseSearchResultViewModel
+@using System.Web.Script.Serialization
+@using ITS.Infrastructure.Global;
+@{
+    ViewBag.Title = "Case Search";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>
+        Case Search</h1>
+}
+<div class="container-fluid" id="CaseSearchDiv">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box collapsible">
+                <div class="widget-title">
+                    <a href="#caseSearchDivCollapse" data-toggle="collapse" class="collapsed in"><span
+                        class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>
+                            Case Search</h5>
+                    </a>
+                </div>
+                <div class="collapse" id="caseSearchDivCollapse" style="height: 0px;">
+                    <div class="widget-content nopadding">
+                        @using (Html.BeginForm("CaseSearch", "CaseSearch", FormMethod.Post, new
+                        {
+                            id = "frmCaseSearch",
+                            enctype = "multipart/form-data",
+                            @class = "form-horizontal",
+                            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateCaseGrid(responseText, statusText, xhr, $form); },beforeSubmit: searchCaseFormBeforeSubmit  }"
+                        }))
+                        {
+                            <!-- ko with : CaseSearch -->
+                            
+                            <div class="control-group">
+                                <div class="controls">
+                                    <div class="span2">
+                                        <label for="radios-0">
+                                            <input type="radio" name="CaseSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="1" />
+                                            Patient Name
+                                        </label>
+                                    </div>
+                                    <div class="span2">
+                                        <label for="radios-1">
+                                            <input type="radio" name="CaseSearch.SearchCriteria" data-bind="checked:SearchCriteria,jqBootstrapValidation: {} "
+                                                required value="2" />
+                                            Case Number
+                                        </label>
+                                    </div>
+                                    <div class="span2">
+                                        <label for="radios-2">
+                                            <input type="radio" name="CaseSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="3" />
+                                            Post Code
+                                        </label>
+                                    </div>
+                                    <div class="span2">
+                                        <label for="radios-2">
+                                            <input type="radio" name="CaseSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="4" />
+                                            Referrer Reference Number
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <div class="span2">
+                                        <label for="radios-2">
+                                            <input type="radio" name="CaseSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="5" />
+                                            Treatment Category
+                                        </label>
+                                    </div>
+                                    <div class="span2">
+                                        <label for="radios-2">
+                                            <input type="radio" name="CaseSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="6" />
+                                            Treatment Type
+                                        </label>
+                                    </div>
+                                    <div class="span2">
+                                        <label for="radios-2">
+                                            <input type="radio" name="CaseSearch.SearchCriteria" data-bind="checked:SearchCriteria, jqBootstrapValidation: {} "
+                                                required value="7" />
+                                            Referrer Name
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                  <label class="control-label">
+                                    Additional Paramters </label>
+                                <div class="controls">
+                                     <div class="span2">
+                                        <label for="radios-2">
+                                            <input type="radio" checked name="CaseSearch.AdditionalParam" value="AllCases" />
+                                            All Cases
+                                        </label>
+                                    </div>
+                                    <div class="span2">
+                                        <label for="radios-2">
+                                            <input type="radio" name="CaseSearch.AdditionalParam" data-bind="checked:AdditionalParam, jqBootstrapValidation: {} "
+                                                required value="Active" />
+                                            Active
+                                        </label>
+                                    </div>
+                                    <div class="span2">
+                                        <label for="radios-2">
+                                            <input type="radio" name="CaseSearch.AdditionalParam" data-bind="checked:AdditionalParam, jqBootstrapValidation: {} "
+                                                required value="InActive" />
+                                            In-Active
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Case Search</label>
+                                <div class="controls">
+                                    <div class="search-groups1">
+                                        <input type="text" name="CaseSearch.SearchText" data-bind="value:SearchText, jqBootstrapValidation: {} "
+                                            required placeholder="Search Text" />
+                                    </div>
+                                    <div class="search-groups2">
+                                        <button class="btn btn-primary" type="submit">
+                                            Search</button>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <!-- /ko -->
+                            <input type="hidden" name="Skip" data-bind="value:Skip" />
+                            <input type="hidden" name="Take" data-bind="value:Take" />
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-th"></i></span>
+                    <h5>
+                        Search Results</h5>
+                </div>
+                <!--ko if: TotalItemCount() > 0 -->
+                <div class="widget-content nopadding" id="supplierDiv">
+                    @Html.Partial("CaseSearch/_SearchGridPartial")
+                </div>
+                @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                <!-- /ko -->
+            </div>
+            <!--ko if: TotalItemCount() == 0 -->
+            <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert">
+                    &times;</button>
+                No Results Found
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/CaseSearch/IndexViewModel.js")" ></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+   
+    var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+
+    var indexViewModel = new IndexViewModel();
+    if( model.Cases == null)
+    {
+    indexViewModel.Init('', { SearchCriteria: '', SearchText: '',AdditionalParam :''}, 0);
+    }
+    ko.applyBindings(indexViewModel, $("#CaseSearchDiv").get(0));
+
+    </script>
+}

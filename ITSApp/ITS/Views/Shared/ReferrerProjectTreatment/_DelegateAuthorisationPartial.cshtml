@@ -1,0 +1,61 @@
+﻿@using ITS.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.ReferrerProjectTreatmentSharedController.UpdateDelegateAuthorisation, GlobalConst.Controllers.ReferrerProjectTreatmentShared, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    id = "frmUpdateDelegateAuthorisation",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateDelegateAuthorisationFormSuccess(responseText, statusText, xhr, $form);},beforeSubmit:UpdateDelegateAuthorisationFormBeforeSubmit}"
+}))
+{
+    
+  
+    <div class="control-group">
+        <label class="control-label blue1">
+        </label>
+        <div class="controls">
+            <!-- ko foreach:Delegates -->
+            <input type="radio" name="Delegates.Enabled" data-bind="value:DelegatedAuthorisationTypeID,checked:$root.selectedDelegate" />
+            <span data-bind="text:Name" class="mrg-rght185"></span>
+            <!-- /ko  -->
+        </div>
+    </div>
+  
+    
+    <!-- ko foreach:Delegates -->
+    
+   
+   
+    
+    <div class="control-group">
+        <label class="control-label">
+            <span data-bind="text:Name"></span>:</label>
+        <div class="controls">
+            <div class="input-prepend span11">
+              <span class="add-on" data-bind="visible:DelegatedAuthorisationTypeID()==1?true:false">
+                    &nbsp</span>   <input type="text"  data-bind="jqBootstrapValidation: {},attr:{name: '['+ $index() + '].Quantity','required':$root.selectedDelegate()==1&&DelegatedAuthorisationTypeID()==1?'required':null},value:Quantity,visible:Quantity()!=null?true:false"
+                    name="Quantity" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number"  />
+                <span class="add-on" data-bind="visible:DelegatedAuthorisationTypeID()==2?true:false">
+                    £</span>
+                <input type="text" data-bind="jqBootstrapValidation: {},attr:{name: '['+ $index() + '].Amount','required':$root.selectedDelegate()==2&&DelegatedAuthorisationTypeID()==2?'required':null},value:Amount,visible:Amount()!=null?true:false"
+                    name="Amount" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number"  />
+            </div>
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ReferrerProjectTreatmentAuthorisationID' },value:ReferrerProjectTreatmentAuthorisationID" />
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].TreatmentCategoryID' },value:TreatmentCategoryID" />
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].Enabled' },value:$root.selectedDelegate()==1&&DelegatedAuthorisationTypeID()==1?true:false||$root.selectedDelegate()==2&&DelegatedAuthorisationTypeID()==2?true:false" />
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].DelegatedAuthorisationTypeID' },value:DelegatedAuthorisationTypeID" />
+            <input type="hidden" data-bind="attr: { name: '['+ $index() + '].ReferrerProjectTreatmentID' },value:ReferrerProjectTreatmentID" />
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <div class="modal-footer">
+        <div class="column-groups-button">
+            <button id="btnSave" type="submit" class="btn btn-primary" data-loading-text="Saving...">
+                Update</button>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    
+}

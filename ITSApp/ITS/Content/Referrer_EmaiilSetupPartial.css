@@ -1,0 +1,47 @@
+﻿body {
+}
+div.MainBlock
+{
+    width: 984px;
+}
+div.Row
+{
+    padding-top: 5px;
+    width: 100%;
+    padding: 5px;
+}
+div.Column
+{
+    width: 160px;
+    padding: 20px 5px 5px;
+    float: left;
+    font-weight: bold;
+}
+div.Column-a
+{
+    width: 300px;
+    padding: 5px;
+    float: left;
+}
+div.Row-Header
+{
+    width: 400px;
+    font-weight: bold;
+}
+div.Submit
+{
+    float:right; 
+    height: 150px; 
+    width:100%;
+    padding:5px 5px 5px 5px;
+vertical-align:middle;
+ 
+}
+div.Submit-a
+{
+ 
+  margin-top:100px;
+  margin-left:100px;
+}
+
+

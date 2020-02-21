@@ -1,0 +1,261 @@
+﻿@using ITS.Infrastructure.Global
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>Add Referrer</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home"><i class="icon-home"></i>Referrers</a><a
+        href="#" class="tip-bottom">Add</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>Referrer Details</h5>
+                </div>
+                <div class="widget-content nopadding" id="divAddReferrer">
+                    @using (Html.BeginForm(GlobalConst.Actions.ReferrerController.Save, GlobalConst.Controllers.Referrer,
+                    FormMethod.Post, new
+                    {
+                        id = "frmAddReferrer",
+                        @class
+                        = "form-horizontal"
+                    }))
+                    {
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Referrer Name:</label>
+                                <div class="controls">
+                                    <input id="ReferrerName" type="text" name="ReferrerName" placeholder="Referrer Name" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }"
+                                        required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Head Office Location Name:</label>
+                                <div class="controls">
+                                    <input type="text" name="Name" placeholder="Head Office Location" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Head Office Address:</label>
+                                <div class="controls">
+                                    <input type="text" name="Address" placeholder="Address of Head Office" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }"
+                                        required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    *Head Office Town / City:</label>
+                                <div class="controls">
+                                    <input type="text" name="City" placeholder="Town /City" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Head Office Region:
+                                </label>
+                                <div class="controls">
+                                    <input type="text" name="Region" placeholder="Region" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Head Office Postal Code</label>
+                                <div class="controls">
+                                    <input type="text" name="PostCode" style="text-transform: uppercase"
+                                        maxlength="8" placeholder="Postal Code" onkeyup="javascript: postalCodeFormat(this)" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Main Contact First Name:
+                                </label>
+                                <div class="controls">
+                                    <input type="text" name="ReferrerContactFirstName" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" placeholder="Main Contact FirstName" required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Main Contact Surname:
+                                </label>
+                                <div class="controls">
+                                    <input type="text" name="ReferrerContactLastName" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" placeholder="Main Contact Surname" required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Main Contact Email:</label>
+                                <div class="controls">
+                                    <input type="text" name="ReferrerMainContactEmail" data-validation-regex-regex='^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$' data-validation-regex-message="Not a valid email address" placeholder="email@email.com"
+                                        data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Main Contact Telephone:
+                                </label>
+                                <div class="controls">
+                                    <input type="text" name="ReferrerMainContactPhone" class="phoneMaskformat" placeholder="Telephone Number" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" required />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Main Contact Fax:
+                                </label>
+                                <div class="controls">
+                                    <input type="text" name="ReferrerMainContactFax" class="phoneMaskformat" data-bind="jqBootstrapValidation: {submitSuccess: SaveValidatedClick }" placeholder="Fax" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Policy Details
+                                </label>
+                                <div class="controls">
+                                    <div class="pull-left" style="margin-right: 5px; margin-right: 30px;">
+                                        <input type="radio" class="first" id="IsPolicyDetailYes" name="objIsPolicyDetail" value="1" data-bind="checked:IsPolicyDetail" /> Yes
+                                        <input type="radio" class="first" id="IsPolicyDetailNo" name="objIsPolicyDetail" value="0" data-bind="checked:IsPolicyDetail"  /> No
+                                    </div>
+                                    
+                                    <div id="IsPolicyDetailOpenOrDropdownsDiv" style="display: none" >
+                                        <input type="radio" class="first" id="IsPolicyDetailOpenOrDropdownsYes" name="objIsPolicyDetailOpenOrDropdowns" value="Open" data-bind="checked:IsPolicyDetailOpenOrDropdowns" />Open
+                                        <input type="radio" class="first" id="IsPolicyDetailOpenOrDropdownsNo" name="objIsPolicyDetailOpenOrDropdowns" value="Dropdowns" data-bind="checked:IsPolicyDetailOpenOrDropdowns"  />Dropdowns
+                                    </div>
+
+
+                                </div>
+                            </div>
+                                  <div class="control-group">
+                                    <label class="control-label">
+                                       New Policy Types
+                                    </label>
+                                    <div class="controls">
+                                       <div class="pull-left" style="margin-right: 5px; margin-right: 30px;">
+                                           <input type="radio" class="second" id="IsNewPolicyTypesGIP" name="IsNewPolicyTypes" value="GIP" />GIP
+                                           <input type="radio" class="second" id="IsNewPolicyTypesIIP" name="IsNewPolicyTypes" value="IIP" />IIP           
+                                           <input type="radio" class="second" id="IsNewPolicyTypesTPD" name="IsNewPolicyTypes" value="TPD" />TPD
+                                           <input type="radio" class="second" id="IsNewPolicyTypesELRehab" name="IsNewPolicyTypes" value="ELRehab" />EL Rehab
+                                       </div>
+                                    </div>
+                                </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Employment Details
+                                </label>
+                                <div class="controls">
+                                    <input type="radio" id="IsEmploymentDetailYes" name="objIsEmploymentDetail" value="1" data-bind="checked:IsEmploymentDetail" />
+                                    Yes
+           <input type="radio" id="IsEmploymentDetailNo" name="objIsEmploymentDetail" value="0" data-bind="checked:IsEmploymentDetail"  />No
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Employee Details
+                                </label>
+                                <div class="controls">
+                                    <input type="radio" id="IsEmployeeDetailYes" name="objIsEmployeeDetail" value="1" data-bind="checked:IsEmploeeDetail" />
+                                    Yes
+           <input type="radio" id="IsEmployeeDetailNo" name="objEmployeeDetail" value="0" data-bind="checked:IsEmploeeDetail"  />No
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Drug and Alcohol Test
+                                </label>
+                                <div class="controls">
+                                    <input type="radio" id="IsDrugandAlcoholTestYes" name="objIsDrugandAlcoholTest" value="1" data-bind="checked:IsDrugandAlcoholTest" />
+                                    Yes
+           <input type="radio" id="IsDrugandAlcoholTestNo" name="objIsDrugandAlcoholTest" value="0" data-bind="checked:IsDrugandAlcoholTest"  />No
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Additional Questions
+                                </label>
+                                <div class="controls">
+                                    <input type="radio" id="IsAdditionalQuestionYes" name="objIsAdditionalQuestion" value="1" data-bind="checked:IsAdditionalQuestion" />
+                                    Yes
+                                    <input type="radio" id="IsAdditionalQuestionNo" name="objIsAdditionalQuestion" value="0" data-bind="checked:IsAdditionalQuestion"  />
+                                    No
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Representation
+                                </label>
+                                <div class="controls">
+                                    <input type="radio" id="IsRepresentationYes" name="objIsRepresentation" value="1" data-bind="checked:IsRepresentation" />
+                                    Yes
+           <input type="radio" id="IsRepresentationNo" name="objIsRepresentation" value="0" data-bind="checked:IsRepresentation"  />No
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    Job Demands
+                                </label>
+                                <div class="controls">
+                                    <input type="radio" id="IsIsJobDemandYes" name="objIsJobDemand" value="1" data-bind="checked:IsJobDemand" />
+                                    Yes
+                                    <input type="radio" id="IsIsJobDemandNo" name="objIsJobDemand" value="0" data-bind="checked:IsJobDemand"  />
+                                    No
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="column-groups-button">
+                                    <button id="btnSave" type="submit" class="btn btn-primary btn-block" data-loading-text="Saving...">
+                                        Save</button>
+                                </div>
+                                <div class="clear">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2012 - 2013 &copy; ITS Portal v1.0
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/referrer/AddViewModel.js")"></script>
+    <script type="text/javascript">
+        //test run this will be converted to ko js
+        var addViewModel = new AddViewModel();
+        ko.applyBindings(addViewModel, $("#divAddReferrer").get(0)); //submit the form in knockout js to save! do not an ajax call to save!
+
+        //document.getElementById("IsPolicyDetailNo").checked = true;
+        document.getElementById("IsPolicyDetailOpenOrDropdownsNo").checked = true;
+        document.getElementById("IsEmploymentDetailNo").checked = true;
+        document.getElementById("IsEmployeeDetailNo").checked = true;
+        document.getElementById("IsDrugandAlcoholTestNo").checked = true;
+        document.getElementById("IsAdditionalQuestionNo").checked = true;
+        document.getElementById("IsRepresentationNo").checked = true;
+        document.getElementById("IsIsJobDemandNo").checked = true;
+
+        $(function () {
+            $("input[name='objIsPolicyDetail']").click(function () {
+                if ($("#IsPolicyDetailYes").is(":checked")) {
+                    $("#IsPolicyDetailOpenOrDropdownsDiv").show();
+                    document.getElementById("IsPolicyDetailOpenOrDropdownsNo").checked = true;
+                }
+                else
+                {
+                    $("#IsPolicyDetailOpenOrDropdownsDiv").hide();
+                }
+            });
+        });
+    </script>
+}

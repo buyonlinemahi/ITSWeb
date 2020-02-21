@@ -1,0 +1,192 @@
+﻿@*         
+             * Latest Version 1.0
+
+ *Author          : Anuj Batra
+  Date            : 28-Nov-2012
+  Version         : 1.0
+  Purpose         : Design for office location tab
+
+  *@
+<div id="Divoffice">
+    <div class="location-frame">
+        <div class="location-frame-row">
+            <div class="location-frame--row-cellHeading">
+                Head Office?
+            </div>
+            <div class="location-frame--row-cellHeading">
+                *Location Name:
+            </div>
+            <div class="location-frame--row-cellHeading">
+                *Location Address:
+            </div>
+            <div class="location-frame--row-cellHeading">
+                Location Town / City
+            </div>
+            <div class="location-frame--row-cellHeading">
+                Location Region
+            </div>
+            <div class="location-frame--row-cellHeading">
+                *Location Post Code:
+            </div>
+            <div class="location-frame--row-cellHeading" style="border-right: 1px solid black;
+                height: 15px; width: 75px;">
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="location-frame-row" data-bind="template: {name:'LocationsGrid',foreach:locations}">
+        </div>
+        <div>
+            <div style="padding: 10px; font-family: Arial; font-weight: bold;">
+                <div class="addlocationBtnDiv" role="button" aria-disabled="false" id="addLocation">
+                    <a style="color: Blue; background-color: White;">Add New Location</a>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            @*    <div style="float: right; font-weight: bold; padding: 10px;">
+                <input type="submit" value="Save" id="savebtn" />
+            </div>*@
+        </div>
+    </div>
+    <!--POPUP DIV-->
+    <div id="addNewLocation" class="addlocationpopup" style="padding-left: 10px;">
+        <div class="clear">
+        </div>
+        <div class="location-frame">
+            <div class="location-frame-row">
+                <div class="location-frame--row-cellHeading" style="width: 140px;">
+                    Head Office?
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 155px;">
+                    *Location Name:
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 155px;">
+                    *Location Address:
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 155px;">
+                    Location Town / City
+                </div>
+                <div class="location-frame--row-cellHeading" style="width: 155px;">
+                    Location Region
+                </div>
+                <div class="location-frame--row-cellHeading" style="border-right: 1px solid; width: 150px;">
+                    *Location Post Code:
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="location-frame-row">
+                <div class="location-frame--row-cell " style="border-bottom: 1px solid black; width: 140px;">
+                    <div class="location-frame--row-cell-left">
+                        <input type="radio" name="HeadOfcCheckBoxNew" data-bind="checked:IsMainOffice" value="true" />Yes
+                    </div>
+                    <div class="location-frame--row-cell-right">
+                        <input type="radio" name="HeadOfcCheckBoxNew" data-bind="checked:IsMainOffice" value="false" />No
+                    </div>
+                </div>
+                <div class="location-frame--row-cell" style="border-bottom: 1px solid black; width: 155px;">
+                    <input type="text" id="locName" data-bind="value:Name" />
+                </div>
+                <div class="location-frame--row-cell" style="border-bottom: 1px solid black; width: 155px;">
+                    <input type="text" id="locAddress" data-bind="value:Address" />
+                </div>
+                <div class="location-frame--row-cell " style="border-bottom: 1px solid black; width: 155px;">
+                    <input type="text" id="locCity" data-bind="value:City" />
+                </div>
+                <div class="location-frame--row-cell" style="border-bottom: 1px solid black; width: 155px;">
+                    <input type="text" id="locRegion" data-bind="value:Region" />
+                </div>
+                <div class="location-frame--row-cell" style="border-bottom: 1px solid black; border-right: 1px solid;
+                    width: 150px;">
+                    <input type="text" id="locPostCode" data-bind="value:PostCode" />
+                </div>
+                <div class="clear">
+                </div>
+                <div class="pop-buttons" style="float: right; padding: 10px; margin-right: 18px;">
+                    <input type="submit" id="btn" value="Save" data-bind="click:saveReferrerLocation,visible:IsSaveVisible" />
+                    <input type="submit" id="btn1" value="Update" data-bind="click:updateLocation,visible:IsUpdateVisible" />
+                    &nbsp;&nbsp;
+                    <input type="submit" id="btn2" value="Close" data-bind="click:closeBtnClick" />
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="deleteConfermationPopUp" class="addlocationpopup">
+        <div class="location-frame">
+            <div class="location-frame-row">
+                Are you sure you want to delete this Office Location?
+                <div class="clear">
+                </div>
+            </div>
+            <div class="pop-buttons">
+                <input type="submit" id="deleteConfermationYesBtn" value="Yes" data-bind="click:deleteByReferrerLocationID" />
+                <input type="submit" id="deleteConfermationNoBtn" value="No" data-bind="click:cancelDeletePopUp" />
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="closeButtonPopUp" class="addlocationpopup">
+        <div class="location-frame">
+            <div class="location-frame-row">
+                Office Location is not complete, data will not be stored. Are you sure you want
+                to close the pop up?
+                <div class="clear">
+                </div>
+            </div>
+            <div class="pop-buttons">
+                <input type="submit" id="closePopupYesBtn" name="closePopupYesBtn" data-bind="click:closePopUpYesBtnClick"
+                    value="Yes" />
+                <input type="submit" id="closePopupNoBtn" name="closePopupNoBtn" value="No" data-bind="click:closePopUpNoBtnClick" />
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="LocationsGrid" type="text/html">
+    <div class="location-frame--row-cell " style="border-bottom: 1px solid black">
+        <div class="location-frame--row-cell-left">
+      
+            <input type="radio"  value="1" data-bind="checked: IsMainOffice, attr:{name:self.ReferrerLocationID},enable:false" />Yes
+          
+        </div>
+        <div class="location-frame--row-cell-right">
+            <input type="radio" value="0" data-bind="checked: IsMainOffice, attr:{name:self.ReferrerLocationID},enable:false" />No
+        </div>
+    </div>
+    <div class="location-frame--row-cell" style="border-bottom: 1px solid black">
+        <span data-bind="text:Name"></span>
+    </div>
+    <div class="location-frame--row-cell" style="border-bottom: 1px solid black">
+        <span data-bind="text:Address"></span>
+    </div>
+    <div class="location-frame--row-cell " style="border-bottom: 1px solid black">
+        <span data-bind="text:City"></span>
+    </div>
+    <div class="location-frame--row-cell" style="border-bottom: 1px solid black">
+        <span data-bind="text:Region"></span>
+    </div>
+    <div class="location-frame--row-cell" style="border-bottom: 1px solid black">
+        <span data-bind="text:PostCode"></span>
+    </div>
+    <div class="location-frame--row-cell " style="border-right: 1px solid black; border-bottom: 1px solid black;
+        width: 75px;">
+        <a  href="#" data-bind="click: $root.editItem">Edit</a>
+        <a   href="#" data-bind="click:$root.deleteConfermationPopUp , visible:!(IsMainOffice)"> / Delete</a>
+    </div>
+    <div class="clear">
+    </div>    
+</script>
+<script>
+    $('#locPostCode').keyup(function () {
+        var val2 = val1 = $("#locPostCode").val().replace(/ /g, '');
+        if (val1.length > 3) {
+            val1 = val1.substr(0, val1.length - 3);
+            $("#locPostCode").val((val1 + ' ' + val2.substr(val1.length, val2.length)));
+        }
+    });
+</script>

@@ -1,0 +1,38 @@
+﻿@using ITS.Infrastructure.Global
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                Pracitioner Name
+            </th>
+            <th>
+                TreatmentCategory Name
+            </th>
+            <th>
+                Registration Number
+            </th>
+            <th>
+                RegistrationType Name
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: SupplierPracitioners">
+        <tr>
+            <td>
+                <a data-bind="attr: { 'href': '@Url.Action(GlobalConst.Actions.PractitionerController.Detail, GlobalConst.Controllers.Practitioner)/' + PractitionerID() }">View</a> 
+                / <a href="#" role="button" data-toggle="modal" data-bind="click: $root.DetachSupplierPractitioner">Detach</a>
+            </td>
+            <td data-bind="text:PracitionerName">
+            </td>
+            <td data-bind="text:TreatmentCategoryName">
+            </td>
+            <td data-bind="text:RegistrationNumber">
+            </td>
+            <td data-bind="text:RegistrationTypeName">
+            </td>
+        </tr>
+    </tbody>
+</table>

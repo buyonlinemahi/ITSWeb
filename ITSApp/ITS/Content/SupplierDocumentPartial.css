@@ -1,0 +1,81 @@
+﻿
+.outer-container-Document .Document
+{
+    float: left;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+.outer-container-Document .Document.first
+{
+    width: 987px;
+}
+.outer-container-Document .Document .first span
+{
+    color: Black;
+}
+
+.outer-container-Document .Document .first .prj-input
+{
+    float: left;
+    width: 340px;
+    border: 1px solid;
+}
+.outer-container-Document .Document .first .prj-input input[type="text"]
+{
+    height: 14px;
+    margin: 4px;
+    width: 252px;
+}
+.outer-container-Document .Document .first .prj-check
+{
+    border: 1px solid;
+    float: left;
+    padding: 3px 16px 6px 21px;
+}
+.outer-container-Document .Document.first .prj-check input[type="checkbox"]
+{
+    border: 1px solid;
+    float: left;
+    margin: 0px;
+}
+.outer-container-Document .Document .first .prj-text
+{
+    float: left;
+    font-weight: bold;
+    padding: 2px;
+    background: #77b531;
+    width: 180px;
+    font-family: arial;
+    font-size: 13px;
+    border: 1px solid;
+    text-align: left;
+}
+
+.outer-container-Documentfieldset
+{
+    float: left;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+.outer-container-Documentfieldset input[type="text"]
+{
+    padding: 5px;
+    margin: 4px;
+    width: 252px;
+}
+
+.outer-container-Documentfieldset input[type="file"]
+{
+    
+  position: relative;
+    text-align: right;
+}
+
+.outer-container-Documentfieldset input[type="submit"]
+{
+    background: none repeat scroll 0 0 #EBE8D8;
+    font-weight: lighter;
+    height: 34px;
+    margin: 11px 15px;
+    width: 100px;
+}

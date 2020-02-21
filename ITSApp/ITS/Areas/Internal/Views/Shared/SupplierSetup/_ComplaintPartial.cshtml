@@ -1,0 +1,143 @@
+﻿<link href="@Url.Content("~/Content/ProjectControlPartial.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~//Content/SupplierComplaintPartial.css")" rel="stylesheet"
+    type="text/css" />
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $(function () {
+            $("#modelPopComplain").dialog({
+                autoOpen: false,
+                width: 800,
+                modal: true,
+                buttons: {
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+        });
+    });
+
+    $(function () {
+        $("#tabs").tabs();
+    });
+    $(function () {
+        $("#tabs-inner").tabs();
+    });
+
+    $(function () {
+
+        var pickerOpts1 = {
+            dateFormat: $.datepicker.ATOM,
+            changeYear: true
+        };
+        $("#inputComplaintDate").datepicker(pickerOpts1);
+    });
+</script>
+<div id="divComplaintSpinner" style="position: absolute; top: 20%; left: 50%">
+</div>
+<div id="supplierComplaintDiv">
+    <div class="location-frame">
+        <div class="location-frame-row">
+            <div class="location-frame--row-cellHeading">
+                Complaint Date
+            </div>
+            <div class="location-frame--row-cellHeading">
+                Complaint Type
+            </div>
+            <div class="location-frame--row-cellHeading">
+                Complaint Status
+            </div>
+            <div class="location-frame--row-cellHeading" style="border-right: 1px solid black;
+                height: 15px; width: 268px;">
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="location-frame-row" data-bind="template: {name:'foreachdiv',foreach:SupplierComplaintsArray}">
+        </div>
+        <div class="clear">
+        </div>
+        <div>
+            <div style="float: right; font-weight: bold; padding: 10px;">
+                <a href="javascript:(void)" data-bind="click: showModal">Add New</a>
+            </div>
+        </div>
+    </div>
+    <div id="modelPopComplain">
+        <div class="model-container">
+            <div class="row">
+                <div class="left">
+                    <span class="star">*</span> Complaint Date
+                </div>
+                <div class="right">
+                    <input type="text" id="inputComplaintDate" data-bind="value:ComplaintDate" readonly="readonly" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <span class="star">*</span>Complaint Type
+                </div>
+                <div class="right">
+                    <select id="Comtype" data-bind="options:ComplaintTypes, optionsValue:'ComplaintTypeID',optionsText:'ComplaintTypeName',value:ComplaintTypeID ">
+                    </select>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <span class="star">*</span>Complaint Status
+                </div>
+                <div class="right">
+                    <select id="Comtype" data-bind="options:ComplaintStatus, optionsValue:'ComplaintStatusID',optionsText:'ComplaintStatusName',value:ComplaintStatusID ">
+                    </select>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left" style="height: 102px; border-bottom: 1px solid;">
+                    <span class="star">*</span>Description
+                </div>
+                <div class="right" style="border-bottom: 1px solid;">
+                    <textarea id="myTextArea2" rows="10" cols="30" data-bind="value:ComplaintDescription"></textarea>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="pop-buttons">
+                <input type="submit" id="btn2" value="Cancel" data-bind="click:Cancel" />
+                &nbsp;&nbsp;
+                <input type="submit" id="btn" value="Save" data-bind="click:AddNew,visible:IsSaveVisible" />
+                <input type="submit" id="btn1" value="Update" data-bind="click:Update,visible:IsUpdateVisible" />
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="foreachdiv" type="text/html">
+
+  <div class="location-frame--row-cell" style="border-bottom: 1px solid black" >
+                <span data-bind="dateString:ComplaintDate,text:ComplaintDate"></span>
+            </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black" >
+                <span data-bind="text:ComplaintTypeName"></span>
+            </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black" >
+                <span data-bind="text:ComplaintStatusName"></span>
+            </div>
+            <div class="location-frame--row-cell" style="border-bottom: 1px solid black" >
+                <a href="javascript:(void)" data-bind="click:$parent.editItem" >Amend</a>
+            </div>
+            <div class="location-frame--row-cell" style="border-right: 1px solid black;border-bottom: 1px solid black" >
+                <a href="javascript:(void)" data-bind="click:$parent.Remove">remove </a>
+            </div>
+         <div class="clear">
+        </div>
+           
+</script>

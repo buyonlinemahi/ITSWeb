@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1AC06FD-F3DB-4BEE-BD78-9FA8CFD81A30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITS.Domain.ViewModels</RootNamespace>
+    <AssemblyName>ITS.Domain.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaseSearchViewModel\CaseSearchDetailViewModel.cs" />
+    <Compile Include="CaseSearchViewModel\CaseSearchResultViewModel.cs" />
+    <Compile Include="FinalAssessmentViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\AuthorisationQAViewModel.cs" />
+    <Compile Include="CaseStoppedViewModel\CaseStoppedViewModel.cs" />
+    <Compile Include="DocumentServiceViewModel.cs" />
+    <Compile Include="InitialAssessmentQAViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\CaseCompleteInvoicingViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\FinalAssessmentQACustomViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\FinalAssessmentQAViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\InitialAssessmentQACustomViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\ReviewAssessmentCustomQAViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\ReviewAssessmentQAViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\InitialAssessmentQAViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\InternalTaskIndexViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\PagedCaseWorkflowPatientReferrerProject.cs" />
+    <Compile Include="InternalTasksViewModel\PatientCaseAndSupplierWithPatientPostCodeViewModel.cs" />
+    <Compile Include="InternalTasksViewModel\TriageAssessmentQAViewModel.cs" />
+    <Compile Include="InvoiceViewModel\InvoiceDetailViewModel.cs" />
+    <Compile Include="InvoiceViewModel\PagedCaseInvoicePatientReferrer.cs" />
+    <Compile Include="PagedCaseWorkflowPatientReferrerProject.cs" />
+    <Compile Include="PasswordHistoryViewModel.cs" />
+    <Compile Include="PatientCaseAndSupplierWithPatientPostCodeViewModel.cs" />
+    <Compile Include="PractitionerSearchResultViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PractitionerViewModel.cs" />
+    <Compile Include="PrintBlankFinalAssessmentViewModel.cs" />
+    <Compile Include="ReferralViewModel\AddReferralViewModel.cs" />
+    <Compile Include="ReferrerGroupViewModel.cs" />
+    <Compile Include="ReferrerUserDetailViewModel.cs" />
+    <Compile Include="ReferrerViewModel\ReferrerProjectTreamentIndexViewModel.cs" />
+    <Compile Include="ReferrerViewModel\ReferrerSearchResultViewModel.cs" />
+    <Compile Include="ReferrerViewModel\ReferrerIndexViewModel.cs" />
+    <Compile Include="ReferrerViewModel\ReferrerDetailViewModel.cs" />
+    <Compile Include="ReferrerViewModel\ReferrerPricingValue.cs" />
+    <Compile Include="ReferrerViewModel\ReferrerProjectIndexViewModel.cs" />
+    <Compile Include="ReferrerViewModel\ReferrerProjectTreatmentCategoryPricingViewModel.cs" />
+    <Compile Include="SupplierPractitionerViewModel.cs" />
+    <Compile Include="ReferrerAssessmentTypeValuesViewModel.cs" />
+    <Compile Include="LoginViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReferrerProjectCategoryViewModel.cs" />
+    <Compile Include="ReferrerProjectViewModel.cs" />
+    <Compile Include="ReferrerAreaViewModel.cs" />
+    <Compile Include="SupplierSearchResultViewModel.cs" />
+    <Compile Include="SupplierTreatmentCategoryPricingViewModel.cs" />
+    <Compile Include="SupplierViewModel\SupplierViewModel.cs" />
+    <Compile Include="TriageAssessmentQAViewModel.cs" />
+    <Compile Include="UserSearchResultViewModel.cs" />
+    <Compile Include="UserViewModel\UserDetailViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITS.Domain.Models\ITS.Domain.Models.csproj">
+      <Project>{3D7D7D4E-454D-4FB0-8FAC-F1897978C329}</Project>
+      <Name>ITS.Domain.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

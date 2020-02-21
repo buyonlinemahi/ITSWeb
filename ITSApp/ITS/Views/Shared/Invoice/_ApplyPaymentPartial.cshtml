@@ -1,0 +1,71 @@
+﻿@using (Html.BeginForm(ITS.Infrastructure.Global.GlobalConst.Actions.InvoiceController.AddPaymentAmount, ITS.Infrastructure.Global.GlobalConst.Controllers.Invoice, FormMethod.Post, new
+{
+    id = "frmAddPayment",
+    @class = "form-horizontal",
+
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddPaymentAmountSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: AddPaymentAmountFormBeforeSubmit,clearForm:true }"
+}))
+{
+            
+        <div class="control-group">
+        <label class="control-label">
+            Outstanding Amount:</label>
+        <div class="controls">
+            <div class="input-prepend">
+                <span class="add-on">£</span>
+                <input type="text"   data-bind="value:OutstandingAmount" readonly/>
+               
+            </div>
+        </div>
+    </div>
+                       
+    <div class="control-group">
+        <label class="control-label">
+            Payment Amount:</label>
+        <div class="controls">
+            <div class="input-prepend">
+                <span class="add-on">£</span>
+                <input type="text" name="Payment" placeholder="Payment Amount"  data-bind="jqBootstrapValidation: {},value:Payment"
+                    data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$" data-validation-regex-message="Must be a number"
+                    required />
+                <input type="hidden" name="InvoiceID" data-bind="value:InvoiceID" />
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Adjusted Payment</label>
+        <div class="controls">
+         <div class="input-prepend">
+                <span class="add-on">£</span>
+            <input type="text" name="AdjustedPayment" data-bind="jqBootstrapValidation: {},value:AdjustedPayment" data-validation-regex-regex="^(\d*\.\d{1,2}|\d+)$"
+                data-validation-regex-message="Must be a number" placeholder="Adjusted Payment"
+                required />
+        </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Check Number</label>
+        <div class="controls">
+            <input type="text" name="CheckNumber" placeholder="Check Number" required />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            BACS</label>
+        <div class="controls">
+            <input type="text" name="BACS" placeholder="BACS" required />
+        </div>
+    </div>
+					
+    <div class="form-actions">
+        <div class="column-groups-button">
+            <button id="btnSave" type="submit" class="btn btn-primary btn-block">
+                Save</button>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+					
+}

@@ -1,0 +1,83 @@
+﻿@*
+
+   Latest Version : 1.0
+
+   Author   : Pardeep Kumar
+   Date     : 10-Nov-2012
+   Purpose  : Created Internal Security Partial
+
+
+*@
+<link href="@Url.Content("~/Content/InternalSecurityPartial.css")" rel="stylesheet" type="text/css" />
+
+<div id="container">
+    <div class="headings">
+        <div class="left">
+            Main Screen Tabs</div>
+        <div class="right">
+            Main Screen Referral Tasks:</div>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="contents">
+        <div class="left">
+            <input type="checkbox" data-bind="checked:internalTasksChecked" disabled="disabled" />Internal
+            Tasks<br />
+            <input type="checkbox" data-bind="checked:internalCaseSearchChecked" />Case Search<br />
+            <input type="checkbox" data-bind="checked:internalReferrerSetupChecked" />Referrer
+            Setup<br />
+            <input type="checkbox" data-bind="checked:internalSupplierSetupChecked" />Supplier
+            Setup<br />
+            <input type="checkbox" data-bind="checked:internalPractitionerChecked" />Practitioner
+            Setup<br />
+            <input type="checkbox" data-bind="checked:internalFinanceChecked" />Finance<br />
+            <input type="checkbox" data-bind="checked:internalReportingChecked" />Reporting<br />
+            <input type="checkbox" data-bind="checked:internalManagementChecked" />Management<br />
+            <input type="checkbox" data-bind="checked:internalResourcesChecked" />Resources<br />
+            <div class="inner-contents">
+                Main Screen Administrative Tasks:
+            </div>
+            <div>
+                <input type="checkbox" data-bind="checked:internalPrintQueChecked" />Print Queue<br />
+                <input type="checkbox" data-bind="checked:internalPrintChqChecked" />Print Checks<br />
+                <input type="checkbox" data-bind="checked:internalAddPractChecked" />Add Practitioner<br />
+                <input type="checkbox" data-bind="checked:internalCaseTaskChecked" />Case Tasks
+                Assigned to Admin<br />
+            </div>
+        </div>
+        <div class="right">
+            <input type="checkbox" data-bind="checked:internalReferrerAccReffChecked" />Referrals
+            (Accept and Refer)<br />
+            <input type="checkbox" data-bind="checked:internalIniAssessChecked" />Initial Assessment
+            QA<br />
+            <input type="checkbox" data-bind="checked:internalAuthorizeChecked" />Authorisation<br />
+            <input type="checkbox" data-bind="checked:internalReviewChecked" />Review Assessment
+            QA<br />
+            <input type="checkbox" data-bind="checked:internalFinalAssesChecked" />Final Assessment
+            QA<br />
+            <div class="inner-contents">
+                Case Screen:
+            </div>
+            <div style=" height: 306px">
+                <input type="checkbox" data-bind="checked:internalHistoryChecked" />Case History<br />
+                <input type="checkbox" data-bind="checked:internalReferralFormChecked" />Referral
+                Form<br />
+                <input type="checkbox" data-bind="checked:internalLogsChecked" />Communications
+                Log<br />
+                <input type="checkbox" data-bind="checked:internalPricingChecked" />Pricing Matrix<br />
+                <input type="checkbox" data-bind="checked:internalPayableChecked" />Accounts Payable<br />
+                <input type="checkbox" data-bind="checked:internalAccountsChecked" />Accounts Receivable<br />
+                <input type="checkbox" data-bind="checked:internalCaseNotesChecked" />Case Notes<br />
+                <input type="checkbox" data-bind="checked:internalUploadDocumentsChecked" />Upload
+                Documents<br />
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style="text-align: right; margin-top: 20px;">
+            <input type="button" value="Select All" data-bind="click:internalSelectAll" />
+            <input type="button" value="Deselect All" data-bind="click:internalDeSelectAll" />
+        </div>
+    </div>
+</div>
+ 

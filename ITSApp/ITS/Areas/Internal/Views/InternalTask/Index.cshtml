@@ -1,0 +1,59 @@
+﻿@using ITS.Infrastructure.Global;
+@{  
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Internal/Views/Shared/_InternalLayout.cshtml";  
+}
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/ReferralsReceivedViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/InternalTaskPartialViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/AuthorisationViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/ReviewAssessmentViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/CaseStoppedViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/FinalAssessmentQaViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/InitialAssessmentViewModel.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/TriageAssessmentViewModel.js")"
+    type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/internal/shared/InternalTask/TriageAssessmentQAViewModel.js")"
+    type="text/javascript"></script>
+<script src="../../../../Scripts/knockout/custom/knockout.custom-extenders.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/knockout.protectedobservable.js")" type="text/javascript"></script>
+<script src="../../../../Scripts/ko.pager.js" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/ReferrerSetupPartial.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/InternalTasks.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Authorisation.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/ReviewAssessmentPartial.css")" rel="Stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/CaseStopped.css")" rel="Stylesheet" type="text/css" />
+<link href="../../../../Content/Paging.css" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Final%20Assessment%20-report.css")" rel="stylesheet" type="text/css" />
+<script src="../../../../Scripts/knockout.validation.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var internalTaskMainScreenViewModel = new InternalTaskMainScreenViewModel();
+
+        ko.applyBindings(internalTaskMainScreenViewModel, $('#reff-menus').get(0));
+        ko.applyBindings(internalTaskMainScreenViewModel, $('#internaldiv').get(0));
+        var RadiobuttonSelectedID = 5;
+        internalTaskMainScreenViewModel.RadioSelectedTreatmentTypeID(RadiobuttonSelectedID);
+        internalTaskMainScreenViewModel.InitializInternalTaskeScreen();
+
+    });
+
+</script>
+<div>
+    <div class="reffer-task">
+        Referral Tasks:
+    </div>
+    <div id="reff-menus">
+        <div class="rdo-btn" data-bind="foreach:RadioMenuOptions">
+            <input type="radio" data-bind="attr:{value:ID},checked:$root.RadioSelectedTreatmentTypeID,event:{change:$root.CallShowGrid}"
+                name="menuItems" />
+            <span data-bind="text:Option"></span>
+        </div>
+    </div>
+    <div style="clear: both">
+    </div>
+    <div id="internaldiv">
+        @{
+@* Html.RenderPartial("~/Areas/Internal/Views/Shared/MainScreen/_InternalTaskPartial.cshtml");}*@
+            Html.RenderPartial(GlobalConst.PartialViews.Area.Internal.InternalTaskSetUp.InternalTaskPartial);}
+    </div>
+</div>

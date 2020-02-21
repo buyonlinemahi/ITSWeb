@@ -1,0 +1,1521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SupplierService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://112.196.29.227:88/ITS/SupplierService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://112.196.29.227:88/ITS/SupplierService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://112.196.29.227:88/ITS/SupplierService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITSService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISupplierService_UpdateSupplierPractitioner_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierPractitioner" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierPractitioner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierPractitionerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierPractitionerBySupplierPractitionerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierPractitionerBySupplierPractitionerID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierPractitionerBySupplierPractitionerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierPractitionerBySupplierPractitionerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierPractitionerByPractitionerRegistrationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierPractitionerByPractitionerRegistrationID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierPractitionerByPractitionerRegistrationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierPractitionerByPractitionerRegistrationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierPractitionerTreatmentRegistrationsBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierPractitionerTreatmentRegistrationsBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierPractitionerTreatmentRegistrationsBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierPractitionerTreatmentRegistrationsBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierPractitionerBySupplierPractitionerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierPractitionerBySupplierPractitionerID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierPractitionerBySupplierPractitionerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierPractitionerBySupplierPractitionerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetPractitionerLikePractitionerNameForSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerLikePractitionerNameForSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetPractitionerLikePractitionerNameForSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPractitionerLikePractitionerNameForSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllTreatmentType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentType" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllTreatmentType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTreatmentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesTreatmentTypeByTreatmentTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesRegistrationTypeByRegistrationTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierNewPatientCases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierNewPatientCases" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierNewPatientCases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierNewPatientCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierExistingPatientsInitialAssessments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierExistingPatientsInitialAssessments" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierExistingPatientsInitialAssessments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierExistingPatientsInitialAssessmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierExistingPatientsNextAssessments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierExistingPatientsNextAssessments" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierExistingPatientsNextAssessments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierExistingPatientsNextAssessmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierAuthorisations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierAuthorisations" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierAuthorisations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierAuthorisationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierStoppedCases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierStoppedCases" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierStoppedCases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierStoppedCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierWithinPostCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierWithinPostCode" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierWithinPostCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierWithinPostCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierRankingBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierRankingBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierRankingBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierRankingBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierExistsByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierExistsByName" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierExistsByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierExistsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliersRecentlyAdded_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersRecentlyAdded" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliersRecentlyAdded_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersRecentlyAddedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTriageSuppliers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriageSuppliers" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetTriageSuppliers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriageSuppliersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierClinicalAuditSupplierDocumentBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierClinicalAuditSupplierDocumentBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierClinicalAuditSupplierDocumentBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierClinicalAuditSupplierDocumentBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierInsuranceSupplierDocumentBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierInsuranceSupplierDocumentBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierInsuranceSupplierDocumentBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierInsuranceSupplierDocumentBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierRegistrationSupplierDocumentBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierRegistrationSupplierDocumentBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierRegistrationSupplierDocumentBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierRegistrationSupplierDocumentBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditSupplierDocumentBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditSupplierDocumentBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditSupplierDocumentBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditSupplierDocumentBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierComplaintAndStatusAndTypesBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierComplaintAndStatusAndTypesBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierComplaintAndStatusAndTypesBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierComplaintAndStatusAndTypesBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierClinicalAuditAndDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierClinicalAuditAndDocument" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierClinicalAuditAndDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierClinicalAuditAndDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierSiteAuditAndDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierSiteAuditAndDocument" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierSiteAuditAndDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierSiteAuditAndDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierInsuranceAndDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierInsuranceAndDocument" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierInsuranceAndDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierInsuranceAndDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierClinicalAuditBySupplierClinicalAuditID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierClinicalAuditBySupplierClinicalAuditID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierClinicalAuditBySupplierClinicalAuditID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierClinicalAuditBySupplierClinicalAuditIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliersTriageTreamentPricingByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersTriageTreamentPricingByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliersTriageTreamentPricingByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersTriageTreamentPricingByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetPricingTypesByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPricingTypesByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetPricingTypesByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPricingTypesByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliersLikeSupplierName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersLikeSupplierName" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliersLikeSupplierName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersLikeSupplierNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierAndTreatmentTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierAndTreatmentTypes" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierAndTreatmentTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierAndTreatmentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllComplaintstatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComplaintstatus" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllComplaintstatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComplaintstatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllComplaintType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComplaintType" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllComplaintType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComplaintTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierDocument" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierDocument" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierDocumentBySupplierIDAndDocumentTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierDocumentBySupplierIDAndDocumentTypeID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierDocumentBySupplierIDAndDocumentTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierDocumentBySupplierIDAndDocumentTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierDocumentBySupplierDocumentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierDocumentBySupplierDocumentID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierDocumentBySupplierDocumentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierDocumentBySupplierDocumentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierComplaint_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierComplaint" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierComplaint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierComplaintResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierComplaintBySupplierComplaintID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierComplaintBySupplierComplaintID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierComplaintBySupplierComplaintID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierComplaintBySupplierComplaintIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierComplaintBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierComplaintBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierComplaintBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierComplaintBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliersLikePostCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersLikePostCode" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliersLikePostCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersLikePostCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierComplaintBySupplierComplaintID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierComplaintBySupplierComplaintID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierComplaintBySupplierComplaintID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierComplaintBySupplierComplaintIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierTreatment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierTreatment" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierTreatment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierTreatmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierTreatmentBySupplierTreatmentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierTreatmentBySupplierTreatmentID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierTreatmentBySupplierTreatmentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierTreatmentBySupplierTreatmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierTreatmentBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierTreatmentBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierTreatmentBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierTreatmentBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierTreatmentPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierTreatmentPricing" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierTreatmentPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierTreatmentPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierTreatmentPricingByPricingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierTreatmentPricingByPricingID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierTreatmentPricingByPricingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierTreatmentPricingByPricingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierTreatmentPricingBySupplierTreatmentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierTreatmentPricingBySupplierTreatmentId" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierTreatmentPricingBySupplierTreatmentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierTreatmentPricingBySupplierTreatmentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllRegistrationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRegistrationType" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetAllRegistrationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRegistrationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierInsurance_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierInsurance" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierInsurance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierInsuranceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierInsurance_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierInsurance" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierInsurance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierInsuranceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierInsuranceBySupplierInsuredID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierInsuranceBySupplierInsuredID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierInsuranceBySupplierInsuredID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierInsuranceBySupplierInsuredIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierInsuranceBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierInsuranceBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierInsuranceBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierInsuranceBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditBySupplierDocumentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditBySupplierDocumentID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditBySupplierDocumentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditBySupplierDocumentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditByUserID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditBySupplierSiteAuditID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditBySupplierSiteAuditID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierSiteAuditBySupplierSiteAuditID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSiteAuditBySupplierSiteAuditIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierSiteAuditBySupplierSiteAuditID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierSiteAuditBySupplierSiteAuditID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierSiteAuditBySupplierSiteAuditID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierSiteAuditBySupplierSiteAuditIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierSiteAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierSiteAudit" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierSiteAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierSiteAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierSiteAuditBySupplierSiteAuditID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierSiteAuditBySupplierSiteAuditID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierSiteAuditBySupplierSiteAuditID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierSiteAuditBySupplierSiteAuditIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierLikeTreatmentCategoryType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierLikeTreatmentCategoryType" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierLikeTreatmentCategoryType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierLikeTreatmentCategoryTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierClinicalAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierClinicalAudit" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierClinicalAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierClinicalAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierClinicalAuditBySupplierClinicalAuditID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierClinicalAuditBySupplierClinicalAuditID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplierClinicalAuditBySupplierClinicalAuditID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierClinicalAuditBySupplierClinicalAuditIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierClinicalAuditByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierClinicalAuditByUserID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierClinicalAuditByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierClinicalAuditByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierClinicalAuditBySupplierID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierClinicalAuditBySupplierID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSupplierClinicalAuditBySupplierID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierClinicalAuditBySupplierIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierClinicalAuditBySupplierClinicalAuditID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierClinicalAuditBySupplierClinicalAuditID" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplierClinicalAuditBySupplierClinicalAuditID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierClinicalAuditBySupplierClinicalAuditIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierPractitionerRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierPractitionerRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplierPractitionerRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierPractitionerRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISupplierService">
+    <wsdl:operation name="UpdateSupplierPractitioner">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierPractitioner" message="tns:ISupplierService_UpdateSupplierPractitioner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierPractitionerResponse" message="tns:ISupplierService_UpdateSupplierPractitioner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierPractitionerBySupplierPractitionerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierPractitionerBySupplierPractitionerID" message="tns:ISupplierService_DeleteSupplierPractitionerBySupplierPractitionerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierPractitionerBySupplierPractitionerIDResponse" message="tns:ISupplierService_DeleteSupplierPractitionerBySupplierPractitionerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierPractitionerByPractitionerRegistrationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierPractitionerByPractitionerRegistrationID" message="tns:ISupplierService_GetSupplierPractitionerByPractitionerRegistrationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierPractitionerByPractitionerRegistrationIDResponse" message="tns:ISupplierService_GetSupplierPractitionerByPractitionerRegistrationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierPractitionerTreatmentRegistrationsBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierPractitionerTreatmentRegistrationsBySupplierID" message="tns:ISupplierService_GetSupplierPractitionerTreatmentRegistrationsBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierPractitionerTreatmentRegistrationsBySupplierIDResponse" message="tns:ISupplierService_GetSupplierPractitionerTreatmentRegistrationsBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierPractitionerBySupplierPractitionerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierPractitionerBySupplierPractitionerID" message="tns:ISupplierService_GetSupplierPractitionerBySupplierPractitionerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierPractitionerBySupplierPractitionerIDResponse" message="tns:ISupplierService_GetSupplierPractitionerBySupplierPractitionerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerLikePractitionerNameForSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetPractitionerLikePractitionerNameForSupplier" message="tns:ISupplierService_GetPractitionerLikePractitionerNameForSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetPractitionerLikePractitionerNameForSupplierResponse" message="tns:ISupplierService_GetPractitionerLikePractitionerNameForSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTreatmentType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetAllTreatmentType" message="tns:ISupplierService_GetAllTreatmentType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetAllTreatmentTypeResponse" message="tns:ISupplierService_GetAllTreatmentType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID" message="tns:ISupplierService_GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryIDResponse" message="tns:ISupplierService_GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID" message="tns:ISupplierService_GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesTreatmentTypeByTreatmentTypeIDResponse" message="tns:ISupplierService_GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID" message="tns:ISupplierService_GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryIDResponse" message="tns:ISupplierService_GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID" message="tns:ISupplierService_GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesRegistrationTypeByRegistrationTypeIDResponse" message="tns:ISupplierService_GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID" message="tns:ISupplierService_GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryIDResponse" message="tns:ISupplierService_GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID" message="tns:ISupplierService_GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseIDResponse" message="tns:ISupplierService_GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierNewPatientCases">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierNewPatientCases" message="tns:ISupplierService_GetSupplierNewPatientCases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierNewPatientCasesResponse" message="tns:ISupplierService_GetSupplierNewPatientCases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierExistingPatientsInitialAssessments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierExistingPatientsInitialAssessments" message="tns:ISupplierService_GetSupplierExistingPatientsInitialAssessments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierExistingPatientsInitialAssessmentsResponse" message="tns:ISupplierService_GetSupplierExistingPatientsInitialAssessments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierExistingPatientsNextAssessments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierExistingPatientsNextAssessments" message="tns:ISupplierService_GetSupplierExistingPatientsNextAssessments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierExistingPatientsNextAssessmentsResponse" message="tns:ISupplierService_GetSupplierExistingPatientsNextAssessments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierAuthorisations">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierAuthorisations" message="tns:ISupplierService_GetSupplierAuthorisations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierAuthorisationsResponse" message="tns:ISupplierService_GetSupplierAuthorisations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierStoppedCases">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierStoppedCases" message="tns:ISupplierService_GetSupplierStoppedCases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierStoppedCasesResponse" message="tns:ISupplierService_GetSupplierStoppedCases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierStatus" message="tns:ISupplierService_UpdateSupplierStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierStatusResponse" message="tns:ISupplierService_UpdateSupplierStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierWithinPostCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierWithinPostCode" message="tns:ISupplierService_GetSupplierWithinPostCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierWithinPostCodeResponse" message="tns:ISupplierService_GetSupplierWithinPostCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierRankingBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierRankingBySupplierID" message="tns:ISupplierService_GetSupplierRankingBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierRankingBySupplierIDResponse" message="tns:ISupplierService_GetSupplierRankingBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierExistsByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierExistsByName" message="tns:ISupplierService_GetSupplierExistsByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierExistsByNameResponse" message="tns:ISupplierService_GetSupplierExistsByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliersRecentlyAdded">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersRecentlyAdded" message="tns:ISupplierService_GetSuppliersRecentlyAdded_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersRecentlyAddedResponse" message="tns:ISupplierService_GetSuppliersRecentlyAdded_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTriageSuppliers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetTriageSuppliers" message="tns:ISupplierService_GetTriageSuppliers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetTriageSuppliersResponse" message="tns:ISupplierService_GetTriageSuppliers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierClinicalAuditSupplierDocumentBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditSupplierDocumentBySupplierID" message="tns:ISupplierService_GetSupplierClinicalAuditSupplierDocumentBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditSupplierDocumentBySupplierIDResponse" message="tns:ISupplierService_GetSupplierClinicalAuditSupplierDocumentBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierInsuranceSupplierDocumentBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierInsuranceSupplierDocumentBySupplierID" message="tns:ISupplierService_GetSupplierInsuranceSupplierDocumentBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierInsuranceSupplierDocumentBySupplierIDResponse" message="tns:ISupplierService_GetSupplierInsuranceSupplierDocumentBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierRegistrationSupplierDocumentBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierRegistrationSupplierDocumentBySupplierID" message="tns:ISupplierService_GetSupplierRegistrationSupplierDocumentBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierRegistrationSupplierDocumentBySupplierIDResponse" message="tns:ISupplierService_GetSupplierRegistrationSupplierDocumentBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditSupplierDocumentBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditSupplierDocumentBySupplierID" message="tns:ISupplierService_GetSupplierSiteAuditSupplierDocumentBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditSupplierDocumentBySupplierIDResponse" message="tns:ISupplierService_GetSupplierSiteAuditSupplierDocumentBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierComplaintAndStatusAndTypesBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierComplaintAndStatusAndTypesBySupplierID" message="tns:ISupplierService_GetSupplierComplaintAndStatusAndTypesBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierComplaintAndStatusAndTypesBySupplierIDResponse" message="tns:ISupplierService_GetSupplierComplaintAndStatusAndTypesBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierClinicalAuditAndDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierClinicalAuditAndDocument" message="tns:ISupplierService_AddSupplierClinicalAuditAndDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierClinicalAuditAndDocumentResponse" message="tns:ISupplierService_AddSupplierClinicalAuditAndDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierSiteAuditAndDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierSiteAuditAndDocument" message="tns:ISupplierService_AddSupplierSiteAuditAndDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierSiteAuditAndDocumentResponse" message="tns:ISupplierService_AddSupplierSiteAuditAndDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierInsuranceAndDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierInsuranceAndDocument" message="tns:ISupplierService_AddSupplierInsuranceAndDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierInsuranceAndDocumentResponse" message="tns:ISupplierService_AddSupplierInsuranceAndDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierClinicalAuditBySupplierClinicalAuditID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditBySupplierClinicalAuditID" message="tns:ISupplierService_GetSupplierClinicalAuditBySupplierClinicalAuditID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditBySupplierClinicalAuditIDResponse" message="tns:ISupplierService_GetSupplierClinicalAuditBySupplierClinicalAuditID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID" message="tns:ISupplierService_GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierIDResponse" message="tns:ISupplierService_GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliersTriageTreamentPricingByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersTriageTreamentPricingByTreatmentCategoryID" message="tns:ISupplierService_GetSuppliersTriageTreamentPricingByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersTriageTreamentPricingByTreatmentCategoryIDResponse" message="tns:ISupplierService_GetSuppliersTriageTreamentPricingByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricingTypesByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetPricingTypesByTreatmentCategoryID" message="tns:ISupplierService_GetPricingTypesByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetPricingTypesByTreatmentCategoryIDResponse" message="tns:ISupplierService_GetPricingTypesByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID" message="tns:ISupplierService_GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryIDResponse" message="tns:ISupplierService_GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetAllSupplier" message="tns:ISupplierService_GetAllSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetAllSupplierResponse" message="tns:ISupplierService_GetAllSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierBySupplierID" message="tns:ISupplierService_GetSupplierBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierBySupplierIDResponse" message="tns:ISupplierService_GetSupplierBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliersLikeSupplierName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersLikeSupplierName" message="tns:ISupplierService_GetSuppliersLikeSupplierName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersLikeSupplierNameResponse" message="tns:ISupplierService_GetSuppliersLikeSupplierName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplier" message="tns:ISupplierService_AddSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierResponse" message="tns:ISupplierService_AddSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierBySupplierID" message="tns:ISupplierService_UpdateSupplierBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierBySupplierIDResponse" message="tns:ISupplierService_UpdateSupplierBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierAndTreatmentTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierAndTreatmentTypes" message="tns:ISupplierService_AddSupplierAndTreatmentTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierAndTreatmentTypesResponse" message="tns:ISupplierService_AddSupplierAndTreatmentTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComplaintstatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetAllComplaintstatus" message="tns:ISupplierService_GetAllComplaintstatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetAllComplaintstatusResponse" message="tns:ISupplierService_GetAllComplaintstatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComplaintType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetAllComplaintType" message="tns:ISupplierService_GetAllComplaintType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetAllComplaintTypeResponse" message="tns:ISupplierService_GetAllComplaintType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierDocument" message="tns:ISupplierService_AddSupplierDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierDocumentResponse" message="tns:ISupplierService_AddSupplierDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierDocument" message="tns:ISupplierService_UpdateSupplierDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierDocumentResponse" message="tns:ISupplierService_UpdateSupplierDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierDocumentBySupplierIDAndDocumentTypeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierDocumentBySupplierIDAndDocumentTypeID" message="tns:ISupplierService_GetSupplierDocumentBySupplierIDAndDocumentTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierDocumentBySupplierIDAndDocumentTypeIDResponse" message="tns:ISupplierService_GetSupplierDocumentBySupplierIDAndDocumentTypeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierDocumentBySupplierDocumentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierDocumentBySupplierDocumentID" message="tns:ISupplierService_DeleteSupplierDocumentBySupplierDocumentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierDocumentBySupplierDocumentIDResponse" message="tns:ISupplierService_DeleteSupplierDocumentBySupplierDocumentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierComplaint">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierComplaint" message="tns:ISupplierService_AddSupplierComplaint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierComplaintResponse" message="tns:ISupplierService_AddSupplierComplaint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierComplaintBySupplierComplaintID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierComplaintBySupplierComplaintID" message="tns:ISupplierService_UpdateSupplierComplaintBySupplierComplaintID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierComplaintBySupplierComplaintIDResponse" message="tns:ISupplierService_UpdateSupplierComplaintBySupplierComplaintID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierComplaintBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierComplaintBySupplierID" message="tns:ISupplierService_GetSupplierComplaintBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierComplaintBySupplierIDResponse" message="tns:ISupplierService_GetSupplierComplaintBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliersLikePostCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersLikePostCode" message="tns:ISupplierService_GetSuppliersLikePostCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersLikePostCodeResponse" message="tns:ISupplierService_GetSuppliersLikePostCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierComplaintBySupplierComplaintID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierComplaintBySupplierComplaintID" message="tns:ISupplierService_DeleteSupplierComplaintBySupplierComplaintID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierComplaintBySupplierComplaintIDResponse" message="tns:ISupplierService_DeleteSupplierComplaintBySupplierComplaintID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierTreatment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierTreatment" message="tns:ISupplierService_AddSupplierTreatment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierTreatmentResponse" message="tns:ISupplierService_AddSupplierTreatment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierTreatmentBySupplierTreatmentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierTreatmentBySupplierTreatmentID" message="tns:ISupplierService_UpdateSupplierTreatmentBySupplierTreatmentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierTreatmentBySupplierTreatmentIDResponse" message="tns:ISupplierService_UpdateSupplierTreatmentBySupplierTreatmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierTreatmentBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierTreatmentBySupplierID" message="tns:ISupplierService_GetSupplierTreatmentBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierTreatmentBySupplierIDResponse" message="tns:ISupplierService_GetSupplierTreatmentBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierTreatmentPricing">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierTreatmentPricing" message="tns:ISupplierService_AddSupplierTreatmentPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierTreatmentPricingResponse" message="tns:ISupplierService_AddSupplierTreatmentPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierTreatmentPricingByPricingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierTreatmentPricingByPricingID" message="tns:ISupplierService_UpdateSupplierTreatmentPricingByPricingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierTreatmentPricingByPricingIDResponse" message="tns:ISupplierService_UpdateSupplierTreatmentPricingByPricingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierTreatmentPricingBySupplierTreatmentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingBySupplierTreatmentId" message="tns:ISupplierService_GetSupplierTreatmentPricingBySupplierTreatmentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingBySupplierTreatmentIdResponse" message="tns:ISupplierService_GetSupplierTreatmentPricingBySupplierTreatmentId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRegistrationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetAllRegistrationType" message="tns:ISupplierService_GetAllRegistrationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetAllRegistrationTypeResponse" message="tns:ISupplierService_GetAllRegistrationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierInsurance">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierInsurance" message="tns:ISupplierService_AddSupplierInsurance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierInsuranceResponse" message="tns:ISupplierService_AddSupplierInsurance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierInsurance">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierInsurance" message="tns:ISupplierService_UpdateSupplierInsurance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierInsuranceResponse" message="tns:ISupplierService_UpdateSupplierInsurance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierInsuranceBySupplierInsuredID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierInsuranceBySupplierInsuredID" message="tns:ISupplierService_DeleteSupplierInsuranceBySupplierInsuredID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierInsuranceBySupplierInsuredIDResponse" message="tns:ISupplierService_DeleteSupplierInsuranceBySupplierInsuredID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierInsuranceBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierInsuranceBySupplierID" message="tns:ISupplierService_GetSupplierInsuranceBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierInsuranceBySupplierIDResponse" message="tns:ISupplierService_GetSupplierInsuranceBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditBySupplierDocumentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierDocumentID" message="tns:ISupplierService_GetSupplierSiteAuditBySupplierDocumentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierDocumentIDResponse" message="tns:ISupplierService_GetSupplierSiteAuditBySupplierDocumentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierID" message="tns:ISupplierService_GetSupplierSiteAuditBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierIDResponse" message="tns:ISupplierService_GetSupplierSiteAuditBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditByUserID" message="tns:ISupplierService_GetSupplierSiteAuditByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditByUserIDResponse" message="tns:ISupplierService_GetSupplierSiteAuditByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditBySupplierSiteAuditID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierSiteAuditID" message="tns:ISupplierService_GetSupplierSiteAuditBySupplierSiteAuditID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierSiteAuditIDResponse" message="tns:ISupplierService_GetSupplierSiteAuditBySupplierSiteAuditID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierSiteAuditBySupplierSiteAuditID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierSiteAuditBySupplierSiteAuditID" message="tns:ISupplierService_UpdateSupplierSiteAuditBySupplierSiteAuditID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierSiteAuditBySupplierSiteAuditIDResponse" message="tns:ISupplierService_UpdateSupplierSiteAuditBySupplierSiteAuditID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierSiteAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierSiteAudit" message="tns:ISupplierService_AddSupplierSiteAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierSiteAuditResponse" message="tns:ISupplierService_AddSupplierSiteAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierSiteAuditBySupplierSiteAuditID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierSiteAuditBySupplierSiteAuditID" message="tns:ISupplierService_DeleteSupplierSiteAuditBySupplierSiteAuditID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierSiteAuditBySupplierSiteAuditIDResponse" message="tns:ISupplierService_DeleteSupplierSiteAuditBySupplierSiteAuditID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierLikeTreatmentCategoryType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierLikeTreatmentCategoryType" message="tns:ISupplierService_GetSupplierLikeTreatmentCategoryType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierLikeTreatmentCategoryTypeResponse" message="tns:ISupplierService_GetSupplierLikeTreatmentCategoryType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierClinicalAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierClinicalAudit" message="tns:ISupplierService_AddSupplierClinicalAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierClinicalAuditResponse" message="tns:ISupplierService_AddSupplierClinicalAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierClinicalAuditBySupplierClinicalAuditID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierClinicalAuditBySupplierClinicalAuditID" message="tns:ISupplierService_UpdateSupplierClinicalAuditBySupplierClinicalAuditID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierClinicalAuditBySupplierClinicalAuditIDResponse" message="tns:ISupplierService_UpdateSupplierClinicalAuditBySupplierClinicalAuditID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierClinicalAuditByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditByUserID" message="tns:ISupplierService_GetSupplierClinicalAuditByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditByUserIDResponse" message="tns:ISupplierService_GetSupplierClinicalAuditByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierClinicalAuditBySupplierID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditBySupplierID" message="tns:ISupplierService_GetSupplierClinicalAuditBySupplierID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditBySupplierIDResponse" message="tns:ISupplierService_GetSupplierClinicalAuditBySupplierID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierClinicalAuditBySupplierClinicalAuditID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierClinicalAuditBySupplierClinicalAuditID" message="tns:ISupplierService_DeleteSupplierClinicalAuditBySupplierClinicalAuditID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierClinicalAuditBySupplierClinicalAuditIDResponse" message="tns:ISupplierService_DeleteSupplierClinicalAuditBySupplierClinicalAuditID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierPractitionerRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierPractitionerRegistration" message="tns:ISupplierService_AddSupplierPractitionerRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierPractitionerRegistrationResponse" message="tns:ISupplierService_AddSupplierPractitionerRegistration_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISupplierService" type="tns:ISupplierService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateSupplierPractitioner">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierPractitioner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierPractitionerBySupplierPractitionerID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/DeleteSupplierPractitionerBySupplierPractitionerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierPractitionerByPractitionerRegistrationID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierPractitionerByPractitionerRegistrationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierPractitionerTreatmentRegistrationsBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierPractitionerTreatmentRegistrationsBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierPractitionerBySupplierPractitionerID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierPractitionerBySupplierPractitionerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPractitionerLikePractitionerNameForSupplier">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetPractitionerLikePractitionerNameForSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTreatmentType">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetAllTreatmentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetTreatmentCategoriesTreatmentTypeByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetTreatmentCategoriesTreatmentTypeByTreatmentTypeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetTreatmentCategoriesRegistrationTypeByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetTreatmentCategoriesRegistrationTypeByRegistrationTypeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetTreatmentCategoriesAreasofExpertiseByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetTreatmentCategoriesAreasofExpertiseByAreasofExpertiseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierNewPatientCases">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierNewPatientCases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierExistingPatientsInitialAssessments">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierExistingPatientsInitialAssessments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierExistingPatientsNextAssessments">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierExistingPatientsNextAssessments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierAuthorisations">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierAuthorisations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierStoppedCases">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierStoppedCases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierStatus">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierWithinPostCode">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierWithinPostCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierRankingBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierRankingBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierExistsByName">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierExistsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliersRecentlyAdded">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSuppliersRecentlyAdded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTriageSuppliers">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetTriageSuppliers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierClinicalAuditSupplierDocumentBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditSupplierDocumentBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierInsuranceSupplierDocumentBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierInsuranceSupplierDocumentBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierRegistrationSupplierDocumentBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierRegistrationSupplierDocumentBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditSupplierDocumentBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierSiteAuditSupplierDocumentBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierComplaintAndStatusAndTypesBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierComplaintAndStatusAndTypesBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierClinicalAuditAndDocument">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierClinicalAuditAndDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierSiteAuditAndDocument">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierSiteAuditAndDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierInsuranceAndDocument">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierInsuranceAndDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierClinicalAuditBySupplierClinicalAuditID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditBySupplierClinicalAuditID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingByTreatmentCategoryIDAndSupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliersTriageTreamentPricingByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSuppliersTriageTreamentPricingByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricingTypesByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetPricingTypesByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingBySupplierTreatmentIDAndTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSupplier">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetAllSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliersLikeSupplierName">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSuppliersLikeSupplierName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplier">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierAndTreatmentTypes">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierAndTreatmentTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComplaintstatus">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetAllComplaintstatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComplaintType">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetAllComplaintType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierDocument">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierDocument">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierDocumentBySupplierIDAndDocumentTypeID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierDocumentBySupplierIDAndDocumentTypeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierDocumentBySupplierDocumentID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/DeleteSupplierDocumentBySupplierDocumentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierComplaint">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierComplaint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierComplaintBySupplierComplaintID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierComplaintBySupplierComplaintID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierComplaintBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierComplaintBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliersLikePostCode">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSuppliersLikePostCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierComplaintBySupplierComplaintID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/DeleteSupplierComplaintBySupplierComplaintID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierTreatment">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierTreatment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierTreatmentBySupplierTreatmentID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierTreatmentBySupplierTreatmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierTreatmentBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierTreatmentBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierTreatmentPricing">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierTreatmentPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierTreatmentPricingByPricingID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierTreatmentPricingByPricingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierTreatmentPricingBySupplierTreatmentId">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierTreatmentPricingBySupplierTreatmentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRegistrationType">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetAllRegistrationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierInsurance">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierInsurance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierInsurance">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierInsurance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierInsuranceBySupplierInsuredID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/DeleteSupplierInsuranceBySupplierInsuredID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierInsuranceBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierInsuranceBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditBySupplierDocumentID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierDocumentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditByUserID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierSiteAuditByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSiteAuditBySupplierSiteAuditID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierSiteAuditBySupplierSiteAuditID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierSiteAuditBySupplierSiteAuditID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierSiteAuditBySupplierSiteAuditID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierSiteAudit">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierSiteAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierSiteAuditBySupplierSiteAuditID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/DeleteSupplierSiteAuditBySupplierSiteAuditID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierLikeTreatmentCategoryType">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierLikeTreatmentCategoryType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierClinicalAudit">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierClinicalAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierClinicalAuditBySupplierClinicalAuditID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplierClinicalAuditBySupplierClinicalAuditID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierClinicalAuditByUserID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierClinicalAuditBySupplierID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSupplierClinicalAuditBySupplierID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierClinicalAuditBySupplierClinicalAuditID">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/DeleteSupplierClinicalAuditBySupplierClinicalAuditID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSupplierPractitionerRegistration">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplierPractitionerRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SupplierService">
+    <wsdl:port name="BasicHttpBinding_ISupplierService" binding="tns:BasicHttpBinding_ISupplierService">
+      <soap:address location="http://112.196.29.227:88/ITS/SupplierService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

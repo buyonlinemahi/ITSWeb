@@ -1,0 +1,289 @@
+﻿@using System.Web.Script.Serialization
+@using ITSPublicApp.Infrastructure.Global;
+@using System.Configuration;
+@{
+    ViewBag.Title = "Supplier Portal - Initial Assessment Custom";
+    Layout = "~/Areas/Supplier/Views/Shared/_LayoutForm.cshtml";
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript" ></script>
+<script src="@Url.Content("~/Scripts/knockout.validation.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/viewmodels/areas/shared/supplier/ReviewAssessmentCustomViewModel.js")"
+    type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/plugins/knockout.dateformat.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.spin.js")" type="text/javascript"></script>
+<div id="divReviewAssessment">
+    @using (Html.BeginForm("saveCaseTreatmentPricing", GlobalConst.Controllers.Area.Supplier.ReviewAssessmentCustom,
+          FormMethod.Post, new
+            {
+                id = "frmReviewAssessmentCustom1",
+                enctype = "multipart/form-data",
+                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){AfterSuccessCaseTreatmentPricings(responseText, statusText, xhr, $form);}}"
+            }))
+    {
+
+        @Html.AntiForgeryToken()
+        <!--ko if:!CaseTreatmentPricingTypeArray().length==0-->
+        <div id="divCasePricingMatrix">
+            <p>
+                <strong>Case Treatment Pricing Matrix</strong>
+            </p>
+            <br />
+            Please complete the blank fields in the grid below as applicable
+            <div class="ITS-ref-table">
+                <table>
+                    <tr>
+                        <td>Service Type
+                        </td>
+                        <td>Date of Service Provided
+                        </td>
+                        <td>Did Not Show
+                        </td>
+                        <td>Not Required
+                        </td>
+                        <td>Price
+                        </td>
+                    </tr>
+                    <!--ko foreach:CaseTreatmentPricingTypeArray-->
+                    <tr>
+                        <td>
+                            <label>
+                                <span data-bind="text:PricingTypeName"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="caseDateOfService" data-bind="attr:{value:DateOfService, name: 'CaseTreatmentPricings['+ $index() +'].DateOfService', id: 'TxtDateOsServie'+ $index(),onblur: 'validate(this,\'lblmsgCaseTreatmentPricingTypeArray'+ $index() +'\')' }, event: { change: $root.ValidateCaseTreatmentPricing },enable: DateOfServiceEnable" />
+                            <span data-bind="attr: { id: 'lblmsgCaseTreatmentPricingTypeArray'+ $index()}" class="warningcustom" style="margin-left: 15px!important; position: absolute !important"></span>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="DidNotAttend" data-bind="attr: { id: 'chkboxDidNotAttend'+ $index(),name:'CaseTreatmentPricings['+ $index() + '].PatientDidNotAttend',value:PatientDidNotAttend },checked:PatientDidNotAttend, event: { change: $root.ValidateCaseTreatmentPricing },enable: PatientDidNotAttendEnable" />
+                            @* <input type="checkbox" data-bind="attr: { name:'CaseTreatmentPricings['+ $index() + '].PatientDidNotAttend',value:PatientDidNotAttend },checked:PatientDidNotAttend, event: { change: $root.ValidateCaseTreatmentPricing },enable: PatientDidNotAttendEnable" />*@
+                            <input required type="text" class="caseDateOfService" data-bind="attr: {value:PatientDidNotAttendDate, name: 'CaseTreatmentPricings['+ $index() +'].PatientDidNotAttendDate',id: 'TxtPatientDidNotAttendDate'+ $index(),onblur: 'validate(this,\'lblmsgCaseTreatmentPricingTypeArray'+ $index() +'\')' }, event: { change: $root.ValidateCaseTreatmentPricing },enable: PatientDidNotAttendDate" disabled />
+                            <span data-bind="attr: { id: 'lblmsgCaseTreatmentPricingTypeArray'+ $index()}" class="warningcustom" style="margin-left: 15px!important; position: absolute !important"></span>
+                        </td>
+                        <td>
+                            <input type="checkbox" data-bind="attr: { name:'CaseTreatmentPricings['+ $index()+'].WasAbandoned',value:WasAbandoned }, event: { change: $root.ValidateCaseTreatmentPricing },checked:WasAbandoned,enable: WasAbandonedEnable" />
+                        </td>
+                        <td>
+                            <label>
+                                <span data-bind="text: SupplierPrice"></span>
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].SupplierPriceID' },value:SupplierPriceID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].SupplierPrice' },value:SupplierPrice" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].ReferrerPrice' },value:ReferrerPrice" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].IsComplete'},value:IsComplete().toString()" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].ReferrerPricingID' },value:ReferrerPricingID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].CaseID' },value:CaseID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseTreatmentPricings['+ $index() + '].CaseTreatmentPricingID' },value:CaseTreatmentPricingID" />
+                            </label>
+                        </td>
+                    </tr>
+                    <!--/ko-->
+                </table>
+            </div>
+        </div>
+        <div class="its-authorisation-border">
+        </div>
+        <!--/ko-->            
+        <input type="submit" id="btnSave" class="its-savebutton" />       
+    }
+    @using (Html.BeginForm(GlobalConst.Actions.Area.Supplier.ReviewAssessmentCustom.AddReviewAssessmentCustom, GlobalConst.Controllers.Area.Supplier.ReviewAssessmentCustom,
+    FormMethod.Post, new
+    {
+        id = "frmReviewAssessment",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AfterSuccessReviewAssessment(responseText, statusText, xhr, $form);}}"
+    }))
+    {
+        @Html.AntiForgeryToken()
+        
+        <!--ko if:!CaseBespokeServicePricingsArray().length==0-->
+        <div id="divPricingMatrix">
+            <p>
+                <strong>Bespoke Pricing Matrix</strong>
+            </p>
+            <br />
+            Please complete the blank fields in the grid below as applicable
+            <div class="ITS-ref-table">
+                <table>
+                    <tr>
+                        <td>Service Type
+                        </td>
+                        <td>Date of Service Provided
+                        </td>
+                        <td>Did Not Show
+                        </td>
+                        <td>Not Required
+                        </td>
+                        <td>Price
+                        </td>
+                    </tr>
+                    <!--ko foreach:CaseBespokeServicePricingsArray-->
+                    <tr>
+                        <td>
+                            <label>
+                                <span data-bind="text:BespokeServiceName"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="caseDateOfService" data-bind="attr:{value:DateOfService, name: 'CaseBespokeServicePricings['+ $index() +'].DateOfService',onblur: 'validate(this,\'lblmsg'+ $index() +'\')' }, event: { change: $root.ValidateCaseBespokeServicePricing },enable: DateOfServiceEnable" />
+                            <span data-bind="attr:{id:'lblmsg'+ $index()}" class="warningcustom" style="margin-left: 15px!important; position: absolute !important"></span>
+                        </td>
+                        <td>
+                            <input type="checkbox" data-bind="attr:{name:'CaseBespokeServicePricings['+ $index() + '].PatientDidNotAttend',value:PatientDidNotAttend },checked:PatientDidNotAttend, event: { change: $root.ValidateCaseBespokeServicePricing },enable:PatientDidNotAttendEnable" />
+                        </td>
+                        <td>
+                            <input type="checkbox" data-bind="attr: { name:'CaseBespokeServicePricings['+ $index()+'].WasAbandoned',value:WasAbandoned }, event: { change: $root.ValidateCaseBespokeServicePricing },checked:WasAbandoned,enable:WasAbandonedEnable" />
+                        </td>
+                        <td>
+                            <label>
+                                <span data-bind="text: SupplierPrice"></span>
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].SupplierPrice' },value:SupplierPrice" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].ReferrerPrice' },value:ReferrerPrice" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].IsComplete'},value:IsComplete().toString()" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].CaseBespokeServiceID' },value:CaseBespokeServiceID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].CaseID' },value:CaseID" />
+                                <input type="hidden" data-bind="attr: { name: 'CaseBespokeServicePricings['+ $index() + '].TreatmentCategoryBespokeServiceID' },value:TreatmentCategoryBespokeServiceID" />
+                            </label>
+                        </td>
+                    </tr>
+                    <!--/ko-->
+                </table>
+            </div>
+        </div>
+        <!--/ko-->
+        <div class="its-authorisation-border">
+        </div>  
+        
+        <p>
+            <strong>Patient Demographics</strong>
+        </p>
+        <div class="row3-label-initial">
+            <ul>
+                <li>Patient First Name:</li>
+                <li>Patient Address:</li>
+                <li>Patient Region:</li>
+                <li>Patient Home Phone:</li>
+                <li>Case Number:</li>
+                <li style="width: 500px">Patient Treatment Category:</li>
+            </ul>
+        </div>
+        <div class="row3-input-initial">
+            <ul>
+                <li><span id="FirstName" data-bind="text:FirstName"></span></li>
+                <li><span name="Address" data-bind="text:Address"></span></li>
+                <li><span data-bind="text:Region"></span></li>
+                <li><span data-bind="text:HomePhone()==null?'--':HomePhone"></span></li>
+                <li><span data-bind="text:CaseNumber"></span></li>
+                <li><span data-bind="text:TreatmentCategoryName"></span></li>
+            </ul>
+        </div>
+        <div class="row3-label-initial">
+            <ul>
+                <li>Patient Surname:</li>
+                <li>Patient City / Town:</li>
+                <li>Patient Post Code:</li>
+                <li>Patient Mobile:</li>
+                <li style="width: 500px">Referrer Reference Number:</li>
+                <li>Patient Treatment Type:</li>
+
+            </ul>
+        </div>
+        <div class="row3-input-initial">
+            <ul>
+                <li><span data-bind="text:LastName"></span></li>
+                <li><span data-bind="text:City"></span></li>
+                <li><span data-bind="text:PostCode" style="text-transform:uppercase"></span></li>
+                <li><span data-bind="text:MobilePhone()==null?'--':MobilePhone"></span></li>
+                <li><span data-bind="text:CaseReferrerReferenceNumber"></span></li>
+                <li><span data-bind="text:TreatmentTypeName"></span></li>
+
+            </ul>
+        </div>
+        <div class="clear">
+        </div>
+      
+        <p>
+            <span style="color: Red">*&nbsp;</span>Are you discharging the patient?
+        <input type="radio" value="true" name="RequiredTreatment" data-bind="jqBootstrapValidation:{}" required class="its-radiobutton  RequiredTreatment" />Yes
+        <input type="radio" value="false" name="RequiredTreatment" data-bind="jqBootstrapValidation:{}" required class="its-radiobutton RequiredTreatment" />No
+        </p>
+         
+        
+            <div style="margin-top: 41px">
+                <strong><span data-bind="text:RequiredTraetment" name="RequiredTraetment"></span>&nbsp;Assessment</strong>
+            </div>
+            <div class="row3-label-initial">
+                <ul>
+                    <li class="case-dl-link">
+                        <a data-bind="attr: { 'href': '@Url.Action("Download", "ReviewAssessmentCustom")?_caseID='+EncryptedCaseID()}">Download Assessment</a>
+                    </li>
+                </ul>
+            </div>        
+               
+@*<!--ko if:IsFurtherTreatment()==true-->
+        <p>
+            <strong>Review Assessment</strong>
+            <div class="row3-label-initial">
+                <ul>
+                    <li class="case-dl-link"><a data-bind="attr: { href: AssessmentFileCustomURLPath}">Download
+                        Assessment</a></li>
+                </ul>
+            </div>
+        </p>
+        <!--/ko-->
+              
+        <!--ko if:IsFurtherTreatment()==false-->
+        <p>
+            <strong>Final Assessment</strong>
+            <div class="row3-label-initial">
+                <ul>
+                       <li class="case-dl-link"><a data-bind="attr: { href: AssessmentFileCustomURLPath}">Download
+                        Assessment</a></li>
+                </ul>
+            </div>
+        </p>
+        <!--/ko-->*@
+        <div class="row3-input">
+            <ul>
+                <li>
+                    <input type="file" name="AssessmentCustomUploadFile" id="AssessmentCustomUploadFile" />
+                </li>
+            </ul>
+        </div>
+       
+        <input type="hidden" name="CaseService.SupplierID" data-bind="value:SupplierID" />
+        <input type="hidden" name="CaseService.ReferrerProjectTreatmentID" data-bind="value:ReferrerProjectTreatmentID" />
+        <input type="hidden" name="CaseService.ReferrerID" data-bind="value:ReferrerID" />
+        <input type="hidden" name="CaseService.CaseID" data-bind="value:CaseID" />
+        <input type="hidden" name="IsFurtherTreatment" data-bind="value:IsFurtherTreatment" />
+        <div id="divGridDisplaySpinner" style="position: fixed; top: 50%; left: 50%">
+        </div>
+        <p>
+            @*<input type="button" class="its-submitbutton" id="SubmitReport" />*@
+            <input type="submit" class="its-submitbutton" value="test" />
+        </p>
+        <div class="clear">
+        </div>
+       
+       
+    }
+</div>
+<script type="text/javascript">
+    $(function () {
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var casePatientTreatment = new CasePatientTreatment();
+        casePatientTreatment.Init(model);
+        ko.applyBindings(casePatientTreatment, $("#divReviewAssessment").get(0));
+        $(".caseDateOfService").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1900:2035'
+        });
+       
+    }); 
+</script>

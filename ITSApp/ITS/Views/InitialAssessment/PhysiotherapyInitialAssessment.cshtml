@@ -1,0 +1,401 @@
+﻿@{
+    ViewBag.Title = "PhysiotherapyInitialAssessment";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>ITS Portal - Physiotherapy Initial Assessment</title>
+    <link href="@Url.Content("~/Content/bootstrap/css/assessment-reports.css")" rel="stylesheet" type="text/css" />
+
+</head>
+<body id="its-supplier-form">
+    <div class="container">
+        <div class="header">
+            <div class="header-head">
+                <h2 class="head">Physiotherapy - Initial Assessment</h2>
+            </div>
+            <div class="logo">
+                <img src="../../../../Content/Images/logo-new.png">
+                <p>Regent House Stockport, Heaton Lane SK4 1BS</p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="heading">
+            <h4 class="small_head">Referral Details</h4>
+        </div>
+        <div class="centerTable">
+            <table class="form_border">
+                <tr class="form_tr">
+                    <td class="form_name">Patient Name:
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name">Date of Birth:
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name">Practitioner Name/Qualifications: 
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" maxlength="100" />
+
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name">Clinic Postcode:
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name">Claim Reference:
+                    </td>
+                    <td class="form_input">
+                        <input type="text" name="email_address" class="big_input" maxlength="100" />
+                    </td>
+                </tr>
+                <tr class="form_tr">
+                    <td class="form_name-p">
+                        <p>Please indicated if the patient has signed a written consent agreeing that this report can be shared with the referring party/parties.</p>
+                    </td>
+                    <td class="form_input-box">Yes&nbsp;<input type="checkbox" name="yes" class="big_input-box" />
+                        No&nbsp;<input type="checkbox" name="no" class="big_input-box" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!----    Demographic Information End          ---->
+        <div class="heading">
+            <h4 class="small_head">Symptom details</h4>
+        </div>
+        <table class="form_border">
+            <tr class="form_tr">
+                <td class="form_20">
+                    <p>
+                        Symptom Description
+(please reference WAD Grade tier if applicable and area affected)
+                    </p>
+                </td>
+                <td class="form_20">
+                    <p>Side Affected</p>
+                </td>
+                <td class="form_20">
+                    <p>Pain Score (please give a score out of 10)</p>
+                </td>
+                <td class="form_20">
+                    <p>Restriction to range of movement / Objective Marker</p>
+                </td>
+                <td class="form_20">
+                    <p>Strength Testing</p>
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_20-btm">
+                    <span>&nbsp;</span>  </td>
+                <td class="form_20-btm">
+                    <span>&nbsp;</span> </td>
+                <td class="form_20-btm">
+                    <span>&nbsp;</span> </td>
+                <td class="form_20-btm">
+                    <span>&nbsp;</span> </td>
+                <td class="form_20-btm">
+                    <span>&nbsp;</span> </td>
+            </tr>
+            <tr>
+                <th>Please comment on relevant tests undertaken: <span style="color: #f50202;">If NA is selected do not show this field. </span></th>
+            </tr>
+        </table>
+        <!----   Patient Consent End          ---->
+
+        <div class="heading">
+            <h4 class="small_head">Factors affecting treatment
+            </h4>
+        </div>
+
+        <table class="form_border">
+            <tr>
+                <th>Past Medical History / Details of Previous Injury:
+                </th>
+
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Does the patient demonstrate any yellow flags?
+                </td>
+                <td class="form_input-symptom">
+                    <span>Yes
+                        <input type="checkbox" name="Yes" class="big_input-box" />&nbsp;</span>
+                    <span>No
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Does the patient demonstrate any red flags?
+                </td>
+                <td class="form_input-symptom">
+                    <span>Yes
+                        <input type="checkbox" name="Yes" class="big_input-box" />&nbsp;</span>
+                    <span>No
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Is the patient currently taking any medication?
+                </td>
+                <td class="form_input-symptom">
+                    <span>Yes
+                        <input type="checkbox" name="Yes" class="big_input-box" />&nbsp;</span>
+                    <span>No
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Is the patient already undergoing any treatment?
+                </td>
+                <td class="form_input-symptom">
+                    <span>Yes
+                        <input type="checkbox" name="Yes" class="big_input-box" />&nbsp;</span>
+                    <span>No
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Does the patient require any further investigation?
+                </td>
+                <td class="form_input-symptom">
+                    <span>Yes
+                        <input type="checkbox" name="Yes" class="big_input-box" />&nbsp;</span>
+                    <span>No
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <th><span style="color: #f50202;">If yes please detail section</span></th>
+            </tr>
+
+        </table>
+        <!----   The patient describes their current symptoms as: End          ---->
+
+        <div class="heading">
+            <h4 class="small_head">Impact on Work
+            </h4>
+        </div>
+        <table class="form_border">
+            <tr>
+                <td class="form_name-symptom">Patient’s occupation:
+                </td>
+                <td class="form_input-symptom"><span>&nbsp;</span></td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom" style="height: 77px;">If the patient is <span style="text-decoration: underline;">unemployed</span> what is their anticipated capacity for work?
+                </td>
+                <td class="form_input-symptom">
+                    <span>Unfit for work
+                        <input type="checkbox" name="Yes" class="big_input-box" /><br />
+                    </span>
+                    <span>Light sedentary
+                        <input type="checkbox" name="No" class="big_input-box" /><br />
+                    </span>
+                    <span>No restrictions
+                        <input type="checkbox" name="Yes" class="big_input-box" /><br />
+                    </span>
+                    <span>Not applicable
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Has the patient had any time off work?
+                </td>
+                <td class="form_input-symptom">
+                    <span>Yes
+                        <input type="checkbox" name="Yes" class="big_input-box" />&nbsp;</span>
+                    <span>No
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Has the patient return to work?
+                </td>
+                <td class="form_input-symptom">
+                    <span>Yes
+                        <input type="checkbox" name="Yes" class="big_input-box" />&nbsp;</span>
+                    <span>No
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Date of Return to Work.
+                </td>
+                <td class="form_input-symptom">
+                    <span>&nbsp;</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom" style="height: 57px;">Current Duties:
+                </td>
+                <td class="form_input-symptom">
+                    <span>Pre-injury duties
+                        <input type="checkbox" name="Yes" class="big_input-box" /><br />
+                    </span>
+                    <span>Alternative duties
+                        <input type="checkbox" name="No" class="big_input-box" /><br />
+                    </span>
+                    <span>Reduced Hours
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">Is the patient likely to return to their pre-injury hours and duties? 
+                </td>
+                <td class="form_input-symptom">
+                    <span>Yes
+                        <input type="checkbox" name="Yes" class="big_input-box" />&nbsp;</span>
+                    <span>No
+                        <input type="checkbox" name="No" class="big_input-box" /></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="form_name-symptom">If Yes -Likely Timeframe
+                </td>
+                <td class="form_input-symptom">
+                    <span>&nbsp;</span>
+                </td>
+            </tr>
+            <tr>
+                <th>Please comment on the main factors affecting the patient’s employment role:  
+                   <input type="text" name="email_address" class="big_input" maxlength="200" />
+                </th>
+            </tr>
+            <tr>
+                <th>Please comment on the main factors affecting the patient’s employment role:  
+                   <input type="text" name="email_address" class="big_input" maxlength="200" />
+                </th>
+            </tr>
+        </table>
+
+
+        <div class="heading">
+            <h4 class="small_head">Impact on Lifestyle – Please choose from None to Severe and comment.
+            </h4>
+        </div>
+        <table class="form_border">
+            <tr>
+                <td class="form_name-impact">Activities of Daily Living
+                </td>
+                <td class="form_input-impact"><span>&nbsp;</span></td>
+            </tr>
+            <tr>
+                <td class="form_name-impact">Travel
+                </td>
+                <td class="form_input-impact"><span>&nbsp;</span></td>
+            </tr>
+            <tr>
+                <td class="form_name-impact">Recreational activities
+                </td>
+                <td class="form_input-impact"><span>&nbsp;</span></td>
+            </tr>
+            <tr>
+                <td class="form_name-impact">Sleep
+                </td>
+                <td class="form_input-impact"><span>&nbsp;</span></td>
+            </tr>
+
+        </table>
+
+        <div class="heading">
+            <h4 class="small_head">Treatment Recommendation
+            </h4>
+        </div>
+        <table class="form_border">
+            <tr>
+                <td class="form_name-impact">How many sessions do you recommend:
+                </td>
+                <td class="form_input-impact"><span>&nbsp;</span></td>
+            </tr>
+            <tr>
+                <td class="form_name-impact">How often should sessions take place: 
+                </td>
+                <td class="form_input-impact"><span>&nbsp;</span></td>
+            </tr>
+        </table>
+
+
+
+        <div class="heading">
+            <h4 class="small_head">Treatment Goals / Treatment Plan</h4>
+        </div>
+        <table class="form_border">
+            <tr>
+                <th>SMART Goals (please relate these to the patient’s pre-injury work activities or return to work plan where possible)
+                </th>
+
+            </tr>
+
+            <tr class="form_tr">
+                <td class="form_33">
+                    <p>Affected Area</p>
+                </td>
+                <td class="form_33">
+                    <p>Goal</p>
+                </td>
+                <td class="form_33">
+                    <p>Estimated Achievement Date</p>
+                </td>
+            </tr>
+            <tr class="form_tr">
+                <td class="form_33">
+                    <span>&nbsp;</span>  </td>
+                <td class="form_33">
+                    <span>&nbsp;</span> </td>
+                <td class="form_33">
+                    <span>&nbsp;</span> </td>
+
+            </tr>
+            <tr class="form_tr">
+                <td class="form_name-impact" style="height: 157px;">Treatment modalities recommended to achieve above goals:
+                </td>
+                <td class="form_input-impact">
+                    <span>Manual Mobilisation
+                        <input type="checkbox" name="No" class="big_input-box" /><br />
+                    </span>
+                    <span>Home exercise programme<input type="checkbox" name="Yes" class="big_input-box" /><br />
+                    </span>
+                    <span>Soft tissue techniques
+                        <input type="checkbox" name="No" class="big_input-box" /><br />
+                    </span>
+                    <span>Electrotherapy<input type="checkbox" name="Yes" class="big_input-box" /><br />
+                    </span>
+                    <span>Acupuncture
+                        <input type="checkbox" name="No" class="big_input-box" /><br />
+                    </span>
+                    <span>Active exercise
+                        <input type="checkbox" name="No" class="big_input-box" /><br />
+                    </span>
+                    <span>Self-management<input type="checkbox" name="Yes" class="big_input-box" /></span>
+                </td>
+            </tr>
+
+        </table>
+
+        <div>
+            <h4 class="small_head">Additional information</h4>
+            <div class="form_border-1">
+                <p class="padd-5">
+                    Please provide any relevant additional information
+                </p>
+                @*@Html.TextArea("CaseAssessmentDetail.AdditionalInformation",
+
+@Model.CaseAssessment.CaseAssessmentDetail.AdditionalInformation, new { @class = "text_area" })*@
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+</body>
+</html>

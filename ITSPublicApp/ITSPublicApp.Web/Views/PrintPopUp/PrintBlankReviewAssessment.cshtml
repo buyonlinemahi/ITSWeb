@@ -1,0 +1,420 @@
+﻿@using ITSPublicApp.Domain.Models;
+@using ITSPublicApp.Web.Controllers
+@model ITSPublicApp.Domain.ViewModels.PrintBlankReviewAssessmentViewModel
+@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<script type="text/javascript">
+  
+</script>
+<head>
+    <title>Insight Portal - Print Blank Review Assessment</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/reset.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/print.css")" />
+</head>
+<body id="its-supplier-form">
+    <div id="its-container">
+        <div class="its-supplier-form-wrapper">
+            <div class="clear">
+            </div>
+            <div class="its-sub-header">
+                <p>
+                    <span class="its-pwelcome">Review Assessment Form</span><br />
+                </p>
+            </div>
+            <div class="its-content">
+                <div class="print-heading">
+                    <p>
+                        Patient Details</p>
+                </div>
+                <table width="100%" cellpadding="5" cellspacing="5">
+                    <tr>
+                        <td>
+                            Patient Name:
+                        </td>
+                        <td>
+                            @Model.Patient.FirstName @Model.Patient.LastName
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date of Birth:
+                        </td>
+                        <td>
+                            @if (Model.Patient.BirthDate.HasValue)
+                            {
+                                @Model.Patient.BirthDate.Value   
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date of Referral:
+                        </td>
+                        <td>
+                            @Model.Case.CaseSubmittedDate.ToString().Substring(0,10)   
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date of Accident:
+                        </td>
+                        <td>
+                            @Model.Patient.InjuryDate
+                        </td>
+                    </tr>
+                   @* <tr>
+                        <td>
+                            Practitioner Name:
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>*@
+                    <tr>
+                        <td>
+                            Date of Initial Assessment:
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+                <div class="print-heading">
+                    <p>
+                        Patient Consent</p>
+                </div>
+                <table width="100%" cellpadding="5" cellspacing="5">
+                    <tr>
+                        <td>
+                            Has the patient given consent for this assessment report to be passed to their solicitor,
+                            the treating pyhsiotherapist and the funding party?
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div class="print-heading">
+                    <p>
+                        Injury and Symptom Details</p>
+                </div>
+                <table cellpadding="5" cellspacing="5" class="affected-area">
+                    <tr>
+                        <td colspan="4">
+                            <p>
+                                Please give a brief description of the incident and diagnosis/injury. Please include
+                                whether the patient attended A&E and/or their GP.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            Symptom Description / Affected Area
+                        </td>
+                        <td align="center">
+                            Pain Score (out of 10)
+                        </td>
+                        <td align="center">
+                            Restriction to range of movement
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div class="margin-separator">
+                </div>
+                <div class="page-spacer">
+                    &nbsp;</div>
+                <table cellpadding="5" cellspacing="5" class="affected-area">
+                    <tr>
+                        <td colspan="4">
+                            <p>
+                                Please detail any neural symptoms present with reference to the symptoms above:</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div class="print-heading">
+                    <p>
+                        Factors affecting treatment</p>
+                </div>
+                <table cellpadding="5" cellspacing="5" class="affected-area">
+                    <tr>
+                        <td colspan="4">
+                            <p>
+                                Please give a brief description of any pre-existing conditions which may affect
+                                the patient’s recovery and return to work:</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <table cellpadding="5" cellspacing="5" class="affected-area">
+                    <tr>
+                        <td colspan="4">
+                            <p>
+                                Does the patient demonstrate Red Flag?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <table cellpadding="5" cellspacing="5" class="affected-area">
+                    <tr>
+                        <td colspan="4">
+                            <p>
+                                Does the patient demonstrate Yellow Flag?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%" cellpadding="5" cellspacing="5">
+                    <tr>
+                        <td>
+                            Is the patient already undergoing any treatment?
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Is the patient currently taking any medication?
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Does the patient require any further investigation?
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <table cellpadding="5" cellspacing="5" class="affected-area">
+                    <tr>
+                        <td colspan="4">
+                            <p>
+                                If yes to any of the above, please detail:</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div class="margin-separator">
+                </div>
+                <div class="page-spacer">
+                    &nbsp;</div>
+                <div class="print-heading">
+                    <p>
+                        Impact on Lifestyle</p>
+                </div>
+                @foreach (PatientImpact patientImpact in @Model.PatientImpacts)
+                {
+                    <table width="100%" cellpadding="5" cellspacing="5">
+                        <tr>
+                            <td>
+                                <strong>@patientImpact.PatientImpactName</strong>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Comments:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                }
+                @* <table width="100%" cellpadding="5" cellspacing="5">
+                    <tr>
+                        <td>
+                            <strong></strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            Comments:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        </td>
+                    </tr>
+                </table>*@
+                <div class="margin-separator">
+                </div>
+                <div class="page-spacer1">
+                    &nbsp;</div>
+                <div class="print-heading">
+                    <p>
+                        Impact on Work</p>
+                </div>
+                <table width="100%" cellpadding="5" cellspacing="5" class="impactonwork">
+                    <tr>
+                        <td>
+                            <strong>Patient’s occupation:</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Is the patient’s role manual, sedentary or mixed?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Was the patient working at the time of the accident?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Has the patient had any time off work?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Has the patient returned to work?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>If they have been absent, how many days/weeks have they been absent?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Is the patient still suffering a financial loss as a result of being off work?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Current work status</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Current impact on work</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div class="print-heading">
+                    <p>
+                        Treatment Recommendation</p>
+                </div>
+                <table width="100%" cellpadding="5" cellspacing="5" class="impactonwork">
+                    <tr>
+                        <td>
+                            <strong>How many sessions do you recommend?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Over what period should these be carried out?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>What is the anticipated date of discharge?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>What level of recovery do you anticipate the patient will make following treatment?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Has the patient been given a home exercise programme?</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Proposed treatment methods</strong>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div class="margin-separator">
+                </div>
+                <div class="page-spacer">
+                    &nbsp;</div>
+                <div class="print-heading">
+                    <p>
+                        Additional Information</p>
+                </div>
+                <p>
+                    Please provide any relevant additional information</p>
+                <table width="100%" cellpadding="5" cellspacing="5">
+                    <tr>
+                        <td height="300px">
+                        </td>
+                    </tr>
+                </table>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

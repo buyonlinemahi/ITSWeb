@@ -1,0 +1,47 @@
+﻿.ReviewAssessment-Main
+{
+    width: 984px;
+    height: 300px;
+    
+}
+.ReviewAssessment-Main .header
+{
+     background-color: #74B030;
+    color: #FFFFFF;
+    font-size: 12px;
+   
+    margin-top: 15px;
+    padding: 10px 0;
+    width: 984px;
+}
+.ReviewAssessment-Main .divAssessmentGridRow
+{
+    background-color: #74b030;
+    width: 984px;
+    font-size: 12px;
+    
+    margin-top: 10px;
+}
+.ReviewAssessment-Main .divAssessmentGridColumn
+{
+    background-color: #74b030;
+    padding: 10px 0px;
+    width: 984px;
+   border: 1px solid #BEBEC0;
+    font-size: 12px;
+   
+    float: left;
+    text-align: center;
+}
+.ReviewAssessment-Main .divAssessmentDataGridColumn
+{
+    height: 25px;
+    padding: 10px 0px;
+    width: 984px;
+   border: 1px solid #BEBEC0;
+    font-size: 12px;
+    
+    float: left;
+    text-align: center;
+}
+

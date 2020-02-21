@@ -1,0 +1,251 @@
+﻿@using ITS.Infrastructure.Global;
+@using System.Web.Script.Serialization
+@model ITS.Domain.ViewModels.UserDetailViewModel
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+@section ContentHeader{
+    <h1>User Details</h1>
+}
+<div id="breadcrumb">
+    <a href="@Url.Action("Index")" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Users</a><a href="#" class="tip-bottom">Detail</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="icon"><i class="icon-align-justify"></i></span>
+                    <h5>User Details</h5>
+                </div>
+                <div class="widget-content nopadding" id="divDetailUser">
+                    @using (Html.BeginForm(GlobalConst.Actions.UserController.Update, GlobalConst.Controllers.User, FormMethod.Post, new { id = "frmDetailUser", @class = "form-horizontal", data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ UpdateUserDetailFormSuccess(responseText, statusText, xhr, $form); }, beforeSubmit: UpdateUserDetailFormBeforeSubmit }" }))
+                    {
+                        
+                        <div class="control-group">
+                            <label class="control-label">
+                                User Type:</label>
+                            <div class="controls">
+                                <select id="UserTypeID" name="UserTypeID" data-bind="options:UserTypes, optionsText:'UserType',optionsValue:'UserTypeID',value:UserTypeID"
+                                    disabled required>
+                                </select>
+                            </div>
+                        </div>
+                        <!--ko if: UserTypeID() == 2 -->
+                        <div class="control-group">
+                            <label class="control-label">
+                                Referrer Types:</label>
+                            <div class="controls">
+                                <select id="objReferrerTypes" name="ReferrerTypes" data-bind="options:ReferrerTypes, optionsText:'ReferrerType',optionsValue:'ReferrerTypeID',optionsCaption:'Choose..',value:ReferrerTypeID,jqBootstrapValidation: {}
+                                    , event:{ change: function(){ReferrerProjectChange()}}"
+                                    required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Referrer Assignment:</label>
+                            <div class="controls">
+                                <select id="ReferrerID" name="ReferrerID" data-bind="options:Referrers, optionsText:'ReferrerName',optionsValue:'ReferrerID',optionsCaption:'Choose..',value:ReferrerID"
+                                    required>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!--ko if: ReferrerTypeID() == 'Referrer Project Admin' || ReferrerTypeID() == 'Referrer Project User' -->
+                        <div class="control-group">
+                            <label class="control-label">Projects:</label>
+                            <div class="controls">
+                                <select id="ddlReferrerProjects" class="mrg-tl" data-bind="options:ReferrerProjects, optionsText: 'ProjectName', optionsValue: 'ReferrerProjectID', value: userSelectedProject">
+                                </select>
+                                <input type="hidden" id="hdnOldUserProjectSingleValue" name="OldUserProjectSingleValue"/>
+                                <!--ko if: ReferrerTypeID() == 'Referrer Project User' -->
+                                <input type="hidden" id="hdnUserProject" name="ReferrerProjectID" data-bind="value: $root.userSelectedProject" />
+                                <!-- /ko -->
+                                <!--ko if: ReferrerTypeID() == 'Referrer Project Admin' -->
+                                <input id="btnAddProject" type="button" class="btn btn-info" value="Add" data-bind="event:{click: addProjectToList}" />
+
+                                
+                                <!--ko foreach: NewUserProjects -->
+                                    <input type="hidden" name="ReferrerProjectID" data-bind="value: ReferrerProjectID" />
+                                <!-- /ko -->
+                                
+                                <table id="tblUserProject" class="table table-bordered table-striped table-hover sortable tbl-add-Project hide">
+                                    <thead>
+                                        <tr>
+                                            <th width="90%">Project Name</th>
+                                            <th width="10%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!--ko foreach: UserProjects -->
+                                        <tr>
+                                            <td><span data-bind="text: ProjectName"></span>
+                                            </td>
+                                            <td style="text-align: center">
+                                                <input id="btnRemoveProject" type="button" class="btn btn-danger" value="Remove" data-bind="event : {click: $root.removeProjectFromList}" />
+                                            </td>
+                                        </tr>
+                                        <!-- /ko -->
+                                    </tbody>
+                                </table>
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        
+                        <div class="control-group">
+                            <label class="control-label">
+                                Location Assignment:</label>
+                            <div class="controls">
+                                <select id="ReferrerLocationID" name="ReferrerLocationID" data-bind="options:ReferrerLocations,optionsText:'Name',optionsValue:'ReferrerLocationID',value:ReferrerLocationID"
+                                    required>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        <!--ko if: UserTypeID() == 3 -->
+                        <div class="control-group">
+                            <label class="control-label">
+                                Supplier Types:</label>
+                            <div class="controls">
+                                <select id="objSupplierTypes" name="SupplierTypes" data-bind="options:SupplierTypes, optionsText:'SupplierType',optionsValue:'SupplierTypeID',optionsCaption:'Choose..',value:SupplierTypeID,jqBootstrapValidation: {}"
+                                    required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Supplier Assignment:</label>
+                            <div class="controls">
+                                <select id="SupplierID" name="SupplierID" data-bind="options:Suppliers, optionsText:'SupplierName',optionsValue:'SupplierID',value:SupplierID"
+                                    required>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        
+                        <div class="control-group">
+                            <label class="control-label">
+                                User Login</label>
+                            <div class="controls">
+                                <input type="text" name="UserName" placeholder="User Name" data-bind="value:UserName,jqBootstrapValidation: {}"
+                                    required readonly />
+                            </div>
+                        </div>@*
+                        
+                        <div class="control-group">
+                            <label class="control-label">
+                                Password</label>
+                            <div class="controls">
+                                <input type="password" name="Password" id="Password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{9,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 9 or more characters"
+                                     data-bind="event : {change: PasswordValueChanged },value:Password,jqBootstrapValidation:{}"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Confirm Password</label>
+                            <div class="controls">
+                                <input type="password" name="ConfirmPassword" id="ConfirmPassword" placeholder="Confirm Password"
+                                    data-bind="jqBootstrapValidation:{}" data-validation-match-match="Password" required />
+                            </div>
+                        </div>
+                        
+                        
+                        *@<div class="control-group">
+                            <label class="control-label">
+                                First Name</label>
+                            <div class="controls">
+                                <input type="text" name="FirstName" placeholder="First Namer" data-bind="value:FirstName"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Last Name</label>
+                            <div class="controls">
+                                <input type="text" name="LastName" placeholder="Last Name" data-bind="value:LastName"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Email</label>
+                            <div class="controls">
+                                <input type="text" name="Email" data-validation-regex-regex='^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$'
+                                    data-validation-regex-message="Not a valid email address" name="Email" placeholder="email@email.com"
+                                    data-bind="value:Email,jqBootstrapValidation: { }" required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Telephone</label>
+                            <div class="controls">
+                                <input type="text" name="Telephone" placeholder="Telephone" class="phoneMaskformat" data-bind="value:Telephone,jqBootstrapValidation: {}"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Fax</label>
+                            <div class="controls">
+                                <input type="text" name="Fax" placeholder="Fax"  class="phoneMaskformat" data-bind="value:Fax ,jqBootstrapValidation: {}" />
+                            </div>
+                        </div>
+                        
+                         <div class="control-group">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                                <button id="btnReset" type="button" data-bind="click:$root.SentMail" class="btn btn-primary">Reset Password</button></div>
+                        </div>
+                       
+                        <div class="control-group">
+                            
+                            <div class="controls">
+                                <input type="checkbox" id="IsLocked" data-bind="checked: IsLocked" name="IsLocked" value="true" />Locked
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <div class="column-groups-button">
+                                <button id="btnSave" type="submit" class="btn btn-primary btn-block" data-loading-text="Saving...">
+                                    Update</button>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <input type="hidden" data-bind="value:UserID" id="uid" name="UserID" />
+                        <input type="hidden" name="UserTypeID" data-bind="value:UserTypeID" />
+                        <input type="hidden" name="IsPasswordDirty" data-bind="value:$root.IsPasswordDirty().toString()" />
+                      
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2012 - 2013 &copy; ITS Portal v1.0
+        </div>
+    </div>
+</div>
+@section AdditionalScripts{
+    <script src="../../Scripts/knockout/viewmodel/views/user/DetailViewModel.js" type="text/javascript"></script>
+
+    <link href="../../Content/bootstrap/alertify/alertify.default.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap/alertify/alertify.core.css" rel="stylesheet" />
+    <script src="../../Scripts/alertify/alertify.min.js"></script>
+    <script type="text/javascript">
+       
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var userDetailViewModel = new UserDetailViewModel();
+  
+        userDetailViewModel.Init(model);
+        ko.applyBindings(userDetailViewModel, $("#divDetailUser").get(0));
+        function UpdateUserDetailFormSuccess(responseText, statusText, xhr, $form) {
+            userDetailViewModel.UpdateDetailSuccess(responseText);
+        }
+    </script>
+}

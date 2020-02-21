@@ -1,0 +1,186 @@
+#its-supplier {
+	font-family:Arial;	
+	width:100%;
+}
+
+#its-supplier-form {
+	font-family:Arial;	
+	width:100%;
+}
+
+strong {
+	font-weight:bold;
+}
+
+p {
+	line-height:1.5em;
+}
+
+.its-supplier-form-wrapper {
+	width:984px;
+	margin:0px auto;
+}
+
+
+.its-header-links {
+	float:right;
+}
+
+.its-header-links ul {
+	width:100%;
+	padding:15px 0 0 0;
+}
+
+.its-header-links li {
+	display:inline;
+	margin-right:10px;
+	font-size:11px;
+	color:#6d93a6;
+}
+
+.its-header-links li a, .its-header-links li a:hover {
+	font-family:Arial;
+	font-size:11px;
+	color:#6d93a6;
+	text-decoration:none;
+}
+
+#referrer-grid {
+	margin:20px 0 0 0;
+}
+
+.clear {
+	clear:both;
+}
+
+#its-container {
+	width:100%;
+	margin:0px auto;
+}
+
+.its-wrapper {
+	width:960px;
+	margin:0px auto;
+}
+
+.its-header { 
+	width:100%;
+	margin:0;
+}
+
+.its-header .col-1 {
+	width:50%;
+	float:left;
+	padding:20px 0 0 0;
+}
+
+.its-header .col-2 {
+	width:50%;
+	float:left;
+	padding:4px 0 0 0;
+}
+
+.its-header .col-2 .its-innovate {
+	float:right;
+	background:url('../images/ITS-Innovate.png');
+	width: 336px;
+	height:	64px;
+}
+
+.its-sub-header {
+	text-align:center;
+	padding:30px 0 21px 0;
+	width:100%;
+	font-size:14px;
+	color:#555555;
+}
+
+.its-sub-header .its-pwelcome {
+	font-size:30px;
+	color:#555555;
+}
+
+.its-sub-header p {
+	line-height:2.0em;
+}
+
+.table-grids-headers {
+	background:#4d9a00;
+	border:1px dotted #659a01;
+	text-align:center;
+	padding:10px;
+	color:#fff;
+	border-radius:4px;
+}
+
+.print-heading {
+	padding-top:25px;
+}
+
+.print-heading p {
+	font-weight:bold;
+	font-size:18px;
+	color:#333;
+}
+
+.print-spacer {
+	margin:25px 0;
+	color:#444;
+	font-weight:bold;
+}
+
+table {
+	border:1px solid #333;
+	margin-bottom:55px;
+}
+
+td {
+	border:1px solid #333;
+	padding:25px 5px;
+	font-weight:bold;
+	color:#444;
+}
+
+td:first-child {
+	width:40%;
+}
+
+.affected-area {
+	border:1px solid #333;
+	margin-bottom:55px;
+}
+
+.affected-area td {
+	width:14%;
+	color:#444;
+}
+.affected-area td:last-child {
+	width:30%;
+	color:#444;
+}
+.checkbox-area {
+	border:0;
+	margin-bottom:55px;
+	margin-top:20px;
+	width:40%;
+}
+
+.checkbox-area td:first-child {
+	width:80%;
+	border:0;
+}
+
+.checkbox-lifestyle {
+	margin:0;
+	padding:0;
+	height:20px;
+}
+
+.checkbox-lifestyle td {
+	margin:0;
+	padding:5px;
+}
+
+.detail-print td:first-child {
+	width:60%;
+}

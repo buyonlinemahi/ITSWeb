@@ -1,0 +1,74 @@
+﻿@*  
+Latest Version: 1.6
+   
+  Author          : Manjit Singh  
+  Date            : 09-Nov-2012  
+  Version         : 1.0  
+  Description     : design for delegated authorization tab   
+    
+  Author          : Harpreet Singh  
+  Date            : 09-Nov-2012  
+  Version         : 1.1  
+  Description     : Remove the common javascript/css   
+      
+  Modified by     : Vishal  
+  Date            : 10-Dec-2012  
+  Version         : 1.3  
+  Description     : Change button Logic and Name
+  Description     : Change Logic of visibility of text box
+  
+  Modified by     : Pardeep 
+  Version         : 1.4
+  Description     : Changes done to make textbox enable/disable on the click of Ammend button
+  Date            : 12-Dec-2012
+
+  Modified by     : Vishal 
+  Version         : 1.5
+  Description     : remove unused button and make single button
+  Date            : 12-Dec-2012
+
+  Modified by     : Vishal 
+  Version         : 1.6
+  Description     : Changes done to make Validation and Remove Unused Code
+  Date            : 14-Dec-2012
+    
+  *@
+
+<link href="@Url.Content("~/Content/DelegatedAuthorization.css")" rel="stylesheet" type="text/css" />
+<div class="outer-delegate-container" id="delegateDiv">
+    <label id="lblMessage1">
+    </label>
+    </br>
+    <div data-bind="foreach: Delegates">
+        <div data-bind="visible: IsDivVisible">
+            <div class="header">
+                <span data-bind="text: DeletegatedAuthorisationName"></span>
+            </div>
+            <br />
+            <div  class="LoopDelegate">
+             <p data-bind="validationMessage:Amount" style="padding:5px;color:red;"> </p>  
+            <div data-bind="foreach:DelegatedAuthorisationTypes" class="innerLoopDelegate">
+                <div class="item-delegate-container" data-bind="visible: !(($parent.DeletegatedAuthorisationName() == 'Diagnostic Services' || $parent.DeletegatedAuthorisationName() == 'Specialist Services')  && DelegatedAuthorisationTypeName =='Sessions' )">
+                    @*<div style="float: left;">
+                        <input type="radio" data-bind="attr:{value: TypeID, name: $parent.DeletegatedAuthorisationName},checked:$parent.DelegatedAuthorisationTypeID, visible:!(($parent.DeletegatedAuthorisationName() == 'Diagnostic Services' || $parent.DeletegatedAuthorisationName() == 'Specialist Services')  && DelegatedAuthorisationTypeName =='Sessions')" />
+                    </div>*@
+                    <div class="input-dynamic-text input-dynamic-text-padding-top">
+                        <span data-bind="text: DelegatedAuthorisationTypeName, visible: !(($parent.DeletegatedAuthorisationName() == 'Diagnostic Services' || $parent.DeletegatedAuthorisationName() == 'Specialist Services')  && DelegatedAuthorisationTypeName =='Sessions')">
+                        </span>
+                    </div>
+                    <div class="input-dynamic-text-padding-top"> 
+                     <span data-bind="validationOptions: { insertMessages: false}">
+                        <input type="text"  onkeypress="return isNumberKey(event)"    data-bind="value:$parent.DelegatedAuthorisationTypeID() == TypeID? $parent.Amount:null, visible: !(($parent.DeletegatedAuthorisationName() == 'Diagnostic Services' || $parent.DeletegatedAuthorisationName() == 'Specialist Services')  && DelegatedAuthorisationTypeName =='Sessions' ),enable: ($parent.DelegatedAuthorisationTypeID() == TypeID)"
+                            validate="required:true" required /></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="inputs" style="padding-top: 20px">
+        @* <input type="submit" value="Amend" id="btnammentproject" data-bind="visible:IsAmmendVisible,click:ammendClick" />*@
+        <input type="submit" value="Save"  data-bind="enable:ViewEnabled,click:UpdateReferrerProjectTreatmentAuthorisationClick" id="btnDelegateAuth" />
+        @* <input type="submit" value="Cancel" data-bind="visible:IsCancelVisible,click:cancelAmmend" />*@
+    </div>
+</div>

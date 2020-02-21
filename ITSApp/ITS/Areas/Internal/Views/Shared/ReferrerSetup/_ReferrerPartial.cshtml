@@ -1,0 +1,297 @@
+﻿@*  
+  
+  View Name       : Index
+  Latest Version  : 1.2
+  
+
+  Author          : Harpreet Singh
+  Date            : 30-Oct-2012
+  Version         : 1.0
+  Purpose         : Created Referrer Partial View. Set of User control Screen of referrer
+
+  Revision History
+  By              : Harpreet Singh
+  Date            : 31-Oct-2012
+  Version         : 1.1
+  Purpose         : Set of User control Screen of referrer and implemented AutoComplete
+
+   Modified By   : Pardeep Kumar
+   Date          : 03-Nov-2012
+   Purpose       : Implemented model for AutoComplete (AutoComplete)
+   Version       : 1.2
+
+
+
+*@ @*<link href="@Url.Content("~/Content/ReferrerCss.css")" rel="stylesheet" type="text/css" />*@
+<link href="@Url.Content("~/Content/ReferrerCss.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Jquery-ui.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/Jquery-1.8.2.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.ui.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/jquery.ui.core.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/jquery.ui.widget.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/jquery.ui.position.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/jquery.ui.menu.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ui/jquery.ui.autocomplete.js")" type="text/javascript"></script>
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<style type="text/css">
+    .ui-autocomplete-loading
+    {
+        background: white url('/Content/Images/lodder.gif') right center no-repeat;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var value;
+        $('input').blur(function () {
+
+            if ($(this).val() == "") {
+
+                $(this).val(value);
+            }
+        });
+
+        $('input').focus(function () {
+            value = $(this).val();
+            $(this).val("");
+
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#tabs").tabs();
+    });
+</script>
+<style type="text/css">
+    .myclass
+    {
+        width: 220px;
+    }
+</style>
+<div>
+    <div id="search-Cantainer">
+        <div id="Search">
+            <div id="seacrh-lable">
+                Referrer Search (By Name):
+            </div>
+            <div id="search-text">
+                @Html.TextBox("txtSerchReferrerByname")
+            </div>
+        </div>
+        <div id="add-edit">
+            <input type="submit" value="Add" />
+            <input type="submit" value="Edit" />
+        </div>
+        <div id="save-settings">
+            <input type="submit" value="Save Settings" width="150px" />
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <div id="referrer-info">
+        <div id="referrer-left-cantainer">
+            <div class="ref-lable">
+                @Html.Label("Referrer Name:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefName", "##ReferrerName##")
+            </div>
+            <div class="ref-lable">
+                @Html.Label("Head Office Address:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefAddress", "##ReferrerLocationAddress##")
+            </div>
+            <div class="ref-lable">
+                @Html.Label("Main Contact First Name:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefFName", "##ReferrerContactFirstName##")
+            </div>
+            <div class="ref-lable">
+                @Html.Label("Main Contact Surname:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefSName", "##ReferrerContactSurname##")
+            </div>
+            <div class="ref-lable">
+                @Html.Label("Main Contact Telephone:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefTelPhone", "##ReferrerContactPhone##")
+            </div>
+            <div class="ref-lable">
+                @Html.Label("Central Email:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefEmail", "##ReferrerCentralEmail##")
+            </div>
+        </div>
+        <div id="referrer-middle-cantainer">
+            <div class="ref-lable">
+                @Html.Label("Head Office Location:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefLocation", "##ReferrerLocationName##")
+            </div>
+            <div class="ref-lable">
+                @Html.Label("Head Office Postal Code:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefCode", "##ReferrerLocationPostCode##")</div>
+            <div class="ref-lable">
+                @Html.Label("Main Contact Email Address:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefContactEmail", "##ReferrerContactEmail##")</div>
+            <div class="ref-lable">
+                @Html.Label("Main Contact Fax:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtreffax", "##ReferrerFax##")</div>
+            <div id="chk-box">
+                <div id="chk-send-all">
+                    @Html.RadioButton("Send All", true)Send All
+                </div>
+                <div id="chk-cc-all">
+                    @Html.RadioButton("CC All", true)CC All</div>
+                <div id="chk-none">
+                    @Html.RadioButton("None", false)None</div>
+            </div>
+        </div>
+        <div id="referrer-right-cantainer">
+            <div class="ref-lable" style="width: 268px">
+                @Html.Label("Current Selected Office Location:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefCOfficeLoc", "##ReferrerLocationName##")</div>
+            <div class="ref-lable" style="width: 268px">
+                @Html.Label("Current Selected Office Address:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefCOfficeLoc", "##ReferrerLocationAddress##")</div>
+            <div class="ref-lable" style="width: 268px">
+                @Html.Label("Current Selected Office Location:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefCOfficeLoc", "##ReferrerLocationPostCode##")</div>
+            <div class="ref-lable" style="width: 268px">
+                @Html.Label("Current Selected Office Main Telephone:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefMainTelephone", "##ReferrerLocationPhone##")</div>
+            <div class="ref-lable" style="width: 268px">
+                @Html.Label("Current Selected Office Main Fax:")
+            </div>
+            <div class="ref-text">
+                @Html.TextBox("txtrefCOfficeLoc", "##ReferrerLocationFax##")</div>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <div id="tabs" style="float: left; padding-left: 20px;">
+        <ul>
+            <li><a href="#tabs-1">User Control</a></li>
+            <li><a href="#tabs-2">Group Control</a></li>
+            <li><a href="#tabs-3">Management Reports</a></li>
+            <li><a href="#tabs-4">Email Control</a></li>
+        </ul>
+        <div id="tabs-1">
+            <div id="search-tabs">
+                <div id="Search">
+                    <div id="seacrh-lable">
+                        Referrer Search (By Name):
+                    </div>
+                    <div id="search-text">
+                        @Html.TextBox("txtSerchReferrerByname")
+                    </div>
+                </div>
+                <div id="add-edit">
+                    <input type="submit" value="Add" />
+                    <input type="submit" value="Edit" />
+                </div>
+                <div id="save-settings">
+                    <input type="submit" value="Save Settings" width="150px" style="float: right;" />
+                </div>
+                <div class="clear">
+                </div>
+                <div id="referrer-tabs">
+                    <div id="referrer-tabs-cantainer">
+                        <div class="ref-lable">
+                            @Html.Label("User Login:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefName")
+                        </div>
+                        <div class="ref-lable">
+                            @Html.Label("User Password:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefAddress")
+                        </div>
+                        <div class="ref-lable">
+                            @Html.Label("User First Name:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefFName")
+                        </div>
+                        <div class="ref-lable">
+                            @Html.Label("User Surname:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefSName")
+                        </div>
+                        <div class="ref-lable">
+                            @Html.Label("User Email Address:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefTelPhone")
+                        </div>
+                        <div class="ref-lable">
+                            @Html.Label("User Telephone:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefEmail")
+                        </div>
+                        <div class="ref-lable">
+                            @Html.Label("User Telephone:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefEmail")
+                        </div>
+                        <div class="ref-lable">
+                            @Html.Label("User Fax:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefEmail")
+                        </div>
+                        <div class="ref-lable">
+                            @Html.Label("User Group:")
+                        </div>
+                        <div class="ref-text">
+                            @Html.TextBox("txtrefEmail")
+                        </div>
+                    </div>
+                </div>
+                <div id="security">
+                    <span>Security</span><div id="main-screen">
+                        Main Screen</div>
+                    @Html.CheckBox("Add Referral")Add Referral<br />
+                    @Html.CheckBox("Add Referral")View Report<br />
+                    @Html.CheckBox("Add Referral")Approve Recommendation<br />
+                    @Html.CheckBox("Add Referral")Modify Recommendation<br />
+                    @Html.CheckBox("Add Referral")Close Casel<br />
+                </div>
+            </div>
+        </div>
+        <div id="tabs-2">
+        </div>
+        <div id="tabs-3">
+        </div>
+        <div id="tabs-4">
+        </div>
+    </div>
+</div>

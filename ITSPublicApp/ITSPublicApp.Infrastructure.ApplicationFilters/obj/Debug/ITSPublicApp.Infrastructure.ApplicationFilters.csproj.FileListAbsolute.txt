@@ -1,0 +1,9 @@
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\bin\Debug\ITSPublicApp.Infrastructure.ApplicationFilters.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\bin\Debug\ITSPublicApp.Infrastructure.ApplicationFilters.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\bin\Debug\ITSPublicApp.Domain.Models.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\bin\Debug\ITSPublicApp.Infrastructure.Global.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\bin\Debug\ITSPublicApp.Domain.Models.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\bin\Debug\ITSPublicApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\obj\Debug\ITSPublicApp.Infrastructure.ApplicationFilters.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\obj\Debug\ITSPublicApp.Infrastructure.ApplicationFilters.dll
+D:\Mahi_TFS\ITS\Web\ITSPublicApp\ITSPublicApp.Infrastructure.ApplicationFilters\obj\Debug\ITSPublicApp.Infrastructure.ApplicationFilters.pdb
